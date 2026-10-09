@@ -7,7 +7,7 @@
 | PromptKD | https://github.com/zhengli97/PromptKD | [Apache-2.0](licenses/PromptKD-Apache-2.0.txt) |
 | Dassl.pytorch | https://github.com/KaiyangZhou/Dassl.pytorch | [MIT](licenses/Dassl-MIT.txt) |
 | OpenAI CLIP | https://github.com/openai/CLIP | [MIT](licenses/OpenAI-CLIP-MIT.txt) |
-| MMA的适配/梯度缩放设计参考 | 本地MMA参考仓库及HARP源码注释 | [MIT原文](licenses/MMA-MIT.txt) |
+| MMA的适配/梯度缩放设计参考 | [作者项目 VLM-MMA](https://github.com/ZjjConan/VLM-MMA)、本地MMA参考快照及HARP源码注释 | [MIT原文](licenses/MMA-MIT.txt) |
 
 OpenAI CLIP许可文本于2026-10-08从其[官方LICENSE](https://github.com/openai/CLIP/blob/main/LICENSE)核对补入；不因此声称本项目CLIP源码等于当日上游main。各实际版本由来源清单定位。
 
@@ -18,3 +18,5 @@ OpenAI CLIP许可文本于2026-10-08从其[官方LICENSE](https://github.com/ope
 HARP的缩放函数标注MMA设计关联，随附本地MMA的完整许可，不将短函数改名视为消除原归属。数据、预训练权重和第三方Python包的条款分别适用；未纳入包的资产不受本仓库自有说明替代。
 
 自有新增部分尚未指定开放许可，见[LICENSE.md](LICENSE.md)。Git托管不构成对自有部分的新开放许可，也不替代第三方条款。
+
+三篇主要论文的作者、正式题名、会议页码、论文/代码地址、实际采用范围与中英文致谢见[参考论文与致谢](docs/REFERENCES_AND_ACKNOWLEDGEMENTS.md)；可用 BibTeX 见[references.bib](references.bib)。感谢各作者公开研究成果；引用和致谢不取代原许可声明。

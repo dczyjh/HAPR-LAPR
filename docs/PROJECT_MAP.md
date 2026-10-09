@@ -61,6 +61,7 @@ R1是**角色**，并没有第三个独立`routes/r1`工程；它分别存在于
 | `tools/check_assets.py` | 只读核12份权重及13份固定元数据的大小/SHA | 不核全部图片字节，不执行模型 |
 | `tools/verify_release.py` | 核本发布文件SHA、语法、清单与敏感信息模式 | 不验收GPU或论文准确率 |
 | `tools/summarize_run.py` | 汇总新运行passed正式成绩、三seed均值/样本SD及R1/R0配对增幅 | 不重评模型、不补缺seed、不择优、不重复计数 |
+| `tools/build_findings.py` | 由随包历史结果重算三seed主比较/结构统计与真实差值图，保留来源SHA和原/选用口径 | 不产生新训练成绩、不改原JSON、不用历史表冒充新运行 |
 | `tests/`及各route的`tests/` | 配置/科学函数/工具及小型CPU执行链测试 | 合成测试不是论文数据，不能当完整FP16 CLIP精度验收 |
 | `results/harp/`、`results/larp/` | 已完成实验的轻量成绩、轨迹和来源副本，便于查询及写作对照 | 不是新训练输出，不含全量检查点，不覆盖原始记录 |
 | `metadata/external_assets.json` | 精确外部权重/固定划分身份约束 | 不包含资产本身，不允许改SHA放行不同文件 |

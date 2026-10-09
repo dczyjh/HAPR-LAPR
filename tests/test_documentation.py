@@ -13,10 +13,26 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = [ROOT / "README.md", *sorted((ROOT / "docs").glob("*.md")),
-        *sorted((ROOT / "routes").glob("*/README.md"))]
+        *sorted((ROOT / "routes").glob("*/README.md")),
+        *sorted((ROOT / "results").rglob("*.md"))]
 
 
 class DocumentationTests(unittest.TestCase):
+    def test_three_primary_bibliographic_records(self):
+        text = (ROOT / "references.bib").read_text()
+        entries = dict(re.findall(r"@inproceedings\{(\w+),(.*?)(?=\n@|\Z)", text, re.S))
+        expected = {
+            "li2024promptkd": ("Li, Zheng and Li, Xiang", "26617--26626", "{PromptKD}"),
+            "yang2024mma": ("Yang, Lingxiao and Zhang, Ru-Yuan", "23826--23837", "{MMA}"),
+            "zanella2024cliplora": ("Zanella, Maxime and Ben Ayed, Ismail", "1593--1603", "Low-Rank Few-Shot"),
+        }
+        self.assertEqual(set(entries), set(expected))
+        self.assertEqual(text.count("{"), text.count("}"))
+        for key, values in expected.items():
+            for value in (*values, "year = {2024}", "https://openaccess.thecvf.com/"):
+                self.assertIn(value, entries[key])
+        self.assertIn("Recognition Workshops", entries["zanella2024cliplora"])
+
     def test_local_links_and_source_line_anchors_exist(self):
         for document in DOCS:
             text = document.read_text()

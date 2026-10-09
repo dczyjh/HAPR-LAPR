@@ -68,6 +68,7 @@
     "workspace://": "original local evidence workspace (not bundled)",
     "server-workspace://": "original per-node experiment storage (not bundled)"
   },
+  "scope": "Source-to-release copying receipt for the listed original files. results_recomputed=false describes those copies; the separate results/findings/ summary recomputes derived statistics and records its own source hashes without changing these files.",
   "gpu_work_performed": false,
   "results_recomputed": false
 }

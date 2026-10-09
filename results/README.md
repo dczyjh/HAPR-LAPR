@@ -1,5 +1,7 @@
 # 已有实验结果查询
 
+想先了解“提升了什么、哪些任务退化、为什么做结构消融”，请读[实验发现与结论](../docs/RESULTS_AND_LIMITATIONS.md)；精确全十集表、差值图和可重算摘要见[主实验汇总表](findings/main_comparison.md)、[差值图](findings/main_hm_deltas.svg)、[summary.json](findings/summary.json)。这些是下列原JSON的派生视图，不是新增训练结果。
+
 这里是既有完成记录的轻量副本，不是本次整理重新训练产生的分数。数值、记录条数、原始/选用标记及跨机信息保持不变；仅将原个人电脑目录和服务器工作目录前缀改为 `workspace://` 与 `server-workspace://`。两种前缀是溯源标识，不是可打开的网络地址。
 
 | 路线 | 文件 | 范围 |
