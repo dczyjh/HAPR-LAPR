@@ -1,0 +1,710 @@
+"""True-backend paired runs; numerical deviations retained as diagnostic evidence.
+
+No training implementation is patched. Every worker is a fresh process, and
+the official environment is shared while each framework resolves its own Dassl.
+"""
+import argparse
+import copy
+from datetime import datetime, timezone
+import fcntl
+import hashlib
+import importlib.util
+import json
+import math
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import time
+import traceback
+
+RUN = Path(__file__).resolve().parent
+SETTINGS_PATH = RUN/'node_settings.json'
+SETTINGS = json.loads(SETTINGS_PATH.read_text()) if SETTINGS_PATH.exists() else {
+    'route':'harp','port':18645,'reference_dir':'/root/autodl-tmp/official_seed2_20260928',
+    'predecessor_seed':2,'predecessors':['/root/autodl-tmp/official_seed2_20260928/status.json']}
+ROUTE = SETTINGS['route']
+assert ROUTE in ('harp','larp')
+PROBE_SOURCE = Path('/root/autodl-tmp')/(ROUTE+'_research_20260928')
+IMPLEMENTATION = 'research_true_scaledlinear_reload_evidence_20260928'
+EXPECTED_BACKEND = dict(benchmark=True, deterministic=False,
+    deterministic_algorithms=False, flash=True, efficient=True, math=True)
+PREVIOUS = Path(SETTINGS['reference_dir'])
+OFFICIAL = Path('/root/autodl-tmp/projects/PromptKD-official-ec244f7')
+PROJECT = Path('/root/autodl-tmp/projects/PromptKD-HARP-LARP-research-20260928')
+if ROUTE=='harp':
+    PROJECT=PROJECT.with_name(PROJECT.name+'-fix1')
+DATA = Path('/root/autodl-tmp/datasets_v3')
+WEIGHTS = Path('/root/autodl-tmp/pretrained/clip')
+TEACHERS = Path('/root/autodl-tmp/pretrained/teacher_model')
+PYTHON = '/root/autodl-tmp/envs/promptkd_official_4090/bin/python'
+SPECS = {'caltech101': (4128,1549,916,1000.),
+         'stanford_cars': (6509,4002,4039,1000.),
+         'sun397': (15880,9950,9900,1000.),
+         'oxford_pets': (2944,1881,1788,1000.),
+         'eurosat': (13500,4200,3900,1000.),
+         'ucf101': (7639,1934,1849,1000.),
+         'food101': (50500,15300,15000,1000.),
+         'fgvc_aircraft': (3334,1666,1667,200.),
+         'oxford_flowers': (4093,1053,1410,200.),
+         'dtd': (2820,864,828,200.)}
+METHODS = ('r1', ROUTE)
+SEEDS = (1,2,3)
+PROBES = ('r0a','r0b','r1',ROUTE)
+SMOKES = ('r0a','r1',ROUTE)
+# Engineering limits fixed before any new GPU probe, not paper accuracy limits.
+TOLERANCES = {'forward': {'atol': .002, 'rtol': .002},
+              'gradient': {'atol': .0001, 'rtol': .01},
+              'update': {'atol': .00001, 'rtol': .001}}
+EXTRA_KEYS = {'WEIGHTS_ROOT','TEACHER_ROOT','REPRODUCIBLE','ADAPTATION',
+              'DIAGNOSTICS','DEVELOPMENT'}
+
+def now():
+    return datetime.now(timezone.utc).isoformat()
+
+def read(path):
+    return json.loads(Path(path).read_text())
+
+def dump(path, obj):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_suffix(path.suffix + '.tmp')
+    temp.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n')
+    temp.replace(path)
+
+def sha(path):
+    h = hashlib.sha256()
+    with Path(path).open('rb') as f:
+        for b in iter(lambda: f.read(8*1024*1024), b''):
+            h.update(b)
+    return h.hexdigest()
+
+def digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True).encode()).hexdigest()
+
+def plan():
+    return {'experiment_id': RUN.name, 'methods': list(METHODS), 'seeds': list(SEEDS),
+            'datasets': list(SPECS), 'kd': {k:v[3] for k,v in SPECS.items()},
+            'formal_runs': 60, 'formal_epochs_each': 20,
+            'probe_runs': 30 if ROUTE=='harp' else 0,
+            'reused_true_probes': 90 if ROUTE=='harp' else 120, 'probe_batches_each': 2,
+            'probe_source':str(PROBE_SOURCE),
+            'smokes': list(SMOKES), 'smoke_epochs_each': 1,
+            'tolerances': TOLERANCES, 'selection': 'best_val',
+            'rep_weight': 0., 'lr_multiplier': 1., 'parameter_searches': 0,
+            'precision': 'fp16', 'batch': 8, 'test_batch': 100, 'workers': 8,
+            'queue_order': 'seed -> dataset insertion order -> r1/'+ROUTE,
+            'automatic_retry': False, 'node':SETTINGS,
+            'baseline_identity':'R1@'+str(SETTINGS['port']),
+            'implementation':IMPLEMENTATION,'protocol_version':'1.17',
+            'reused_completed':6 if ROUTE=='larp' else 0,
+            'new_formal_runs':54 if ROUTE=='larp' else 60,
+            'canonical_evaluation':'first_independent_reload_no_selection',
+            'evaluation_comparison':'input/text identity and symmetric row-scaled .002+.002*max_abs bound; original elementwise metric diagnostic',
+            'backend_policy':EXPECTED_BACKEND,
+            'numerical_policy':'diagnostic_only_user_authorized',
+            'hard_checks':'metadata, finite tensors, assets, configs, updates, reload, evaluation'}
+
+def old_queue():
+    path = PREVIOUS / 'seed2_official_queue.py'
+    assert sha(path) == '7ab565a05a4a159fa073ce4571c01dd8ffc407cc912359a5876dcba602c148a2'
+    spec = importlib.util.spec_from_file_location('frozen_official_helpers', path)
+    q = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(q)
+    q.RUN = PREVIOUS
+    q.SETUP = PREVIOUS
+    return q
+
+def guard():
+    assert SETTINGS_PATH.is_file(), 'Explicit node settings required'
+    manifest = read(RUN/'frozen_files.json')
+    bad = [p for p,h in manifest.items() if not Path(p).is_file() or sha(p) != h]
+    assert not bad, ('Frozen file modified', bad[:10])
+    assert read(RUN/'plan.json') == plan(), 'Plan mismatch'
+    q = old_queue()
+    q.source_guard()
+    q.split_guard()
+    return sha(RUN/'frozen_files.json')
+
+def framework(method):
+    root = OFFICIAL if method.startswith('r0') else PROJECT
+    os.chdir(root)
+    sys.path[:0] = [str(root/'Dassl.pytorch'), str(root)]
+    import torch
+    import torchvision
+    import dassl
+    import train
+    assert Path(train.__file__).resolve() == root/'train.py'
+    assert Path(dassl.__file__).resolve() == root/'Dassl.pytorch/dassl/__init__.py'
+    assert torch.__version__ == '2.0.1+cu118'
+    assert torchvision.__version__ == '0.15.2+cu118'
+    torch.set_num_threads(4)
+    return torch, train, root
+
+def config(train, root, method, dataset, seed, epochs, out):
+    assert dataset in SPECS and seed in SEEDS and epochs in (1,20)
+    opts = ['DATASET.NUM_SHOTS','0','TRAINER.MODAL','base2novel',
+            'TRAINER.PROMPTKD.TEMPERATURE','1.0',
+            'TRAINER.PROMPTKD.KD_WEIGHT',str(SPECS[dataset][3]),
+            'OPTIM.MAX_EPOCH',str(epochs)]
+    suffix = '' if method in ('r0a','r0b','r1') else '_'+method
+    if not method.startswith('r0'):
+        opts += ['TRAINER.PROMPTKD.WEIGHTS_ROOT',str(WEIGHTS),
+                 'TRAINER.PROMPTKD.TEACHER_ROOT',str(TEACHERS),
+                 'TRAINER.PROMPTKD.REPRODUCIBLE','False',
+                 'TRAINER.PROMPTKD.DEVELOPMENT','False',
+                 'TRAINER.PROMPTKD.DIAGNOSTICS.INTERVAL','0',
+                 'TRAINER.PROMPTKD.ADAPTATION.REP_WEIGHT','0.0',
+                 'TRAINER.PROMPTKD.ADAPTATION.LR_MULT','1.0',
+                 'TEST.FINAL_MODEL','best_val','TRAINER.PROMPTKD.PREC','fp16',
+                 'DATALOADER.TEST.BATCH_SIZE','100','DATALOADER.NUM_WORKERS','8']
+    args = argparse.Namespace(root=str(DATA), output_dir=str(out), resume='', seed=seed,
+        source_domains=None,target_domains=None,transforms=None,trainer='PromptKD',
+        backbone='',head='',dataset_config_file=str(root/'configs/datasets'/f'{dataset}.yaml'),
+        config_file=str(root/'configs/trainers/PromptKD'/
+                        f'vit_b16_c2_ep20_batch8_4+4ctx{suffix}.yaml'),opts=opts)
+    cfg = train.setup_cfg(args)
+    import yaml
+    actual = yaml.safe_load(cfg.dump())
+    common = copy.deepcopy(actual)
+    if not method.startswith('r0'):
+        p = common['TRAINER']['PROMPTKD']
+        assert not p['REPRODUCIBLE'] and not p['DEVELOPMENT']
+        assert p['DIAGNOSTICS'] == {'INTERVAL':0,'PROBE_SIZE':4}
+        expected_adaptation = dict(TYPE='none' if method=='r1' else method,
+            LAYERS=[8,9,10,11],HARP_DIM=32,HARP_SCALE=.001,LORA_R=2,LORA_ALPHA=1.,
+            LORA_TARGETS=['v'],LORA_DROPOUT=0.,REP_WEIGHT=0.,REP_LAYERS=[8,9,10,11],LR_MULT=1.)
+        assert p['ADAPTATION'] == expected_adaptation, p['ADAPTATION']
+        assert p['WEIGHTS_ROOT'] == str(WEIGHTS) and p['TEACHER_ROOT'] == str(TEACHERS)
+        for k in EXTRA_KEYS:
+            del p[k]
+    refs = read(PREVIOUS/'seed1_live_snapshot.json')['configs']
+    ref = next(yaml.safe_load(v) for k,v in refs.items() if Path(k).name==dataset+'.resolved.yaml')
+    ref.update(SEED=seed,OUTPUT_DIR=str(out))
+    ref['OPTIM']['MAX_EPOCH'] = epochs
+    assert common == ref, ('Common configuration drift', dataset, method)
+    return cfg, args
+
+def data_check(cfg, dataset):
+    from dassl.data.datasets import build_dataset
+    data = build_dataset(cfg)
+    records = [[(str(Path(x.impath).resolve()),int(x.label),x.classname)
+                for x in group] for group in (data.train_x,data.val,data.test)]
+    counts = tuple(map(len,records))
+    assert counts == SPECS[dataset][:3], (dataset,counts)
+    value = hashlib.sha256(json.dumps(records).encode()).hexdigest()
+    assert value == read(PREVIOUS/'seed1_live_snapshot.json')['datasets'][dataset]['reader_records_sha256']
+    assert all(Path(p).is_file() for group in records for p,_,_ in group)
+    return {'counts':counts,'reader_records_sha256':value,'classnames':data.classnames}
+
+def asset_check(cfg, root):
+    manifest = read('/root/autodl-tmp/v3_logs/asset_manifest.json')
+    actual = {}
+    for name,row in manifest['clip'].items():
+        assert sha(row['path']) == row['sha256'] and row['official_hash_match']
+        # Official opens cwd/clip; the new framework opens WEIGHTS_ROOT.
+        loader = root/'clip'/Path(row['path']).name if root==OFFICIAL else WEIGHTS/Path(row['path']).name
+        assert loader.resolve(strict=True) == Path(row['path']).resolve(strict=True)
+        actual[name] = {'path':str(loader),'sha256':row['sha256']}
+    row = manifest['teachers'][cfg.DATASET.NAME]
+    loader = (root/'teacher_model' if root==OFFICIAL else TEACHERS)/cfg.DATASET.NAME/'VLPromptLearner/model-best.pth.tar'
+    assert loader.resolve(strict=True) == Path(row['path']).resolve(strict=True)
+    assert sha(loader) == row['sha256']
+    actual['teacher'] = {'loader':str(loader),'resolved':str(loader.resolve()),'sha256':row['sha256']}
+    return actual
+
+def preflight():
+    frozen = guard()
+    q = old_queue()
+    env = q.environment_guard()
+    decode = q.decode_guard()
+    torch, train, root = framework('r1')
+    assert not torch.cuda.is_available(), 'CPU preflight must use CUDA_VISIBLE_DEVICES=""'
+    configs, datasets, assets = {}, {}, {}
+    for seed in SEEDS:
+        for dataset in SPECS:
+            for method in METHODS:
+                out = RUN/'formal'/f'seed_{seed}'/dataset/method
+                cfg,args = config(train,root,method,dataset,seed,20,out)
+                key = f'{seed}/{dataset}/{method}'
+                file = RUN/'configs'/f'{seed}_{dataset}_{method}.yaml'
+                file.parent.mkdir(parents=True,exist_ok=True)
+                file.write_text(cfg.dump())
+                configs[key] = {'sha256':sha(file),'output':str(out),'argv_config':vars(args)}
+                if seed==1 and method=='r1':
+                    datasets[dataset] = data_check(cfg,dataset)
+                    assets[dataset] = asset_check(cfg,root)
+    assert len(configs)==60
+    dump(RUN/'cpu_preflight.json',dict(status='passed',time=now(),frozen=frozen,
+        environment=env,configs=configs,datasets=datasets,assets=assets,
+        previous_full_decode_evidence=decode,notes='Existing True probes reused with hash checks; numerical differences are not an equivalence pass. Reader/assets rechecked.'))
+
+def tensor_hash(t):
+    x = t.detach().cpu().contiguous()
+    return hashlib.sha256(x.numpy().tobytes()).hexdigest()
+
+def added(name):
+    return any(x in name for x in ('harp_adapter','lora_A_','lora_B_'))
+
+def canonical(name):
+    return name.replace('.parametrizations.in_proj_weight.original','.in_proj_weight')
+
+def common_hashes(model, frozen_only=False):
+    return {canonical(n):tensor_hash(p) for n,p in model.named_parameters()
+            if not added(n) and (not frozen_only or not p.requires_grad)}
+
+def backend(torch):
+    return dict(benchmark=torch.backends.cudnn.benchmark,
+        deterministic=torch.backends.cudnn.deterministic,
+        deterministic_algorithms=torch.are_deterministic_algorithms_enabled(),
+        flash=torch.backends.cuda.flash_sdp_enabled(),
+        efficient=torch.backends.cuda.mem_efficient_sdp_enabled(),
+        math=torch.backends.cuda.math_sdp_enabled())
+
+def check_backend(actual):
+    assert actual == EXPECTED_BACKEND, ('Backend drift',actual)
+
+def build(method,dataset,seed,epochs,out):
+    guard()
+    torch, train, root = framework(method)
+    assert torch.cuda.is_available() and torch.cuda.device_count()==1
+    assert torch.cuda.get_device_name(0)=='NVIDIA GeForce RTX 4090'
+    cfg,args = config(train,root,method,dataset,seed,epochs,out)
+    asset_check(cfg,root)
+    data_check(cfg,dataset)
+    from dassl.utils import set_random_seed, setup_logger
+    from dassl.engine import build_trainer
+    setup_logger(str(out))
+    set_random_seed(seed)
+    if method.startswith('r0'):
+        torch.backends.cudnn.benchmark = True
+    else:
+        train.configure_cuda_reproducibility(False)
+    trainer = build_trainer(cfg)
+    check_backend(backend(torch))
+    (out/'resolved.yaml').write_text(cfg.dump())
+    dump(out/('evaluation_launch.json' if sys.argv[1]=='evaluate' else 'launch.json'),dict(time=now(),argv=sys.argv,cfg_args=vars(args),
+        frozen=sha(RUN/'frozen_files.json'),env={k:os.environ.get(k) for k in
+        ('CUDA_VISIBLE_DEVICES','OMP_NUM_THREADS','CUBLAS_WORKSPACE_CONFIG')},backend=backend(torch)))
+    return torch,trainer
+
+def probe(method,dataset,seed,out):
+    torch,tr = build(method,dataset,seed,20,out)
+    tr.set_model_mode('train')
+    initial = common_hashes(tr.model)
+    frozen = common_hashes(tr.model,True)
+    start_trainable = {n:p.detach().cpu().clone() for n,p in tr.model.named_parameters() if p.requires_grad}
+    rng = {'cpu':tensor_hash(torch.get_rng_state()),'cuda':tensor_hash(torch.cuda.get_rng_state())}
+    evidence = {'initial_shared':initial,'rng':rng,'backend':backend(torch),
+                'classnames':tr.dm.dataset.classnames,'batches':[],'steps':[]}
+    current = {}
+    def teacher_hook(module,inputs,output):
+        current['teacher_text'] = output[1].detach().cpu().clone()
+        current['teacher_logits'] = output[2].detach().cpu().clone()
+    def student_hook(module,inputs,output):
+        with torch.no_grad():
+            text = current['teacher_text'].to(output[0].device)
+            current['student_logits'] = (output[1]*output[0] @ text.t()).detach().cpu().clone()
+    hooks = [tr.model_teacher.register_forward_hook(teacher_hook),tr.model.register_forward_hook(student_hook)]
+    step = tr.optim.step
+    def audited_step(*args,**kwargs):
+        grads = {canonical(n):p.grad.detach().cpu().clone() for n,p in tr.model.named_parameters()
+                 if p.requires_grad and not added(n) and p.grad is not None}
+        assert len(grads)==15, ('Missing shared gradient',list(grads))
+        assert all(torch.isfinite(p.grad).all() for p in tr.model.parameters() if p.grad is not None)
+        current['gradients'] = grads
+        return step(*args,**kwargs)
+    tr.optim.step = audited_step
+    tr.num_batches = len(tr.train_loader_x)
+    iterator = iter(tr.train_loader_x)
+    for index in range(2):
+        batch = next(iterator)
+        evidence['batches'].append({'image':tensor_hash(batch['img']),'label':tensor_hash(batch['label']),
+                                     'impath':batch.get('impath')})
+        tr.batch_idx = index
+        current = {}
+        result = tr.forward_backward(batch)
+        assert math.isfinite(result['loss'])
+        current['loss'] = torch.tensor(result['loss'])
+        current['updated'] = {canonical(n):p.detach().cpu().clone() for n,p in tr.model.named_parameters()
+                               if p.requires_grad and not added(n)}
+        evidence['steps'].append(current)
+    for hook in hooks:
+        hook.remove()
+    tr.optim.step = step
+    assert common_hashes(tr.model,True)==frozen, 'Frozen backbone changed'
+    updates = {n:int(torch.count_nonzero(p.detach().cpu()-start_trainable[n]))
+               for n,p in tr.model.named_parameters() if p.requires_grad}
+    if method in ('harp','larp'):
+        assert any(v for n,v in updates.items() if added(n)), 'New module has no visible update'
+    # Verify real Dassl serialization and PromptKD load_model, without resetting RNG.
+    before = {n:tensor_hash(p) for n,p in tr.model.named_parameters()}
+    tr.save_model(0,str(out),val_result=0.,model_name='model-best.pth.tar')
+    tr.load_model(str(out))
+    assert before=={n:tensor_hash(p) for n,p in tr.model.named_parameters()}
+    lr = []
+    for _ in range(20):
+        rates = [g['lr'] for g in tr.optim.param_groups]
+        assert len(set(rates))==1, rates
+        lr.append(rates[0])
+        tr.sched.step()
+    evidence['lr_20epoch'] = lr
+    evidence['updates'] = updates
+    evidence['checkpoint_roundtrip_exact'] = True
+    torch.save(evidence,out/'probe.pt')
+    dump(out/'probe.json',dict(status='passed',time=now(),method=method,dataset=dataset,seed=seed,
+        evidence_sha256=sha(out/'probe.pt'),updates=updates,backend=evidence['backend']))
+
+def probe_path(dataset,seed,method):
+    if ROUTE=='harp' and method=='harp':
+        return RUN/'bridge'/dataset/f'seed_{seed}'/method
+    return PROBE_SOURCE/'bridge'/dataset/f'seed_{seed}'/method
+
+def compare_tensor(a,b,kind,label):
+    import torch
+    assert a.shape==b.shape and a.dtype==b.dtype, label
+    assert torch.isfinite(a).all() and torch.isfinite(b).all(), label
+    tol = TOLERANCES[kind]
+    difference = (a.float()-b.float()).abs()
+    failed = difference > tol['atol']+tol['rtol']*b.float().abs()
+    return {'label':label,'kind':kind,'passed':not bool(failed.any()),
+            'max_abs':float(difference.max()),'failed_elements':int(failed.sum())}
+
+def compare_probes():
+    import torch
+    reports = []
+    def close(a,b,kind,label):
+        reports.append(compare_tensor(a,b,kind,label))
+    try:
+        for dataset in SPECS:
+            for seed in SEEDS:
+                es = {}
+                for method in PROBES:
+                    p = probe_path(dataset,seed,method)
+                    meta = read(p/'probe.json')
+                    assert meta['status']=='passed' and meta['evidence_sha256']==sha(p/'probe.pt')
+                    es[method] = torch.load(p/'probe.pt',map_location='cpu')
+                    check_backend(es[method]['backend'])
+                a = es['r0a']
+                for method,b in es.items():
+                    for key in ('initial_shared','rng','backend','classnames','batches','lr_20epoch','checkpoint_roundtrip_exact'):
+                        assert a[key]==b[key], (dataset,seed,method,key)
+                    # HARP/LARP must start at the same function; their later gradients differ by design.
+                    indices = (0,1) if method in ('r0b','r1') else (0,)
+                    for i in indices:
+                        for key in ('teacher_text','teacher_logits','student_logits'):
+                            close(a['steps'][i][key],b['steps'][i][key],'forward',f'{dataset}/{seed}/{method}/{i}/{key}')
+                        close(a['steps'][i]['loss'],b['steps'][i]['loss'],'forward',f'{dataset}/{seed}/{method}/{i}/loss')
+                        if method in ('r0b','r1'):
+                            for key,kind in (('gradients','gradient'),('updated','update')):
+                                assert a['steps'][i][key].keys()==b['steps'][i][key].keys()
+                                for name,value in a['steps'][i][key].items():
+                                    close(value,b['steps'][i][key][name],kind,f'{dataset}/{seed}/{method}/{i}/{name}')
+        failed = sum(not row['passed'] for row in reports)
+        dump(RUN/'numerical_bridge.json',dict(status='diagnostic_complete',time=now(),
+             reused_probes=90 if ROUTE=='harp' else 120,new_probes=30 if ROUTE=='harp' else 0,
+             probe_source=str(PROBE_SOURCE),metadata_checks_passed=True,
+             numerical_passed=failed==0,failed_comparisons=failed,
+             policy='diagnostic_only_user_authorized',
+             frozen=guard(),tolerances=TOLERANCES,comparisons=reports))
+    except BaseException:
+        dump(RUN/'numerical_bridge.json',dict(status='failed',time=now(),comparisons=reports,error=traceback.format_exc()))
+        raise
+
+def train_run(method,dataset,seed,epochs,out):
+    torch,tr = build(method,dataset,seed,epochs,out)
+    frozen = common_hashes(tr.model,True)
+    initial = {n:p.detach().cpu().clone() for n,p in tr.model.named_parameters() if p.requires_grad}
+    torch.save(initial,out/'initial_trainable.pt')
+    dump(out/'initial_shared.json',common_hashes(tr.model))
+    original_fb = tr.forward_backward
+    batches = []
+    expected = None
+    if epochs==20:
+        source = probe_path(dataset,seed,method)
+        assert sha(source/'probe.pt')==read(source/'probe.json')['evidence_sha256']
+        expected = torch.load(source/'probe.pt',map_location='cpu')
+        check_backend(expected['backend'])
+        assert common_hashes(tr.model)==expected['initial_shared']
+        assert {'cpu':tensor_hash(torch.get_rng_state()),'cuda':tensor_hash(torch.cuda.get_rng_state())}==expected['rng']
+    def audited_fb(batch):
+        check_backend(backend(torch))
+        if len(batches)<2:
+            row = {'image':tensor_hash(batch['img']),'label':tensor_hash(batch['label']),
+                   'impath':batch.get('impath')}
+            if expected is not None:
+                assert row==expected['batches'][len(batches)], 'Formal first batches differ from bridge'
+            batches.append(row)
+        result = original_fb(batch)
+        assert math.isfinite(result['loss']), 'Nonfinite loss'
+        return result
+    tr.forward_backward = audited_fb
+    if not method.startswith('r0'):
+        from evaluation_evidence import attach
+        evidence=attach(tr,torch,tensor_hash)
+        original_save=tr.save_model
+        def saved(*args,**kwargs):
+            result=original_save(*args,**kwargs)
+            if kwargs.get('model_name')=='model-best.pth.tar':
+                record=dict(evidence['last'],checkpoint_sha256=sha(out/'VLPromptLearner/model-best.pth.tar'))
+                torch.save(record,out/'best_val_evidence.pt')
+            return result
+        tr.save_model=saved
+        original_after=tr.after_train
+        def after():
+            original_test=tr.test
+            def native_test(split=None):
+                result=original_test(split)
+                record=dict(evidence['last'],checkpoint_sha256=sha(out/'VLPromptLearner/model-best.pth.tar'))
+                torch.save(record,out/f'native_{split}_evidence.pt')
+                return result
+            tr.test=native_test
+            return original_after()
+        tr.after_train=after
+    tr.train()
+    assert common_hashes(tr.model,True)==frozen
+    dump(out/'first_batches.json',batches)
+    dump(out/'train_complete.json',dict(status='passed',time=now(),epochs=epochs,frozen_parameters_unchanged=True))
+
+def evaluate(method,dataset,seed,epochs,out):
+    torch,tr = build(method,dataset,seed,epochs,out)
+    initial = torch.load(out/'initial_trainable.pt',map_location='cpu')
+    assert read(out/'initial_shared.json')==common_hashes(tr.model)
+    frozen = common_hashes(tr.model,True)
+    audits = {}
+    best = None
+    for tag,name in (('best','model-best.pth.tar'),('last',f'model.pth.tar-{epochs}')):
+        checkpoint = torch.load(out/'VLPromptLearner'/name,map_location='cpu')
+        assert 1 <= checkpoint['epoch'] <= epochs
+        if tag=='last':
+            assert checkpoint['epoch']==epochs
+        else:
+            best = checkpoint
+        assert all(not torch.is_floating_point(x) or torch.isfinite(x).all() for x in checkpoint['state_dict'].values())
+        assert all(tensor_hash(checkpoint['state_dict'][n])==frozen[canonical(n)]
+                   for n,p in tr.model.named_parameters() if not p.requires_grad and not added(n))
+        updates = {n:int(torch.count_nonzero(checkpoint['state_dict'][n]-x)) for n,x in initial.items()}
+        rows = []
+        names = {id(p):n for n,p in tr.model.named_parameters()}
+        for saved,live in zip(checkpoint['optimizer']['param_groups'],tr.optim.param_groups):
+            assert len(saved['params'])==len(live['params'])
+            for key,p in zip(saved['params'],live['params']):
+                if not p.requires_grad:
+                    continue
+                n = names[id(p)]
+                momentum = checkpoint['optimizer']['state'].get(key,{}).get('momentum_buffer')
+                assert momentum is not None and torch.isfinite(momentum).all(), n
+                rows.append({'name':n,'momentum_nonzero':int(torch.count_nonzero(momentum)),
+                             'changed_elements':updates[n]})
+        assert {r['name'] for r in rows}==set(initial)
+        for group in ('visual_prompt','projector') + (() if method.startswith('r0') or method=='r1' else ('adaptation',)):
+            predicate = (lambda n:added(n)) if group=='adaptation' else (
+                (lambda n:n.startswith('VPT_image_trans.')) if group=='projector' else
+                (lambda n:n.startswith('image_encoder.') and not added(n)))
+            assert any(r['changed_elements'] and r['momentum_nonzero'] for r in rows if predicate(r['name'])), group
+        audits[tag] = rows
+    tr.load_model(str(out))
+    tr.epoch = best['epoch']-1
+    evidence=None
+    if not method.startswith('r0'):
+        from evaluation_evidence import attach,compare
+        evidence=attach(tr,torch,tensor_hash)
+    b = float(tr.test(split='val'))
+    bc = [tr.evaluator._total,tr.evaluator._correct]
+    base_evidence=evidence['last'] if evidence else None
+    n = float(tr.test(split='test'))
+    nc = [tr.evaluator._total,tr.evaluator._correct]
+    assert (bc[0],nc[0])==SPECS[dataset][1:3]
+    assert abs(b-100*bc[1]/bc[0])<1e-8 and abs(n-100*nc[1]/nc[0])<1e-8
+    assert math.isfinite(b+n) and 0<=b<=100 and 0<=n<=100
+    reload_audit={}
+    if method.startswith('r0'):
+        assert abs(b-float(best['val_result'])) < 1e-8, ('Reload mismatch',b,best['val_result'])
+    if not method.startswith('r0'):
+        native = read(out/'metrics.json')
+        assert native['method']==('none' if method=='r1' else method)
+        assert native['seed']==seed and native['epochs']==epochs and native['selection']=='best_val'
+        assert native['selected_epoch']==best['epoch']
+        checkpoint_sha=sha(out/'VLPromptLearner/model-best.pth.tar')
+        for label,record,canonical_accuracy in (('val',base_evidence,b),('test',evidence['last'],n)):
+            prior=torch.load(out/f'native_{label}_evidence.pt',map_location='cpu')
+            assert prior['checkpoint_sha256']==checkpoint_sha
+            key='base' if label=='val' else 'novel'
+            assert abs(prior['accuracy']-native[key])<1e-8
+            reload_audit['native_'+label]=compare(record,prior,torch,TOLERANCES)
+            torch.save(dict(record,checkpoint_sha256=checkpoint_sha),out/f'canonical_{label}_evidence.pt')
+        selected=torch.load(out/'best_val_evidence.pt',map_location='cpu')
+        assert selected['checkpoint_sha256']==checkpoint_sha
+        assert abs(selected['accuracy']-float(best['val_result']))<1e-8
+        reload_audit['selection_val']=compare(base_evidence,selected,torch,TOLERANCES)
+    report = dict(status='passed',time=now(),method=method,dataset=dataset,seed=seed,epochs=epochs,
+        is_formal=epochs==20,base=b,novel=n,hm=2*b*n/(b+n) if b+n else 0.,
+        selected_epoch=best['epoch'],kd=SPECS[dataset][3],base_reload_delta=b-float(best['val_result']),
+        counts_base_novel=[bc,nc],checkpoint_sha256=sha(out/'VLPromptLearner/model-best.pth.tar'),
+        audits=audits,frozen=guard(),server_port=SETTINGS['port'],route=ROUTE,
+        baseline_identity='R1@'+str(SETTINGS['port']),implementation=IMPLEMENTATION,
+        backend=backend(torch),protocol_version='1.17',reload_audit=reload_audit,
+        canonical_evaluation='first_independent_reload_no_selection',
+        numerical_policy='diagnostic_only_user_authorized')
+    dump(out/'audited_metrics.json',report)
+
+def child(action,*args):
+    out = Path(args[-1]) if action in ('probe','train','evaluate') else RUN
+    if action in ('probe','train'):
+        old_queue().ensure_gpu_idle()
+        assert shutil.disk_usage(RUN).free >= 20*1024**3, 'Less than 20 GiB disk free'
+        assert not out.exists(), ('Refuse overwrite/resume',str(out))
+        out.mkdir(parents=True)
+    env = dict(os.environ,CUDA_VISIBLE_DEVICES='' if action in ('preflight','compare') else '0',
+               OMP_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='4',PYTHONUNBUFFERED='1')
+    env.pop('CUBLAS_WORKSPACE_CONFIG',None)
+    env.pop('PYTHONPATH',None)
+    argv = [PYTHON,str(RUN/'research_queue.py'),action,*map(str,args)]
+    with (out/(action+'.console.log')).open('x' if action!='preflight' else 'a') as log:
+        subprocess.run(argv,env=env,stdout=log,stderr=subprocess.STDOUT,check=True)
+    if action in ('probe','train','evaluate'):
+        old_queue().ensure_gpu_idle()
+
+def predecessor_ready(state):
+    if state['status']=='failed':
+        raise RuntimeError('Official predecessor failed; successor stops without retry')
+    if state['status']!='completed':
+        return False
+    records = [x for x in state['completed'] if x.get('stage')=='full']
+    assert {x['dataset'] for x in records}==set(SPECS) and len(records)==10
+    for row in records:
+        assert row['seed']==SETTINGS['predecessor_seed'] and row['epochs_completed']==20 and row['is_formal_20epoch']
+        assert row['kd_weight']==SPECS[row['dataset']][3] and row['base_reload_delta_pp']==0
+        assert row['precision']=='fp16' and row['protocol']=='official_best_base'
+    return True
+
+def all_predecessors_ready():
+    records=[]
+    all_done=True
+    for path in SETTINGS['predecessors']:
+        if not Path(path).exists():
+            all_done=False
+            continue
+        state=read(path)
+        if state['status']=='failed':
+            raise RuntimeError('Predecessor failed: '+path)
+        if state['status']!='completed':
+            all_done=False
+        else:
+            records.extend(state['completed'])
+    if not all_done:
+        return False
+    return predecessor_ready({'status':'completed','completed':records})
+
+def gates():
+    frozen = guard()
+    cpu = read(RUN/'cpu_preflight.json')
+    numeric = read(RUN/'numerical_bridge.json')
+    assert cpu['status']=='passed'
+    assert numeric['status']=='diagnostic_complete' and numeric['metadata_checks_passed']
+    assert numeric['policy']=='diagnostic_only_user_authorized'
+    assert cpu['frozen']==numeric['frozen']==frozen
+    assert numeric['reused_probes']==(90 if ROUTE=='harp' else 120)
+    assert numeric.get('new_probes',0)==(30 if ROUTE=='harp' else 0)
+    assert numeric['tolerances']==TOLERANCES
+    if ROUTE=='harp':
+        validation=read(RUN/'engineering_validation.json')
+        assert validation['status']=='passed' and validation['epochs_completed']==3
+        assert validation['source']['trainers/efficient_adaptation.py']==sha(PROJECT/'trainers/efficient_adaptation.py')
+        check_backend(validation['backend'])
+    for method in SMOKES:
+        record = read(RUN/'smoke'/method/'audited_metrics.json')
+        assert record['status']=='passed' and record['epochs']==1 and record['frozen']==frozen
+        check_backend(record['backend'])
+    return frozen
+
+def queue():
+    reused=read(RUN/'reused_completed.json')
+    assert len(reused)==(6 if ROUTE=='larp' else 0)
+    state = dict(status='waiting_baseline',pid=os.getpid(),started=now(),completed=reused,
+                 predecessors=SETTINGS['predecessors'],plan=plan())
+    lock = (RUN/'queue.lock').open('w')
+    fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    assert not (RUN/'status.json').exists(), 'Refuse implicit restart/overwrite'
+    try:
+        guard()
+        assert read(RUN/'cpu_preflight.json')['status']=='passed'
+        while not all_predecessors_ready():
+            state['updated']=now()
+            dump(RUN/'status.json',state)
+            time.sleep(30)
+        global_lock = Path('/root/autodl-tmp/official_training_gpu0.lock').open('a')
+        while True:
+            try:
+                fcntl.flock(global_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                time.sleep(30)
+        old_queue().ensure_gpu_idle()
+        state.update(status='verifying',updated=now())
+        dump(RUN/'status.json',state)
+        child('preflight')
+        if ROUTE=='harp':
+            for dataset in SPECS:
+                for seed in SEEDS:
+                    state.update(current=dict(stage='new_harp_probe',dataset=dataset,seed=seed),updated=now())
+                    dump(RUN/'status.json',state)
+                    child('probe','harp',dataset,seed,probe_path(dataset,seed,'harp'))
+        state.update(current=dict(stage='audit_existing_true_probes'),updated=now())
+        dump(RUN/'status.json',state)
+        child('compare')
+        for method in SMOKES:
+            state.update(current=dict(stage='smoke',dataset='caltech101',seed=1,method=method),updated=now())
+            dump(RUN/'status.json',state)
+            out = RUN/'smoke'/method
+            child('train',method,'caltech101',1,1,out)
+            child('evaluate',method,'caltech101',1,1,out)
+        dump(RUN/'release_gate.json',dict(status='passed',frozen=gates(),time=now(),
+            note='Hard checks and True smoke tests passed. Numerical deviations deferred by user, NOT an equivalence pass. R1 retained.'))
+        for seed in SEEDS:
+            for dataset in SPECS:
+                for method in METHODS:
+                    if any(r['dataset']==dataset and r['seed']==seed and r['method']==method for r in reused):
+                        continue
+                    gates()
+                    old_queue().ensure_gpu_idle()
+                    assert shutil.disk_usage(RUN).free >= 20*1024**3, 'Less than 20 GiB disk free'
+                    state.update(status='running',current=dict(stage='formal',dataset=dataset,seed=seed,method=method),updated=now())
+                    dump(RUN/'status.json',state)
+                    out = RUN/'formal'/f'seed_{seed}'/dataset/method
+                    child('train',method,dataset,seed,20,out)
+                    child('evaluate',method,dataset,seed,20,out)
+                    m = read(out/'audited_metrics.json')
+                    if method!='r1':
+                        ref = out.parent/'r1'
+                        assert read(out/'initial_shared.json')==read(ref/'initial_shared.json')
+                        assert read(out/'metrics.json')['comparison_signature']==read(ref/'metrics.json')['comparison_signature']
+                    state['completed'].append(m)
+                    dump(RUN/'status.json',state)
+        state.update(status='completed',updated=now(),current=None)
+        dump(RUN/'status.json',state)
+    except BaseException:
+        state.update(status='failed',updated=now(),error=traceback.format_exc())
+        dump(RUN/'status.json',state)
+        raise
+
+if __name__=='__main__':
+    action = sys.argv[1]
+    if action=='plan':
+        dump(RUN/'plan.json',plan())
+    elif action=='preflight':
+        preflight()
+    elif action=='queue':
+        queue()
+    elif action=='compare':
+        compare_probes()
+    elif action=='probe':
+        assert ROUTE=='harp' and sys.argv[2]=='harp'
+        assert Path(sys.argv[5])==probe_path(sys.argv[3],int(sys.argv[4]),'harp')
+        probe(sys.argv[2],sys.argv[3],int(sys.argv[4]),Path(sys.argv[5]))
+    elif action in ('train','evaluate'):
+        fn = train_run if action=='train' else evaluate
+        fn(sys.argv[2],sys.argv[3],int(sys.argv[4]),int(sys.argv[5]),Path(sys.argv[6]))
+    else:
+        raise SystemExit('Unknown action')

@@ -1,0 +1,16 @@
+{
+  "source": "outputs/harp_ten_seed1_20260929/start_evidence/caltech101/preflight.json",
+  "source_sha256": "0495f70efc338f8d5f468c2e58ba9ca704bd26d60e58c3de9439fc07273b6bc8",
+  "historical_freeze_sha256": "435a5af4d3004b407d5b0c90d480742b9095dbb5bf299669979977479a7d20f4",
+  "historical_environment_match": {
+    "exact_freeze_match": true,
+    "sha256": "435a5af4d3004b407d5b0c90d480742b9095dbb5bf299669979977479a7d20f4"
+  },
+  "python": "3.10.8",
+  "torch": "2.0.1+cu118",
+  "torchvision": "0.15.2+cu118",
+  "hardware_reference": "NVIDIA GeForce RTX 4090",
+  "new_environment_rebuilt": false,
+  "gpu_reproduction_verified": false,
+  "portable_training_enabled": false
+}

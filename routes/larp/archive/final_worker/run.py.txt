@@ -1,0 +1,235 @@
+"""v1.91: bounded original-SGD O rank/layer ablations; historical controls reused."""
+import ast, copy, fcntl, hashlib, importlib.util, json, math, os, shutil, subprocess, sys, traceback
+from pathlib import Path
+from types import SimpleNamespace
+ROOT=Path(__file__).resolve().parent
+HOST=Path('/root/autodl-tmp')
+PLAN=json.loads((ROOT/'plan.json').read_text()); SEED=PLAN['seed']; SEEDS=(SEED,)
+PORT=PLAN['port']; B=Path(PLAN['workspace']); PROJECT=B/'projects/PromptKD-HARP-LARP-research-20260928'
+DATASETS=tuple(PLAN['datasets']); ROLES=('r1','o4'); LAYERS={'r1':[],'o4':[8,9,10,11]}
+RANK=PLAN['rank']; LAYERS['o4']=PLAN['layers']
+ROLE=sys.argv[3] if len(sys.argv)>3 else None; ACTION=sys.argv[1]; HOLDER={}
+def load(name,path):
+    s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);sys.modules[name]=m;s.loader.exec_module(m);return m
+sys.path[:0]=[str(PROJECT/'Dassl.pytorch'),str(PROJECT)];os.chdir(PROJECT)
+import torch,yaml,train
+from dassl.config import get_cfg_default
+from yacs.config import CfgNode as CN
+from dassl.utils import set_random_seed,setup_logger
+from dassl.engine import build_trainer
+from dassl.data.datasets import build_dataset
+q=load('retained_helpers',B/'larp_research_20260928_fix1/research_queue.py')
+q.SETTINGS=dict(q.SETTINGS,port=PORT,route='larp');q.ROUTE='larp';q.PROJECT=PROJECT
+old_canonical=q.canonical
+q.canonical=lambda name:old_canonical(name).replace('.out_proj.parametrizations.weight.original','.out_proj.weight')
+canonical=q.canonical
+ps=load('retained_schedule',B/'larp_pets_projector_ramp_20260929_setup2/projector_schedule.py')
+ev=load('evaluation_evidence',B/'larp_two_dataset_ramp_20260929/evaluation_evidence.py')
+f=SimpleNamespace(ps=ps,COUNT=352,evaluate=SimpleNamespace(__globals__={'canonical':canonical}))
+CONTRACT=q.read(ROOT/'source_contract.json')
+def get_function(path,name):return next(x for x in ast.parse(Path(path).read_text()).body if isinstance(x,ast.FunctionDef) and x.name==name)
+exec(compile(ast.Module(body=[get_function(B/'larp_ten_oldlr_20260929/run.py','install')],type_ignores=[]),'retained_install','exec'),globals())
+def normalize(v):
+    if isinstance(v,str) and str(B)!=str(HOST): return v.replace(str(B)+'/',str(HOST)+'/')
+    if isinstance(v,list):return [normalize(x) for x in v]
+    if isinstance(v,dict):return {k:normalize(x) for k,x in v.items()}
+    return v
+def relocate(v):
+    if isinstance(v,str) and v.startswith(str(HOST)+'/'):return str(B)+v[len(str(HOST)):]
+    if isinstance(v,list):return [relocate(x) for x in v]
+    if isinstance(v,dict):return {k:relocate(x) for k,x in v.items()}
+    return v
+def source(ds,role):return ROOT/'references'/ds/role
+def r1_path(ds):return source(ds,'r1')
+def config(ds,role,seed,out):
+    assert ds in DATASETS and role in ROLES and seed==SEED
+    data=relocate(yaml.safe_load((source(ds,role)/'resolved.yaml').read_text()));data['OUTPUT_DIR']=str(out)
+    if role=='o4':data['TRAINER']['PROMPTKD']['ADAPTATION'].update(LORA_R=RANK,LAYERS=LAYERS[role])
+    assert data['SEED']==seed
+    cfg=get_cfg_default();train.extend_cfg(cfg);cfg.merge_from_other_cfg(CN(data));cfg.freeze()
+    expected=relocate(copy.deepcopy(CONTRACT['configs'][ds][role]));expected.update(SEED=seed,OUTPUT_DIR=str(out))
+    if role=='o4':expected['TRAINER']['PROMPTKD']['ADAPTATION'].update(LORA_R=RANK,LAYERS=LAYERS[role])
+    assert yaml.safe_load(cfg.dump())==expected,(ds,role,'Frozen original configuration')
+    assert cfg.TRAINER.PROMPTKD.KD_WEIGHT==q.SPECS[ds][3] and cfg.TRAINER.PROMPTKD.PREC=='fp16'
+    assert cfg.OPTIM.MAX_EPOCH==20
+    return cfg
+def reserve(start=False):
+    assert shutil.disk_usage(ROOT).free>=(40 if start else 20)*1024**3,'Disk reserve'
+    p=Path('/sys/fs/cgroup/memory.stat')
+    if p.exists():assert int(dict(x.split() for x in p.read_text().splitlines())['anon'])<16*1024**3,'Anonymous memory reserve'
+def guard():
+    for p,h in q.read(ROOT/'frozen_files.json').items():assert q.sha(Path(p))==h,p
+    return q.sha(ROOT/'frozen_files.json')
+def build(method,dataset,seed,epochs,out):
+    guard();reserve();assert method==('r1' if ROLE=='r1' else 'larp') and seed==SEED and epochs==20
+    assert torch.cuda.is_available() and torch.cuda.device_count()==1 and torch.cuda.get_device_name(0)=='NVIDIA GeForce RTX 4090'
+    set_random_seed(seed);train.configure_cuda_reproducibility(False);torch.set_num_threads(4);setup_logger(str(out))
+    cfg=config(dataset,ROLE,seed,out);tr=build_trainer(cfg);HOLDER.update(tr=tr,out=out);q.check_backend(q.backend(torch))
+    assert not hasattr(tr,'boundary_reference')
+    tr.trainable_parameter_count=sum(p.numel() for p in tr.model.parameters() if p.requires_grad)
+    assert tr.trainable_parameter_count==1013760+1536*RANK*len(LAYERS[ROLE])
+    (out/'resolved.yaml').write_text(cfg.dump())
+    ref=torch.load(source(dataset,ROLE)/'initial_trainable.pt',map_location='cpu')
+    if ROLE=='o4' and RANK==2:
+        with torch.no_grad():
+            for n,p in tr.model.named_parameters():
+                if q.added(n):p.copy_(ref[n].to(p))
+    initial={n:p.detach().cpu() for n,p in tr.model.named_parameters() if p.requires_grad}
+    common_init={n:v for n,v in initial.items() if not q.added(n)}
+    reference_common={n:v for n,v in ref.items() if not q.added(n)}
+    assert common_init.keys()==reference_common.keys() and all(torch.equal(v,reference_common[n]) for n,v in common_init.items()),'Exact historical common initialization'
+    assert q.common_hashes(tr.model)==q.read(source(dataset,ROLE)/'initial_shared.json')
+    if ROLE=='r1' or RANK==2:assert all(torch.equal(v,ref[n]) for n,v in initial.items())
+    common=q.common_hashes(tr.model);added={n:q.tensor_hash(p) for n,p in tr.model.named_parameters() if q.added(n)}
+    rng={'cpu':q.tensor_hash(torch.get_rng_state()),'cuda':q.tensor_hash(torch.cuda.get_rng_state())}
+    assert len(tr.train_loader_x)==q.SPECS[dataset][0]//8
+    if ROLE=='o4':
+        ref=q.read(ROOT/'gate'/f'seed_{seed}'/dataset/'r1/audit.json');assert (common,rng)==(ref['initial_common'],ref['initial_rng'])
+        ap={n:p for n,p in tr.model.named_parameters() if q.added(n)}
+        assert len(ap)==2*len(LAYERS[ROLE]) and all('.out_proj.parametrizations.weight.0.lora_' in n and p.dtype==torch.float16 for n,p in ap.items())
+        assert sorted({int(n.split('resblocks.')[1].split('.')[0]) for n in ap})==LAYERS[ROLE]
+        assert all(torch.count_nonzero(p)==0 for n,p in ap.items() if 'lora_B_o' in n)
+    if ACTION!='gate':
+        ref=q.read(ROOT/'gate'/f'seed_{seed}'/dataset/ROLE/'audit.json')
+        assert (common,added,rng)==(ref['initial_common'],ref['initial_added'],ref['initial_rng'])
+    if ACTION in ('gate','train'):
+        f.COUNT=len(tr.train_loader_x)
+        install(torch,tr,'larp' if ROLE=='o4' else 'r1')
+        assert rng=={'cpu':q.tensor_hash(torch.get_rng_state()),'cuda':q.tensor_hash(torch.cuda.get_rng_state())}
+    q.dump(out/(ACTION+'_overlay.json'),dict(protocol='1.92',variant=PLAN['variant'] if ROLE=='o4' else ROLE,rank=RANK,layers=LAYERS[ROLE],initial_common=common,initial_added=added,initial_rng=rng,
+        objective='original_joint_KD_only',optimizer='retained_FP16_SGD',reference=PLAN['references'][dataset],frozen=guard()))
+    return torch,tr
+
+# Keep scientific training/evaluation functions; only relocate historical pairing and LR metadata.
+class Wiring(ast.NodeTransformer):
+    def visit_Subscript(self,node):
+        self.generic_visit(node)
+        if ast.unparse(node)=="q.read(NODE / 'cpu_verified.json')['lr_trajectories']":return ast.parse("q.read(ROOT/'preflight.json')['lr_trajectories']",mode='eval').body
+        return node
+    def visit_Assign(self,node):
+        self.generic_visit(node)
+        if any(isinstance(x,ast.Name) and x.id=='ref' for x in node.targets) and ast.unparse(node.value)=="ROOT / 'formal' / f'seed_{SEED}' / ds / 'r1'":node.value=ast.parse('r1_path(ds)',mode='eval').body
+        return node
+    def visit_Compare(self,node):
+        self.generic_visit(node)
+        if ast.unparse(node)=="identity == pair[i]['identity']":return ast.parse("identity == normalize(pair[i]['identity'])",mode='eval').body
+        return node
+    def visit_BinOp(self,node):
+        self.generic_visit(node)
+        if ast.unparse(node)=='(b @ a).norm() / math.sqrt(2)':return ast.parse('(b @ a).norm() * mod.scaling',mode='eval').body
+        return node
+for name in ('compare_first','gate','train_run','evaluate'):
+    node=get_function(ROOT/'retained_worker.py',name)
+    if name in ('gate','train_run'):node=ast.fix_missing_locations(Wiring().visit(node))
+    exec(compile(ast.Module(body=[node],type_ignores=[]),'retained_worker','exec'),globals())
+def ident(batch):return normalize(dict(image=q.tensor_hash(batch['img']),label=q.tensor_hash(batch['label']),impath=batch.get('impath')))
+def operator_tests():
+    from trainers.efficient_adaptation import WeightLoRAParametrization
+    checks=[]
+    for rank in (1,2,4):
+        torch.manual_seed(17);base=torch.randn(16,16)
+        op=WeightLoRAParametrization(16,16,rank,1.,torch.float32,torch.device('cpu'))
+        assert op.scaling==1/math.sqrt(rank) and sum(p.numel() for p in op.parameters())==32*rank
+        assert torch.equal(op(base),base)
+        opt=torch.optim.SGD(op.parameters(),lr=.01,momentum=.9,weight_decay=.0005)
+        for _ in range(4):opt.zero_grad();op(base).square().sum().backward();opt.step()
+        assert all(p.grad is not None and torch.isfinite(p.grad).all() and torch.count_nonzero(p.grad)>0 for p in op.parameters())
+        assert torch.count_nonzero(op.lora_B_o@op.lora_A_o)>0
+        clone=copy.deepcopy(op);clone.load_state_dict(op.state_dict());assert torch.equal(op(base),clone(base))
+        checks.append(rank)
+    a=torch.tensor([[4.,1.]]);b=a.clone();b[0,1]+=.02
+    assert compare_first(a,a,'student_logits')['passed'] and not compare_first(a,b,'student_logits')['passed']
+    return dict(status='passed',ranks=checks,zero_B_exact=True,update_and_roundtrip=True,overbound_rejected=True)
+
+def prepare():
+    assert not (ROOT/'frozen_files.json').exists();reserve(True)
+    files={str(p):q.sha(p) for p in ROOT.rglob('*') if p.is_file() and p.suffix in ('.py','.md','.json','.yaml','.jsonl','.pt')}
+    for p in PROJECT.rglob('*.py'):files[str(p)]=q.sha(p)
+    for rel in ('larp_research_20260928_fix1/research_queue.py','larp_pets_projector_ramp_20260929_setup2/projector_schedule.py','larp_two_dataset_ramp_20260929/evaluation_evidence.py','larp_ten_oldlr_20260929/run.py'):files[str(B/rel)]=q.sha(B/rel)
+    for name in ('jobs.json','controller.py'):files[str(ROOT.parent/name)]=q.sha(ROOT.parent/name)
+    q.dump(ROOT/'frozen_files.json',files)
+def cpu():
+    assert not torch.cuda.is_available();guard();reserve(True)
+    for rel,h in q.read(ROOT/'scientific_manifest.json').items():assert q.sha(B/rel)==h,rel
+    for ds in DATASETS:
+        for role in ROLES:
+            for name,h in PLAN['references'][ds][role]['files'].items():assert q.sha(source(ds,role)/name)==h
+    assert sys.version==CONTRACT['python'] and torch.__version__==CONTRACT['torch']
+    freeze=subprocess.check_output([sys.executable,'-m','pip','freeze','--all'],text=True)
+    assert normalize(freeze)==CONTRACT['environment']
+    from dassl.optim import build_optimizer,build_lr_scheduler
+    from trainers.adaptation_optim import adaptation_param_groups
+    rates={};readers={};assets={};cache={}
+    class Tiny(torch.nn.Module):
+        def __init__(self,role):
+            super().__init__();self.VPT=torch.nn.Parameter(torch.ones(1));self.VPT_image_trans=torch.nn.ParameterList([torch.nn.Parameter(torch.ones(1)) for _ in range(6)])
+            if role=='o4':self.lora_A_o=torch.nn.Parameter(torch.ones(1));self.lora_B_o=torch.nn.Parameter(torch.zeros(1))
+    tests=operator_tests()
+    for ds in DATASETS:
+        for role in ROLES:
+            cfg=config(ds,role,SEED,ROOT/'formal'/f'seed_{SEED}'/ds/role)
+            (ROOT/'configs').mkdir(exist_ok=True);(ROOT/'configs'/f'{ds}_{role}.yaml').write_text(cfg.dump())
+            m=q.read(source(ds,role)/'audited_metrics.json');assert (m['status'],m['dataset'],m['seed'],m['epochs'])==('passed',ds,SEED,20)
+            assert m['checkpoint_sha256']==PLAN['references'][ds][role]['checkpoint_sha256']
+            model=Tiny(role);opt=build_optimizer(model,cfg.OPTIM,param_groups=adaptation_param_groups(model,cfg));sched=build_lr_scheduler(opt,cfg.OPTIM)
+            trajectory=[];tr=SimpleNamespace(model=model,optim=opt,epoch=0,batch_idx=0)
+            f.COUNT=q.SPECS[ds][0]//8;install(torch,tr,'larp' if role=='o4' else 'r1')
+            for e in range(20):
+                tr.epoch=e;trajectory.append([g['lr'] for g in opt.param_groups])
+                for bi in (0,f.COUNT-1):
+                    tr.batch_idx=bi
+                    for p in model.parameters():p.grad=torch.full_like(p,.1)
+                    opt.step()
+                    assert tr.actual_step['projector_lr']==ps.effective_lr(e,bi,f.COUNT,trajectory[-1][0])
+                    if role=='o4':assert math.isclose(tr.actual_step['added_lr'],.1*trajectory[-1][0],rel_tol=1e-12)
+                sched.step()
+            rates[ds+'_'+role]=trajectory
+        cfg=config(ds,'r1',SEED,ROOT/'cpu'/ds);set_random_seed(SEED);data=build_dataset(cfg)
+        records=[[(normalize(str(Path(x.impath).resolve())),int(x.label),x.classname) for x in group] for group in (data.train_x,data.val,data.test)]
+        ref=CONTRACT['datasets'][ds];digest=hashlib.sha256(json.dumps(records).encode()).hexdigest()
+        assert [len(g) for g in records]==ref['counts'] and data.classnames==ref['classnames'] and digest==ref['reader_records_sha256']
+        assert all(Path(x.impath).is_file() for group in (data.train_x,data.val,data.test) for x in group)
+        readers[ds]=digest;assets[ds]={}
+        for key,asset in CONTRACT['assets'][ds].items():
+            p=Path(cfg.TRAINER.PROMPTKD.TEACHER_ROOT)/cfg.DATASET.NAME/'VLPromptLearner/model-best.pth.tar' if key=='teacher' else Path(cfg.TRAINER.PROMPTKD.WEIGHTS_ROOT)/key
+            if str(p) not in cache:cache[str(p)]=q.sha(p)
+            assert cache[str(p)]==asset['sha256'];assets[ds][str(p)]=cache[str(p)]
+        rows=[json.loads(l) for l in (r1_path(ds)/'batches.jsonl').read_text().splitlines()]
+        count=q.SPECS[ds][0]//8;assert len(rows)==20*count
+        for i,row in enumerate(rows):
+            e,bi=divmod(i,count);lr=rates[ds+'_r1'][e][0]
+            assert row['prompt_lr']==lr and row['projector_lr']==ps.effective_lr(e,bi,count,lr)
+        print('CPU_PASSED',ds,flush=True)
+    driver=subprocess.check_output(['nvidia-smi','--query-gpu=driver_version,name','--format=csv,noheader'],text=True).strip()
+    q.dump(ROOT/'preflight.json',dict(status='passed',time=q.now(),frozen=guard(),lr_trajectories=rates,readers=readers,assets=assets,operator_tests=tests,projector_schedule=ps.cpu_test(torch),driver=driver,formal_runs=len(DATASETS),formal_epochs=20*len(DATASETS),gpu_steps=8*len(DATASETS),no_new_r1_training=True))
+def queue():
+    lock=(HOST/'official_training_gpu0.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    assert not (ROOT/'status.json').exists();assert q.read(ROOT/'preflight.json')['frozen']==guard();reserve(True)
+    state=dict(status='running',started=q.now(),pid=os.getpid(),completed=[],formal_runs=len(DATASETS),seed=SEED,port=PORT,protocol='1.92',no_new_r1_training=True,successor=None);q.dump(ROOT/'status.json',state)
+    try:
+        for ds in DATASETS:
+            for action,role in (('gate','r1'),('gate','o4'),('train','o4'),('evaluate','o4')):
+                guard();reserve();assert not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip(),'GPU occupied'
+                if action=='train':assert q.read(ROOT/'gate'/f'seed_{SEED}'/ds/'o4/audit.json')['status']=='passed'
+                state.update(dataset=ds,action=action,variant=role,updated=q.now());q.dump(ROOT/'status.json',state)
+                env=dict(os.environ,CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1');env.pop('PYTHONPATH',None);env.pop('CUBLAS_WORKSPACE_CONFIG',None)
+                with (ROOT/f'{ds}_{role}_{action}.log').open('x') as stream:subprocess.run([sys.executable,str(ROOT/'run.py'),action,ds,role],env=env,stdout=stream,stderr=subprocess.STDOUT,check=True)
+                state['completed'].append(dict(dataset=ds,action=action,variant=role));q.dump(ROOT/'status.json',state)
+        state.update(status='completed_awaiting_analysis',finished=q.now(),action=None)
+    except BaseException:state.update(status='failed',finished=q.now(),error=traceback.format_exc());raise
+    finally:q.dump(ROOT/'status.json',state)
+if __name__=='__main__':
+    try:
+        if ACTION=='prepare':prepare()
+        elif ACTION=='cpu':cpu()
+        elif ACTION=='queue':queue()
+        elif ACTION=='gate':gate(sys.argv[2])
+        elif ACTION=='train':train_run(sys.argv[2])
+        elif ACTION=='evaluate':
+            evaluate(sys.argv[2]);p=ROOT/'formal'/f'seed_{SEED}'/sys.argv[2]/ROLE/'audited_metrics.json';m=q.read(p)
+            m.update(protocol_version='1.92',result_role=PLAN['variant'],rank=RANK,layers=LAYERS['o4'],baseline_identity='historical_R1@'+str(PLAN['reference_port']),reference=PLAN['references'][sys.argv[2]],cross_machine_reference=PORT!=PLAN['reference_port'],numerical_policy='original_hard_reload_no_retry');q.dump(p,m)
+        else:raise ValueError(ACTION)
+    except BaseException:
+        if HOLDER:
+            tr=HOLDER['tr'];out=HOLDER['out'];torch.save(dict(model=tr.model.state_dict(),optimizer=tr.optim.state_dict(),scheduler=tr.sched.state_dict(),epoch=getattr(tr,'epoch',None),batch_idx=getattr(tr,'batch_idx',None),batch=getattr(tr,'failure_batch',None),gradients={k:None if p.grad is None else p.grad.detach().cpu() for k,p in tr.model.named_parameters()},cpu_rng=torch.get_rng_state(),cuda_rng=torch.cuda.get_rng_state_all()),out/'first_failure_state.pt')
+        raise

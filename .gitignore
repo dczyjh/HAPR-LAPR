@@ -1,0 +1,50 @@
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+credentials*
+secrets*
+.ssh/
+
+# Python and editor state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv*/
+venv/
+envs/
+*.egg-info/
+.DS_Store
+.idea/
+.vscode/
+
+# External research assets and future execution outputs
+/data/
+/datasets/
+/weights/
+/teachers/
+/checkpoints/
+/runs/
+/output/
+/outputs/
+/cache/
+*.pt
+*.pth
+*.pth.tar
+*.onnx
+*.safetensors
+*.whl
+*.zip
+*.tar
+*.tar.gz
+*.log
+events.out.tfevents.*
+
+# clip/bpe_simple_vocab_16e6.txt.gz is a required small tokenizer asset;
+# do not ignore all *.gz files.

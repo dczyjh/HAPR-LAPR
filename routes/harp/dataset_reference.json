@@ -1,0 +1,146 @@
+{
+  "schema": 1,
+  "identity_algorithm": "unmodified vendor/project/tools/provenance.py training_identity (relative membership); this is not image-byte identity",
+  "records": {
+    "caltech101": {
+      "dataset_name": "Caltech101",
+      "split_sha256": "b53862df0b832630121829c56663b1f3a4ac654a6f589754486f1155cf57ae11",
+      "classnames_sha256": "dd48b2377badfbb081c4c3534d2201d8fdc02a82c07d17c14e47f01314944a2c",
+      "class_count": 100,
+      "counts": [
+        4128,
+        1549,
+        916
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/caltech101/r1/metrics.json",
+      "source_sha256": "0005f4f2c3a8e4c5328a7ff21605e526100192e9b36426ab90bc097ea634696a",
+      "source_pointer": "/identity"
+    },
+    "oxford_pets": {
+      "dataset_name": "OxfordPets",
+      "split_sha256": "dd45ffc617bc7e2d91db19141254b9287bf83c48e462bc751d43eeb47e4777ad",
+      "classnames_sha256": "39a24c3bf01900aadef1c90a95eb5be8879f327667ef2a33e7a1d4d2f27ea4f8",
+      "class_count": 37,
+      "counts": [
+        2944,
+        1881,
+        1788
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/oxford_pets/r1/metrics.json",
+      "source_sha256": "059ec837933cea0e225e48738fc1bb34df2d56eb7094bf05a6791606dd6fc4fd",
+      "source_pointer": "/identity"
+    },
+    "stanford_cars": {
+      "dataset_name": "StanfordCars",
+      "split_sha256": "e16be8a9d1da3ef75e49b18daa2df18ee8b12feec16b5aa18cf3e28e8dd7dc34",
+      "classnames_sha256": "fd5d8b8a6974afa4bcb70e8c5204b2aa40af3419832b0d18a8f7f927f71433d2",
+      "class_count": 196,
+      "counts": [
+        6509,
+        4002,
+        4039
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/stanford_cars/r1/metrics.json",
+      "source_sha256": "66459b82970c89f4ce1508164be5ea7c618f9c35e34d1bbac716eb9f6d75938c",
+      "source_pointer": "/identity"
+    },
+    "oxford_flowers": {
+      "dataset_name": "OxfordFlowers",
+      "split_sha256": "d9a1bdf0c6bcd14507a128d064bf0c999b75719626b0a6fa6230a0fbaee136af",
+      "classnames_sha256": "0490feb6c5d111eefa2efa01510a701583eede9d5a6f528a90fc0aa97da5941b",
+      "class_count": 102,
+      "counts": [
+        4093,
+        1053,
+        1410
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/oxford_flowers/r1/metrics.json",
+      "source_sha256": "8e5e4fbc9132cf2dd1d3a803240e6051d1cf78f5ff97ec153dbacdb619252872",
+      "source_pointer": "/identity"
+    },
+    "food101": {
+      "dataset_name": "Food101",
+      "split_sha256": "fb03eeb2aa1394c34b491f747c4e68d3ea1cf172f93391946526917995a1affb",
+      "classnames_sha256": "5fe131d62e5615a9f1a70631976a59b93a7c0951af14dc835ee2573aaa4b95f7",
+      "class_count": 101,
+      "counts": [
+        50500,
+        15300,
+        15000
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/food101/r1/metrics.json",
+      "source_sha256": "9b3b9ed0bd1edbba7c9ba333e0476da5c88a05920f9d4f44f2f4b7a88c620855",
+      "source_pointer": "/identity"
+    },
+    "fgvc_aircraft": {
+      "dataset_name": "FGVCAircraft",
+      "split_sha256": "9299f34345a3dc94a0dd280a1b6106df887799db80c15e21ef7561df1e2cbb09",
+      "classnames_sha256": "3df29bf85268650e8ec9c5e040a5f4cd9a1c642a8ffd18d6ee34a94efd3068d5",
+      "class_count": 100,
+      "counts": [
+        3334,
+        1666,
+        1667
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/fgvc_aircraft/r1/metrics.json",
+      "source_sha256": "5cbd1076cb0e1d184a1097b44149cbe504a23b02f8a168d9f00e0230d332d110",
+      "source_pointer": "/identity"
+    },
+    "sun397": {
+      "dataset_name": "SUN397",
+      "split_sha256": "6848a6a65c08267de0bc4729ff9cc630cc10e5801b907ed95dab7d0791c6c6bc",
+      "classnames_sha256": "941427a335a45f5f8a484bb6c8865c1a4e1389b5149a2cec37860caf4f2d58b0",
+      "class_count": 397,
+      "counts": [
+        15880,
+        9950,
+        9900
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/sun397/r1/metrics.json",
+      "source_sha256": "c9b5ca521a1102328fd758a7242eade3d9f7a7c814a78f5b4ce3792dc8f06769",
+      "source_pointer": "/identity"
+    },
+    "dtd": {
+      "dataset_name": "DescribableTextures",
+      "split_sha256": "b3a5b49786e65a0dab0c9a2fc02257fa6348ec48dc153f9154734a804e3d60c3",
+      "classnames_sha256": "a63a5d4efba346bb4bc2da3163e302211b883119f87bf4ee087de7c423690786",
+      "class_count": 47,
+      "counts": [
+        2820,
+        864,
+        828
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/dtd/r1/metrics.json",
+      "source_sha256": "3e3a01fba64003d2433a502f44e13af5404eef0cae502f163eca86e9d90598dd",
+      "source_pointer": "/identity"
+    },
+    "eurosat": {
+      "dataset_name": "EuroSAT",
+      "split_sha256": "00443e1ff65faba361e25995cf8d708edea3ff4ffd957c643d4340db04840a3d",
+      "classnames_sha256": "4edf3ee841c2c9be743408e7d93dd45b7c543b3616f2e6cfcd9f7b25a0602a37",
+      "class_count": 10,
+      "counts": [
+        13500,
+        4200,
+        3900
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/eurosat/r1/metrics.json",
+      "source_sha256": "4b0873ef54d5950c34d98c77bd5222096576f372e7795fced130c2b3e52395a2",
+      "source_pointer": "/identity"
+    },
+    "ucf101": {
+      "dataset_name": "UCF101",
+      "split_sha256": "6e9eae511fdc37c83ac751df7a606674a4162e01782f85f015e0d32b754d2c16",
+      "classnames_sha256": "530982c9188e49deb7a039536685c3316a476e865cea90a08d3dc73888fecdc0",
+      "class_count": 101,
+      "counts": [
+        7639,
+        1934,
+        1849
+      ],
+      "source": "outputs/harp_all_seed_snapshot_20260930_1419/harp_ten_seed3_26006_20260930_setup2/seed_3/ucf101/r1/metrics.json",
+      "source_sha256": "ec6c0d8fc97442f21767db5b5fb86b3355394b638ed388b44f6bbc97537aa6c6",
+      "source_pointer": "/identity"
+    }
+  }
+}

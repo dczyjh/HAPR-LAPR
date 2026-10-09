@@ -1,0 +1,73 @@
+{
+  "files": [
+    {
+      "target": "results/harp/complete_results.json",
+      "source_workspace_relative": "outputs/harp_ablation_20260930/complete_20261002/汇总数据.json",
+      "source_sha256": "ce301446eee72c0d0fc09bd79fd67beb3b9ca9c9b84c0410d9c47879290525cb",
+      "published_sha256": "847398f3c20547f19a4575b00b06009728f19c69517f9703d11ed687297ecaf0",
+      "transformation": "JSON formatting and path-prefix replacement only; numbers/flags/rows unchanged"
+    },
+    {
+      "target": "results/larp/flat_results.json",
+      "source_workspace_relative": "outputs/larp_o_ablation_ten_20261002/complete_20261003/flat_results.json",
+      "source_sha256": "92f3746ebc17473b50f5532f19f7951cbe090ca771887a9bc091f734bcc92d7f",
+      "published_sha256": "0927ff1d3e99d9877129f0d4116092927d216b67f0885c92cfc10598f80e9213",
+      "transformation": "JSON formatting and path-prefix replacement only; numbers/flags/rows unchanged"
+    },
+    {
+      "target": "results/larp/analysis.json",
+      "source_workspace_relative": "outputs/larp_o_ablation_ten_20261002/complete_20261003/analysis.json",
+      "source_sha256": "e51a6294c842541868e21cbf7856d6571bcd927cf73addeb2aa3503a6875e7ec",
+      "published_sha256": "a98c5e228fe3218430a19c29718fe53e7d8302e114355df068dd9d64f112f237",
+      "transformation": "JSON formatting and path-prefix replacement only; numbers/flags/rows unchanged"
+    },
+    {
+      "target": "results/larp/epochs_index.json",
+      "source_workspace_relative": "outputs/larp_o_ablation_ten_20261002/complete_20261003/epochs_index.json",
+      "source_sha256": "a605162383497ecdb10a9a05e9e81e468f81f932a412942fb49f7f15a546236b",
+      "published_sha256": "a448db457d62244fda2cf085f582d125339334365c7820c16a844623c3c6d2aa",
+      "transformation": "JSON formatting and path-prefix replacement only; numbers/flags/rows unchanged"
+    },
+    {
+      "target": "results/larp/r0_external_reference.json",
+      "source_workspace_relative": "outputs/larp_o_ablation_ten_20261002/complete_20261003/r0_external_reference.json",
+      "source_sha256": "5ddb550124c0266264ac0ef96d17412f3c3c46cad46843871b956bfe57ccce5f",
+      "published_sha256": "99883dd8a242b9d08f88e456ef4189ed466d6bc09cf2016825b150a81851fb38",
+      "transformation": "JSON formatting and path-prefix replacement only; numbers/flags/rows unchanged"
+    },
+    {
+      "target": "results/larp/main_and_replay_summary.json",
+      "source_workspace_relative": "outputs/larp_o4_complete_three_seed_20261002/summary.json",
+      "source_sha256": "c4a3fce726035996723ae58976a7ef520a21137ccadda8a0f70793c6af939913",
+      "published_sha256": "61b936c3fe24acdde73beafcd2a1452a05c17f6432892704dd3d8d44b002ca1c",
+      "transformation": "JSON formatting and path-prefix replacement only; numbers/flags/rows unchanged"
+    },
+    {
+      "target": "licenses/PromptKD-Apache-2.0.txt",
+      "source_workspace_relative": "base_materials/repos/PromptKD/LICENSE",
+      "source_sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8",
+      "published_sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8",
+      "transformation": "none"
+    },
+    {
+      "target": "licenses/Dassl-MIT.txt",
+      "source_workspace_relative": "base_materials/repos/PromptKD/Dassl.pytorch/LICENSE",
+      "source_sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3",
+      "published_sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3",
+      "transformation": "none"
+    },
+    {
+      "target": "licenses/MMA-MIT.txt",
+      "source_workspace_relative": "base_materials/repos/MMA/LICENSE",
+      "source_sha256": "9bde51e4e2576a3000837af592db45586f693a83893e8fa2f9b718534462cebe",
+      "published_sha256": "9bde51e4e2576a3000837af592db45586f693a83893e8fa2f9b718534462cebe",
+      "transformation": "none"
+    }
+  ],
+  "path_aliases": {
+    "workspace://": "original local evidence workspace (not bundled)",
+    "server-workspace://": "original per-node experiment storage (not bundled)"
+  },
+  "gpu_work_performed": false,
+  "results_recomputed": false
+}

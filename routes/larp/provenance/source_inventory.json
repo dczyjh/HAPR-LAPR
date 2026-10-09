@@ -1,0 +1,2529 @@
+{
+  "scientific_manifest_sha256": "0c01dfc7170c81ccf82eac8831ad56d7f19195718c7d6fc9a4be5c495276ed0f",
+  "source_contract_sha256": "b7c6ca2ab97830453661e41f8e2ee36b2ec3dccf32d7033a2d5f05d74ac917df",
+  "counts": {
+    "research_python": 177,
+    "official_reference_python": 157,
+    "helpers": 7,
+    "total": 341
+  },
+  "all_scientific_entries_hash_verified": true,
+  "files": [
+    {
+      "frozen_key": "larp_all_o_ten_20261001_setup2/run.py",
+      "source_path": "outputs/larp_all_o_ten_20261001_setup2/run.py",
+      "release_path": "archive/helpers/larp_all_o_ten_20261001_setup2/run.py.txt",
+      "sha256": "790c4e07c7abb2ad0b9a1cb7635dd8e0306ddb0d2c57bffc4a44a56864acdf36",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "larp_last3_o_four_20261001_setup2/run.py",
+      "source_path": "outputs/larp_last3_o_four_20261001_setup2/run.py",
+      "release_path": "archive/helpers/larp_last3_o_four_20261001_setup2/run.py.txt",
+      "sha256": "0bf3fc5110fac44bffe8f2c4f5825f5eb06e28972e8519596583709f8f81d73b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "larp_o_only_20260930_setup3/test_o.py",
+      "source_path": "outputs/larp_o_only_20260930_setup3/test_o.py",
+      "release_path": "archive/helpers/larp_o_only_20260930_setup3/test_o.py.txt",
+      "sha256": "f6e668c0bc1b4d5d693783ce4c07b0265e41bce589ce55c70a252792d40eb994",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "larp_pets_projector_ramp_20260929_setup2/projector_schedule.py",
+      "source_path": "outputs/larp_pets_projector_ramp_20260929_setup2/projector_schedule.py",
+      "release_path": "archive/helpers/larp_pets_projector_ramp_20260929_setup2/projector_schedule.py.txt",
+      "sha256": "47b526943ab6c01773676d5102f6fb2c54a043f15db2b6355bff1edd8609d1d6",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "larp_research_20260928_fix1/research_queue.py",
+      "source_path": "outputs/research_fix_20260928/research_queue.py",
+      "release_path": "archive/helpers/larp_research_20260928_fix1/research_queue.py.txt",
+      "sha256": "5962ffb4973453bc7b4a52e456391e02601b323b1b0658a79dbf2da39486ac69",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "larp_ten_oldlr_20260929/run.py",
+      "source_path": "outputs/larp_ten_oldlr_20260929/run.py",
+      "release_path": "archive/helpers/larp_ten_oldlr_20260929/run.py.txt",
+      "sha256": "d3a1457c0cf2ec36ae01429f9be8a43196448075c8f1a9a1c8ef7049219c50f3",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "larp_two_dataset_ramp_20260929/evaluation_evidence.py",
+      "source_path": "outputs/larp_two_dataset_ramp_20260929/evaluation_evidence.py",
+      "release_path": "archive/helpers/larp_two_dataset_ramp_20260929/evaluation_evidence.py.txt",
+      "sha256": "a6b182fb3e19418dd8cf7d557e7766f9b58d5c93120028afd4dc84fd5418562e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/__init__.py",
+      "sha256": "971cf9ec3e61350687d6e570314d7fb3c0157e94fbdb99bb4cfb3238a4ab3a13",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/config/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/config/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/config/__init__.py",
+      "sha256": "ddbdb024c2567011b3c719374daacc8540f88cc897b2f26294e8cb0a2a687141",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/config/defaults.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/config/defaults.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/config/defaults.py",
+      "sha256": "d1e846ca24c643d262277c3f9fa2a9e78cca40555f83a31dfdbd358b6e3bab70",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/__init__.py",
+      "sha256": "a9db83252d7644cfbf8274de1f59780e3baf1b04c8709e1ae0d96b8e0807f4b7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/data_manager.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/data_manager.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/data_manager.py",
+      "sha256": "975be8d8f677028e6fb50c40fa36e54158e7545b15283b6dbbfd3b41a7d2a22e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/__init__.py",
+      "sha256": "f451f85d8162af5b0e94eef0108c39d2f6da24129070d88955fd15d6c72cc2bb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/base_dataset.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/base_dataset.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/base_dataset.py",
+      "sha256": "aeaf26e85720286a920a0a95c905db7e1ac8cb6c785cb4789c2f13ec47dace65",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/build.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/build.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/build.py",
+      "sha256": "ae96d1e216926ebdac6f8569e281972bf17bafdd311eb0791d1626a9b078a3b9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/__init__.py",
+      "sha256": "36047cec8f245ddcb1646e9367b6fef221334d8afcb2cd6505c8190dc52322e5",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py",
+      "sha256": "10a26727f2c8a801571abf14ba95d180409e0b5c17f4a954e68f4b7e5831a143",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/digit5.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/digit5.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/digit5.py",
+      "sha256": "e885d5b624f3d396b95957d493ffe76f1fc33f08589ad41bf58b1ec602b1a62a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/domainnet.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/domainnet.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/domainnet.py",
+      "sha256": "011db8795b246f3c3db0e6b99afe546cf41ef4076c8556a6aea7f8c2ffc58219",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py",
+      "sha256": "935c9a4ec893dde9198550cd9f5b38bdf6c8aa636838d24f67f5e35da24a0d67",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/office31.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/office31.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/office31.py",
+      "sha256": "703c56009852384c0c061d2c9e68fa0fbf280563b23764842d394ebc7994880a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/office_home.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/office_home.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/office_home.py",
+      "sha256": "69a02a045b56209878754132e3ca310d3f8703d9ebbd31c10f93c304ce665965",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/da/visda17.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/da/visda17.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/da/visda17.py",
+      "sha256": "5874affa39ef911073b9727817af75b37e3caab84d1a3f930e13c71e3b0d70ee",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/__init__.py",
+      "sha256": "6a07b0dd672f6d7d613534d15c8abcd5bbf0029abd85d4e39a6c851b5406668d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py",
+      "sha256": "58b23e1011fdcb8056e95b56a99e3edc151918abf508957f8470c23b3a1f6f37",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py",
+      "sha256": "069cca5ebb9f12d607edef2f26bcacb1c613a2a50bdffffff26e4aac55c54d7a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py",
+      "sha256": "26f4fef79c4630f6441c4986bbd8084c34182bd6db5879f910c8fe050cdd1c5d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py",
+      "sha256": "5237d18f1b5121091352add3cad65c2fe044540b78586abafeea69d1703ab44d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/pacs.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/pacs.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/pacs.py",
+      "sha256": "a7cc0f10c720098f8a3b29379a6d38801fe294f4d06f43fb1b453fbcbdc94b1d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py",
+      "sha256": "fba407f76aa656741d041717508d06ec2e738eea3245f446be8641a71e173b6b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py",
+      "sha256": "6b3d97244748ec9ef278f5d6f617b4fcc24d380feda828a080a9b9dd879b2af4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py",
+      "sha256": "1989d5879f64ac1be0110bc12acac7660648cd6fc9c4fd1f06555de97bd630c2",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py",
+      "sha256": "3bf9e5e0c3a18b9b3179cb5f9e9d2013172894a66599457a3398f467274edddb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py",
+      "sha256": "9e3a85ce859dc16bd2bda07e31d631f65ee241f9f674a3d5af15bb83fa84deb5",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py",
+      "sha256": "0f1c3e7f6430107cee97f0a922fa220d533a6f5f3547d7232830035f8a00f3a7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py",
+      "sha256": "ee91948848387da87970181695025a7d3a29d15caa7f3f1c58a83ef86e9a8c30",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py",
+      "sha256": "191e2f957608182e065e884f28e801e32fa66c9e79aabe6ab9845427ee54e27f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py",
+      "sha256": "b8f2f2bbf678f6b527bfc5018d91994409bf9b244f973a69c457fd3cced6b437",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py",
+      "sha256": "bd6ff6baad826e8fe43d14d77dc8180dd6fb5d7f254eba0d3aa44a4badbf3465",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/samplers.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/samplers.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/samplers.py",
+      "sha256": "06bd592ca2e52b59d5f68bcbb5a987e81f7d3959ea638e5dae2211583326f269",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/transforms/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/transforms/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/transforms/__init__.py",
+      "sha256": "a0ffe5c9cedb2804e3fc3389a4e20b5b041b467ae0d3c28bd426aee48ecf0aa4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/transforms/autoaugment.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/transforms/autoaugment.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/transforms/autoaugment.py",
+      "sha256": "0ecbff1244396c8a944139a98cdf677c6dea0fd254565c9a047c7a72707963b4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/transforms/randaugment.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/transforms/randaugment.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/transforms/randaugment.py",
+      "sha256": "d98e106911803e39522f6efb35a8c1f83fa37c895328a1e094edbf39359dd1ce",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/data/transforms/transforms.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/data/transforms/transforms.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/data/transforms/transforms.py",
+      "sha256": "8f1e30dad741aca3aeffab7155a59ea257757fb4625bf7e5e48537e293fa435e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/__init__.py",
+      "sha256": "91eb87dab342bfdecae552699606c677f1c7f991f4dc473f688585ab1767b4e2",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/build.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/build.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/build.py",
+      "sha256": "c6e9aa7dc2b93d45d62c968119ce0cc166013fbc6d17f1f6f25f678a3ee1839b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/__init__.py",
+      "sha256": "bb84267cd2281ae66abc34450648e5e7c49a8e2f3e4aac1809ddaa0a8bd9fa00",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/adabn.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/adabn.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/adabn.py",
+      "sha256": "b17318ee97a4ac378b9018d47fd5e54743bd9d435f859b75514c7c6f59c4e981",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/adda.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/adda.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/adda.py",
+      "sha256": "5963ea37980c6b0902dbb24bae88f6575b0badc53db24dc86b0bf612e5fb2c63",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/cdac.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/cdac.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/cdac.py",
+      "sha256": "3240a9c1403409ab6fe2586211192544c89a648dcc6e753bb8497185c21a11ef",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/dael.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/dael.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/dael.py",
+      "sha256": "bcc653aaaf46176c118ae36a03e4b48979e4c649fecca9be22b52db0eb7de62c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/dann.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/dann.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/dann.py",
+      "sha256": "82086da7c577cc9455879c21a420a30f07bfd6dc312456d53614afbd5cc68c59",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/m3sda.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/m3sda.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/m3sda.py",
+      "sha256": "6ac6e245501170d28917a7d856c084cc5f50a9900243770f5f7516681b0c6363",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/mcd.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/mcd.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/mcd.py",
+      "sha256": "9e5e07b634c8ae8186b97f33b536b6386679b668a48ccba4dd947683f81194da",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/mme.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/mme.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/mme.py",
+      "sha256": "cc0cd3e39d70e541eec4e32f87d58fe29e30cfa9ef2efc73028448f3b8d0a3c4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/se.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/se.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/se.py",
+      "sha256": "d6fdda904c99ad2472844c0807d18b4936d68da94ce7a7767fc58388f810a4f4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/da/source_only.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/da/source_only.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/da/source_only.py",
+      "sha256": "2b79b8ca5e464a1532caa58c9640a1110a5e23dd4d79aca36848996376a88dfc",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/dg/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/dg/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/dg/__init__.py",
+      "sha256": "ed5355cae2794f7beb4fc26a274bc80e90b56557eae01d3cc399627479ca2ea1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/dg/crossgrad.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/dg/crossgrad.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/dg/crossgrad.py",
+      "sha256": "55771ce981fd8bb12629fe52a9a39e30d96d588552ce2558c90eec6f6e83f712",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/dg/daeldg.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/dg/daeldg.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/dg/daeldg.py",
+      "sha256": "d5390bbdcd8d1a61223ec8cb20e146d189ab506f74b41bc4c0ff839764d76309",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/dg/ddaig.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/dg/ddaig.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/dg/ddaig.py",
+      "sha256": "d6a1b07732b705db91fef2b578e24d7922c40d5a5dbd7df962ccb5d8a663560f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/dg/domain_mix.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/dg/domain_mix.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/dg/domain_mix.py",
+      "sha256": "3b3956e6c91237040f3d8f4d4f17ce0ca590bb5a0f4ee7d78404b0856315e3cf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/dg/vanilla.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/dg/vanilla.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/dg/vanilla.py",
+      "sha256": "f385c1282136c9779eda53a0a1c102449f81f0446218bd96c456a170a18e813f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/ssl/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/ssl/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/ssl/__init__.py",
+      "sha256": "015d3582a1b0cd68c17a73d1480865fe0248135454d5e21bcb0cd6d374a73fc1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/ssl/entmin.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/ssl/entmin.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/ssl/entmin.py",
+      "sha256": "3d142862eb432afe0653766d35e450c7825223fdc47b6619c647cd834c474691",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/ssl/fixmatch.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/ssl/fixmatch.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/ssl/fixmatch.py",
+      "sha256": "4cf65f35847958bc465a2e365c0a81e9f59b685de6f025afcd762effab8a755b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py",
+      "sha256": "cd6885f3d05e80195af44feef29dd8cadb629285604fc8ba5e6eeaebd3666bdd",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/ssl/mixmatch.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/ssl/mixmatch.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/ssl/mixmatch.py",
+      "sha256": "9a114aff2e5847ac6e68fcdb4cee7d9b956a481a8720dc495015d726a8ac2328",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py",
+      "sha256": "e05224c352f8eda45d6402c9e13fd056ce1f759493154b98376107b159221b8f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/engine/trainer.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/engine/trainer.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/engine/trainer.py",
+      "sha256": "b058571d2c62423907f040c210206ba49532eabece64c865c35bb24ef23b5750",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/evaluation/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/evaluation/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/evaluation/__init__.py",
+      "sha256": "877d8f5762fa50d3c2394c5c0752e8e3fd78c65fa1f5b0acc9de36c0e7fa3642",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/evaluation/build.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/evaluation/build.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/evaluation/build.py",
+      "sha256": "b0030da809990b5a42b1b4c0fd6eda564ed17f856ac04d83d7dd93fb512e4aed",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/evaluation/evaluator.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/evaluation/evaluator.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/evaluation/evaluator.py",
+      "sha256": "2777f11becfb23f97fd4b1b6552b5f8bf243e20fbd0463b5fd277dd4dd3a01eb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/metrics/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/metrics/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/metrics/__init__.py",
+      "sha256": "aab20acedce5d9e1b370a28b3dc43c4a320685b996c3a79304900c0c80f27385",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/metrics/accuracy.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/metrics/accuracy.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/metrics/accuracy.py",
+      "sha256": "1826ef2dde1ed20c1674ef40d5d6f5a5475faae7eeea9da3aff8190bfb450441",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/metrics/distance.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/metrics/distance.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/metrics/distance.py",
+      "sha256": "0b53c3e95ab9c02d7eaf6c780311c1cfd8a64e5017ab762c77e832b9cc2a3371",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/__init__.py",
+      "sha256": "9135c4492d32016444082a31714529ff392800ef4f2313042cf803b8b304ea0f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/__init__.py",
+      "sha256": "a6fca6d2b4aa44c2c35ed47cba5f5f3c47314ea4c8f07288c05f95530ed98282",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/alexnet.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/alexnet.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/alexnet.py",
+      "sha256": "54095dd19ac913092fb51b7171892ec1c99040a6631411eacc9ce196bfd176ab",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/backbone.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/backbone.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/backbone.py",
+      "sha256": "800fd64f3ebc3d37f3721b4f62dfdaf1e8472bdd036c0dff8255bfb2fe4611d9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/build.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/build.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/build.py",
+      "sha256": "ecc84da802b2326dfabb27dbe8007635c24d63bedace334524ad821a576247d7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py",
+      "sha256": "ce7dd5fa49c90b6da47473ab2d0de47d96e51c1ab14ca8ab874bf6129ab67c2a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py",
+      "sha256": "b553ab390fc907f79616a1c88ff9c5bca08458a0c333fffa2a04ce07283e9fb7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py",
+      "sha256": "39d6ae34c7459115861bfd2672e0b957d332a414d4c4e1f9266e8674d62a8ca4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py",
+      "sha256": "98e9d7b401d60c93dc60d1f3df8f03eb73616e592b8e9e3404429f9ad6011d00",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py",
+      "sha256": "fdb021b462b74b457d4d01dd74924ea61d8402a112c79544358278ca438f48cf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py",
+      "sha256": "6afe3dc185afaba007139533699b3f9e4f32413935d255ad169f2000c9c10664",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py",
+      "sha256": "3a51de5794915f04dd737e26c61df3168477b6083141eeff574321408bc2e892",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/resnet.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/resnet.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/resnet.py",
+      "sha256": "57007e21cd26e2961b1707942d4224f23aed34d5e67b0b89499bfeb08e0172af",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py",
+      "sha256": "93713b225707365e90e9497096cee7ef095fcd86dac8b2b31f6c7081c082a06f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/vgg.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/vgg.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/vgg.py",
+      "sha256": "c81278a47eaac1921589b9560893df8ad08df0989894a7d21814cc9ff4f2e0df",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py",
+      "sha256": "cfa281849d9938a551e2032fadc02510ce7f64a929cc8b0e950bc1cc8d1587dd",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/head/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/head/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/head/__init__.py",
+      "sha256": "90db749ad572ffe67ab499f1cd05348ab51f8ba7080e1491dc6c91661095ad64",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/head/build.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/head/build.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/head/build.py",
+      "sha256": "d569803004150db4ae01aee23aa02a3f1d55aa3fc2fea2ea0ff6d86dd9fd6259",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/head/mlp.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/head/mlp.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/head/mlp.py",
+      "sha256": "8914f18629ba2e51b0b5a6b701cedfb90a8285901cf534d81fe252c040c203e9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/network/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/network/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/network/__init__.py",
+      "sha256": "8d0bfc958c4d5d2d3c737badd0e801b94173887b75b7f2a580cde0b8d0dffdd3",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/network/build.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/network/build.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/network/build.py",
+      "sha256": "7260aacd16bb4b9f04dd928c892783f6f24f1180b40cd177ca0ac8ea8b5a517c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py",
+      "sha256": "bb04c6719301cca7833b8096499a969d15d5c44740b1ddb8038deb9693a48b18",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/__init__.py",
+      "sha256": "15e84588c09fcd3e6d9decc2e0983644284e675216703ad3cfa55abecef8ea4e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/attention.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/attention.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/attention.py",
+      "sha256": "fefd9eedcb4a65cfbfd3a3cc764ea67c9f4cf22818ff89f7c241e35e961833db",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/conv.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/conv.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/conv.py",
+      "sha256": "753d90364239bbd557f4336932f34484e3e04bca45cb3a6f286b1a19808ff524",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py",
+      "sha256": "dffbe6ecad5030450f000f123f7666f6a85eb28e020e68e19fb1c8f923005ee6",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/dsbn.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/dsbn.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/dsbn.py",
+      "sha256": "b27d26c24610689fbf24e9ad9628b8d3485546922d1d6599f974d1ee39173bee",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/efdmix.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/efdmix.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/efdmix.py",
+      "sha256": "fd686d6cd420abf230f665ef185c33c11a5ba544b01b837c6c8bb5cce8ebe2cb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/mixstyle.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/mixstyle.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/mixstyle.py",
+      "sha256": "56279a46bfa28bf490face795ee446d06348179b1790f2910e8682dbd9980e5c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/mixup.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/mixup.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/mixup.py",
+      "sha256": "0910aa17958c481220ab759c5bb7594008da4f5f6fb870e16655154d4edcf2c7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/mmd.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/mmd.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/mmd.py",
+      "sha256": "8a1631f9f61966cdbdd6f76ebb6edde15e6ca19de660f7ac0c4e98b19f8045e8",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py",
+      "sha256": "9a5e3fe1c45dce603319e8744b8b1a643b07691688e82d8ad937de40420f032c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py",
+      "sha256": "91cc7a68fb7117a3d726708f685861cd7997a41bb018a0a6d98c6cecaf060d87",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/sequential2.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/sequential2.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/sequential2.py",
+      "sha256": "7446ad88522611a0fb097eeda352fb54035e17c72b98b44e4697785c94fe767a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/transnorm.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/transnorm.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/transnorm.py",
+      "sha256": "a1ae7f72e3bdfa956c57c79c4ba3d229940d1cd825819f9481033200712f7d2c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/modeling/ops/utils.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/modeling/ops/utils.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/modeling/ops/utils.py",
+      "sha256": "1d12c731451d762ff1cdb47084d6b29f802facd81166b5a74a49112047667766",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/optim/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/optim/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/optim/__init__.py",
+      "sha256": "3f83afa74e14d5eec9ad10b510ffc955d8ce54f2fcd8a45f479eb0cd5372c474",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/optim/lr_scheduler.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/optim/lr_scheduler.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/optim/lr_scheduler.py",
+      "sha256": "0c5174c59fe7afd08ce7b9ff031fc794fe83ce9ec13f6a83caa5912b58ffb870",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/optim/optimizer.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/optim/optimizer.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/optim/optimizer.py",
+      "sha256": "c5c411a0e1a001afa9646587811ecea36772e86e8162e97826285ee60b5dd8a4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/optim/radam.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/optim/radam.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/optim/radam.py",
+      "sha256": "b7197851cabe700ce024453a9602dcb498538a4c13d6e55b03cbdf6bbd9af0d4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/utils/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/utils/__init__.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/utils/__init__.py",
+      "sha256": "011968995da796bf0e1aae8c4f36c4e4f1c1762fe22a5b22f82c6a1fcb5e4f4a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/utils/logger.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/utils/logger.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/utils/logger.py",
+      "sha256": "982b4acdbcd25e3bf5d8454f7dafb75b329140b92f81bac9f9c2fb94357f37c7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/utils/meters.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/utils/meters.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/utils/meters.py",
+      "sha256": "d41b318ed0a109d59be3f344533e6121059dbb87143782b32e2ef20dec2aa5a9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/utils/registry.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/utils/registry.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/utils/registry.py",
+      "sha256": "531c83ee95fd3b80f0f375291e9423262f8f7b2d055567a70e2b25d1d632bb2f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/utils/tools.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/utils/tools.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/utils/tools.py",
+      "sha256": "684431d32016e998ad3d628e561cf2500c8d69572278d04efd81844683fe644f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/dassl/utils/torchtools.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/dassl/utils/torchtools.py",
+      "release_path": "archive/project/Dassl.pytorch/dassl/utils/torchtools.py",
+      "sha256": "8e65ddd145950121ff3e9427d414d801c0c15aaf50b2612cd41069c53b2cd8c9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/datasets/da/cifar_stl.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/datasets/da/cifar_stl.py",
+      "release_path": "archive/project/Dassl.pytorch/datasets/da/cifar_stl.py",
+      "sha256": "37396215117830bd926167424cb4b65c9bc8aee611e25d5a27397b75a311fb09",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/datasets/da/digit5.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/datasets/da/digit5.py",
+      "release_path": "archive/project/Dassl.pytorch/datasets/da/digit5.py",
+      "sha256": "d436de678095c5bbe6e6689db8669bd526a0a5bdc989894fbc603f283fc5e807",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/datasets/dg/cifar_c.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/datasets/dg/cifar_c.py",
+      "release_path": "archive/project/Dassl.pytorch/datasets/dg/cifar_c.py",
+      "sha256": "6a3399afc470606e11f1d152febe5002051ae4748bd0522427153c24bd2e7439",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py",
+      "release_path": "archive/project/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py",
+      "sha256": "eccc2022fc0b5715a6a05b5c02433c9a46ea1039b11e265239ea2285755310cd",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/datasets/ssl/stl10.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/datasets/ssl/stl10.py",
+      "release_path": "archive/project/Dassl.pytorch/datasets/ssl/stl10.py",
+      "sha256": "b7d4dc96cf527eebf90ef3171c49227dc96d08cd057b77f66a3bf7496609424a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/setup.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/setup.py",
+      "release_path": "archive/project/Dassl.pytorch/setup.py",
+      "sha256": "77b327e2d5d4ab77798f2bc6588162c5621c51690e5dab20768a69788f6a8dc2",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/tools/parse_test_res.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/tools/parse_test_res.py",
+      "release_path": "archive/project/Dassl.pytorch/tools/parse_test_res.py",
+      "sha256": "c94a1c8b9ed7908ca44ea9f4ad9e909bccba52943c58bb5faebf2dc1f51a620e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/tools/replace_text.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/tools/replace_text.py",
+      "release_path": "archive/project/Dassl.pytorch/tools/replace_text.py",
+      "sha256": "ded96adcdaa59d30b161903fbdffefc062b10b25c6ea56badd409ab5c3784546",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/Dassl.pytorch/tools/train.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/tools/train.py",
+      "release_path": "archive/project/Dassl.pytorch/tools/train.py",
+      "sha256": "112d936e057118ec82aba852e3968096560afd8f63aa390249e48e6fb600876e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/clip/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/clip/__init__.py",
+      "release_path": "archive/project/clip/__init__.py",
+      "sha256": "d7930eb290ebed432116795c91473200d098451a94c0aedd4ae0f934f97955e8",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/clip/clip.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/clip/clip.py",
+      "release_path": "archive/project/clip/clip.py",
+      "sha256": "855ab36f3c1039d9b9fac1a47c217114d3269c65ddf9c7d304112a01a4210f60",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/clip/model.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/clip/model.py",
+      "release_path": "archive/project/clip/model.py",
+      "sha256": "0a9861a774622f71f960af6b74cff547c852ffc24e29927add8317f88cd51754",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/clip/simple_tokenizer.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/clip/simple_tokenizer.py",
+      "release_path": "archive/project/clip/simple_tokenizer.py",
+      "sha256": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/__init__.py",
+      "release_path": "archive/project/datasets/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/caltech101.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/caltech101.py",
+      "release_path": "archive/project/datasets/caltech101.py",
+      "sha256": "b2a2779aa9755a330b7de66a5044f8204dc43f13d4fc9d75ae2e0a3ab12c8d7a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/dtd.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/dtd.py",
+      "release_path": "archive/project/datasets/dtd.py",
+      "sha256": "6e1431e25c7cc0c93627a233f3e02674c074792bf8f159c687fdd1e0fb794b59",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/eurosat.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/eurosat.py",
+      "release_path": "archive/project/datasets/eurosat.py",
+      "sha256": "4da51af2767737aaa48c367e29d7abf8c1572ea14c13d774b20c6f19097cf48e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/fgvc_aircraft.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/fgvc_aircraft.py",
+      "release_path": "archive/project/datasets/fgvc_aircraft.py",
+      "sha256": "12347fd7594cd3604c4f8fa50e3b2f6a00ff318925efe2e8b272f0063daf97bb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/food101.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/food101.py",
+      "release_path": "archive/project/datasets/food101.py",
+      "sha256": "fe6720893a971e0223d3a6d600fe6148070cc7f9db6ab5e747b78095deb1df6c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/imagenet.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/imagenet.py",
+      "release_path": "archive/project/datasets/imagenet.py",
+      "sha256": "0e7525afe511ba3edeb17a05e2cea8e6d5dbe45963fb9619c3a458053f331eaf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/imagenet_a.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/imagenet_a.py",
+      "release_path": "archive/project/datasets/imagenet_a.py",
+      "sha256": "7bbf7bbb73a8984a5f4092ed197d56bc82f711b59cc26171ef467f3405c506ad",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/imagenet_r.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/imagenet_r.py",
+      "release_path": "archive/project/datasets/imagenet_r.py",
+      "sha256": "4d5832a539744cf617e828f6d2ccadb6d99a646df3ac169ce5462d5e4a3ec326",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/imagenet_sketch.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/imagenet_sketch.py",
+      "release_path": "archive/project/datasets/imagenet_sketch.py",
+      "sha256": "b4046da735585a0cbf80e7bff96fcaf4cfcef8c0cbd7bca38781ddf87c5b6095",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/imagenetv2.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/imagenetv2.py",
+      "release_path": "archive/project/datasets/imagenetv2.py",
+      "sha256": "e93f655f21edc0b106261d10cbcac10957c49095edf55625acd12eae5a5dd6df",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/oxford_flowers.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/oxford_flowers.py",
+      "release_path": "archive/project/datasets/oxford_flowers.py",
+      "sha256": "963f68ea6c370dfaa9d4b64e33102589e0021fab5251cec376d4ec96a55012ba",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/oxford_pets.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/oxford_pets.py",
+      "release_path": "archive/project/datasets/oxford_pets.py",
+      "sha256": "03bf300d6b111f5f57ebfdbdfacb56ea458917feccbe9d938862352592f8258a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/stanford_cars.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/stanford_cars.py",
+      "release_path": "archive/project/datasets/stanford_cars.py",
+      "sha256": "35b39bd70a480483a6c3c277054016e6dc3430852817966fa3a034a7a3574665",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/sun397.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/sun397.py",
+      "release_path": "archive/project/datasets/sun397.py",
+      "sha256": "36665e53068df9cde1e68f6ca7ff13393c833db749611fe01ddb7c2104b6dcbf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/datasets/ucf101.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/datasets/ucf101.py",
+      "release_path": "archive/project/datasets/ucf101.py",
+      "sha256": "cc6bae8518f40e32380359eeedc67de76e9cca8f2780531bccf0308fdd22303c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/interpret_prompts/interpret_prompt.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/interpret_prompts/interpret_prompt.py",
+      "release_path": "archive/project/interpret_prompts/interpret_prompt.py",
+      "sha256": "0c6951d9938db9f6442cd4b5003cd1f64ada2faccb6063c82c2d1ddca0fa5697",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/lpclip/feat_extractor.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/lpclip/feat_extractor.py",
+      "release_path": "archive/project/lpclip/feat_extractor.py",
+      "sha256": "e2ea3cb4924eb53a90170d3ebd83a54b8b3f85c8f226dfb0fb5300f2e0e1bbf4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/lpclip/linear_probe.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/lpclip/linear_probe.py",
+      "release_path": "archive/project/lpclip/linear_probe.py",
+      "sha256": "0bbedba2adf7cce66626f3e9b4b4702e61b7af43632c49eecf965e4f2e6a2e82",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tests/test_efficient_adaptation.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tests/test_efficient_adaptation.py",
+      "release_path": "archive/project/tests/test_efficient_adaptation.py",
+      "sha256": "3664c16f5c24b7a450e12d437afa537939b0fa9ba317f68a7d6b4d17d92e3206",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tests/test_pipeline.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tests/test_pipeline.py",
+      "release_path": "archive/project/tests/test_pipeline.py",
+      "sha256": "cc9a40446bf784a4430222f27aa7ae6b2b32b064eef3069b687852c858ddbf8a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tests/test_report_results.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tests/test_report_results.py",
+      "release_path": "archive/project/tests/test_report_results.py",
+      "sha256": "13ac59da07e475b2e2e1877852f59040ad2d6a830d119410ad2cc9acb1aae527",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tests/test_runtime_reproducibility.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tests/test_runtime_reproducibility.py",
+      "release_path": "archive/project/tests/test_runtime_reproducibility.py",
+      "sha256": "c0e01e8ab6982085248a1801aed737baca102fa5c23646945042fa4fb275924e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tests/test_summarize_results.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tests/test_summarize_results.py",
+      "release_path": "archive/project/tests/test_summarize_results.py",
+      "sha256": "9201329125f91e0e400b6d1a384f1e365ed89a801a0c3a1f61f3b9eca7938d4f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tests/test_trainer_end_to_end.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tests/test_trainer_end_to_end.py",
+      "release_path": "archive/project/tests/test_trainer_end_to_end.py",
+      "sha256": "90b0fdcff64ae8ebf4b5dbba23398cf60443c589466c440afb23f2dff9af5189",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tests/test_v3_controls.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tests/test_v3_controls.py",
+      "release_path": "archive/project/tests/test_v3_controls.py",
+      "sha256": "613c720fef8950d4432e6b94041b6b6ad6ffb10b69061bdba1d69e7cf095b9cb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/compare_methods.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/compare_methods.py",
+      "release_path": "archive/project/tools/compare_methods.py",
+      "sha256": "c72b14f38a07fcf08f7abf8f31cd2b11063bdb8b45e162a5438ebb37c002d321",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/parameter_report.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/parameter_report.py",
+      "release_path": "archive/project/tools/parameter_report.py",
+      "sha256": "3bfdaa8cc79c751d38fe135164494fa4bd1ba1b99239a80280fcb429773dfcea",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/preflight.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/preflight.py",
+      "release_path": "archive/project/tools/preflight.py",
+      "sha256": "c2e9e5f7e2e5778295cd9a1066a68c54154080fc7fa560d269ef4be7768e0ea2",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/provenance.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/provenance.py",
+      "release_path": "archive/project/tools/provenance.py",
+      "sha256": "73609d73b01cd01803e24bfdba5b5dd45698326d0c1c3bafecda90ff93dc0f40",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/report_development.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/report_development.py",
+      "release_path": "archive/project/tools/report_development.py",
+      "sha256": "78e56bb53b99be81aa4f3678cf8ebace690d1402a8bfc3088ac3ce26582f5104",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/report_diagnostics.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/report_diagnostics.py",
+      "release_path": "archive/project/tools/report_diagnostics.py",
+      "sha256": "298084aea5813d7c4ebe37c046d5383323f816e1aed497a68b34acb0ead3b7f6",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/report_results.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/report_results.py",
+      "release_path": "archive/project/tools/report_results.py",
+      "sha256": "73f3da0b0a33507081b18fd376de74e7b6c37e17f5b7a1647839d60893f3137d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/run_experiment.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/run_experiment.py",
+      "release_path": "archive/project/tools/run_experiment.py",
+      "sha256": "be19929e3e8a81d6fa2a6cad29d25cd3c5a5dcf014b4418b42022bbfad476960",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/tools/summarize_results.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/tools/summarize_results.py",
+      "release_path": "archive/project/tools/summarize_results.py",
+      "sha256": "3ab190fde3be5c2888964d4552a99288b8e2c8253f9b61715f1b63029ad94777",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/train.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/train.py",
+      "release_path": "archive/project/train.py",
+      "sha256": "5923fa573d9ebc0083e8859ca31502f1b782afd76b4794049571581fa0460947",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/__init__.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/__init__.py",
+      "release_path": "archive/project/trainers/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/adaptation_diagnostics.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/adaptation_diagnostics.py",
+      "release_path": "archive/project/trainers/adaptation_diagnostics.py",
+      "sha256": "b910b42526cd54ec05b2ecff6bdafc1152f5cb1fc3c01395331db8a909fc77bb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/adaptation_optim.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/adaptation_optim.py",
+      "release_path": "archive/project/trainers/adaptation_optim.py",
+      "sha256": "0e2bbf78207a26654923bc0ede860990aa625a07ced4755548a580fc9d86abd1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/cocoop.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/cocoop.py",
+      "release_path": "archive/project/trainers/cocoop.py",
+      "sha256": "67d5401bb955959b57a51ff0dae4ce5d6cd035d0a65ec62a03e9fa637bb76688",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/coop.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/coop.py",
+      "release_path": "archive/project/trainers/coop.py",
+      "sha256": "2d9fac3c277d7240850179a2060b7da59602a046161e92660edc2db4822cd084",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/development.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/development.py",
+      "release_path": "archive/project/trainers/development.py",
+      "sha256": "d5c2187c31c58a8ec2952ff86cff9fe4f235771a8a18015dff00e6f8bebe780c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/efficient_adaptation.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/efficient_adaptation.py",
+      "release_path": "archive/project/trainers/efficient_adaptation.py",
+      "sha256": "614161dfc7647fefb7765bed61bc1e5df40595155a397bbe3c4adf84392743a4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/imagenet_templates.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/imagenet_templates.py",
+      "release_path": "archive/project/trainers/imagenet_templates.py",
+      "sha256": "05cfa0144ddb98e924085e6c2d565c68e625ad2ff3d78f347fcd61d2cd146fe1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/independentVL.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/independentVL.py",
+      "release_path": "archive/project/trainers/independentVL.py",
+      "sha256": "74642ea02ff90a1f6b24f39e43d5c65a28f0d25973e9c511c3655c58eb931e57",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/maple.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/maple.py",
+      "release_path": "archive/project/trainers/maple.py",
+      "sha256": "bb1c463fe5a94f3470357580846b73dacb52af1edd73a1cc6f639c542a931dbf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/promptkd.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/promptkd.py",
+      "release_path": "archive/project/trainers/promptkd.py",
+      "sha256": "5b1c2b3733dfb5905637ed50a115ac2f54f18ded897c7a0128c12ab0c781efab",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/promptsrc.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/promptsrc.py",
+      "release_path": "archive/project/trainers/promptsrc.py",
+      "sha256": "e2f532d2d2d63ef46fe45dc7b1612fbe95124f2cc820b38cd6423a4d91f43265",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-HARP-LARP-research-20260928/trainers/zsclip.py",
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/trainers/zsclip.py",
+      "release_path": "archive/project/trainers/zsclip.py",
+      "sha256": "39534496e3300c600c0f2c6795fbfbe3a8678c198b866bfbd4ee76dc2db62e6e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/__init__.py",
+      "sha256": "971cf9ec3e61350687d6e570314d7fb3c0157e94fbdb99bb4cfb3238a4ab3a13",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/config/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/config/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/config/__init__.py",
+      "sha256": "ddbdb024c2567011b3c719374daacc8540f88cc897b2f26294e8cb0a2a687141",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/config/defaults.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/config/defaults.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/config/defaults.py",
+      "sha256": "d1e846ca24c643d262277c3f9fa2a9e78cca40555f83a31dfdbd358b6e3bab70",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/__init__.py",
+      "sha256": "a9db83252d7644cfbf8274de1f59780e3baf1b04c8709e1ae0d96b8e0807f4b7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/data_manager.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/data_manager.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/data_manager.py",
+      "sha256": "a58ca28d8a5c20ee30753aa893fd9eceabbcf275a9894a09297f0ad871356ff7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/__init__.py",
+      "sha256": "f451f85d8162af5b0e94eef0108c39d2f6da24129070d88955fd15d6c72cc2bb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/base_dataset.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/base_dataset.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/base_dataset.py",
+      "sha256": "aeaf26e85720286a920a0a95c905db7e1ac8cb6c785cb4789c2f13ec47dace65",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/build.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/build.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/build.py",
+      "sha256": "ae96d1e216926ebdac6f8569e281972bf17bafdd311eb0791d1626a9b078a3b9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/__init__.py",
+      "sha256": "36047cec8f245ddcb1646e9367b6fef221334d8afcb2cd6505c8190dc52322e5",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py",
+      "sha256": "10a26727f2c8a801571abf14ba95d180409e0b5c17f4a954e68f4b7e5831a143",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/digit5.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/digit5.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/digit5.py",
+      "sha256": "e885d5b624f3d396b95957d493ffe76f1fc33f08589ad41bf58b1ec602b1a62a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/domainnet.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/domainnet.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/domainnet.py",
+      "sha256": "011db8795b246f3c3db0e6b99afe546cf41ef4076c8556a6aea7f8c2ffc58219",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py",
+      "sha256": "935c9a4ec893dde9198550cd9f5b38bdf6c8aa636838d24f67f5e35da24a0d67",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/office31.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/office31.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/office31.py",
+      "sha256": "703c56009852384c0c061d2c9e68fa0fbf280563b23764842d394ebc7994880a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/office_home.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/office_home.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/office_home.py",
+      "sha256": "69a02a045b56209878754132e3ca310d3f8703d9ebbd31c10f93c304ce665965",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/da/visda17.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/da/visda17.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/visda17.py",
+      "sha256": "5874affa39ef911073b9727817af75b37e3caab84d1a3f930e13c71e3b0d70ee",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/__init__.py",
+      "sha256": "1f78e98ce94af2c8e8b768cad51232a701b2983026744e91af54051e4296d93b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py",
+      "sha256": "58b23e1011fdcb8056e95b56a99e3edc151918abf508957f8470c23b3a1f6f37",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py",
+      "sha256": "069cca5ebb9f12d607edef2f26bcacb1c613a2a50bdffffff26e4aac55c54d7a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py",
+      "sha256": "26f4fef79c4630f6441c4986bbd8084c34182bd6db5879f910c8fe050cdd1c5d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py",
+      "sha256": "5237d18f1b5121091352add3cad65c2fe044540b78586abafeea69d1703ab44d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/pacs.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/pacs.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/pacs.py",
+      "sha256": "a7cc0f10c720098f8a3b29379a6d38801fe294f4d06f43fb1b453fbcbdc94b1d",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py",
+      "sha256": "fba407f76aa656741d041717508d06ec2e738eea3245f446be8641a71e173b6b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py",
+      "sha256": "6b3d97244748ec9ef278f5d6f617b4fcc24d380feda828a080a9b9dd879b2af4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py",
+      "sha256": "1989d5879f64ac1be0110bc12acac7660648cd6fc9c4fd1f06555de97bd630c2",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py",
+      "sha256": "3bf9e5e0c3a18b9b3179cb5f9e9d2013172894a66599457a3398f467274edddb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py",
+      "sha256": "9e3a85ce859dc16bd2bda07e31d631f65ee241f9f674a3d5af15bb83fa84deb5",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py",
+      "sha256": "0f1c3e7f6430107cee97f0a922fa220d533a6f5f3547d7232830035f8a00f3a7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py",
+      "sha256": "ee91948848387da87970181695025a7d3a29d15caa7f3f1c58a83ef86e9a8c30",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py",
+      "sha256": "191e2f957608182e065e884f28e801e32fa66c9e79aabe6ab9845427ee54e27f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py",
+      "sha256": "b8f2f2bbf678f6b527bfc5018d91994409bf9b244f973a69c457fd3cced6b437",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py",
+      "sha256": "bd6ff6baad826e8fe43d14d77dc8180dd6fb5d7f254eba0d3aa44a4badbf3465",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/samplers.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/samplers.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/samplers.py",
+      "sha256": "06bd592ca2e52b59d5f68bcbb5a987e81f7d3959ea638e5dae2211583326f269",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/transforms/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/transforms/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/transforms/__init__.py",
+      "sha256": "a0ffe5c9cedb2804e3fc3389a4e20b5b041b467ae0d3c28bd426aee48ecf0aa4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/transforms/autoaugment.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/transforms/autoaugment.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/transforms/autoaugment.py",
+      "sha256": "0ecbff1244396c8a944139a98cdf677c6dea0fd254565c9a047c7a72707963b4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/transforms/randaugment.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/transforms/randaugment.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/transforms/randaugment.py",
+      "sha256": "d98e106911803e39522f6efb35a8c1f83fa37c895328a1e094edbf39359dd1ce",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/data/transforms/transforms.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/data/transforms/transforms.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/data/transforms/transforms.py",
+      "sha256": "8f1e30dad741aca3aeffab7155a59ea257757fb4625bf7e5e48537e293fa435e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/__init__.py",
+      "sha256": "91eb87dab342bfdecae552699606c677f1c7f991f4dc473f688585ab1767b4e2",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/build.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/build.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/build.py",
+      "sha256": "c6e9aa7dc2b93d45d62c968119ce0cc166013fbc6d17f1f6f25f678a3ee1839b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/__init__.py",
+      "sha256": "bb84267cd2281ae66abc34450648e5e7c49a8e2f3e4aac1809ddaa0a8bd9fa00",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/adabn.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/adabn.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/adabn.py",
+      "sha256": "b17318ee97a4ac378b9018d47fd5e54743bd9d435f859b75514c7c6f59c4e981",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/adda.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/adda.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/adda.py",
+      "sha256": "5963ea37980c6b0902dbb24bae88f6575b0badc53db24dc86b0bf612e5fb2c63",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/cdac.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/cdac.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/cdac.py",
+      "sha256": "3240a9c1403409ab6fe2586211192544c89a648dcc6e753bb8497185c21a11ef",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/dael.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/dael.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/dael.py",
+      "sha256": "bcc653aaaf46176c118ae36a03e4b48979e4c649fecca9be22b52db0eb7de62c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/dann.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/dann.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/dann.py",
+      "sha256": "82086da7c577cc9455879c21a420a30f07bfd6dc312456d53614afbd5cc68c59",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/m3sda.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/m3sda.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/m3sda.py",
+      "sha256": "6ac6e245501170d28917a7d856c084cc5f50a9900243770f5f7516681b0c6363",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/mcd.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/mcd.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/mcd.py",
+      "sha256": "9e5e07b634c8ae8186b97f33b536b6386679b668a48ccba4dd947683f81194da",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/mme.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/mme.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/mme.py",
+      "sha256": "cc0cd3e39d70e541eec4e32f87d58fe29e30cfa9ef2efc73028448f3b8d0a3c4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/se.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/se.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/se.py",
+      "sha256": "d6fdda904c99ad2472844c0807d18b4936d68da94ce7a7767fc58388f810a4f4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/da/source_only.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/da/source_only.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/da/source_only.py",
+      "sha256": "2b79b8ca5e464a1532caa58c9640a1110a5e23dd4d79aca36848996376a88dfc",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/dg/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/dg/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/dg/__init__.py",
+      "sha256": "ed5355cae2794f7beb4fc26a274bc80e90b56557eae01d3cc399627479ca2ea1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/dg/crossgrad.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/dg/crossgrad.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/dg/crossgrad.py",
+      "sha256": "55771ce981fd8bb12629fe52a9a39e30d96d588552ce2558c90eec6f6e83f712",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/dg/daeldg.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/dg/daeldg.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/dg/daeldg.py",
+      "sha256": "d5390bbdcd8d1a61223ec8cb20e146d189ab506f74b41bc4c0ff839764d76309",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/dg/ddaig.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/dg/ddaig.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/dg/ddaig.py",
+      "sha256": "d6a1b07732b705db91fef2b578e24d7922c40d5a5dbd7df962ccb5d8a663560f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/dg/domain_mix.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/dg/domain_mix.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/dg/domain_mix.py",
+      "sha256": "3b3956e6c91237040f3d8f4d4f17ce0ca590bb5a0f4ee7d78404b0856315e3cf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/dg/vanilla.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/dg/vanilla.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/dg/vanilla.py",
+      "sha256": "f385c1282136c9779eda53a0a1c102449f81f0446218bd96c456a170a18e813f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/ssl/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/ssl/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/ssl/__init__.py",
+      "sha256": "015d3582a1b0cd68c17a73d1480865fe0248135454d5e21bcb0cd6d374a73fc1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/ssl/entmin.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/ssl/entmin.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/ssl/entmin.py",
+      "sha256": "3d142862eb432afe0653766d35e450c7825223fdc47b6619c647cd834c474691",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/ssl/fixmatch.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/ssl/fixmatch.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/ssl/fixmatch.py",
+      "sha256": "4cf65f35847958bc465a2e365c0a81e9f59b685de6f025afcd762effab8a755b",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py",
+      "sha256": "cd6885f3d05e80195af44feef29dd8cadb629285604fc8ba5e6eeaebd3666bdd",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/ssl/mixmatch.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/ssl/mixmatch.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/ssl/mixmatch.py",
+      "sha256": "9a114aff2e5847ac6e68fcdb4cee7d9b956a481a8720dc495015d726a8ac2328",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py",
+      "sha256": "e05224c352f8eda45d6402c9e13fd056ce1f759493154b98376107b159221b8f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/engine/trainer.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/engine/trainer.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/engine/trainer.py",
+      "sha256": "b058571d2c62423907f040c210206ba49532eabece64c865c35bb24ef23b5750",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/evaluation/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/evaluation/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/evaluation/__init__.py",
+      "sha256": "877d8f5762fa50d3c2394c5c0752e8e3fd78c65fa1f5b0acc9de36c0e7fa3642",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/evaluation/build.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/evaluation/build.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/evaluation/build.py",
+      "sha256": "b0030da809990b5a42b1b4c0fd6eda564ed17f856ac04d83d7dd93fb512e4aed",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/evaluation/evaluator.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/evaluation/evaluator.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/evaluation/evaluator.py",
+      "sha256": "2777f11becfb23f97fd4b1b6552b5f8bf243e20fbd0463b5fd277dd4dd3a01eb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/metrics/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/metrics/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/metrics/__init__.py",
+      "sha256": "aab20acedce5d9e1b370a28b3dc43c4a320685b996c3a79304900c0c80f27385",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/metrics/accuracy.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/metrics/accuracy.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/metrics/accuracy.py",
+      "sha256": "1826ef2dde1ed20c1674ef40d5d6f5a5475faae7eeea9da3aff8190bfb450441",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/metrics/distance.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/metrics/distance.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/metrics/distance.py",
+      "sha256": "0b53c3e95ab9c02d7eaf6c780311c1cfd8a64e5017ab762c77e832b9cc2a3371",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/__init__.py",
+      "sha256": "9135c4492d32016444082a31714529ff392800ef4f2313042cf803b8b304ea0f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/__init__.py",
+      "sha256": "a6fca6d2b4aa44c2c35ed47cba5f5f3c47314ea4c8f07288c05f95530ed98282",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/alexnet.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/alexnet.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/alexnet.py",
+      "sha256": "54095dd19ac913092fb51b7171892ec1c99040a6631411eacc9ce196bfd176ab",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/backbone.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/backbone.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/backbone.py",
+      "sha256": "800fd64f3ebc3d37f3721b4f62dfdaf1e8472bdd036c0dff8255bfb2fe4611d9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/build.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/build.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/build.py",
+      "sha256": "ecc84da802b2326dfabb27dbe8007635c24d63bedace334524ad821a576247d7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py",
+      "sha256": "ce7dd5fa49c90b6da47473ab2d0de47d96e51c1ab14ca8ab874bf6129ab67c2a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py",
+      "sha256": "b553ab390fc907f79616a1c88ff9c5bca08458a0c333fffa2a04ce07283e9fb7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py",
+      "sha256": "39d6ae34c7459115861bfd2672e0b957d332a414d4c4e1f9266e8674d62a8ca4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py",
+      "sha256": "98e9d7b401d60c93dc60d1f3df8f03eb73616e592b8e9e3404429f9ad6011d00",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py",
+      "sha256": "fdb021b462b74b457d4d01dd74924ea61d8402a112c79544358278ca438f48cf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py",
+      "sha256": "6afe3dc185afaba007139533699b3f9e4f32413935d255ad169f2000c9c10664",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py",
+      "sha256": "3a51de5794915f04dd737e26c61df3168477b6083141eeff574321408bc2e892",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/resnet.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/resnet.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/resnet.py",
+      "sha256": "57007e21cd26e2961b1707942d4224f23aed34d5e67b0b89499bfeb08e0172af",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py",
+      "sha256": "93713b225707365e90e9497096cee7ef095fcd86dac8b2b31f6c7081c082a06f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/vgg.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/vgg.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/vgg.py",
+      "sha256": "c81278a47eaac1921589b9560893df8ad08df0989894a7d21814cc9ff4f2e0df",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py",
+      "sha256": "cfa281849d9938a551e2032fadc02510ce7f64a929cc8b0e950bc1cc8d1587dd",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/head/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/head/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/head/__init__.py",
+      "sha256": "90db749ad572ffe67ab499f1cd05348ab51f8ba7080e1491dc6c91661095ad64",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/head/build.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/head/build.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/head/build.py",
+      "sha256": "d569803004150db4ae01aee23aa02a3f1d55aa3fc2fea2ea0ff6d86dd9fd6259",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/head/mlp.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/head/mlp.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/head/mlp.py",
+      "sha256": "8914f18629ba2e51b0b5a6b701cedfb90a8285901cf534d81fe252c040c203e9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/network/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/network/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/network/__init__.py",
+      "sha256": "8d0bfc958c4d5d2d3c737badd0e801b94173887b75b7f2a580cde0b8d0dffdd3",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/network/build.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/network/build.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/network/build.py",
+      "sha256": "7260aacd16bb4b9f04dd928c892783f6f24f1180b40cd177ca0ac8ea8b5a517c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py",
+      "sha256": "bb04c6719301cca7833b8096499a969d15d5c44740b1ddb8038deb9693a48b18",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/__init__.py",
+      "sha256": "15e84588c09fcd3e6d9decc2e0983644284e675216703ad3cfa55abecef8ea4e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/attention.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/attention.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/attention.py",
+      "sha256": "fefd9eedcb4a65cfbfd3a3cc764ea67c9f4cf22818ff89f7c241e35e961833db",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/conv.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/conv.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/conv.py",
+      "sha256": "753d90364239bbd557f4336932f34484e3e04bca45cb3a6f286b1a19808ff524",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py",
+      "sha256": "dffbe6ecad5030450f000f123f7666f6a85eb28e020e68e19fb1c8f923005ee6",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/dsbn.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/dsbn.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/dsbn.py",
+      "sha256": "b27d26c24610689fbf24e9ad9628b8d3485546922d1d6599f974d1ee39173bee",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/efdmix.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/efdmix.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/efdmix.py",
+      "sha256": "fd686d6cd420abf230f665ef185c33c11a5ba544b01b837c6c8bb5cce8ebe2cb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/mixstyle.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/mixstyle.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/mixstyle.py",
+      "sha256": "56279a46bfa28bf490face795ee446d06348179b1790f2910e8682dbd9980e5c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/mixup.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/mixup.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/mixup.py",
+      "sha256": "0910aa17958c481220ab759c5bb7594008da4f5f6fb870e16655154d4edcf2c7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/mmd.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/mmd.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/mmd.py",
+      "sha256": "8a1631f9f61966cdbdd6f76ebb6edde15e6ca19de660f7ac0c4e98b19f8045e8",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py",
+      "sha256": "9a5e3fe1c45dce603319e8744b8b1a643b07691688e82d8ad937de40420f032c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py",
+      "sha256": "91cc7a68fb7117a3d726708f685861cd7997a41bb018a0a6d98c6cecaf060d87",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/sequential2.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/sequential2.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/sequential2.py",
+      "sha256": "7446ad88522611a0fb097eeda352fb54035e17c72b98b44e4697785c94fe767a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/transnorm.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/transnorm.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/transnorm.py",
+      "sha256": "a1ae7f72e3bdfa956c57c79c4ba3d229940d1cd825819f9481033200712f7d2c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/modeling/ops/utils.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/modeling/ops/utils.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/modeling/ops/utils.py",
+      "sha256": "1d12c731451d762ff1cdb47084d6b29f802facd81166b5a74a49112047667766",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/optim/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/optim/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/optim/__init__.py",
+      "sha256": "3f83afa74e14d5eec9ad10b510ffc955d8ce54f2fcd8a45f479eb0cd5372c474",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/optim/lr_scheduler.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/optim/lr_scheduler.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/optim/lr_scheduler.py",
+      "sha256": "2e55a69398a73e29fba413076b7c486cb261d8bc495f0f03cc538c23dd8f9bf0",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/optim/optimizer.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/optim/optimizer.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/optim/optimizer.py",
+      "sha256": "c5c411a0e1a001afa9646587811ecea36772e86e8162e97826285ee60b5dd8a4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/optim/radam.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/optim/radam.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/optim/radam.py",
+      "sha256": "b7197851cabe700ce024453a9602dcb498538a4c13d6e55b03cbdf6bbd9af0d4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/utils/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/utils/__init__.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/utils/__init__.py",
+      "sha256": "011968995da796bf0e1aae8c4f36c4e4f1c1762fe22a5b22f82c6a1fcb5e4f4a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/utils/logger.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/utils/logger.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/utils/logger.py",
+      "sha256": "982b4acdbcd25e3bf5d8454f7dafb75b329140b92f81bac9f9c2fb94357f37c7",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/utils/meters.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/utils/meters.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/utils/meters.py",
+      "sha256": "d41b318ed0a109d59be3f344533e6121059dbb87143782b32e2ef20dec2aa5a9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/utils/registry.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/utils/registry.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/utils/registry.py",
+      "sha256": "531c83ee95fd3b80f0f375291e9423262f8f7b2d055567a70e2b25d1d632bb2f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/utils/tools.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/utils/tools.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/utils/tools.py",
+      "sha256": "684431d32016e998ad3d628e561cf2500c8d69572278d04efd81844683fe644f",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/dassl/utils/torchtools.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/dassl/utils/torchtools.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/dassl/utils/torchtools.py",
+      "sha256": "8e65ddd145950121ff3e9427d414d801c0c15aaf50b2612cd41069c53b2cd8c9",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/datasets/da/cifar_stl.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/datasets/da/cifar_stl.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/datasets/da/cifar_stl.py",
+      "sha256": "37396215117830bd926167424cb4b65c9bc8aee611e25d5a27397b75a311fb09",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/datasets/da/digit5.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/datasets/da/digit5.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/datasets/da/digit5.py",
+      "sha256": "d436de678095c5bbe6e6689db8669bd526a0a5bdc989894fbc603f283fc5e807",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/datasets/dg/cifar_c.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/datasets/dg/cifar_c.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/datasets/dg/cifar_c.py",
+      "sha256": "6a3399afc470606e11f1d152febe5002051ae4748bd0522427153c24bd2e7439",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py",
+      "sha256": "eccc2022fc0b5715a6a05b5c02433c9a46ea1039b11e265239ea2285755310cd",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/datasets/ssl/stl10.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/datasets/ssl/stl10.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/datasets/ssl/stl10.py",
+      "sha256": "b7d4dc96cf527eebf90ef3171c49227dc96d08cd057b77f66a3bf7496609424a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/setup.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/setup.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/setup.py",
+      "sha256": "77b327e2d5d4ab77798f2bc6588162c5621c51690e5dab20768a69788f6a8dc2",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/tools/parse_test_res.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/tools/parse_test_res.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/tools/parse_test_res.py",
+      "sha256": "c94a1c8b9ed7908ca44ea9f4ad9e909bccba52943c58bb5faebf2dc1f51a620e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/tools/replace_text.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/tools/replace_text.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/tools/replace_text.py",
+      "sha256": "ded96adcdaa59d30b161903fbdffefc062b10b25c6ea56badd409ab5c3784546",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/Dassl.pytorch/tools/train.py",
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/tools/train.py",
+      "release_path": "archive/official_reference/Dassl.pytorch/tools/train.py",
+      "sha256": "112d936e057118ec82aba852e3968096560afd8f63aa390249e48e6fb600876e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/clip/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/clip/__init__.py",
+      "release_path": "archive/official_reference/clip/__init__.py",
+      "sha256": "d7930eb290ebed432116795c91473200d098451a94c0aedd4ae0f934f97955e8",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/clip/clip.py",
+      "source_path": "base_materials/repos/PromptKD/clip/clip.py",
+      "release_path": "archive/official_reference/clip/clip.py",
+      "sha256": "855ab36f3c1039d9b9fac1a47c217114d3269c65ddf9c7d304112a01a4210f60",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/clip/model.py",
+      "source_path": "base_materials/repos/PromptKD/clip/model.py",
+      "release_path": "archive/official_reference/clip/model.py",
+      "sha256": "5faf6ace43e65dbc1e46991474be4cbdd8d0b700c4d87fe61c57a5d512e12bdd",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/clip/simple_tokenizer.py",
+      "source_path": "base_materials/repos/PromptKD/clip/simple_tokenizer.py",
+      "release_path": "archive/official_reference/clip/simple_tokenizer.py",
+      "sha256": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/__init__.py",
+      "release_path": "archive/official_reference/datasets/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/caltech101.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/caltech101.py",
+      "release_path": "archive/official_reference/datasets/caltech101.py",
+      "sha256": "b2a2779aa9755a330b7de66a5044f8204dc43f13d4fc9d75ae2e0a3ab12c8d7a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/dtd.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/dtd.py",
+      "release_path": "archive/official_reference/datasets/dtd.py",
+      "sha256": "6e1431e25c7cc0c93627a233f3e02674c074792bf8f159c687fdd1e0fb794b59",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/eurosat.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/eurosat.py",
+      "release_path": "archive/official_reference/datasets/eurosat.py",
+      "sha256": "4da51af2767737aaa48c367e29d7abf8c1572ea14c13d774b20c6f19097cf48e",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/fgvc_aircraft.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/fgvc_aircraft.py",
+      "release_path": "archive/official_reference/datasets/fgvc_aircraft.py",
+      "sha256": "12347fd7594cd3604c4f8fa50e3b2f6a00ff318925efe2e8b272f0063daf97bb",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/food101.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/food101.py",
+      "release_path": "archive/official_reference/datasets/food101.py",
+      "sha256": "fe6720893a971e0223d3a6d600fe6148070cc7f9db6ab5e747b78095deb1df6c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/imagenet.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/imagenet.py",
+      "release_path": "archive/official_reference/datasets/imagenet.py",
+      "sha256": "0e7525afe511ba3edeb17a05e2cea8e6d5dbe45963fb9619c3a458053f331eaf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/imagenet_a.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/imagenet_a.py",
+      "release_path": "archive/official_reference/datasets/imagenet_a.py",
+      "sha256": "7bbf7bbb73a8984a5f4092ed197d56bc82f711b59cc26171ef467f3405c506ad",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/imagenet_r.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/imagenet_r.py",
+      "release_path": "archive/official_reference/datasets/imagenet_r.py",
+      "sha256": "4d5832a539744cf617e828f6d2ccadb6d99a646df3ac169ce5462d5e4a3ec326",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/imagenet_sketch.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/imagenet_sketch.py",
+      "release_path": "archive/official_reference/datasets/imagenet_sketch.py",
+      "sha256": "b4046da735585a0cbf80e7bff96fcaf4cfcef8c0cbd7bca38781ddf87c5b6095",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/imagenetv2.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/imagenetv2.py",
+      "release_path": "archive/official_reference/datasets/imagenetv2.py",
+      "sha256": "e93f655f21edc0b106261d10cbcac10957c49095edf55625acd12eae5a5dd6df",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/oxford_flowers.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/oxford_flowers.py",
+      "release_path": "archive/official_reference/datasets/oxford_flowers.py",
+      "sha256": "963f68ea6c370dfaa9d4b64e33102589e0021fab5251cec376d4ec96a55012ba",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/oxford_pets.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/oxford_pets.py",
+      "release_path": "archive/official_reference/datasets/oxford_pets.py",
+      "sha256": "03bf300d6b111f5f57ebfdbdfacb56ea458917feccbe9d938862352592f8258a",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/stanford_cars.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/stanford_cars.py",
+      "release_path": "archive/official_reference/datasets/stanford_cars.py",
+      "sha256": "35b39bd70a480483a6c3c277054016e6dc3430852817966fa3a034a7a3574665",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/sun397.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/sun397.py",
+      "release_path": "archive/official_reference/datasets/sun397.py",
+      "sha256": "36665e53068df9cde1e68f6ca7ff13393c833db749611fe01ddb7c2104b6dcbf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/datasets/ucf101.py",
+      "source_path": "base_materials/repos/PromptKD/datasets/ucf101.py",
+      "release_path": "archive/official_reference/datasets/ucf101.py",
+      "sha256": "cc6bae8518f40e32380359eeedc67de76e9cca8f2780531bccf0308fdd22303c",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/interpret_prompts/interpret_prompt.py",
+      "source_path": "base_materials/repos/PromptKD/interpret_prompts/interpret_prompt.py",
+      "release_path": "archive/official_reference/interpret_prompts/interpret_prompt.py",
+      "sha256": "0c6951d9938db9f6442cd4b5003cd1f64ada2faccb6063c82c2d1ddca0fa5697",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/lpclip/feat_extractor.py",
+      "source_path": "base_materials/repos/PromptKD/lpclip/feat_extractor.py",
+      "release_path": "archive/official_reference/lpclip/feat_extractor.py",
+      "sha256": "e2ea3cb4924eb53a90170d3ebd83a54b8b3f85c8f226dfb0fb5300f2e0e1bbf4",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/lpclip/linear_probe.py",
+      "source_path": "base_materials/repos/PromptKD/lpclip/linear_probe.py",
+      "release_path": "archive/official_reference/lpclip/linear_probe.py",
+      "sha256": "0bbedba2adf7cce66626f3e9b4b4702e61b7af43632c49eecf965e4f2e6a2e82",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/train.py",
+      "source_path": "base_materials/repos/PromptKD/train.py",
+      "release_path": "archive/official_reference/train.py",
+      "sha256": "a88612369933365c72f672f0100a6dcf1804f403490109a72d53a903f8f9b186",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/__init__.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/__init__.py",
+      "release_path": "archive/official_reference/trainers/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/cocoop.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/cocoop.py",
+      "release_path": "archive/official_reference/trainers/cocoop.py",
+      "sha256": "67d5401bb955959b57a51ff0dae4ce5d6cd035d0a65ec62a03e9fa637bb76688",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/coop.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/coop.py",
+      "release_path": "archive/official_reference/trainers/coop.py",
+      "sha256": "2d9fac3c277d7240850179a2060b7da59602a046161e92660edc2db4822cd084",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/imagenet_templates.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/imagenet_templates.py",
+      "release_path": "archive/official_reference/trainers/imagenet_templates.py",
+      "sha256": "05cfa0144ddb98e924085e6c2d565c68e625ad2ff3d78f347fcd61d2cd146fe1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/independentVL.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/independentVL.py",
+      "release_path": "archive/official_reference/trainers/independentVL.py",
+      "sha256": "74642ea02ff90a1f6b24f39e43d5c65a28f0d25973e9c511c3655c58eb931e57",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/maple.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/maple.py",
+      "release_path": "archive/official_reference/trainers/maple.py",
+      "sha256": "bb1c463fe5a94f3470357580846b73dacb52af1edd73a1cc6f639c542a931dbf",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/promptkd.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/promptkd.py",
+      "release_path": "archive/official_reference/trainers/promptkd.py",
+      "sha256": "0a6a783637c5c7d69d98d104d0361688934677ff9df4832675a382603b7e4eb1",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/promptsrc.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/promptsrc.py",
+      "release_path": "archive/official_reference/trainers/promptsrc.py",
+      "sha256": "e2f532d2d2d63ef46fe45dc7b1612fbe95124f2cc820b38cd6423a4d91f43265",
+      "verification": "matches_final_scientific_manifest"
+    },
+    {
+      "frozen_key": "projects/PromptKD-official-ec244f7/trainers/zsclip.py",
+      "source_path": "base_materials/repos/PromptKD/trainers/zsclip.py",
+      "release_path": "archive/official_reference/trainers/zsclip.py",
+      "sha256": "39534496e3300c600c0f2c6795fbfbe3a8678c198b866bfbd4ee76dc2db62e6e",
+      "verification": "matches_final_scientific_manifest"
+    }
+  ],
+  "workers": [
+    {
+      "source_path": "outputs/larp_o_ablation_ten_20261002/run.py",
+      "release_path": "archive/final_worker/run.py.txt",
+      "sha256": "da8290396cb7fcfac61370b3fd4c335534f9516590df4135c23636ba68542acc",
+      "matching_local_frozen_lists": [],
+      "verification": "local_source_hash_only"
+    },
+    {
+      "source_path": "outputs/larp_o_ablation_ten_20261002/retained_worker.py",
+      "release_path": "archive/final_worker/retained_worker.py.txt",
+      "sha256": "6b308ebcb56d2c12fa3963902a5928aac5e0f30c151a774129ff04c95048a00f",
+      "matching_local_frozen_lists": [],
+      "verification": "local_source_hash_only"
+    },
+    {
+      "source_path": "outputs/larp_o_ablation_ten_20261002/legacy_evaluation.py",
+      "release_path": "archive/final_worker/legacy_evaluation.py.txt",
+      "sha256": "1a8d9d4270c92c72c0720512076a929e497be4f8ed2b32a66b644df8a8fe3fa1",
+      "matching_local_frozen_lists": [],
+      "verification": "local_source_hash_only"
+    },
+    {
+      "source_path": "outputs/larp_o_only_20260930_setup3/run.py",
+      "release_path": "archive/main_workers/larp_o_only_20260930_setup3/run.py.txt",
+      "sha256": "bd56b5605b2f8b172705385737e6aad24ee61b4b8090c4cd541be1fe78503417",
+      "verification": "local_source_hash_only"
+    },
+    {
+      "source_path": "outputs/larp_o_only_remaining5_20260930/run.py",
+      "release_path": "archive/main_workers/larp_o_only_remaining5_20260930/run.py.txt",
+      "sha256": "96a72c39e319aac67ea65ba070aa3a5db85b38760db5a19926c0e9c44bb82771",
+      "verification": "local_source_hash_only"
+    },
+    {
+      "source_path": "outputs/larp_node_37667_20261001/research_node.py",
+      "release_path": "archive/main_workers/larp_node_37667_20261001/research_node.py.txt",
+      "sha256": "2bb9f2e081bef585f572ada57104a335714040cc689bb6bfc40f30455afacdd7",
+      "verification": "local_source_hash_only"
+    },
+    {
+      "source_path": "outputs/larp_o4_seed23_37667_20261001/run.py",
+      "release_path": "archive/main_workers/larp_o4_seed23_37667_20261001/run.py.txt",
+      "sha256": "bc246b5767ebbacef027efd9b57d17861afd1817182fdc39ff489bbda13d43e3",
+      "verification": "deployed_frozen_list"
+    },
+    {
+      "source_path": "outputs/larp_o4_seed23_37667_20261001/legacy_evaluation.py",
+      "release_path": "archive/main_workers/larp_o4_seed23_37667_20261001/legacy_evaluation.py.txt",
+      "sha256": "c33fe157ede523240de4dff43440f59c74669a14981e60a5fc86a2ef265a9eb9",
+      "verification": "deployed_frozen_list"
+    },
+    {
+      "source_path": "outputs/larp_o4_seed23_37667_20261001/frozen_files.json",
+      "release_path": "archive/main_workers/larp_o4_seed23_37667_20261001/frozen_files.json.txt",
+      "sha256": "700da38d05edf4f2229a2dae6f6fdbf68ae5babde7c593f94c50700f6ffad28c",
+      "verification": "local_source_hash_only"
+    },
+    {
+      "source_path": "outputs/larp_o4_seed23_37667_20261001_resume/run.py",
+      "release_path": "archive/main_workers/larp_o4_seed23_37667_20261001_resume/run.py.txt",
+      "sha256": "733abf6f65cf9acd7b08db0c3a5eae6eb5d45d9eba0487989c666985e770db08",
+      "verification": "deployed_frozen_list"
+    },
+    {
+      "source_path": "outputs/larp_o4_seed23_37667_20261001_resume/legacy_evaluation.py",
+      "release_path": "archive/main_workers/larp_o4_seed23_37667_20261001_resume/legacy_evaluation.py.txt",
+      "sha256": "16b3faeddc6a52862592c2c849e1c02af01f7e97d02188ba598c630649231a77",
+      "verification": "deployed_frozen_list"
+    },
+    {
+      "source_path": "outputs/larp_o4_seed23_37667_20261001_resume/frozen_files.json",
+      "release_path": "archive/main_workers/larp_o4_seed23_37667_20261001_resume/frozen_files.json.txt",
+      "sha256": "67ac1e3cbed26740f7dcda2f884f8ef5c1e67d96c25856761e53b21f3ee6dd96",
+      "verification": "local_source_hash_only"
+    }
+  ],
+  "supplementary_assets": [
+    {
+      "source_path": "outputs/larp_o_ablation_ten_20261002/source_contract.json",
+      "release_path": "archive/source_contract.json.txt",
+      "sha256": "b7c6ca2ab97830453661e41f8e2ee36b2ec3dccf32d7033a2d5f05d74ac917df",
+      "verification": "original_contract_for_exact_path_normalization_audit"
+    },
+    {
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/LICENSE",
+      "release_path": "archive/project/LICENSE",
+      "sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8",
+      "verification": "local_supplement_not_in_scientific_python_manifest"
+    },
+    {
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/Dassl.pytorch/LICENSE",
+      "release_path": "archive/project/Dassl.pytorch/LICENSE",
+      "sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3",
+      "verification": "local_supplement_not_in_scientific_python_manifest"
+    },
+    {
+      "source_path": "base_materials/projects/PromptKD-HARP-LARP/clip/bpe_simple_vocab_16e6.txt.gz",
+      "release_path": "archive/project/clip/bpe_simple_vocab_16e6.txt.gz",
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+      "verification": "local_supplement_not_in_scientific_python_manifest"
+    },
+    {
+      "source_path": "base_materials/repos/PromptKD/LICENSE",
+      "release_path": "archive/official_reference/LICENSE",
+      "sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8",
+      "verification": "local_supplement_not_in_scientific_python_manifest"
+    },
+    {
+      "source_path": "base_materials/repos/PromptKD/Dassl.pytorch/LICENSE",
+      "release_path": "archive/official_reference/Dassl.pytorch/LICENSE",
+      "sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3",
+      "verification": "local_supplement_not_in_scientific_python_manifest"
+    },
+    {
+      "source_path": "base_materials/repos/PromptKD/clip/bpe_simple_vocab_16e6.txt.gz",
+      "release_path": "archive/official_reference/clip/bpe_simple_vocab_16e6.txt.gz",
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+      "verification": "local_supplement_not_in_scientific_python_manifest"
+    }
+  ],
+  "extracted_function": {
+    "release_path": "protocol/original_sgd.py",
+    "name": "install",
+    "source_sha256": "d3a1457c0cf2ec36ae01429f9be8a43196448075c8f1a9a1c8ef7049219c50f3",
+    "source_start_line": 31,
+    "source_end_line": 54,
+    "ast_sha256": "ebe32a997ee820e0108bc88c236251589eb6bcbd7ed70b74f71567faf92fe3a1"
+  }
+}

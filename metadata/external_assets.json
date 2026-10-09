@@ -1,0 +1,184 @@
+{
+  "scope": "12 pretrained files plus 9 fixed split JSON and 4 Aircraft metadata TXT; no image-byte inventory bundled",
+  "source_workspace_relative": "outputs/larp_node_18645_20261002/materials_manifest.json",
+  "source_sha256": "d823a5b27b04dbdab241c50bfcd9ee11d176627a331660dbcd2fc123a97e1021",
+  "mapping_source_workspace_relative": "outputs/larp_node_37667_20261001/symlinks.json",
+  "mapping_sha256": "f20da2991ea0c7b2366b530d00f4224eb6a60032fc1fa4fd5dfeca7db174e649",
+  "assets": [
+    {
+      "path": "pretrained/clip/ViT-B-16.pt",
+      "bytes": 350837078,
+      "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+      "relative_path": "clip/ViT-B-16.pt",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/clip/ViT-L-14.pt",
+      "bytes": 932768134,
+      "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+      "relative_path": "clip/ViT-L-14.pt",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/Caltech101/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1395409414,
+      "sha256": "abbad1368d33792e4b13b936974585d664151f0ee44fa5e65df979ada9f95d0b",
+      "relative_path": "teacher_model/Caltech101/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/DescribableTextures/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1392494086,
+      "sha256": "30697bd9957bbab3a627badb57f080d5d0967d1386d298e7591346ed6556d9ef",
+      "relative_path": "teacher_model/DescribableTextures/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/EuroSAT/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1390363654,
+      "sha256": "96db431955a197032e1043b8a65b996dc2763f5a186de926a5bb52c4e9a698b5",
+      "relative_path": "teacher_model/EuroSAT/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/FGVCAircraft/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1395409414,
+      "sha256": "f0c1a3d8c57c73958f4453fbbd306f1bac2c03c726cfec7f3323c87539a8f0a3",
+      "relative_path": "teacher_model/FGVCAircraft/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/Food101/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1395521542,
+      "sha256": "d606678055a5c5158aba82e2c6af7d9617c9a36f9bd33eb632e8f7638a329eb9",
+      "relative_path": "teacher_model/Food101/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/OxfordFlowers/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1395521542,
+      "sha256": "a506ce42b7245b6a69e61015c0990951e2964a4e27026fabe552f301650b5db3",
+      "relative_path": "teacher_model/OxfordFlowers/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/OxfordPets/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1391933446,
+      "sha256": "da87788e0dcbd76897e83ce395f69d7cfb264cabc26f0dd1c2b423aae9a27e53",
+      "relative_path": "teacher_model/OxfordPets/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/SUN397/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1412116486,
+      "sha256": "2d24a104a7a1ae4824b7ebaf252f5dec08c4a867be57a06520e1a88b267ebdaf",
+      "relative_path": "teacher_model/SUN397/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/StanfordCars/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1400791558,
+      "sha256": "41d0695c4a1e0fc019dde7eff2d533dda93707a778c3219345acb21155d498c2",
+      "relative_path": "teacher_model/StanfordCars/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "pretrained/teacher_model/UCF101/VLPromptLearner/model-best.pth.tar",
+      "bytes": 1395521542,
+      "sha256": "b9abd9969f6a5ea65817dd8a78d96d56469e36919c06b50a61cd1e7f25135877",
+      "relative_path": "teacher_model/UCF101/VLPromptLearner/model-best.pth.tar",
+      "kind": "pretrained"
+    },
+    {
+      "path": "datasets/caltech101/split_zhou_Caltech101.json",
+      "relative_path": "caltech-101/split_zhou_Caltech101.json",
+      "bytes": 809184,
+      "sha256": "52ce83205ff8ff8a1a18119aad6376120ae35c36e783a984bc560cbf10e73fa5",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/dtd/split_zhou_DescribableTextures.json",
+      "relative_path": "dtd/split_zhou_DescribableTextures.json",
+      "bytes": 563702,
+      "sha256": "f26ebeccd2b58e68d70f07a0dc39fe49bf7b69024bac34396b954dfd87969c38",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/food101/split_zhou_Food101.json",
+      "relative_path": "food-101/split_zhou_Food101.json",
+      "bytes": 10203303,
+      "sha256": "7c3d456c4f348255e1a363e0ea5118318936488f3ec20d83758e0ee67cb9037c",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/oxford_pets/split_zhou_OxfordPets.json",
+      "relative_path": "oxford_pets/split_zhou_OxfordPets.json",
+      "bytes": 724217,
+      "sha256": "d7f3ffe65b3919f95132e51422894ae18686b83c331fd8c0adcdc3dc2de6301e",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/flowers102/split_zhou_OxfordFlowers.json",
+      "relative_path": "oxford_flowers/split_zhou_OxfordFlowers.json",
+      "bytes": 771139,
+      "sha256": "2f50c42fc1a17ca13c271cb4269b1347bdb43d2be672e34f74a4e4cbfbcca794",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/eurosat/split_zhou_EuroSAT.json",
+      "relative_path": "eurosat/split_zhou_EuroSAT.json",
+      "bytes": 3006492,
+      "sha256": "541503a77d0b26b735d85ec7a3e672804fe0aa466c2e5f07da772cc6c0af8ad2",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/stanford_cars/split_zhou_StanfordCars.json",
+      "relative_path": "stanford_cars/split_zhou_StanfordCars.json",
+      "bytes": 1855652,
+      "sha256": "40acee7aa65c8e4727a32d90e884b7c3f8960b523422317e163f7af65432959d",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/sun397/split_zhou_SUN397.json",
+      "relative_path": "sun397/split_zhou_SUN397.json",
+      "bytes": 4744862,
+      "sha256": "9847f9ef611008073ac42adee6614bbb83f877cfbcfbd3115fc8284e0c8c1c47",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/ucf101/split_zhou_UCF101.json",
+      "relative_path": "ucf101/split_zhou_UCF101.json",
+      "bytes": 1557485,
+      "sha256": "d78cb834f7c5792ceaff2c5ee2d7c76a9e4086e48a3a6b01232989d29cbefdd8",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/fgvc_aircraft/fgvc-aircraft-2013b/data/images_variant_test.txt",
+      "relative_path": "fgvc_aircraft/images_variant_test.txt",
+      "bytes": 54867,
+      "sha256": "06b5f65d559c399d6887d660dcec09dbf661576c0f3bd85e981e976b2bed3511",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/fgvc_aircraft/fgvc-aircraft-2013b/data/images_variant_train.txt",
+      "relative_path": "fgvc_aircraft/images_variant_train.txt",
+      "bytes": 54873,
+      "sha256": "29ac66fb762b9e1e5d007a18cb2cd2404ee326a4bce1dc0040e267c5585c46e7",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/fgvc_aircraft/fgvc-aircraft-2013b/data/images_variant_val.txt",
+      "relative_path": "fgvc_aircraft/images_variant_val.txt",
+      "bytes": 54860,
+      "sha256": "17afd8d6aac16d6188109465637f224a69e6c68d8b6e8422a2591f87aa3a8281",
+      "kind": "data_metadata"
+    },
+    {
+      "path": "datasets/fgvc_aircraft/fgvc-aircraft-2013b/data/variants.txt",
+      "relative_path": "fgvc_aircraft/variants.txt",
+      "bytes": 846,
+      "sha256": "6e14e778b0a7c94c80619a7ba2c9f90c6784c9c997e308938ff8d3ee11662f0b",
+      "kind": "data_metadata"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+"""One frozen ten-dataset seed1 candidate; 17 new runs, no automatic search."""
+import copy,fcntl,importlib.util,json,math,os,shutil,subprocess,sys,traceback
+from pathlib import Path
+ROOT=Path(__file__).resolve().parent
+OLD=ROOT.parent/'larp_two_dataset_ramp_20260929'
+def load(name,path):
+    s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s)
+    sys.modules[name]=m;s.loader.exec_module(m);return m
+p=load('retained_panel',OLD/'run.py');q=p.q;f=p.f
+COUNTS={'dtd':352,'oxford_pets':368,'fgvc_aircraft':416,'oxford_flowers':511,
+        'caltech101':516,'stanford_cars':813,'ucf101':954,'eurosat':1687,'sun397':1985,'food101':6312}
+REUSE={'dtd':OLD/'runs/dtd/r1','fgvc_aircraft':OLD/'runs/fgvc_aircraft/r1',
+       'oxford_pets':ROOT.parent/'larp_pets_full_pair_20260929/r1'}
+JOBS=[(ds,m) for ds in COUNTS for m in (('larp',) if ds in REUSE else ('r1','larp'))]
+assert len(JOBS)==17
+def output(ds,m,gate=False):
+    if m=='r1' and ds in REUSE and not gate:return REUSE[ds]
+    return ROOT/('gates' if gate else 'runs')/ds/m
+p.ROOT=f.ROOT=ROOT;p.DATASETS=COUNTS;p.output=output
+def guard():
+    f.base_guard()
+    parent=q.read(OLD/'frozen.json')
+    for name,h in parent['files'].items():assert q.sha(OLD/name)==h,name
+    for name,h in parent['references'].items():assert q.sha(Path(name))==h,name
+    spec=q.read(ROOT/'frozen.json')
+    for name,h in spec['files'].items():assert q.sha(ROOT/name)==h,name
+    for name,h in spec['references'].items():assert q.sha(Path(name))==h,name
+    assert spec['jobs']==[list(x) for x in JOBS]
+    return q.sha(ROOT/'frozen.json')
+p.guard=f.guard=guard
+def install(torch,tr,m):
+    params={n:v for n,v in tr.model.named_parameters() if v.requires_grad}
+    projector={id(v) for n,v in params.items() if n.startswith('VPT_image_trans.')}
+    added=[v for n,v in params.items() if q.added(n)]
+    assert len(projector)==6 and len(tr.optim.param_groups)==(2 if m=='larp' else 1)
+    assert bool(added)==(m=='larp')
+    if added:assert {id(v) for v in added}=={id(v) for v in tr.optim.param_groups[1]['params']}
+    original=tr.optim.step
+    def step(*args,**kwargs):
+        assert not args and not kwargs
+        assert all(v.grad is None or torch.isfinite(v.grad).all() for v in params.values())
+        scheduled=[g['lr'] for g in tr.optim.param_groups];e,b=tr.epoch,tr.batch_idx
+        actual=f.ps.effective_lr(e,b,f.COUNT,scheduled[0])
+        if added:assert math.isclose(scheduled[1],.1*scheduled[0],rel_tol=1e-12)
+        first=[v.detach().clone() for v in added] if e==0 and b==0 else None
+        result=f.ps.split_step(tr.optim,original,projector,actual) if e==1 else original()
+        assert [g['lr'] for g in tr.optim.param_groups]==scheduled
+        assert all(torch.isfinite(v).all() for v in params.values())
+        assert all('momentum_buffer' in tr.optim.state[v] for v in added)
+        if first is not None and added:assert any(not torch.equal(a,v) for a,v in zip(first,added)),'Added group must update from first batch'
+        tr.actual_step=dict(epoch=e+1,batch=b+1,scheduled_lr=scheduled,prompt_lr=scheduled[0],
+            projector_lr=actual,added_lr=scheduled[1] if added else None,added_held=False)
+        return result
+    tr.optim.step=step
+f.install=install
+retained_build=p.build
+def build(m,ds,seed,epochs,out):
+    torch,tr=retained_build(m,ds,seed,epochs,out)
+    assert list(tr.cfg.TRAINER.PROMPTKD.ADAPTATION.LAYERS)==[8,9,10,11]
+    if ds in REUSE:
+        ref=torch.load(REUSE[ds]/'initial_trainable.pt',map_location='cpu')
+        current={n:v.detach().cpu() for n,v in tr.model.named_parameters() if v.requires_grad and not q.added(n)}
+        assert current.keys()==ref.keys() and all(torch.equal(v,ref[n]) for n,v in current.items())
+    q.dump(out/'overlay.json',dict(protocol='1.53',frozen=guard(),common='projector_epoch2_ramp',
+        added='original_lr_mult_0.1' if m=='larp' else None,batches=COUNTS[ds],
+        objective='original_joint_KD',layers=[8,9,10,11],energy=None))
+    return torch,tr
+p.build=q.build=f.build=build
+retained_check_update=f.check_update
+def check_update(n,momentum,changed,held,torch):
+    return retained_check_update(n,momentum,changed,False,torch)
+f.check_update=check_update
+def prepare():
+    assert not (ROOT/'frozen.json').exists()
+    refs={str(OLD/'frozen.json'):q.sha(OLD/'frozen.json')};cks={}
+    for ds,base in REUSE.items():
+        for name in ('resolved.yaml','initial_shared.json','initial_trainable.pt','batches.jsonl','epochs.jsonl','audited_metrics.json'):
+            refs[str(base/name)]=q.sha(base/name)
+        for name in ('model-best.pth.tar','model.pth.tar-20'):
+            ck=base/'VLPromptLearner'/name;cks[str(ck)]=q.sha(ck)
+        assert cks[str(base/'VLPromptLearner/model-best.pth.tar')]==q.read(base/'audited_metrics.json')['checkpoint_sha256']
+    for ds in COUNTS:
+        for m in ('r1','larp'):
+            for name in ('probe.pt','probe.json'):
+                path=q.probe_path(ds,1,m)/name;refs[str(path)]=q.sha(path)
+    q.dump(ROOT/'frozen.json',dict(files={x.name:q.sha(x) for x in ROOT.iterdir() if x.suffix in ('.py','.md')},
+        references=refs,checkpoints=cks,jobs=JOBS,reuse={d:str(b) for d,b in REUSE.items()}))
+    print('FROZEN',guard(),flush=True)
+def preflight():
+    frozen=guard();torch,train,root=q.framework('r1');assert not torch.cuda.is_available()
+    assert shutil.disk_usage(ROOT).free>=35*1024**3
+    for name,h in q.read(ROOT/'frozen.json')['checkpoints'].items():assert q.sha(Path(name))==h
+    import yaml
+    from dassl.optim import build_optimizer,build_lr_scheduler
+    from trainers.adaptation_optim import adaptation_param_groups
+    from types import SimpleNamespace
+    class Tiny(torch.nn.Module):
+        def __init__(self,m):
+            super().__init__();self.VPT=torch.nn.Parameter(torch.ones(1))
+            self.VPT_image_trans=torch.nn.ParameterList([torch.nn.Parameter(torch.ones(1)) for _ in range(6)])
+            if m=='larp':self.lora_A_v=torch.nn.Parameter(torch.ones(1));self.lora_B_v=torch.nn.Parameter(torch.zeros(1))
+    configs={};rates={};actuals={};reuse_audit={}
+    for ds,count in COUNTS.items():
+        evidence=[];f.COUNT=count
+        for m in ('r1','larp'):
+            key=ds+'_'+m;cfg,_=p.config(train,root,m,ds,1,20,output(ds,m))
+            q.asset_check(cfg,root);q.data_check(cfg,ds);configs[key]=yaml.safe_load(cfg.dump())
+            assert cfg.TRAINER.PROMPTKD.KD_WEIGHT==(200 if ds in ('dtd','fgvc_aircraft','oxford_flowers') else 1000)
+            probe=q.probe_path(ds,1,m);meta=q.read(probe/'probe.json')
+            assert meta['status']=='passed' and q.sha(probe/'probe.pt')==meta['evidence_sha256']
+            ev=torch.load(probe/'probe.pt',map_location='cpu');q.check_backend(ev['backend'])
+            evidence.append({k:ev[k] for k in ('initial_shared','rng','classnames','batches')})
+            model=Tiny(m);opt=build_optimizer(model,cfg.OPTIM,param_groups=adaptation_param_groups(model,cfg))
+            sched=build_lr_scheduler(opt,cfg.OPTIM);tr=SimpleNamespace(model=model,optim=opt,epoch=0,batch_idx=0)
+            install(torch,tr,m);trajectory=[];records=[]
+            ref_model=copy.deepcopy(model)
+            ref_opts=[torch.optim.SGD([z],lr=.005,momentum=.9,weight_decay=.0005) for z in ref_model.parameters()]
+            for e in range(20):
+                tr.epoch=e;trajectory.append([g['lr'] for g in opt.param_groups])
+                for b in (0,count-1):
+                    tr.batch_idx=b
+                    for z in model.parameters():z.grad=torch.ones_like(z)*.1
+                    opt.step();records.append(dict(tr.actual_step))
+                    for (name,z),(_,ref_z),ref_opt in zip(model.named_parameters(),ref_model.named_parameters(),ref_opts):
+                        ref_z.grad=torch.ones_like(ref_z)*.1
+                        lr=tr.actual_step['added_lr'] if q.added(name) else tr.actual_step['projector_lr'] if name.startswith('VPT_image_trans.') else tr.actual_step['prompt_lr']
+                        ref_opt.param_groups[0]['lr']=lr;ref_opt.step()
+                        assert torch.equal(z,ref_z),(ds,m,e,b,name)
+                        assert torch.equal(opt.state[z]['momentum_buffer'],ref_opt.state[ref_z]['momentum_buffer'])
+                sched.step()
+            rates[key]=trajectory;actuals[key]=records
+        assert evidence[0]==evidence[1],ds
+        a,b=[copy.deepcopy(configs[ds+'_'+m]) for m in ('r1','larp')]
+        b['OUTPUT_DIR']=a['OUTPUT_DIR'];b['TRAINER']['PROMPTKD']['ADAPTATION'].update(TYPE='none',LR_MULT=1.)
+        assert a==b,ds
+        assert [r[0] for r in rates[ds+'_r1']]==[r[0] for r in rates[ds+'_larp']]
+        if ds in REUSE:
+            base=REUSE[ds];ref=yaml.safe_load((base/'resolved.yaml').read_text())
+            a['OUTPUT_DIR']=ref['OUTPUT_DIR'];assert a==ref,(ds,'reused config')
+            report=q.read(base/'audited_metrics.json')
+            assert report['status']=='passed' and report['method']=='r1' and report['seed']==1 and report['epochs']==20 and report['dataset']==ds
+            assert q.read(base/'initial_shared.json')==evidence[0]['initial_shared']
+            rows=[json.loads(s) for s in (base/'batches.jsonl').read_text().splitlines()]
+            assert len(rows)==20*count
+            for i,row in enumerate(rows):
+                e,b=divmod(i,count);nominal=rates[ds+'_r1'][e][0]
+                assert row['epoch']==e+1 and row['batch']==b+1 and row['scheduled_lr']==[nominal]
+                assert row['prompt_lr']==nominal and row['projector_lr']==f.ps.effective_lr(e,b,count,nominal)
+                assert row['added_lr'] is None and not row['added_held'] and math.isfinite(row['loss_kd'])
+            assert len((base/'epochs.jsonl').read_text().splitlines())==20
+            reuse_audit[ds]=dict(status='passed',source=str(base),batches=len(rows),checkpoint_sha256=report['checkpoint_sha256'])
+        print('CPU_DATASET_PASSED',ds,flush=True)
+    f.ps.cpu_test(torch)
+    q.dump(ROOT/'preflight.json',dict(status='passed',time=q.now(),frozen=frozen,configs=configs,lr_trajectories=rates,
+        actual_boundaries=actuals,reuse=reuse_audit,independent_sgd_parameters_momentum_exact=True,
+        environment=q.old_queue().environment_guard(),decode=q.old_queue().decode_guard()))
+    print('PREFLIGHT_PASSED',flush=True)
+def queue():
+    lock=(ROOT/'queue.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    gpu=Path('/root/autodl-tmp/official_training_gpu0.lock').open('a');fcntl.flock(gpu,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    assert not (ROOT/'status.json').exists()
+    pre=q.read(ROOT/'preflight.json');assert pre['status']=='passed' and pre['frozen']==guard()
+    assert shutil.disk_usage(ROOT).free>=35*1024**3
+    state=dict(status='running',started=q.now(),pid=os.getpid(),completed=[],successor=None,jobs=JOBS);q.dump(ROOT/'status.json',state)
+    actions=[]
+    for ds in COUNTS:
+        roles=[m for d,m in JOBS if d==ds]
+        actions.extend([('gate',ds,m) for m in roles]+[(a,ds,m) for m in roles for a in ('train','evaluate')])
+    try:
+        for action,ds,m in actions:
+            guard();q.old_queue().ensure_gpu_idle();assert shutil.disk_usage(ROOT).free>=20*1024**3
+            if action=='train':output(ds,m).mkdir(parents=True,exist_ok=False)
+            state.update(action=action,dataset=ds,method=m,updated=q.now());q.dump(ROOT/'status.json',state)
+            env=dict(os.environ,CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1')
+            env.pop('PYTHONPATH',None);env.pop('CUBLAS_WORKSPACE_CONFIG',None)
+            with (ROOT/f'{ds}_{m}_{action}.console.log').open('x') as stream:
+                subprocess.run([q.PYTHON,str(ROOT/'run.py'),action,ds,m],env=env,stdout=stream,stderr=subprocess.STDOUT,check=True)
+            state['completed'].append(dict(action=action,dataset=ds,method=m));q.dump(ROOT/'status.json',state)
+        state.update(status='completed_awaiting_analysis',finished=q.now(),action=None)
+    except BaseException:state.update(status='failed',error=traceback.format_exc(),finished=q.now());raise
+    finally:q.dump(ROOT/'status.json',state)
+def failure(out):
+    if p.holder:
+        torch,tr=p.holder['torch'],p.holder['tr']
+        torch.save(dict(model=tr.model.state_dict(),optimizer=tr.optim.state_dict(),scheduler=tr.sched.state_dict(),
+            epoch=tr.epoch,batch_idx=getattr(tr,'batch_idx',None),input=getattr(tr,'failure_batch',[None])[0],
+            gradients={n:None if z.grad is None else z.grad.detach().cpu() for n,z in tr.model.named_parameters() if z.requires_grad},
+            cpu_rng=torch.get_rng_state(),cuda_rng=torch.cuda.get_rng_state_all()),out/'first_failure_state.pt')
+if __name__=='__main__':
+    action=sys.argv[1]
+    if action=='prepare':prepare()
+    elif action=='preflight':preflight()
+    elif action=='queue':queue()
+    else:
+        ds,m=sys.argv[2:4];assert (ds,m) in JOBS;out=output(ds,m,action=='gate')
+        try:
+            if action=='gate':p.gate(ds,m)
+            elif action=='train':
+                for d,role in JOBS:
+                    if d==ds:assert q.read(output(d,role,True)/'audit.json')['status']=='passed'
+                assert not (out/'initial_trainable.pt').exists();q.train_run(m,ds,1,20,out)
+            elif action=='evaluate':
+                assert not (out/'canonical_val_evidence.pt').exists();f.evaluate(m,ds,1,20,out)
+                report=q.read(out/'audited_metrics.json')
+                if m=='larp':
+                    for rows in report['audits'].values():assert any(q.added(r['name']) and r['changed_elements'] and r['momentum_nonzero'] for r in rows)
+                report.update(protocol_version='1.53',experiment_id=ROOT.name,result_role='exploratory_ten_seed1',
+                    added_schedule='original_lr_mult_0.1' if m=='larp' else None)
+                q.dump(out/'audited_metrics.json',report)
+            else:raise ValueError(action)
+        except BaseException:
+            if action in ('train','gate'):failure(out)
+            raise

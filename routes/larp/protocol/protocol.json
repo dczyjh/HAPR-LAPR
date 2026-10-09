@@ -1,0 +1,53 @@
+{
+  "route": "larp",
+  "main_variant": "o4-r2",
+  "datasets": [
+    "dtd",
+    "oxford_pets",
+    "fgvc_aircraft",
+    "oxford_flowers",
+    "caltech101",
+    "stanford_cars",
+    "ucf101",
+    "eurosat",
+    "sun397",
+    "food101"
+  ],
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "epochs": 20,
+  "backend": {
+    "benchmark": true,
+    "deterministic": false,
+    "deterministic_algorithms": false,
+    "flash": true,
+    "efficient": true,
+    "math": true
+  },
+  "precision": "fp16",
+  "optimizer": "ordinary_sgd_fp16_lora_and_momentum",
+  "objective": "original_KD_only",
+  "kd_reduction": "sum_divided_by_student_logits_numel",
+  "temperature": 1.0,
+  "lora_scaling": "alpha/sqrt(rank)",
+  "lora_lr_multiplier": 0.1,
+  "lora_updates_from_first_batch": true,
+  "projector_ramp_epoch_one_based": 2,
+  "selection": "strict_base_accuracy_improvement_keep_earlier_ties",
+  "evaluation": "first_independent_reload_of_selected_best_for_both_base_and_novel",
+  "no_extra_reference_kl": true,
+  "no_master_weights": true,
+  "no_ab_differential_lr": true,
+  "portable_training_enabled": true,
+  "archive_status": "scientific_sources_verified_portable_pipeline_cpu_tested_cuda_run_pending",
+  "source_contract_sha256": "b7c6ca2ab97830453661e41f8e2ee36b2ec3dccf32d7033a2d5f05d74ac917df",
+  "path_substitutions": {
+    "DATASET.ROOT": "${DATA_ROOT}",
+    "OUTPUT_DIR": "${OUTPUT_DIR}",
+    "TRAINER.PROMPTKD.WEIGHTS_ROOT": "${CLIP_ROOT}",
+    "TRAINER.PROMPTKD.TEACHER_ROOT": "${TEACHER_ROOT}"
+  }
+}

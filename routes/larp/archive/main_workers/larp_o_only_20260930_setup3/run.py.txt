@@ -1,0 +1,140 @@
+"""Four-dataset equal-capacity V-to-O structural test; original joint KD only."""
+import fcntl, importlib.util, json, os, shutil, subprocess, sys, traceback
+from pathlib import Path
+ROOT=Path(__file__).resolve().parent
+BASE=Path('/root/autodl-tmp')
+PRIOR=BASE/'larp_ten_oldlr_20260929'
+DATASETS=('dtd','ucf101','fgvc_aircraft','eurosat')
+def load(name,path):
+    spec=importlib.util.spec_from_file_location(name,path)
+    mod=importlib.util.module_from_spec(spec);sys.modules[name]=mod;spec.loader.exec_module(mod);return mod
+c=load('retained_v_only',PRIOR/'run.py');p,f,q=c.p,c.f,c.q
+def r1_path(ds):return c.REUSE.get(ds,PRIOR/'runs'/ds/'r1')
+def output(ds,m,gate=False):
+    if m=='r1' and not gate:return r1_path(ds)
+    return ROOT/('gates' if gate else 'runs')/ds/m
+def guard():
+    c.guard()
+    frozen=q.read(ROOT/'frozen.json')
+    assert frozen['datasets']==list(DATASETS) and frozen['target']==['o']
+    for name,h in frozen['files'].items():assert q.sha(Path(name))==h,name
+    return q.sha(ROOT/'frozen.json')
+p.ROOT=f.ROOT=ROOT;p.output=output;p.guard=f.guard=guard
+prior_config=p.config
+def config(train,root,m,ds,seed,epochs,out):
+    assert m=='larp' and ds in DATASETS and seed==1 and epochs==20
+    cfg,args=prior_config(train,root,m,ds,seed,epochs,out)
+    cfg.defrost();cfg.TRAINER.PROMPTKD.ADAPTATION.LORA_TARGETS=['o'];cfg.freeze()
+    args.opts+=['TRAINER.PROMPTKD.ADAPTATION.LORA_TARGETS',"['o']"]
+    return cfg,args
+p.config=q.config=config
+prior_canonical=q.canonical
+def canonical(name):
+    return prior_canonical(name).replace('.out_proj.parametrizations.weight.original','.out_proj.weight')
+q.canonical=f.canonical=canonical
+def o_to_v(name):
+    return name.replace('.out_proj.parametrizations.weight.0.','.parametrizations.in_proj_weight.0.').replace('lora_A_o','lora_A_v').replace('lora_B_o','lora_B_v')
+def build(m,ds,seed,epochs,out):
+    guard();torch,tr=c.build(m,ds,seed,epochs,out)
+    ref=torch.load(PRIOR/'runs'/ds/'larp/initial_trainable.pt',map_location='cpu')
+    cur={n:v.detach().cpu() for n,v in tr.model.named_parameters() if v.requires_grad}
+    mapped={o_to_v(n):v for n,v in cur.items()}
+    assert len(mapped)==len(cur) and mapped.keys()==ref.keys()
+    assert all(torch.equal(v,ref[n]) for n,v in mapped.items()),'Mapped initial A/B and common state'
+    added={n:v for n,v in cur.items() if q.added(n)}
+    assert len(added)==8 and sum(v.numel() for v in added.values())==12288
+    assert all('.out_proj.parametrizations.weight.0.lora_' in n for n in added)
+    common=[canonical(n) for n,_ in tr.model.named_parameters() if not q.added(n)]
+    assert len(common)==len(set(common)), 'Canonical names must be injective'
+    assert not hasattr(tr,'boundary_reference')
+    q.dump(out/'target_overlay.json',dict(protocol='1.65',experiment_id=ROOT.name,frozen=guard(),
+        target=['o'],layers=[8,9,10,11],added_parameters=12288,rank=2,alpha=1.,dropout=0.,
+        objective='original_joint_KD_only',auxiliary_kl=False,common='projector_epoch2_ramp',
+        added_schedule='original_lr_mult_0.1',mapped_initialization_exact=True,
+        reference_v=str(PRIOR/'runs'/ds/'larp'),reference_r1=str(r1_path(ds))))
+    return torch,tr
+p.build=q.build=f.build=build
+def prepare():
+    assert not (ROOT/'frozen.json').exists()
+    files={str(x):q.sha(x) for x in ROOT.iterdir() if x.suffix in ('.py','.md')}
+    for name in ('run.py','frozen.json','preflight.json'):files[str(PRIOR/name)]=q.sha(PRIOR/name)
+    for ds in DATASETS:
+        for source in (r1_path(ds),PRIOR/'runs'/ds/'larp'):
+            report=q.read(source/'audited_metrics.json')
+            assert (report['status'],report['dataset'],report['seed'],report['epochs'])==('passed',ds,1,20)
+            for name in ('resolved.yaml','initial_trainable.pt','initial_shared.json','batches.jsonl','epochs.jsonl','audited_metrics.json','VLPromptLearner/model-best.pth.tar'):
+                files[str(source/name)]=q.sha(source/name)
+            assert files[str(source/'VLPromptLearner/model-best.pth.tar')]==report['checkpoint_sha256']
+    q.dump(ROOT/'frozen.json',dict(files=files,datasets=list(DATASETS),target=['o'],seed=1,epochs=20,protocol='1.65'))
+    print('FROZEN',guard(),flush=True)
+def preflight():
+    frozen=guard();torch,train,project=q.framework('r1');assert not torch.cuda.is_available()
+    assert shutil.disk_usage(ROOT).free>=24*1024**3
+    from test_o import run_tests
+    tests=run_tests(torch)
+    import yaml
+    cfgs={};rates={};assets={};data={}
+    prior=q.read(PRIOR/'preflight.json');assert prior['status']=='passed'
+    for ds in DATASETS:
+        cfg,_=config(train,project,'larp',ds,1,20,output(ds,'larp'))
+        assets[ds]=q.asset_check(cfg,project);data[ds]=q.data_check(cfg,ds)
+        here=yaml.safe_load(cfg.dump());old=yaml.safe_load((PRIOR/'runs'/ds/'larp/resolved.yaml').read_text())
+        normalized=json.loads(json.dumps(here));normalized['OUTPUT_DIR']=old['OUTPUT_DIR']
+        assert normalized['TRAINER']['PROMPTKD']['ADAPTATION']['LORA_TARGETS']==['o']
+        normalized['TRAINER']['PROMPTKD']['ADAPTATION']['LORA_TARGETS']=['v'];assert normalized==old,(ds,'Only V to O allowed')
+        assert cfg.TRAINER.PROMPTKD.KD_WEIGHT==(200 if ds in ('dtd','fgvc_aircraft') else 1000)
+        probe=q.probe_path(ds,1,'larp');meta=q.read(probe/'probe.json')
+        assert q.sha(probe/'probe.pt')==meta['evidence_sha256']
+        evidence=torch.load(probe/'probe.pt',map_location='cpu');q.check_backend(evidence['backend'])
+        assert evidence['initial_shared']==q.read(r1_path(ds)/'initial_shared.json')
+        cfgs[ds]=here;rates[ds+'_larp']=prior['lr_trajectories'][ds+'_larp']
+        print('CPU_DATASET_PASSED',ds,flush=True)
+    f.ps.cpu_test(torch)
+    q.dump(ROOT/'preflight.json',dict(status='passed',time=q.now(),frozen=frozen,configs=cfgs,lr_trajectories=rates,
+        assets=assets,data=data,operator_tests=tests,environment=q.old_queue().environment_guard(),decode=q.old_queue().decode_guard(),
+        schedule_implementation_unchanged=True))
+    print('PREFLIGHT_PASSED',flush=True)
+def queue():
+    with (ROOT/'queue.lock').open('a') as lock,(BASE/'official_training_gpu0.lock').open('a') as gpu:
+        fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);fcntl.flock(gpu,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        assert not (ROOT/'status.json').exists()
+        assert q.read(ROOT/'preflight.json')['status']=='passed' and q.read(ROOT/'preflight.json')['frozen']==guard()
+        state=dict(status='running',started=q.now(),pid=os.getpid(),completed=[],scope=list(DATASETS),successor=None)
+        q.dump(ROOT/'status.json',state)
+        try:
+            for action,ds in [('gate',d) for d in DATASETS]+[(a,d) for d in DATASETS for a in ('train','evaluate')]:
+                guard();q.old_queue().ensure_gpu_idle();assert shutil.disk_usage(ROOT).free>=20*1024**3
+                if action=='train':output(ds,'larp').mkdir(parents=True,exist_ok=False)
+                state.update(action=action,dataset=ds,updated=q.now());q.dump(ROOT/'status.json',state)
+                env=dict(os.environ,CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1')
+                env.pop('PYTHONPATH',None);env.pop('CUBLAS_WORKSPACE_CONFIG',None)
+                with (ROOT/f'{ds}_{action}.console.log').open('x') as stream:
+                    subprocess.run([q.PYTHON,str(ROOT/'run.py'),action,ds],env=env,stdout=stream,stderr=subprocess.STDOUT,check=True)
+                state['completed'].append(dict(action=action,dataset=ds));q.dump(ROOT/'status.json',state)
+            state.update(status='completed_awaiting_analysis',finished=q.now(),action=None)
+        except BaseException:state.update(status='failed',error=traceback.format_exc(),finished=q.now());raise
+        finally:q.dump(ROOT/'status.json',state)
+if __name__=='__main__':
+    action=sys.argv[1]
+    if action=='prepare':prepare()
+    elif action=='preflight':preflight()
+    elif action=='queue':queue()
+    else:
+        ds=sys.argv[2];assert ds in DATASETS;out=output(ds,'larp',action=='gate')
+        try:
+            if action=='gate':p.gate(ds,'larp')
+            elif action=='train':
+                for d in DATASETS:assert q.read(output(d,'larp',True)/'audit.json')['status']=='passed'
+                assert not (out/'initial_trainable.pt').exists();q.train_run('larp',ds,1,20,out)
+            elif action=='evaluate':
+                assert not (out/'canonical_val_evidence.pt').exists();f.evaluate('larp',ds,1,20,out)
+                report=q.read(out/'audited_metrics.json')
+                for rows in report['audits'].values():assert any(q.added(r['name']) and r['changed_elements'] and r['momentum_nonzero'] for r in rows)
+                report.update(protocol_version='1.65',experiment_id=ROOT.name,result_role='exploratory_o_only',targets=['o'])
+                q.dump(out/'audited_metrics.json',report)
+            else:raise ValueError(action)
+        except BaseException:
+            if action in ('train','gate'):c.failure(out)
+            raise
+
+

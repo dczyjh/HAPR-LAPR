@@ -1,0 +1,5 @@
+# Preserve original frozen-source bytes across Git checkout/archive.
+# Line-ending conversion would invalidate recorded scientific SHA256 values.
+* -text
+*.gz binary
+*.png binary

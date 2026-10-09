@@ -1,0 +1,312 @@
+"""26006 isolated nine-dataset local R1/O4/O3-tail/O3-front position comparison."""
+import ast,copy,fcntl,hashlib,json,math,os,random,shutil,subprocess,sys,traceback
+from pathlib import Path
+from types import SimpleNamespace
+ROOT=Path(__file__).resolve().parent
+HOST=Path('/root/autodl-tmp'); NODE=HOST/'larp_node_26006_20261001'; B=NODE/'workspace'
+import importlib.util
+def load(name,path):
+    s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);sys.modules[name]=m;s.loader.exec_module(m);return m
+n=load('configured_research_node',ROOT/'node.py');q=n.q;torch=n.torch
+q.SETTINGS={'port':26006,'route':'larp'};q.ROUTE='larp';q.PROJECT=n.PROJECT
+ev=load('evaluation_evidence',B/'larp_two_dataset_ramp_20260929/evaluation_evidence.py')
+DATASETS=('dtd','oxford_pets','fgvc_aircraft','oxford_flowers','caltech101','stanford_cars','ucf101','eurosat','sun397');ROLES=('r1','o4','o3','o3front');SEEDS=(1,)
+LAYERS={'r1':[], 'o4':[8,9,10,11], 'o3':[9,10,11], 'o3front':[8,9,10]}
+ROLE=sys.argv[3] if len(sys.argv)>3 else None
+SEED=int(sys.argv[4]) if len(sys.argv)>4 else None
+HOLDER={}
+def guard():
+    for p,h in q.read(ROOT/'frozen_files.json').items():assert q.sha(Path(p))==h,p
+    n.integrity();return q.sha(ROOT/'frozen_files.json')
+def reserve(start=False):
+    assert shutil.disk_usage(ROOT).free >= (40 if start else 20)*1024**3,'Disk reserve'
+    stat=Path('/sys/fs/cgroup/memory.stat')
+    if stat.exists():assert int(dict(x.split() for x in stat.read_text().splitlines())['anon'])<16*1024**3,'Anonymous memory reserve'
+def build(method,dataset,seed,epochs,out):
+    guard();reserve();assert method==('r1' if ROLE=='r1' else 'larp') and dataset in DATASETS and seed==SEED and seed in SEEDS and epochs==20
+    assert torch.cuda.is_available() and torch.cuda.device_count()==1 and torch.cuda.get_device_name(0)=='NVIDIA GeForce RTX 4090'
+    n.set_random_seed(seed);n.train.configure_cuda_reproducibility(False);torch.set_num_threads(4);n.setup_logger(str(out))
+    cfg=config(dataset,ROLE,seed,out);tr=n.build_trainer(cfg);HOLDER.update(tr=tr,out=out);q.check_backend(q.backend(torch))
+    count=sum(p.numel() for p in tr.model.parameters() if p.requires_grad)
+    assert count==1013760+3072*len(LAYERS[ROLE])
+    tr.trainable_parameter_count=count
+    (out/'resolved.yaml').write_text(cfg.dump())
+    added_params={k:p for k,p in tr.model.named_parameters() if q.added(k)}
+    assert len(added_params)==2*len(LAYERS[ROLE])
+    assert sorted({int(k.split('resblocks.')[1].split('.')[0]) for k in added_params})==LAYERS[ROLE]
+    if ROLE in ('o3','o3front'):
+        anchor=ROOT/'gate'/f'seed_{seed}'/dataset/'o4'/'initial_trainable.pt'
+        assert q.read(anchor.parent/'audit.json')['status']=='passed'
+        reference=torch.load(anchor,map_location='cpu')
+        rng_before=(torch.get_rng_state(),torch.cuda.get_rng_state())
+        with torch.no_grad():
+            for k,p in added_params.items():p.copy_(reference[k].to(device=p.device,dtype=p.dtype))
+        assert torch.equal(rng_before[0],torch.get_rng_state()) and torch.equal(rng_before[1],torch.cuda.get_rng_state())
+        assert all(q.tensor_hash(p)==q.tensor_hash(reference[k]) for k,p in added_params.items())
+    assert all(p.requires_grad for p in added_params.values())
+    assert all(torch.count_nonzero(p)==0 for k,p in added_params.items() if 'lora_B_o' in k)
+    assert all('.out_proj.parametrizations.weight.0.lora_' in k for k in added_params)
+    count_batches=q.SPECS[dataset][0]//8;assert len(tr.train_loader_x)==count_batches
+    initial_common=q.common_hashes(tr.model);init_added={k:q.tensor_hash(p) for k,p in tr.model.named_parameters() if q.added(k)}
+    initial_rng={'cpu':q.tensor_hash(torch.get_rng_state()),'cuda':q.tensor_hash(torch.cuda.get_rng_state())}
+    if ROLE!='r1':
+        ref=q.read(ROOT/'gate'/f'seed_{seed}'/dataset/'r1'/'audit.json');assert initial_common==ref['initial_common']
+        assert initial_rng==ref['initial_rng']
+    if sys.argv[1]!='gate':
+        ref=q.read(ROOT/'gate'/f'seed_{seed}'/dataset/ROLE/'audit.json')
+        assert initial_common==ref['initial_common'] and init_added==ref['initial_added'] and initial_rng==ref['initial_rng']
+    if sys.argv[1] in ('gate','train'):
+        n.f.COUNT=count_batches;n.install(torch,tr,method)
+    HOLDER.update(tr=tr,out=out)
+    q.dump(out/(sys.argv[1]+'_overlay.json'),dict(variant=ROLE,seed=seed,protocol='1.82',frozen=guard(),trainable=count,initial_added=init_added,initial_common=initial_common,initial_rng=initial_rng,backend=q.backend(torch)))
+    return torch,tr
+def config(ds,role,seed,out):
+    assert ds in DATASETS and role in ROLES and seed in SEEDS
+    cfg=n.config(ds,role,out);cfg.defrost();cfg.SEED=seed;cfg.freeze()
+    expected=n.relocate(copy.deepcopy(n.contract['configs'][ds]['o3' if role=='o3front' else role]));expected.update(SEED=seed,OUTPUT_DIR=str(out))
+    if role=='o3front':expected['TRAINER']['PROMPTKD']['ADAPTATION']['LAYERS']=LAYERS[role]
+    assert n.yaml.safe_load(cfg.dump())==expected
+    return cfg
+def prepare():
+    assert not (ROOT/'frozen_files.json').exists()
+    files={str(p):q.sha(p) for p in ROOT.iterdir() if p.suffix in ('.py','.md')}
+    for name in ('source_contract.json','deployment_receipt.json','materials_verified.json','materials_manifest.json','cpu_verified.json','harp_preservation_before.json'):
+        p=NODE/name;files[str(p)]=q.sha(p)
+    for path in n.contract['helper_files']:
+        p=B/path;files[str(p)]=q.sha(p)
+    q.dump(ROOT/'frozen_files.json',files)
+def cpu():
+    assert not torch.cuda.is_available();guard();reserve(True)
+    protection=n.protect_harp()
+    assert q.read(NODE/'deployment_receipt.json')['status']=='passed_cpu_deployment_only'
+    assert sys.version==n.contract['python'] and torch.__version__==n.contract['torch']
+    freeze=subprocess.check_output([sys.executable,'-m','pip','freeze','--all'],text=True)
+    assert freeze.replace(str(B)+'/',str(HOST)+'/')==n.contract['environment']
+    driver=subprocess.check_output(['nvidia-smi','--query-gpu=driver_version,name','--format=csv,noheader'],text=True).strip()
+    assert driver==q.read(NODE/'cpu_verified.json')['driver']
+    configs={};readers={};rates={};assets={}
+    from dassl.optim import build_optimizer,build_lr_scheduler
+    from trainers.adaptation_optim import adaptation_param_groups
+    class Tiny(torch.nn.Module):
+        def __init__(self,role):
+            super().__init__();self.VPT=torch.nn.Parameter(torch.ones(1));self.VPT_image_trans=torch.nn.ParameterList([torch.nn.Parameter(torch.ones(1)) for _ in range(6)])
+            if role!='r1':self.lora_A_o=torch.nn.Parameter(torch.ones(1));self.lora_B_o=torch.nn.Parameter(torch.zeros(1))
+    cached={}
+    for ds in DATASETS:
+        for seed in SEEDS:
+            for role in ROLES:
+                out=ROOT/'formal'/f'seed_{seed}'/ds/role;cfg=config(ds,role,seed,out)
+                assert cfg.TRAINER.PROMPTKD.KD_WEIGHT==q.SPECS[ds][3]
+                assert cfg.TRAINER.PROMPTKD.PREC=='fp16' and cfg.OPTIM.MAX_EPOCH==20
+                if role!='r1':
+                    assert list(cfg.TRAINER.PROMPTKD.ADAPTATION.LAYERS)==LAYERS[role]
+                    assert list(cfg.TRAINER.PROMPTKD.ADAPTATION.LORA_TARGETS)==['o']
+                    assert cfg.TRAINER.PROMPTKD.ADAPTATION.LORA_R==2
+                dest=ROOT/'configs'/f'{ds}_seed{seed}_{role}.yaml';dest.parent.mkdir(exist_ok=True)
+                with dest.open('x') as stream:stream.write(cfg.dump())
+                configs[ds+str(seed)+role]=q.sha(dest)
+                if role=='r1':
+                    n.set_random_seed(seed);data=n.build_dataset(cfg)
+                    records=[[(n.normalize(str(Path(x.impath).resolve())),int(x.label),x.classname) for x in group] for group in (data.train_x,data.val,data.test)]
+                    ref=n.contract['datasets'][ds]
+                    assert [len(g) for g in records]==ref['counts'] and data.classnames==ref['classnames']
+                    digest=hashlib.sha256(json.dumps(records).encode()).hexdigest();assert digest==ref['reader_records_sha256']
+                    assert all(Path(x.impath).is_file() for group in (data.train_x,data.val,data.test) for x in group)
+                    readers[ds+str(seed)]=digest
+                    assets[ds]={}
+                    for key,asset in n.contract['assets'][ds].items():
+                        p=Path(cfg.TRAINER.PROMPTKD.TEACHER_ROOT)/cfg.DATASET.NAME/'VLPromptLearner/model-best.pth.tar' if key=='teacher' else Path(cfg.TRAINER.PROMPTKD.WEIGHTS_ROOT)/key
+                        if str(p) not in cached:cached[str(p)]=q.sha(p)
+                        assert cached[str(p)]==asset['sha256'];assets[ds][key]=cached[str(p)]
+                model=Tiny(role);opt=build_optimizer(model,cfg.OPTIM,param_groups=adaptation_param_groups(model,cfg));sched=build_lr_scheduler(opt,cfg.OPTIM)
+                tr=SimpleNamespace(model=model,optim=opt,epoch=0,batch_idx=0);n.f.COUNT=q.SPECS[ds][0]//8;n.install(torch,tr,'r1' if role=='r1' else 'larp');trajectory=[]
+                for e in range(20):
+                    tr.epoch=e;trajectory.append([g['lr'] for g in opt.param_groups])
+                    for bi in (0,n.f.COUNT-1):
+                        tr.batch_idx=bi
+                        for p in model.parameters():p.grad=torch.ones_like(p)*.1
+                        opt.step();assert math.isclose(tr.actual_step['projector_lr'],n.ps.effective_lr(e,bi,n.f.COUNT,trajectory[-1][0]),rel_tol=1e-12)
+                        if role!='r1':assert math.isclose(tr.actual_step['added_lr'],.1*trajectory[-1][0],rel_tol=1e-12)
+                    sched.step()
+                assert trajectory==q.read(NODE/'cpu_verified.json')['lr_trajectories'][ds+('_r1' if role=='r1' else '_o3' if role in ('o3','o3front') else '_o4')]
+                rates[ds+str(seed)+role]=trajectory
+            print('CPU_PASSED',ds,seed,flush=True)
+    globals()['canonical']=q.canonical
+    globals()['f']=SimpleNamespace(evaluate=SimpleNamespace(__globals__={'canonical':q.canonical}))
+    operator=n.load('o_cpu_operator',B/'larp_o_only_20260930_setup3/test_o.py').run_tests(torch)
+    checks=repair_tests()
+    q.dump(ROOT/'preflight.json',dict(status='passed',time=q.now(),frozen=guard(),configs=configs,readers=readers,assets=assets,lr_trajectories=rates,
+        operator=operator,comparison_tests=checks,projector_schedule=n.ps.cpu_test(torch),harp_protection=protection,driver=driver,source_driver=n.contract['driver'],
+        formal_runs=36,formal_epochs=720,gpu_steps=144,automatic_successor=None))
+def compare_first(a,b,label):
+    if label!='student_logits':return q.compare_tensor(a,b,'forward',label)
+    assert a.shape==b.shape and a.dtype==b.dtype and a.ndim==2,label
+    assert torch.isfinite(a).all() and torch.isfinite(b).all(),label
+    x,y=a.float(),b.float();delta=(x-y).abs()
+    bound=.002+.002*torch.maximum(x.abs().amax(-1,keepdim=True),y.abs().amax(-1,keepdim=True))
+    bad=delta>bound;old=delta>.002+.002*y.abs()
+    return dict(label=label,kind='forward',passed=not bool(bad.any()),max_abs=float(delta.max()),failed_elements=int(bad.sum()),
+        elementwise_failed_diagnostic=int(old.sum()),prediction_changes=int((x.argmax(-1)!=y.argmax(-1)).sum()),criterion='symmetric_row_scaled_original_reload_bound')
+def repair_tests():
+    a=torch.tensor([[4.,1.]],dtype=torch.float32);b=a.clone()
+    assert compare_first(a,b,'student_logits')['passed']
+    b[0,1]+=.02;assert not compare_first(a,b,'student_logits')['passed']
+    assert compare_first(a,b,'student_logits')['failed_elements']==compare_first(b,a,'student_logits')['failed_elements']
+    rejected=0
+    for other in (a.double(),a[:,:1],torch.tensor([[float('nan'),1.]]),torch.tensor([[float('inf'),1.]])):
+        try:compare_first(a,other,'student_logits')
+        except AssertionError:rejected+=1
+    assert rejected==4
+    # Physical-layer intersection has the same initial tensors; mapping is not RNG resampling.
+    anchor={f'layer{k}':torch.arange(6).reshape(2,3)+k for k in LAYERS['o4']}
+    for role in ('o3','o3front'):
+        mapped={k:anchor[f'layer{k}'].clone() for k in LAYERS[role]}
+        assert len(mapped)*3072==9216
+        assert all(torch.equal(v,anchor[f'layer{k}']) for k,v in mapped.items())
+    return dict(status='passed',synthetic_rejections=rejected,over_bound_rejected=True,symmetric=True,physical_layer_mapping=True)
+def gate(ds):
+    out=ROOT/'gate'/f'seed_{SEED}'/ds/ROLE;out.mkdir(parents=True,exist_ok=False);_,tr=build('r1' if ROLE=='r1' else 'larp',ds,SEED,20,out)
+    initial={k:p.detach().cpu().clone() for k,p in tr.model.named_parameters() if p.requires_grad}
+    torch.save(initial,out/'initial_trainable.pt')
+    common=q.common_hashes(tr.model);ia={k:q.tensor_hash(p) for k,p in tr.model.named_parameters() if q.added(k)}
+    rng={'cpu':q.tensor_hash(torch.get_rng_state()),'cuda':q.tensor_hash(torch.cuda.get_rng_state())}
+    frozen=q.common_hashes(tr.model,True);teacher={k:q.tensor_hash(v) for k,v in tr.model_teacher.state_dict().items()}
+    batch=next(iter(tr.train_loader_x));identity=ident(batch)
+    if ROLE!='r1':assert identity==q.read(ROOT/'gate'/f'seed_{SEED}'/ds/'r1'/'audit.json')['input']
+    tr.num_batches=len(tr.train_loader_x);tr.set_model_mode('train');records=[]
+    first={};capture=[True]
+    def thook(module,inputs,output):
+        if capture[0]:first.update(teacher_text=output[1].detach().cpu().clone(),teacher_logits=output[2].detach().cpu().clone())
+    def shook(module,inputs,output):
+        if capture[0]:
+            with torch.no_grad():first['student_logits']=(output[1]*output[0]@first['teacher_text'].to(output[0].device).t()).detach().cpu().clone()
+    hooks=[tr.model_teacher.register_forward_hook(thook),tr.model.register_forward_hook(shook)]
+    rates=q.read(NODE/'cpu_verified.json')['lr_trajectories'][ds+('_r1' if ROLE=='r1' else '_o4')]
+    for e,bi in ((0,0),(1,0),(1,tr.num_batches-1),(2,0)):
+        tr.epoch=e;tr.batch_idx=bi
+        for g,lr in zip(tr.optim.param_groups,rates[e]):g['lr']=lr
+        loss=tr.forward_backward(batch);assert all(math.isfinite(float(v)) for v in loss.values());records.append(dict(tr.actual_step,loss=loss))
+        if capture[0]:first['loss']=torch.tensor(loss['loss']);capture[0]=False
+    for hook in hooks:hook.remove()
+    torch.save(first,out/'first_step.pt');comparison=[]
+    if ROLE!='r1':
+        ref=torch.load(ROOT/'gate'/f'seed_{SEED}'/ds/'r1'/'first_step.pt',map_location='cpu')
+        for key in first:
+            check=compare_first(first[key],ref[key],key);comparison.append(check);assert check['passed'],check
+    assert q.common_hashes(tr.model,True)==frozen and teacher=={k:q.tensor_hash(v) for k,v in tr.model_teacher.state_dict().items()}
+    changed={k:int(torch.count_nonzero(p.detach().cpu()-initial[k])) for k,p in tr.model.named_parameters() if p.requires_grad}
+    for prefix in ('image_encoder.','VPT_image_trans.'):
+        assert any(v>0 for k,v in changed.items() if k.startswith(prefix) and not q.added(k)),prefix
+    for k,p in tr.model.named_parameters():
+        if q.added(k) and p.requires_grad:
+            mom=tr.optim.state[p]['momentum_buffer'];assert p.grad is not None and torch.isfinite(p.grad).all() and torch.count_nonzero(p.grad)>0
+            assert torch.isfinite(mom).all() and torch.count_nonzero(mom)>0
+            if 'lora_B_o' in k:assert changed[k]>0
+    if ROLE!='r1':
+        for layer in LAYERS[ROLE]:
+            mod=tr.model.image_encoder.transformer.resblocks[layer].attn.out_proj.parametrizations.weight[0]
+            v=float(torch.linalg.vector_norm(mod.lora_B_o.float()@mod.lora_A_o.float()));assert v>0 and math.isfinite(v)
+    before={k:q.tensor_hash(v) for k,v in tr.model.state_dict().items()};tr.save_model(2,str(out),val_result=0.,model_name='model-best.pth.tar');tr.load_model(str(out))
+    assert before=={k:q.tensor_hash(v) for k,v in tr.model.state_dict().items()};tr.close_writer()
+    q.dump(out/'audit.json',dict(status='passed',time=q.now(),variant=ROLE,seed=SEED,initial_common=common,initial_added=ia,initial_rng=rng,input=identity,steps=records,changed=changed,roundtrip_exact=True,first_step_comparison=comparison,first_step_sha=q.sha(out/'first_step.pt'),frozen=guard()))
+def ident(batch):return dict(image=q.tensor_hash(batch['img']),label=q.tensor_hash(batch['label']),impath=batch.get('impath'))
+def train_run(ds):
+    out=ROOT/'formal'/f'seed_{SEED}'/ds/ROLE;out.mkdir(parents=True,exist_ok=False)
+    for role in ROLES:assert q.read(ROOT/'gate'/f'seed_{SEED}'/ds/role/'audit.json')['status']=='passed'
+    _,tr=build('r1' if ROLE=='r1' else 'larp',ds,SEED,20,out)
+    frozen=q.common_hashes(tr.model,True);teacher={k:q.tensor_hash(v) for k,v in tr.model_teacher.state_dict().items()}
+    torch.save({k:p.detach().cpu().clone() for k,p in tr.model.named_parameters() if p.requires_grad},out/'initial_trainable.pt')
+    q.dump(out/'initial_shared.json',q.common_hashes(tr.model))
+    pair=None
+    if ROLE!='r1':
+        ref=ROOT/'formal'/f'seed_{SEED}'/ds/'r1';assert q.read(ref/'audited_metrics.json')['status']=='passed'
+        pair=[json.loads(l) for l in (ref/'batches.jsonl').read_text().splitlines()]
+        assert len(pair)==20*len(tr.train_loader_x)
+    count=len(tr.train_loader_x);sums=[0.]*20;counts=[0]*20;lastbase=[None];original=tr.forward_backward
+    def fb(batch):
+        tr.failure_batch=batch;identity=ident(batch);e,bi=tr.epoch,tr.batch_idx;i=e*count+bi
+        if i==0:assert identity==q.read(ROOT/'gate'/f'seed_{SEED}'/ds/ROLE/'audit.json')['input']
+        if pair is not None:assert identity==pair[i]['identity']
+        result=original(batch);assert all(math.isfinite(float(v)) for v in result.values())
+        row=dict(tr.actual_step,identity=identity,loss=float(result['loss']),loss_kd=float(result.get('loss_kd',result['loss'])))
+        if pair is not None:
+            for k in ('prompt_lr','projector_lr'):assert row[k]==pair[i][k]
+        with (out/'batches.jsonl').open('a') as stream:stream.write(json.dumps(row,allow_nan=False)+'\n')
+        counts[e]+=1;sums[e]+=row['loss_kd'];return result
+    tr.forward_backward=fb;evidence=ev.attach(tr,torch,q.tensor_hash);oldsave=tr.save_model
+    def saved(*args,**kwargs):
+        result=oldsave(*args,**kwargs)
+        if kwargs.get('model_name')=='model-best.pth.tar':torch.save(dict(evidence['last'],checkpoint_sha256=q.sha(out/'VLPromptLearner/model-best.pth.tar')),out/'best_val_evidence.pt')
+        return result
+    tr.save_model=saved;oldtest=tr.test
+    def test(split=None):
+        value=oldtest(split)
+        if split=='val':lastbase[0]=float(value)
+        return value
+    tr.test=test;oldepoch=tr.after_epoch
+    def after_epoch():
+        oldepoch();reserve();e=tr.epoch;assert counts[e]==count and lastbase[0] is not None
+        layers=[]
+        if ROLE!='r1':
+            for layer in LAYERS[ROLE]:
+                op=tr.model.image_encoder.transformer.resblocks[layer].attn.out_proj;mod=op.parametrizations.weight[0]
+                a,b=mod.lora_A_o.float(),mod.lora_B_o.float();base=op.parametrizations.weight.original.float()
+                layers.append(dict(layer=layer+1,a_norm=float(a.norm()),b_norm=float(b.norm()),ba_norm=float((b@a).norm()),weight_norm=float(base.norm()),relative_delta=float((b@a).norm()/math.sqrt(2)/base.norm())))
+        with (out/'epochs.jsonl').open('a') as stream:stream.write(json.dumps(dict(epoch=e+1,mean_kd=sums[e]/count,base=lastbase[0],layers=layers))+'\n')
+    tr.after_epoch=after_epoch;oldafter=tr.after_train
+    def after():
+        old=tr.test
+        def native(split=None):
+            value=old(split);torch.save(dict(evidence['last'],checkpoint_sha256=q.sha(out/'VLPromptLearner/model-best.pth.tar')),out/f'native_{split}_evidence.pt');return value
+        tr.test=native;return oldafter()
+    tr.after_train=after;tr.train()
+    assert frozen==q.common_hashes(tr.model,True) and teacher=={k:q.tensor_hash(v) for k,v in tr.model_teacher.state_dict().items()}
+    assert counts==[count]*20
+    q.dump(out/'train_complete.json',dict(status='passed',time=q.now(),epochs=20,batches=sum(counts),teacher_unchanged=True))
+def evaluate(ds):
+    out=ROOT/'formal'/f'seed_{SEED}'/ds/ROLE
+    # Retain established independent reload evaluator; import only its function.
+    tree=ast.parse((ROOT/'legacy_evaluation.py').read_text());node=next(x for x in tree.body if isinstance(x,ast.FunctionDef) and x.name=='evaluate')
+    ns={k:getattr(q,k) for k in ('read','sha','now','common_hashes','added','canonical','tensor_hash','backend','TOLERANCES','SPECS','IMPLEMENTATION')}
+    def check_update(name,momentum,changed,held,torch):assert momentum is not None and torch.isfinite(momentum).all(),name
+    def dump(path,report):
+        if Path(path).name=='audited_metrics.json':
+            for tag in ('model-best.pth.tar','model.pth.tar-20'):
+                ck=torch.load(out/'VLPromptLearner'/tag,map_location='cpu')
+                if ROLE!='r1':assert any(r['changed_elements'] and r['momentum_nonzero'] for r in report['audits']['best' if tag.startswith('model-best') else 'last'] if 'lora_B_o' in r['name'])
+            report.update(protocol_version='1.82',variant=ROLE,added_schedule='0.1_original_all_epochs' if ROLE!='r1' else None,numerical_policy='original_hard_reload_no_retry')
+        q.dump(path,report)
+    ns.update(build=build,guard=guard,check_update=check_update,dump=dump,SETTINGS=q.SETTINGS,ROUTE='larp',ROOT=ROOT,Path=Path,math=math,json=json)
+    exec(compile(ast.Module(body=[node],type_ignores=[]),str(ROOT/'legacy_evaluation.py'),'exec'),ns)
+    ns['evaluate']('r1' if ROLE=='r1' else 'larp',ds,SEED,20,out)
+def queue():
+    lock=(HOST/'official_training_gpu0.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    assert not (ROOT/'status.json').exists();assert q.read(ROOT/'preflight.json')['frozen']==guard();reserve(True)
+    state=dict(status='running',started=q.now(),pid=os.getpid(),completed=[],reused_formal=0,formal_runs=36,formal_epochs=720,gpu_steps=144,automatic_successor=None);q.dump(ROOT/'status.json',state)
+    try:
+        for ds in DATASETS:
+            for seed in SEEDS:
+                for action,role in [('gate',r) for r in ROLES]+[(a,r) for r in ROLES for a in ('train','evaluate')]:
+                    guard();reserve();assert not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip(),'GPU occupied'
+                    state.update(dataset=ds,seed=seed,variant=role,action=action,updated=q.now());q.dump(ROOT/'status.json',state)
+                    env=dict(os.environ,CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1');env.pop('PYTHONPATH',None);env.pop('CUBLAS_WORKSPACE_CONFIG',None)
+                    with (ROOT/f'{ds}_seed{seed}_{role}_{action}.log').open('x') as stream:subprocess.run([sys.executable,str(ROOT/'run.py'),action,ds,role,str(seed)],env=env,stdout=stream,stderr=subprocess.STDOUT,check=True)
+                    state['completed'].append(dict(dataset=ds,seed=seed,variant=role,action=action));q.dump(ROOT/'status.json',state)
+        state.update(status='completed_awaiting_analysis',finished=q.now(),action=None)
+    except BaseException:state.update(status='failed',finished=q.now(),error=traceback.format_exc());raise
+    finally:q.dump(ROOT/'status.json',state)
+if __name__=='__main__':
+    try:
+        action=sys.argv[1]
+        if action=='prepare':prepare()
+        elif action=='cpu':cpu()
+        elif action=='queue':queue()
+        elif action=='gate':gate(sys.argv[2])
+        elif action=='train':train_run(sys.argv[2])
+        elif action=='evaluate':evaluate(sys.argv[2])
+        else:raise ValueError(action)
+    except BaseException:
+        if HOLDER:
+            tr=HOLDER['tr'];out=HOLDER['out']
+            torch.save(dict(model=tr.model.state_dict(),optimizer=tr.optim.state_dict(),scheduler=tr.sched.state_dict(),epoch=getattr(tr,'epoch',None),batch_idx=getattr(tr,'batch_idx',None),batch=getattr(tr,'failure_batch',None),gradients={k:None if p.grad is None else p.grad.detach().cpu() for k,p in tr.model.named_parameters()},cpu_rng=torch.get_rng_state(),cuda_rng=torch.cuda.get_rng_state_all()),out/'first_failure_state.pt')
+        raise

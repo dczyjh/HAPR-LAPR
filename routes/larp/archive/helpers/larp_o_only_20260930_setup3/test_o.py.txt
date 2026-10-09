@@ -1,0 +1,45 @@
+"""CPU tests of existing output-weight LoRA, no change to model implementation."""
+import copy, math
+def run_tests(torch):
+    from trainers.efficient_adaptation import WeightLoRAParametrization, QKVLoRAParametrization
+    from torch.nn.utils import parametrize
+    torch.manual_seed(17);state=torch.get_rng_state()
+    o=WeightLoRAParametrization(12,12,2,1.,torch.float64,torch.device('cpu'))
+    torch.set_rng_state(state)
+    v=QKVLoRAParametrization(12,['v'],2,1.,torch.float64,torch.device('cpu'))
+    assert torch.equal(o.lora_A_o,v.lora_A_v) and torch.equal(o.lora_B_o,v.lora_B_v)
+    assert o.scaling==1/math.sqrt(2)
+    mha=torch.nn.MultiheadAttention(12,3,dropout=0).double()
+    plain=copy.deepcopy(mha)
+    for z in mha.parameters():z.requires_grad_(False)
+    parametrize.register_parametrization(mha.out_proj,'weight',o,unsafe=True)
+    x=torch.randn(5,2,12,dtype=torch.float64,requires_grad=True)
+    y=mha(x,x,x,need_weights=False)[0];expected=plain(x,x,x,need_weights=False)[0]
+    torch.testing.assert_close(y,expected,rtol=0,atol=0)
+    y.square().sum().backward()
+    assert o.lora_B_o.grad is not None and o.lora_B_o.grad.abs().sum()>0
+    assert o.lora_A_o.grad is not None and torch.count_nonzero(o.lora_A_o.grad)==0
+    assert all(z.grad is None for n,z in mha.named_parameters() if 'lora_' not in n)
+    assert torch.isfinite(x.grad).all() and x.grad.abs().sum()>0
+    with torch.no_grad():o.lora_B_o.copy_(torch.randn_like(o.lora_B_o)*.01)
+    x2=x.detach().clone().requires_grad_();a=o.lora_A_o.detach().clone().requires_grad_();b=o.lora_B_o.detach().clone().requires_grad_()
+    mha.zero_grad(set_to_none=True)
+    actual=mha(x2,x2,x2,need_weights=False)[0]
+    wt=plain.out_proj.weight.detach()+b@a/math.sqrt(2)
+    pred=torch.nn.functional.multi_head_attention_forward(x2,x2,x2,12,3,plain.in_proj_weight.detach(),plain.in_proj_bias.detach(),None,None,False,0.,wt,plain.out_proj.bias.detach(),training=True,need_weights=False)[0]
+    torch.testing.assert_close(actual,pred,rtol=1e-12,atol=1e-12)
+    g1=torch.autograd.grad(actual.square().sum(),(o.lora_A_o,o.lora_B_o,x2),retain_graph=True)
+    g2=torch.autograd.grad(pred.square().sum(),(a,b,x2))
+    for z,w in zip(g1,g2):torch.testing.assert_close(z,w,rtol=1e-10,atol=1e-10)
+    saved=copy.deepcopy(mha.state_dict());mha.load_state_dict(saved)
+    assert all(torch.equal(z,saved[n]) for n,z in mha.state_dict().items())
+    # Only naming normalization changes for the frozen output weight.
+    from __main__ import canonical, q, f
+    assert f.evaluate.__globals__['canonical'] is canonical and q.canonical is canonical
+    assert q.common_hashes.__globals__['canonical'] is canonical
+    assert canonical('x.attn.out_proj.parametrizations.weight.original')=='x.attn.out_proj.weight'
+    assert canonical('x.attn.parametrizations.in_proj_weight.original')=='x.attn.in_proj_weight'
+    return dict(status='passed',mapped_ab_initialization=True,zero_output_exact=True,first_step_b_gradient=True,
+        frozen_parameters_no_gradient=True,nonzero_forward_gradient_reference=True,save_load_exact=True,canonical_names=True)
+
+

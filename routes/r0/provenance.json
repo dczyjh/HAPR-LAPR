@@ -1,0 +1,77 @@
+{
+  "configs": [
+    {
+      "dataset": "caltech101",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/caltech101.resolved.yaml",
+      "source_sha256": "b83ae8a7d42fc8d00e94c629bf240650fc982413c86a2f791e7eceda59d9b827",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "stanford_cars",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/stanford_cars.resolved.yaml",
+      "source_sha256": "5e63b4d86ccc3221de44371fa760b14e680bfd13ccdfdac88d7fad647e1960cc",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "sun397",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/sun397.resolved.yaml",
+      "source_sha256": "c87dbd0d22a58fb613b723c509b6805dfd6bac7f7af4cfffc491edd430c58f0b",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "oxford_pets",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/oxford_pets.resolved.yaml",
+      "source_sha256": "efe594bb0b70ea3b13e1af08a1cfcae937abdf5966baa64fbbe4a02e3b53ac77",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "eurosat",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/eurosat.resolved.yaml",
+      "source_sha256": "340d45e77502f57e386de7beb44bb49bb0b99931b61a988a7c9e03cf077089f5",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "ucf101",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/ucf101.resolved.yaml",
+      "source_sha256": "b731191b33d63cad8f83c1edba26d18e8724030cbbd2eaf99030d07e0992f867",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "food101",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/food101.resolved.yaml",
+      "source_sha256": "fa4322bbf0bc5d9f7a676382dbf02a5e1fc3c5689930fb17f463d64109145230",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "fgvc_aircraft",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/fgvc_aircraft.resolved.yaml",
+      "source_sha256": "f713775cc4ac98362de773a2f4d0b704ed5560a1103a1281650e782c450d2cdb",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "oxford_flowers",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/oxford_flowers.resolved.yaml",
+      "source_sha256": "63bc526675153c5ec8241e2507312109db9490e84adb08729b7820d76a8834ee",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    },
+    {
+      "dataset": "dtd",
+      "source_workspace_relative": "outputs/baseline_summary_20260928/official_seed2_20260928/dtd.resolved.yaml",
+      "source_sha256": "4118abf704121cc11a989e18eaa7a79e1ebceb70ad0ea0da54e45f7e8ef899e5",
+      "recorded_seed": 2,
+      "transformation": "DATASET.ROOT, OUTPUT_DIR placeholders; seed supplied by registered run"
+    }
+  ],
+  "official_scientific_sources": "../larp/archive/official_reference",
+  "source_inventory": "../larp/provenance/source_inventory.json",
+  "role": "R0 official reproduction, no shared-projector ramp or additional module"
+}

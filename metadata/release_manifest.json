@@ -1,0 +1,3831 @@
+{
+  "schema_version": 2,
+  "release_date": "2026-10-09",
+  "scope": "independent baseline/main/ablation runner; frozen science, CPU integration verified; full CUDA reproduction not performed",
+  "exclusions": [
+    "metadata/release_manifest.json",
+    "metadata/validation_report.json"
+  ],
+  "files": {
+    ".gitattributes": {
+      "bytes": 179,
+      "sha256": "6dae1469e4a7ce4f0522e2f378dc6a01033ed66ff4f93e37206226cc3230b59c"
+    },
+    ".gitignore": {
+      "bytes": 615,
+      "sha256": "8cfd8e98182ff2edbc36979da299642dcea089d1247f6370f8ef374f657e21d1"
+    },
+    "LICENSE.md": {
+      "bytes": 666,
+      "sha256": "e43990b0fb44bde40d137941b7750facccec5221562fc8e3249a65134adc4be4"
+    },
+    "README.md": {
+      "bytes": 4488,
+      "sha256": "0ba9b7c8bc8a057cb0d98bb0229714ab01715ec974bc4ffbc1c273a2406363d6"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "bytes": 2273,
+      "sha256": "a63c23f7bc640b5fecc0c2fc6fd1dd80f950744cddb08d3bee0888fe0b600f25"
+    },
+    "docs/ASSETS_AND_ENVIRONMENT.md": {
+      "bytes": 3375,
+      "sha256": "811898e49594319d940df39b9b5998d1067ac900c39ea218f110b90115f0c543"
+    },
+    "docs/ASSET_PREPARATION.md": {
+      "bytes": 13696,
+      "sha256": "4b49a8232992b34607b0cca159cd788686cbb62393b22d200956c6167c94a17f"
+    },
+    "docs/CLI_AND_TROUBLESHOOTING.md": {
+      "bytes": 6019,
+      "sha256": "749bff53147e9f7a1b72cd0c0e14a609e1ef9b574fb15c031857aefdc341fdc4"
+    },
+    "docs/EXPERIMENT_PROTOCOL.md": {
+      "bytes": 2604,
+      "sha256": "b48ee3d01fc1f8304c8d7ddcc0c3a759ae58f168300c28f7529ecdc9a2ac244d"
+    },
+    "docs/HARP_IMPLEMENTATION.md": {
+      "bytes": 21278,
+      "sha256": "6d2bed5e930f27feefa76a850172ee85b44d7adf8c8dc51d740c2e61b4dfcd1e"
+    },
+    "docs/LARP_IMPLEMENTATION.md": {
+      "bytes": 15849,
+      "sha256": "6216468bd35d544740d29eaccec8123d3b6b6024a8a5580b6397ef80dd2bd4cf"
+    },
+    "docs/METHODS_OVERVIEW.md": {
+      "bytes": 4704,
+      "sha256": "f008460d4d71eddce72d0ed2d44e26a413dab475bf626b8426c117ba3380b690"
+    },
+    "docs/PROJECT_MAP.md": {
+      "bytes": 10668,
+      "sha256": "e3c75740b67cffdf03b154ff44149bbda502955896307ccde30a965413801114"
+    },
+    "docs/RUN_REPRODUCTION.md": {
+      "bytes": 6850,
+      "sha256": "00944c2adbcf605e7c08313a2c6005530ca2b725ce159a711fbc066b660831f1"
+    },
+    "docs/VALIDATION.md": {
+      "bytes": 2972,
+      "sha256": "c62116792b9991c59df0616804e8f9c7d82a7fea7857006b4a75f0e9fd8561ba"
+    },
+    "licenses/Dassl-MIT.txt": {
+      "bytes": 1064,
+      "sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3"
+    },
+    "licenses/MMA-MIT.txt": {
+      "bytes": 1069,
+      "sha256": "9bde51e4e2576a3000837af592db45586f693a83893e8fa2f9b718534462cebe"
+    },
+    "licenses/OpenAI-CLIP-MIT.txt": {
+      "bytes": 1063,
+      "sha256": "893951b3bf94db8df1b13e05da5cdeb499400960e4d44a3962a8b33ed0b4f28e"
+    },
+    "licenses/PromptKD-Apache-2.0.txt": {
+      "bytes": 11342,
+      "sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8"
+    },
+    "metadata/external_assets.json": {
+      "bytes": 7889,
+      "sha256": "79636e90f861e96605b3cb13b68ae2f4a13da0dbcb83d0c30feafd3c4c8544d1"
+    },
+    "metadata/publication_sources.json": {
+      "bytes": 4104,
+      "sha256": "eed481dd45694e03654a07251ae083e12425a74416586cac4ee531aca675ae74"
+    },
+    "project.py": {
+      "bytes": 1646,
+      "sha256": "547a6163c9fee96c8be1569620b31247c0624f0782a4188319e418a169bbdd24"
+    },
+    "reproduce.py": {
+      "bytes": 4365,
+      "sha256": "7a2941e5aefca217bdb9d95df9f31e909781b31b9d0525aff58e1ff8dfe402a9"
+    },
+    "results/README.md": {
+      "bytes": 2108,
+      "sha256": "3c97be27ff8db5e396c43f0c4214bccab2e06acae3682e2c335abf736c7baecd"
+    },
+    "results/harp/complete_results.json": {
+      "bytes": 944281,
+      "sha256": "847398f3c20547f19a4575b00b06009728f19c69517f9703d11ed687297ecaf0"
+    },
+    "results/larp/analysis.json": {
+      "bytes": 275250,
+      "sha256": "a98c5e228fe3218430a19c29718fe53e7d8302e114355df068dd9d64f112f237"
+    },
+    "results/larp/epochs_index.json": {
+      "bytes": 3870498,
+      "sha256": "a448db457d62244fda2cf085f582d125339334365c7820c16a844623c3c6d2aa"
+    },
+    "results/larp/flat_results.json": {
+      "bytes": 307297,
+      "sha256": "0927ff1d3e99d9877129f0d4116092927d216b67f0885c92cfc10598f80e9213"
+    },
+    "results/larp/main_and_replay_summary.json": {
+      "bytes": 59822,
+      "sha256": "61b936c3fe24acdde73beafcd2a1452a05c17f6432892704dd3d8d44b002ca1c"
+    },
+    "results/larp/r0_external_reference.json": {
+      "bytes": 5050,
+      "sha256": "99883dd8a242b9d08f88e456ef4189ed466d6bc09cf2016825b150a81851fb38"
+    },
+    "routes/harp/README.md": {
+      "bytes": 2646,
+      "sha256": "d47c63b5ee4f7be1e4f4dca2175bf6c54884e2d162f96d172bfae3a1934369ea"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed1/harp.yaml": {
+      "bytes": 4427,
+      "sha256": "b48700a259f59a1867c4d2aad6bbc9c675bd568da2f24d7f703130fd83296976"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed1/last4_d16.yaml": {
+      "bytes": 4450,
+      "sha256": "d55feab53e996e87ff18d0443e9b220296b63c2bde1bbccca66d8d44c92a21d3"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed1/last4_d64.yaml": {
+      "bytes": 4450,
+      "sha256": "5c9e2f35d7a832f8aeca09fae670fd0810c4a9c272e14ee2d888e210a9de4a88"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed1/mid4_d32.yaml": {
+      "bytes": 4447,
+      "sha256": "85f624e0cbe7abc7b3a54384732540e70d07b37bacea6cb8dd560adbba72b040"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed1/r1.yaml": {
+      "bytes": 4425,
+      "sha256": "244ae66cab293215faf0da91209582b9bbd431e5336ae42c3a84496d4c994149"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed2/harp.yaml": {
+      "bytes": 4442,
+      "sha256": "033186c4069af88d9dc3d293e2f6adab8c0a1c51e51d0305b8723cdd8ae062ad"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed2/last4_d16.yaml": {
+      "bytes": 4450,
+      "sha256": "e1c61edfe45e0e4ea4560e4a95b8a2db8c68b04b72655c31c1a9db3a29fb4e6d"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed2/last4_d64.yaml": {
+      "bytes": 4453,
+      "sha256": "8615d09ae4326ba246f90f9519ebdc78fc261e2d9aca64c3b30527405ef90980"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed2/mid4_d32.yaml": {
+      "bytes": 4447,
+      "sha256": "4d1c98b776b9120780898bb132ef69e78f8f0de788f96dcd2a257ba674f5b1f3"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed2/r1.yaml": {
+      "bytes": 4440,
+      "sha256": "4f8fb391d24a13e5404777ea489f2199ded58e4fef95ea44df14eb646f2972d8"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed3/harp.yaml": {
+      "bytes": 4447,
+      "sha256": "27515bdc2c706e564323e166f7f5a0bdbf04f7ddd74b93dfcc02fa931bb3aba3"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed3/last4_d16.yaml": {
+      "bytes": 4450,
+      "sha256": "b5966ecba6f48b90370774fafafbb5d754fdfe17560f8db5dd975cff8b9ea747"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed3/last4_d64.yaml": {
+      "bytes": 4450,
+      "sha256": "043d6def0a4342a051d036ccd05edb60ec2ecb59f9135f17d669d75e6f0f42a1"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed3/mid4_d32.yaml": {
+      "bytes": 4447,
+      "sha256": "e2481fd44fe86e57ab6d3c7f46c7be0428623e00643b5b06b16598fc2377d1f6"
+    },
+    "routes/harp/archive/recorded_configs/caltech101/seed3/r1.yaml": {
+      "bytes": 4445,
+      "sha256": "0e97495c27d3b0acf321bf0c9498f24e9aa79f981a9d2f0f3eea7f5abea4f94a"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed1/harp.yaml": {
+      "bytes": 4428,
+      "sha256": "925f76b355fc76c52ece5a05923ffb45a83f726020b7641191f25e55c8186f78"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed1/last4_d16.yaml": {
+      "bytes": 4451,
+      "sha256": "51c93a1a6d397f7d733b948844a00157594eea03a14deb546d79c3ba0377d1b8"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed1/last4_d64.yaml": {
+      "bytes": 4451,
+      "sha256": "520c4ce9c98f32bfe7b63faceb7dd3f37c8fad74ecabc658de01d1923c774074"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed1/mid4_d32.yaml": {
+      "bytes": 4448,
+      "sha256": "3366d1a618c38389094ad3b5a13a7e6072198062c52153cc6c631f3ef913875f"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed1/r1.yaml": {
+      "bytes": 4426,
+      "sha256": "40834fedf89fcebf9ea5516feb003d16fd871b579294040c387277800d0ba533"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed2/harp.yaml": {
+      "bytes": 4443,
+      "sha256": "81f72d47d251c172308e56c2f0c39cb58991ca376f5a57393f050b18cbaf4c2e"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed2/last4_d16.yaml": {
+      "bytes": 4451,
+      "sha256": "1899f59e4ce402b83e6e2f7c5e36e3d4c40ed58c582550929be24d514504b2d3"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed2/last4_d64.yaml": {
+      "bytes": 4451,
+      "sha256": "b6daf98a7839d48cc2d0fc69747223e8f852e309ce8d6d61f79068c2f69cdf77"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed2/mid4_d32.yaml": {
+      "bytes": 4448,
+      "sha256": "1358ea590cc94a7a456d0973430b5ac703b4c78e68c78cf93f8ed28c9d6cc193"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed2/r1.yaml": {
+      "bytes": 4441,
+      "sha256": "aa0e1c11cd022f12b73da0bed7ab194dc9cdb724f40617c86fa6906a9abb0ca4"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed3/harp.yaml": {
+      "bytes": 4448,
+      "sha256": "d867b3c6dc415dbbb72c2420c8ead2e90d98ab2547f49c932d1991a3454bc959"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed3/last4_d16.yaml": {
+      "bytes": 4451,
+      "sha256": "d2016c08ddeaf84c50b82360253c031b7111a09533043b0f2eed61307d09d4c4"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed3/last4_d64.yaml": {
+      "bytes": 4451,
+      "sha256": "30a3ffb4df3f07498c71e653530c8dd6b9ce24a776ce5842c35e58057b2a7403"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed3/mid4_d32.yaml": {
+      "bytes": 4448,
+      "sha256": "e5fd78a5ba962540b22eb09b88671e437dfec05ffb375492fb249460809f9e82"
+    },
+    "routes/harp/archive/recorded_configs/dtd/seed3/r1.yaml": {
+      "bytes": 4446,
+      "sha256": "55f50d9a16eb0a29ef69c5f8daf9ff447e91287d3718a56d9a9badd7263940df"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed1/harp.yaml": {
+      "bytes": 4421,
+      "sha256": "e5516d99b3eff690aa1c14c80342d183c0275400ee624c8c49d45ac2a339d9a9"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed1/last4_d16.yaml": {
+      "bytes": 4444,
+      "sha256": "233a1352877864e5a9149496dc1021831d7951b8e844e3c84e06b1c40b144681"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed1/last4_d64.yaml": {
+      "bytes": 4444,
+      "sha256": "c318d2f247213360b90b8710e5187be9ddb0af6b7dbc8c949c224f713a6776f2"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed1/mid4_d32.yaml": {
+      "bytes": 4441,
+      "sha256": "de90150f6b01914d475b94d8df94e5db3ae98fe0b2dad49faa6877c784dcd36e"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed1/r1.yaml": {
+      "bytes": 4419,
+      "sha256": "3b9943d089d93801c019a81ebb5cf3e8d217b0325aeb8f74dc5352823b0af9b1"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed2/harp.yaml": {
+      "bytes": 4439,
+      "sha256": "1cefd4b6f290bd569603a897715683f946cc05ba95e8b97393836b66443831c9"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed2/last4_d16.yaml": {
+      "bytes": 4447,
+      "sha256": "08b5fcf31ee0e629fd635d2ee71d095313bc82885a1c3354261c7561929c0855"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed2/last4_d64.yaml": {
+      "bytes": 4447,
+      "sha256": "43a35c687a28a8c5110bf42f67fc4df31ee0a96a471706b0a88140958eb0047d"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed2/mid4_d32.yaml": {
+      "bytes": 4444,
+      "sha256": "006ade431bc531318cc23fce0fa480f6b7b73e4c1399d13084174bf7b60e6aba"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed2/r1.yaml": {
+      "bytes": 4437,
+      "sha256": "9d933d3ddcab4339935b370b847250fc03c78898e6264082a0d65dacdea5655d"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed3/harp.yaml": {
+      "bytes": 4441,
+      "sha256": "7274ae0510809c1793a4a978fd430becb92816411ef6135b4996a7038e78698a"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed3/last4_d16.yaml": {
+      "bytes": 4444,
+      "sha256": "d032ae6d0499430671615befb329b0c5d5589a9ae8a1bcaad92956469f7c7150"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed3/last4_d64.yaml": {
+      "bytes": 4444,
+      "sha256": "eb6047a1bbe4e71bf608829b41063b0d9d763a08cf6355d7a75e8d4a5fcf5da4"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed3/mid4_d32.yaml": {
+      "bytes": 4441,
+      "sha256": "8a4e34dd1ad2b3985cb07c24279c6167bfcd6d4916c2f01a1c777b4141c4c09c"
+    },
+    "routes/harp/archive/recorded_configs/eurosat/seed3/r1.yaml": {
+      "bytes": 4439,
+      "sha256": "147bb49c1ca32e2ef38b69938973dece1ac4199af335a84c33defa53f3111a1d"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed1/harp.yaml": {
+      "bytes": 4431,
+      "sha256": "0bda600f6cd18d90fdb256663d86de189d7834f2320d614cece5062969d0701a"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed1/last4_d16.yaml": {
+      "bytes": 4454,
+      "sha256": "d0549d7dc276f8d332cfffb20e355c385301eefa33cfdb25d38f14c706af7dcd"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed1/last4_d64.yaml": {
+      "bytes": 4454,
+      "sha256": "f5ba991b7bdf79885ddf9f60772952b7cd60fc175a7f2dac45daefd25db25525"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed1/mid4_d32.yaml": {
+      "bytes": 4451,
+      "sha256": "845ac05cc8fcec8b1d07345df5e41d40643256e3895554f57f06dca36ae4aa7d"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed1/r1.yaml": {
+      "bytes": 4429,
+      "sha256": "ab28f14b898a6dc45c9ee51bf844e2f6dd815b62cdb8d4750b49be03c4933a83"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed2/harp.yaml": {
+      "bytes": 4446,
+      "sha256": "eff835acee97d8ace652f4409ad3f92766fdbc6fa16d7738dde7c2a9852fa9d7"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed2/last4_d16.yaml": {
+      "bytes": 4454,
+      "sha256": "1b2296e6d88dc63dcae67f9fa5b1ad1b7041e7973c4f2535ba4f0ee5d3bbce89"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed2/last4_d64.yaml": {
+      "bytes": 4454,
+      "sha256": "f10bb3a498769592d21d1567bb16e272a513b5ee39147f0a2af1b7ffc7793e30"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed2/mid4_d32.yaml": {
+      "bytes": 4451,
+      "sha256": "60b9f814bd284b48ae789720a481f993a47175a327c9be3ab9dc5ee9fc6cac7b"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed2/r1.yaml": {
+      "bytes": 4444,
+      "sha256": "12030ef3bec439a675b5df265e64196b08280e56c3221f2a51333ad250a419d7"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed3/harp.yaml": {
+      "bytes": 4451,
+      "sha256": "bea1686464cb46555bf45203c5dc01ec66d0ffc145b4fcc95099add4b37b217b"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed3/last4_d16.yaml": {
+      "bytes": 4454,
+      "sha256": "a00bef80d22d1fd2d54ad6c2218f2decf14c7535fbe9e9e55cb61ca4c18c1735"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed3/last4_d64.yaml": {
+      "bytes": 4454,
+      "sha256": "4291faeb670fff2d00dc04e652b9c195bc1760f7eed74006438828d085873faf"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed3/mid4_d32.yaml": {
+      "bytes": 4451,
+      "sha256": "10958a5e993e5a5c353bd61cb305b34b5b7cbe49d86c08b1e6c5f99cf5583dac"
+    },
+    "routes/harp/archive/recorded_configs/fgvc_aircraft/seed3/r1.yaml": {
+      "bytes": 4449,
+      "sha256": "2c4e2df76667c9600c467d762be1b2b289d17ba90891e84ad20784cff1d0d28a"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed1/harp.yaml": {
+      "bytes": 4421,
+      "sha256": "8c25572fcb90b5e9fa46a5cccdb8570b5aec4bd27d9d9f2025e0267953790457"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed1/last4_d16.yaml": {
+      "bytes": 4444,
+      "sha256": "354f58b500b0886ba95b4a6dec2648a4bb026f0202efe0b6330c9c46266f2dc8"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed1/last4_d64.yaml": {
+      "bytes": 4444,
+      "sha256": "ca0c77dd129961d175e1cc627dd8d4f0cd6a1c6c0a066f7ce5087db461323b20"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed1/mid4_d32.yaml": {
+      "bytes": 4441,
+      "sha256": "fdb9b0b6a4bb8e5235711d25f057aab3bff3148266fc7f580871eda15a4492b6"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed1/r1.yaml": {
+      "bytes": 4419,
+      "sha256": "84206b29a6c9fa64cb4b83d90561bd446adc1b6b51bddd2ca92897efe17f90e9"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed2/harp.yaml": {
+      "bytes": 4436,
+      "sha256": "8718dc434c2cdc1a8c15540e19b83492d34b2742ae714d65877ff390d70b03b1"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed2/last4_d16.yaml": {
+      "bytes": 4447,
+      "sha256": "6c56ee342fc499d91fc5b80b0189f27a7643bfcba7a07b9d0e0e00b5a34d77c5"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed2/last4_d64.yaml": {
+      "bytes": 4447,
+      "sha256": "684de7562145cc9208afb6673f5e085d23233d8da9cba072cb4e303c91e304db"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed2/mid4_d32.yaml": {
+      "bytes": 4444,
+      "sha256": "37d90f2113e273aa40ae7c31153023b959a496b1be1c4483cfc1024cfa0b1579"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed2/r1.yaml": {
+      "bytes": 4434,
+      "sha256": "489f655b7524ace2ebdfa02a157fbf320d1070f0c4a22ae6aac22c30e627980d"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed3/harp.yaml": {
+      "bytes": 4441,
+      "sha256": "5d18860ac31b28c1d829a68a3ade063bcb82889820d55ae5359980e64ebf0d0f"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed3/last4_d16.yaml": {
+      "bytes": 4444,
+      "sha256": "858937f0bf2d2932950b2c7feee93efa6f59458e3202d536e576eb8937e0c115"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed3/last4_d64.yaml": {
+      "bytes": 4444,
+      "sha256": "383586ce701229b14b838bebede23f58f3a48d4f568486b10973046853239e95"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed3/mid4_d32.yaml": {
+      "bytes": 4441,
+      "sha256": "b8032e7955639e36bffbcd01cb8488873b490f0d47e82317c69d6acf0afaa447"
+    },
+    "routes/harp/archive/recorded_configs/food101/seed3/r1.yaml": {
+      "bytes": 4439,
+      "sha256": "1ea3f1f6f5602e0bcdbd438b8d48fd0b291c01be90b79e123dd957753b8e9741"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed1/harp.yaml": {
+      "bytes": 4433,
+      "sha256": "c4da66b5f0f3420352568358a77b98f306e75efd491f51d622e9bb9f8732fd02"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed1/last4_d16.yaml": {
+      "bytes": 4456,
+      "sha256": "89fad4893bb29269af4e8e4b2fcf8710103832a3936fcbdb742dffe229c01e71"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed1/last4_d64.yaml": {
+      "bytes": 4456,
+      "sha256": "7b4bda6dd89036b4543282f986c236cc2c9f847b069af88242a4b034f6309945"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed1/mid4_d32.yaml": {
+      "bytes": 4453,
+      "sha256": "f46be68d47d428ef0d94d2ff9fac822354d2d1bab6825451027f33fe6969c294"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed1/r1.yaml": {
+      "bytes": 4431,
+      "sha256": "2b20a28c83bf852a02f23c81e3d7cc47e4c1c38de9b89779a7a9bd83d96e6f7e"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed2/harp.yaml": {
+      "bytes": 4448,
+      "sha256": "dba6a01b5545ed8fd3a6e733180276c50696a9467bd2377c43394e9888dd938d"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed2/last4_d16.yaml": {
+      "bytes": 4456,
+      "sha256": "ce513e96edca8c38a7a9143813b8bf7f8a314bdab9ca1bd42ff34d2f95475029"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed2/last4_d64.yaml": {
+      "bytes": 4456,
+      "sha256": "a3e29f379299c833b708d606290773365f54b994b216ed82f043b13d959096a1"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed2/mid4_d32.yaml": {
+      "bytes": 4453,
+      "sha256": "0b58540018395adf0de0c701dcad817480d61b704d367506293692e814775d2f"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed2/r1.yaml": {
+      "bytes": 4446,
+      "sha256": "e23d900a8809c6d073a834d2f37c6c73d081748f84136170ea08daafb67d8b0b"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed3/harp.yaml": {
+      "bytes": 4453,
+      "sha256": "cfa027e1df7a9dc6abb9bb9a26f1666ce4812c58284fcb8bbe728ab7b471df3e"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed3/last4_d16.yaml": {
+      "bytes": 4456,
+      "sha256": "67ab7bbc4c9fd219b7ad901b2bbcad74f16f349ba843f993aa4165bd89389b88"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed3/last4_d64.yaml": {
+      "bytes": 4456,
+      "sha256": "3f430037c65b4c2e4e670ae701ea4fca866c16bffad55ffe2b6462184615ace3"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed3/mid4_d32.yaml": {
+      "bytes": 4453,
+      "sha256": "79ddf6be14ea8bcaa288ca24603cbac531df25e047fef7e261f9554e61523cbd"
+    },
+    "routes/harp/archive/recorded_configs/oxford_flowers/seed3/r1.yaml": {
+      "bytes": 4451,
+      "sha256": "60aa72ca83b3b75f0fe50072a31ff069e330e1af23cabb4decc6178f19943456"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed1/harp.yaml": {
+      "bytes": 4421,
+      "sha256": "59fb95d5a6e3efac91ee3111538102d2419f0ac92619e1ba2e7ca54b14a91a84"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed1/last4_d16.yaml": {
+      "bytes": 4451,
+      "sha256": "184a9bdb719e8d9e31a7ec155bf047cdadfda72fc6880b05d54fe3f3ee51ad37"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed1/last4_d64.yaml": {
+      "bytes": 4451,
+      "sha256": "72c2d5288d6c2d6f6ffea6074a291a215cdd7ccdcd01b8e38765f4550bcc85a5"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed1/mid4_d32.yaml": {
+      "bytes": 4448,
+      "sha256": "bcaec8d0c69109a4ea256250b001be7f9a20318ee87f8dd53ef7283d7ec1db8e"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed1/r1.yaml": {
+      "bytes": 4419,
+      "sha256": "e40680ae12156494f587f176380ac9d7b9ce5c4b7bf2e34743cab0ed136de165"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed2/harp.yaml": {
+      "bytes": 4443,
+      "sha256": "c480f57117be36f21f2b78047e510bac8295e10bb5f14f687b75f338f13dba21"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed2/last4_d16.yaml": {
+      "bytes": 4451,
+      "sha256": "63c5ff0f19d28adbf7cb50d22e6986a48949767a58a91747b65cddc3641e33ed"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed2/last4_d64.yaml": {
+      "bytes": 4451,
+      "sha256": "89aa7a5e9330f37f4b930b70199be135f5a31a3cc91fd4f94cffb10a32b5418b"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed2/mid4_d32.yaml": {
+      "bytes": 4448,
+      "sha256": "067ff9cb9fd60a12151607a5da3afa6458e3325a6cc775b03dfd92c3eeb7a1f7"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed2/r1.yaml": {
+      "bytes": 4441,
+      "sha256": "b438f928b48013cfbc280932dda9bfb4772da5ca26d6928ad2180140d0242bd8"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed3/harp.yaml": {
+      "bytes": 4448,
+      "sha256": "1a255d7b753bb0358e24b3dee466933a5e3e60e0b10acb5e7ab45a1fcb0052e0"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed3/last4_d16.yaml": {
+      "bytes": 4451,
+      "sha256": "548f36824f5fcd0d06c38aa10c8d8f611454bca8b3f943afdac7e5f25b402445"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed3/last4_d64.yaml": {
+      "bytes": 4451,
+      "sha256": "1194532e900750c043d54e25f8014a8d18d44fd2968bbfb2c2c82d9802f15bc4"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed3/mid4_d32.yaml": {
+      "bytes": 4448,
+      "sha256": "d4419f25b0af49c36a76b4f1c0b72b089b2e58f24b8a4e8284382b112c2cd768"
+    },
+    "routes/harp/archive/recorded_configs/oxford_pets/seed3/r1.yaml": {
+      "bytes": 4446,
+      "sha256": "9f476abdc49bb8017c5886daa4a87bdecee4053fbd10e330be9a70e441f255e4"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed1/harp.yaml": {
+      "bytes": 4432,
+      "sha256": "293a1b09e84e8a970202ecd439e7bda24d4f5ac7096742389f9982de1f04a0b7"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed1/last4_d16.yaml": {
+      "bytes": 4455,
+      "sha256": "195126484b69657fedfb5f3d2f60844186a7225111bd9702e6f6703372127602"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed1/last4_d64.yaml": {
+      "bytes": 4455,
+      "sha256": "d0d647c18f431c3db8aa0a19d30b07212b8426715e7f6c69d6dfea35efa3f44c"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed1/mid4_d32.yaml": {
+      "bytes": 4452,
+      "sha256": "9e83b25cdf77ac81543413bffa54d48700cd3eab1346d9bbeeb9753a71f40165"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed1/r1.yaml": {
+      "bytes": 4430,
+      "sha256": "ae4d684909450c1c8e7c94b41fe72fffe9ebc3d77666d0848fe32e7dbf97f70e"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed2/harp.yaml": {
+      "bytes": 4447,
+      "sha256": "0e94bfc547144ec2fb2f1eb6f4990b23b232886f41e18fb1455fb50a5219409f"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed2/last4_d16.yaml": {
+      "bytes": 4458,
+      "sha256": "b0c0f65339ab22e4441d5062b49f4aa879168d9714cf29a1c0264590c1470603"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed2/last4_d64.yaml": {
+      "bytes": 4458,
+      "sha256": "026f344229cc470030aa6e0ec3d16924dfab4c4525ab3c87bace662c8c3320fb"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed2/mid4_d32.yaml": {
+      "bytes": 4455,
+      "sha256": "0d9d9b6805d918f23214149931ed1930753692094e1a6d115d877bed81394c57"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed2/r1.yaml": {
+      "bytes": 4445,
+      "sha256": "d8cb8454785933c94109255af989b499e94be279394a3475197553a49b040b8d"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed3/harp.yaml": {
+      "bytes": 4452,
+      "sha256": "e9d5b77b5ad3f74b4243cca8ebb2dc1831a80f9b8553378436d730f7c6ca7163"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed3/last4_d16.yaml": {
+      "bytes": 4455,
+      "sha256": "583b2d628bb26f095bfca5f1b3a958af9e80eb99c9170f67201830760c4765ff"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed3/last4_d64.yaml": {
+      "bytes": 4455,
+      "sha256": "1e8674adfac8939cdbb11a8315b6c2cbd1a02705cfb9d1fa1f25110adaa7c0e7"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed3/mid4_d32.yaml": {
+      "bytes": 4452,
+      "sha256": "fe93700b4425f4d23d37e3ab0464e7e7b0b6e411390c87500fe83f185510002e"
+    },
+    "routes/harp/archive/recorded_configs/stanford_cars/seed3/r1.yaml": {
+      "bytes": 4450,
+      "sha256": "712b726016b5ee3abb7e3be037b223fea713585d8dbf6b99bc6c6851260bd320"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed1/harp.yaml": {
+      "bytes": 4419,
+      "sha256": "d684167fba7286b74d6c9f9d3c68e3de24f75d2150f0e0c9a69d1127bd58be84"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed1/last4_d16.yaml": {
+      "bytes": 4442,
+      "sha256": "de423a0e76729a242c183134c5fcc406b767ba3aeb800330c7e2d3a5b3444876"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed1/last4_d64.yaml": {
+      "bytes": 4442,
+      "sha256": "c0b0e9a188b7dc957559422253ba3082e7ce4ab4358d0d5b051d5236f18dd5ac"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed1/mid4_d32.yaml": {
+      "bytes": 4439,
+      "sha256": "bf412dbb0a5b81f878ee1eb090794de193e8eafe4236393bc7fd15692813eb6d"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed1/r1.yaml": {
+      "bytes": 4417,
+      "sha256": "915ab8b4c306afe203e58daaf9868853f6324624f8f17efba76e09871190c416"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed2/harp.yaml": {
+      "bytes": 4434,
+      "sha256": "e605a3a1364c3f6048ce5a84f1fac426856151df12e4c112f785a39f12b727c2"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed2/last4_d16.yaml": {
+      "bytes": 4445,
+      "sha256": "bc9779dcf397c2211b62f34a3d62127fe3d00e110b519715a9a111a8b1bbae54"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed2/last4_d64.yaml": {
+      "bytes": 4445,
+      "sha256": "679e28002ea148702dd4512194bbfac931c5f188765c2cdde795ecfcb6680fe7"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed2/mid4_d32.yaml": {
+      "bytes": 4442,
+      "sha256": "aabcd1ee0d4c410eb580321ea6ba82922aa36aea83abf67c56e1ceae6a29a4fe"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed2/r1.yaml": {
+      "bytes": 4432,
+      "sha256": "587aea5c38a0fbe3489c17fc29641f0cddee0a47b5437f78c92346442bd487fd"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed3/harp.yaml": {
+      "bytes": 4439,
+      "sha256": "1e0c7ebd4ce2f0335d4d5c2cb0fbb94a4fa74a238b5575ffe7d0df3836cb707c"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed3/last4_d16.yaml": {
+      "bytes": 4442,
+      "sha256": "27e9391836acca42dc3eff9b997e3b35ba96f0165a66d87492bc850fa39e4fbb"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed3/last4_d64.yaml": {
+      "bytes": 4442,
+      "sha256": "17a70dac1796876748fd8fcc4becfc0e059d5be52416aed65f370394b0ffffb6"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed3/mid4_d32.yaml": {
+      "bytes": 4439,
+      "sha256": "149bdd01d0c3c28d13ffb34d000c95decb654f6e4d7a6ee34b202c482b28fd64"
+    },
+    "routes/harp/archive/recorded_configs/sun397/seed3/r1.yaml": {
+      "bytes": 4437,
+      "sha256": "bd356e14b64190c1a93e04396bea92f7196df2157b2fb61c90ab28ab854b50b1"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed1/harp.yaml": {
+      "bytes": 4419,
+      "sha256": "3263003a78669ad3dc6aa691560c65df73a2f3199c779d8b18af2f927faefc1d"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed1/last4_d16.yaml": {
+      "bytes": 4442,
+      "sha256": "ea78f5d89b4b864ac24ae1f23154b1fd163d4a6e561c647d48b02ad16b40dfee"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed1/last4_d64.yaml": {
+      "bytes": 4442,
+      "sha256": "18d08e0f43b6fc25101f3026ae6548ca34ac9c9e1667f9790b8e4323a592f658"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed1/mid4_d32.yaml": {
+      "bytes": 4439,
+      "sha256": "dd1600d95b5fccffefa2f9c0962ff41a13a759110c2bd130aa88b8b80a193d78"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed1/r1.yaml": {
+      "bytes": 4417,
+      "sha256": "4fef5806ce65e434d6a77cf52032078d45a4abd26fc551d9eba7e16a33e80da7"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed2/harp.yaml": {
+      "bytes": 4434,
+      "sha256": "a47a6430a93e5eeb87b64c490da84bc6498546d9fac5709b6df4fa079f9f31c4"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed2/last4_d16.yaml": {
+      "bytes": 4445,
+      "sha256": "9afa33940432d16413aa4a0ba66d662a499c17bc639f7d00850049f1cade92b7"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed2/last4_d64.yaml": {
+      "bytes": 4445,
+      "sha256": "fde4bf4d90f87c82e7f26419cb4fc132a8b1094a30b6c128361e0fbd120be754"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed2/mid4_d32.yaml": {
+      "bytes": 4442,
+      "sha256": "ce325ca5b2c60073402c0fb2fae880093885b371fcd5114dcb54811277abee9c"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed2/r1.yaml": {
+      "bytes": 4432,
+      "sha256": "e0e6538f41344d5421ed787faee29be9a6e5910bf28ffcb8dcf4d81b92adf44c"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed3/harp.yaml": {
+      "bytes": 4439,
+      "sha256": "645dacd7fa623a5dd1f2224e4fc5661508ca92b337873c18eda1ef20021c3ab5"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed3/last4_d16.yaml": {
+      "bytes": 4442,
+      "sha256": "1a7b48c58a284e56e8c968e00bcfd465cc9b9a52ec0e5cd7c19a6db66c6e4d2a"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed3/last4_d64.yaml": {
+      "bytes": 4442,
+      "sha256": "bb563ca04a44a5fc51787289e2aafe954a24e0725220aaccb5096cfab56ecde3"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed3/mid4_d32.yaml": {
+      "bytes": 4439,
+      "sha256": "1fac7c01d6f9037d0844fb6c212512f1f782664baefe21b56e5ba274e66069a8"
+    },
+    "routes/harp/archive/recorded_configs/ucf101/seed3/r1.yaml": {
+      "bytes": 4437,
+      "sha256": "8483d6047a42d3836e21d01dd72dbb079e6e7b14c50b6bef6d77809bdeed491f"
+    },
+    "routes/harp/cli.py": {
+      "bytes": 8764,
+      "sha256": "d2bc024bc8f288bfdaff82c4da446114b904a5c2131ed4f463bcd2ec66432a54"
+    },
+    "routes/harp/configs/index.json": {
+      "bytes": 48483,
+      "sha256": "0ed9d35cf12426e6cde3d389d6cebd265cccc67d7ae80c8bde7691ba50b07cf2"
+    },
+    "routes/harp/configs/portable/caltech101/seed1/harp.json": {
+      "bytes": 5916,
+      "sha256": "2f6c22094b72ad29b56a2221a2aba2d96b62225a3d36b409c7709ba49562edcd"
+    },
+    "routes/harp/configs/portable/caltech101/seed1/last4_d16.json": {
+      "bytes": 5916,
+      "sha256": "66112dc62df6684b4463b6705c3feee0b88489d422940a12d188acac04a650b4"
+    },
+    "routes/harp/configs/portable/caltech101/seed1/last4_d64.json": {
+      "bytes": 5916,
+      "sha256": "6e37f746f47452f36f180a940bdeeab89c1c97810e4ea6d9a8e89b419d58f69d"
+    },
+    "routes/harp/configs/portable/caltech101/seed1/mid4_d32.json": {
+      "bytes": 5914,
+      "sha256": "235e689008c0f383d16a22e915bd407dd438e56b661e3a99e2ecddfc7be61352"
+    },
+    "routes/harp/configs/portable/caltech101/seed1/r1.json": {
+      "bytes": 5916,
+      "sha256": "d63d28f6c28ca661ca0884dca9c4bb1287dc5811860b7be6e937e40bfdedec76"
+    },
+    "routes/harp/configs/portable/caltech101/seed2/harp.json": {
+      "bytes": 5916,
+      "sha256": "dfc49a71b7b0253ecd018aabb36e90e10c92dd4ed66dd0abd0aeed9565209df6"
+    },
+    "routes/harp/configs/portable/caltech101/seed2/last4_d16.json": {
+      "bytes": 5916,
+      "sha256": "64cc8d8c07483ecabb91d459066d562ebf6d02a5f87df59789edef48a3dc1f68"
+    },
+    "routes/harp/configs/portable/caltech101/seed2/last4_d64.json": {
+      "bytes": 5916,
+      "sha256": "b802bfc8dedb466c804a3c817332b2c469f7ec1c5b4e1cd4df5a3de542c74b9c"
+    },
+    "routes/harp/configs/portable/caltech101/seed2/mid4_d32.json": {
+      "bytes": 5914,
+      "sha256": "492d7c07be173b9827e7953a9897926d0947fcf5e3bf7660789fb465a84efa9d"
+    },
+    "routes/harp/configs/portable/caltech101/seed2/r1.json": {
+      "bytes": 5916,
+      "sha256": "02161e6403793d41c7a3d17bfcdc0af599f251184bc486fbc907a1220a86e055"
+    },
+    "routes/harp/configs/portable/caltech101/seed3/harp.json": {
+      "bytes": 5916,
+      "sha256": "66ec870ae2ba1e498da467215b2bb56393eaf8e6d554f15113bd5e3d91ca4eaf"
+    },
+    "routes/harp/configs/portable/caltech101/seed3/last4_d16.json": {
+      "bytes": 5916,
+      "sha256": "16c9b940bdcf88828130f405f8b25ddcbcc23ceee9adb951306903825d2daa1d"
+    },
+    "routes/harp/configs/portable/caltech101/seed3/last4_d64.json": {
+      "bytes": 5916,
+      "sha256": "c0e16e9ed0e4b88ae7cff47cfd01313ff311c6a64664f2ad85de5bddc8040706"
+    },
+    "routes/harp/configs/portable/caltech101/seed3/mid4_d32.json": {
+      "bytes": 5914,
+      "sha256": "99c134f4893f746f4be9f425f5baced626b71721a3ee28f82f73101b5493a253"
+    },
+    "routes/harp/configs/portable/caltech101/seed3/r1.json": {
+      "bytes": 5916,
+      "sha256": "f2aeda2489bf110f1b466142f9511e391125a0e2bcd44a6494f43f12e03e7241"
+    },
+    "routes/harp/configs/portable/dtd/seed1/harp.json": {
+      "bytes": 5924,
+      "sha256": "519992223b1a3c19befa253700304fb7b745d800df617791ee8b001175c21946"
+    },
+    "routes/harp/configs/portable/dtd/seed1/last4_d16.json": {
+      "bytes": 5924,
+      "sha256": "f99f81c95fa768392cf53a6d7d3123e9e545eab6f79cc2a7e5e20741e1969d31"
+    },
+    "routes/harp/configs/portable/dtd/seed1/last4_d64.json": {
+      "bytes": 5924,
+      "sha256": "5416201e3d8e76ead320f7edf64e24f14866832453a7a4c58e3e11a0af90ddf7"
+    },
+    "routes/harp/configs/portable/dtd/seed1/mid4_d32.json": {
+      "bytes": 5922,
+      "sha256": "fee400fed4b5ee04a3723f23d47187219bfd903471fd6dae85caa14c1e83b72f"
+    },
+    "routes/harp/configs/portable/dtd/seed1/r1.json": {
+      "bytes": 5924,
+      "sha256": "851835c48cb52614b8cf7e2810a747d836d06808e68e787296c4a82fd523fb1d"
+    },
+    "routes/harp/configs/portable/dtd/seed2/harp.json": {
+      "bytes": 5924,
+      "sha256": "5d871d189314918b6a4919c6445d3df998d3ad879bafa9cb1c9d1a72b3f04418"
+    },
+    "routes/harp/configs/portable/dtd/seed2/last4_d16.json": {
+      "bytes": 5924,
+      "sha256": "314d8fa0ffcbcb7247798c2d6951a30d96d8f072ab6941ca06c8108149b2778a"
+    },
+    "routes/harp/configs/portable/dtd/seed2/last4_d64.json": {
+      "bytes": 5924,
+      "sha256": "6b9f53b0a34ccbbb2060d87ac4ff9e4d295bd161e9fd3a5d40f687cf318cade1"
+    },
+    "routes/harp/configs/portable/dtd/seed2/mid4_d32.json": {
+      "bytes": 5922,
+      "sha256": "6476beca863ce964d0071d13c53c2af77e9437055b0186447e0827834365176e"
+    },
+    "routes/harp/configs/portable/dtd/seed2/r1.json": {
+      "bytes": 5924,
+      "sha256": "853cedb8378c46ef93392129171c4ccf7a6fa9a9e330ee4189a48c789937a085"
+    },
+    "routes/harp/configs/portable/dtd/seed3/harp.json": {
+      "bytes": 5924,
+      "sha256": "748c0f1008b4afc3be5352fa1046c0dbc55aa78c78aa83688a61da6a336110f5"
+    },
+    "routes/harp/configs/portable/dtd/seed3/last4_d16.json": {
+      "bytes": 5924,
+      "sha256": "225fe9772a54ab8214418f67d0deda1467076cca07e5d11dc61d1e4740a2b652"
+    },
+    "routes/harp/configs/portable/dtd/seed3/last4_d64.json": {
+      "bytes": 5924,
+      "sha256": "54f72d8a1b4168a5d53a86c3e17fd8968b23fa832de8390a410f6ee48100471f"
+    },
+    "routes/harp/configs/portable/dtd/seed3/mid4_d32.json": {
+      "bytes": 5922,
+      "sha256": "61d91f25ba1d1ae7d3097cc8a94452f0d3560e8fc18cbeea5c815cd96568c960"
+    },
+    "routes/harp/configs/portable/dtd/seed3/r1.json": {
+      "bytes": 5924,
+      "sha256": "4c2ca7d12695c7468b0751b49ebea70f79a888055de1087590a8e3c09ea145bf"
+    },
+    "routes/harp/configs/portable/eurosat/seed1/harp.json": {
+      "bytes": 5913,
+      "sha256": "3ddf6848970e8709b3cc27e493338b5fa7330667f9289f8d5417a6d00e3b066e"
+    },
+    "routes/harp/configs/portable/eurosat/seed1/last4_d16.json": {
+      "bytes": 5913,
+      "sha256": "03b85d9864fca05cac1409e09bf4bd5edafbaeba666cc772fcf3e1253bf48c33"
+    },
+    "routes/harp/configs/portable/eurosat/seed1/last4_d64.json": {
+      "bytes": 5913,
+      "sha256": "f2f0840a5ee56e1dbe292ffaa9d7cb4651f87eeb908a0afbb25514c31c71a912"
+    },
+    "routes/harp/configs/portable/eurosat/seed1/mid4_d32.json": {
+      "bytes": 5911,
+      "sha256": "fa4696ca1914b0914c4f331f9f2b7cb40d849c519b0c850d4bd10171632447a3"
+    },
+    "routes/harp/configs/portable/eurosat/seed1/r1.json": {
+      "bytes": 5913,
+      "sha256": "d8c5f5a0e728cec15cc01809eabb8937010f1752c99557dde5d22fdb18d2ae37"
+    },
+    "routes/harp/configs/portable/eurosat/seed2/harp.json": {
+      "bytes": 5913,
+      "sha256": "437ae414be68e6bd3a0f5ac29b54fda583461b29b6db61b9cfba3a7676511ae6"
+    },
+    "routes/harp/configs/portable/eurosat/seed2/last4_d16.json": {
+      "bytes": 5913,
+      "sha256": "c87df55841845878fcbd30d58d54bd5f925d5e04988df9f450d7604de4f8fefd"
+    },
+    "routes/harp/configs/portable/eurosat/seed2/last4_d64.json": {
+      "bytes": 5913,
+      "sha256": "ffff4ebe1cb842a3c0652a23395cb8c4d627412fdb47e5d6cddaa0009da29cf9"
+    },
+    "routes/harp/configs/portable/eurosat/seed2/mid4_d32.json": {
+      "bytes": 5911,
+      "sha256": "bb765395974e15a654e8b394bde1a4fbea15d3d057577b3b19a558b881485b58"
+    },
+    "routes/harp/configs/portable/eurosat/seed2/r1.json": {
+      "bytes": 5913,
+      "sha256": "4e68142fb672c212cb411fc50194abb5f7b88455756188954e04e44c485856a2"
+    },
+    "routes/harp/configs/portable/eurosat/seed3/harp.json": {
+      "bytes": 5913,
+      "sha256": "57acb8104edc3ad8a5b750946efa02bc73072e5c82a23ee46907d114bcc09ef9"
+    },
+    "routes/harp/configs/portable/eurosat/seed3/last4_d16.json": {
+      "bytes": 5913,
+      "sha256": "1a36a7b1a0917e2aabd00073468e5a1422e2346e94f451907e80faef32fe3dc1"
+    },
+    "routes/harp/configs/portable/eurosat/seed3/last4_d64.json": {
+      "bytes": 5913,
+      "sha256": "ff7cd20e1af3da6b348efd08c67e90d07c9ba7b3494b972f1e815c8b5827b4c1"
+    },
+    "routes/harp/configs/portable/eurosat/seed3/mid4_d32.json": {
+      "bytes": 5911,
+      "sha256": "06e729fb500b34920e58f68c0a9f2c30bb349ce89c8d5910e27ecd3a0858a675"
+    },
+    "routes/harp/configs/portable/eurosat/seed3/r1.json": {
+      "bytes": 5913,
+      "sha256": "5eaa6959e730c4844962d2c6e62d72283bb6e7cda38d1e30926722362cfd2480"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed1/harp.json": {
+      "bytes": 5917,
+      "sha256": "8547e37f5badcfc18227848ba4c7acba7bd1da8c24556a4a2367b236a43404a6"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed1/last4_d16.json": {
+      "bytes": 5917,
+      "sha256": "a4928fbd3b65cdd37d35134d4fcb3e71287904e4ef2996a8ad024519f25f9968"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed1/last4_d64.json": {
+      "bytes": 5917,
+      "sha256": "27277ba22c7cc667372540876093e343d910b0267b1d7f6d9b7f42b72c1c80ce"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed1/mid4_d32.json": {
+      "bytes": 5915,
+      "sha256": "fa998cdc401dac52364766804eb3893f48a1f48bcffbb55fbb77e6b9957c8716"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed1/r1.json": {
+      "bytes": 5917,
+      "sha256": "60db7d0a69ac0dfdaaebf3aaae2b72a176383a4ca1716ecf9a02a1e2200b57f5"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed2/harp.json": {
+      "bytes": 5917,
+      "sha256": "414be29890c5bb3914baeb8beba81ca8d5695e6a62e442b7fc22ecc42209ba1b"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed2/last4_d16.json": {
+      "bytes": 5917,
+      "sha256": "0569c5c87dc3797d29d86b103940ed8a46b461dd1e312e118dcee875659ea16d"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed2/last4_d64.json": {
+      "bytes": 5917,
+      "sha256": "e73e358e33be40aa96f90c73cf3ec0921927be9f332cc62e75c8734abebbf72e"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed2/mid4_d32.json": {
+      "bytes": 5915,
+      "sha256": "018f8e0575132dc7202a3055cbef889cd53b1f10ee17fce2dd06faaa37f6f197"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed2/r1.json": {
+      "bytes": 5917,
+      "sha256": "5105caa1e2ebdfa1304221a1f3edf7a60ad28833928fa265973c985b2b06a732"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed3/harp.json": {
+      "bytes": 5917,
+      "sha256": "b45a99d79071e0173fe530bcb0aa4542777d1f0975e2f5e68607f3cceb8e61c6"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed3/last4_d16.json": {
+      "bytes": 5917,
+      "sha256": "ea2b9c5252d2f1e8af1db56cc45ba514967b9362eac9d9d934a6b90fb1d4c180"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed3/last4_d64.json": {
+      "bytes": 5917,
+      "sha256": "90e692c8bfb70e645b68a5bf79b94c8bca8c45af10d3b13cd4dff3fef6bda7bb"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed3/mid4_d32.json": {
+      "bytes": 5915,
+      "sha256": "f7ad329ca0b4abb00981f9a68d3aae222bb7e85d521230b3f5ae52d17c794baf"
+    },
+    "routes/harp/configs/portable/fgvc_aircraft/seed3/r1.json": {
+      "bytes": 5917,
+      "sha256": "0568ffbae65858590aae15b067871592c0e212628ebafda7850c6fd3fee5228a"
+    },
+    "routes/harp/configs/portable/food101/seed1/harp.json": {
+      "bytes": 5913,
+      "sha256": "98374f298215922a5fcdafe865d426c40e84a7e7a2c274d006084584d81cd4f5"
+    },
+    "routes/harp/configs/portable/food101/seed1/last4_d16.json": {
+      "bytes": 5913,
+      "sha256": "d075ccc775af05060993b3eef61d237dc447e260b85c034fc8a1b0e30c9fdd33"
+    },
+    "routes/harp/configs/portable/food101/seed1/last4_d64.json": {
+      "bytes": 5913,
+      "sha256": "f8235839f2d45f26d6d2d413a55f9ab41c8cc11f480b5e1665c485cfec0412ff"
+    },
+    "routes/harp/configs/portable/food101/seed1/mid4_d32.json": {
+      "bytes": 5911,
+      "sha256": "defa5758deebf0a1c974b4f88a9606309a145d5c446e03b661fd0973817ac4e3"
+    },
+    "routes/harp/configs/portable/food101/seed1/r1.json": {
+      "bytes": 5913,
+      "sha256": "25a0960825a9308b70d229d40ef9ac6cad308931c102675208add1dd9b689e26"
+    },
+    "routes/harp/configs/portable/food101/seed2/harp.json": {
+      "bytes": 5913,
+      "sha256": "9cf4458714f5d2d55e4613ac4a411f17fd99692ad4742ac608b4e42fcdc9ea21"
+    },
+    "routes/harp/configs/portable/food101/seed2/last4_d16.json": {
+      "bytes": 5913,
+      "sha256": "6756fbfedf60850118d5d9da8564c87fbff98fe24650334085ae3ac8a4afbc93"
+    },
+    "routes/harp/configs/portable/food101/seed2/last4_d64.json": {
+      "bytes": 5913,
+      "sha256": "36853fdb50ade1912d37ccce9818610a3f7dfa765157bb02a9d3212be1d40c06"
+    },
+    "routes/harp/configs/portable/food101/seed2/mid4_d32.json": {
+      "bytes": 5911,
+      "sha256": "30fe353e724dd5b33179a8f3c343c4640293d4a1279d3441680697962923c6c7"
+    },
+    "routes/harp/configs/portable/food101/seed2/r1.json": {
+      "bytes": 5913,
+      "sha256": "5831be8a7da6c7c4b6aa9180cb02b3fcdb6b7750cfd4018e59e4456eb6240679"
+    },
+    "routes/harp/configs/portable/food101/seed3/harp.json": {
+      "bytes": 5913,
+      "sha256": "d6bc83d075ffd96eb22ed67519b4d9cbe8a4ee74fbcdc5cadfba7ab0d28e3320"
+    },
+    "routes/harp/configs/portable/food101/seed3/last4_d16.json": {
+      "bytes": 5913,
+      "sha256": "19fb5729b546e5837d65d72275bff791f10ecda83d161d8aa01104e8236829e1"
+    },
+    "routes/harp/configs/portable/food101/seed3/last4_d64.json": {
+      "bytes": 5913,
+      "sha256": "cd025fc9faba9b533630a51fd1f9345b2ace56936fd5ff1c93355e052f36af66"
+    },
+    "routes/harp/configs/portable/food101/seed3/mid4_d32.json": {
+      "bytes": 5911,
+      "sha256": "8f84158eb76a0148676f59c34e0673089471f78d9f9af9c9a984ec50db80712f"
+    },
+    "routes/harp/configs/portable/food101/seed3/r1.json": {
+      "bytes": 5913,
+      "sha256": "d5ea4f15d0af3c4cfc0cdf22837bbcab3c30a6528e5278bbe7d929f92915e773"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed1/harp.json": {
+      "bytes": 5918,
+      "sha256": "ad5be4e8f44135b1e253a9a87aff5e44cc83079723a983534c19e6d7d8913ecd"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed1/last4_d16.json": {
+      "bytes": 5918,
+      "sha256": "8b9ba7b84e49cb4c4218621160299fb67fc51dea5c1164f613559ebfc9519960"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed1/last4_d64.json": {
+      "bytes": 5918,
+      "sha256": "98eec25855aed82f7ef453a1824e10877c3139194d7d18de722c9c5744f1d281"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed1/mid4_d32.json": {
+      "bytes": 5916,
+      "sha256": "8deba353060449d12aa68858a94217a71f218215d842e507d3f1459e66c08978"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed1/r1.json": {
+      "bytes": 5918,
+      "sha256": "bb3234a17ba0c58cedf5ab80c4635a9ab8c54157d42728c85e572346454c871c"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed2/harp.json": {
+      "bytes": 5918,
+      "sha256": "9f1526cf8681353130221ece13aa49dbec6836e16441d920acb24c5e0300f14d"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed2/last4_d16.json": {
+      "bytes": 5918,
+      "sha256": "208601d640b63605c9d02e61d866b3965d48793f8deabf7182282efdace6e8f9"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed2/last4_d64.json": {
+      "bytes": 5918,
+      "sha256": "e6a5f1bc2e032a39f77dc8358d222873949178328b993938c79681f40336b9da"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed2/mid4_d32.json": {
+      "bytes": 5916,
+      "sha256": "e321c330ccd923801b8530bc84b9d192e362c4acf5ebcebe66ce2af616bf6c9b"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed2/r1.json": {
+      "bytes": 5918,
+      "sha256": "9e16d5daf31c3d21ca880b0494444a56833d694b621e824607b4ae15eb6163f1"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed3/harp.json": {
+      "bytes": 5918,
+      "sha256": "ab4b540079b85592af4637c18b8e9036fdfce69aa6fd1b3f2c634d47ad45777e"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed3/last4_d16.json": {
+      "bytes": 5918,
+      "sha256": "379abfc62b087ca63f842d7d59a515bc57493a905991e9b13bc9ce3baffd232b"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed3/last4_d64.json": {
+      "bytes": 5918,
+      "sha256": "c1c3603233ee89c60b42423ae901bc0e92c05e86cb09a9bc368a8d6440e4531b"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed3/mid4_d32.json": {
+      "bytes": 5916,
+      "sha256": "6220468ffff33c21b0b020b152cf6e15bf25200cee553edf5f8bab247dc50f89"
+    },
+    "routes/harp/configs/portable/oxford_flowers/seed3/r1.json": {
+      "bytes": 5918,
+      "sha256": "dea0b4d0cde17c8ea89e0aa3864fad4f8d4fb715602a632d3733fd0e933f9734"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed1/harp.json": {
+      "bytes": 5916,
+      "sha256": "a3ba1139132b40fa9cb24d9bae7cdb110e9e7d2a8462107461244e9e1180a7b0"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed1/last4_d16.json": {
+      "bytes": 5916,
+      "sha256": "d673ae9efda95f4ce115908557c0bef696428a63009508dddfbeb3e4681bdd25"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed1/last4_d64.json": {
+      "bytes": 5916,
+      "sha256": "35ba570492f587936fafc8c9ba024d79c73ecbd2c57f3a6e9d58b54d08e63f27"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed1/mid4_d32.json": {
+      "bytes": 5914,
+      "sha256": "56fc4aff73ba7805725eb2e1d491338dc8c3f83f7e9ef7253017ca46553658f1"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed1/r1.json": {
+      "bytes": 5916,
+      "sha256": "dda9da0e8baeee2398a7c008bbea6720f1dbfaa68983cbb5d9dae3dbb46baf2b"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed2/harp.json": {
+      "bytes": 5916,
+      "sha256": "812d3f6eaaea5bdebedb95a13747e0ad3f3df5cbbf4b5ca3f33fcf1a99446127"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed2/last4_d16.json": {
+      "bytes": 5916,
+      "sha256": "1f490621039f9f7111f9d17e3e8434e3a239736ee7a233bd0a2ee86316e77bc1"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed2/last4_d64.json": {
+      "bytes": 5916,
+      "sha256": "d3e69875e3fbde4ae05b54464c3ca4eeab5978c034280dffb9550525711239ed"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed2/mid4_d32.json": {
+      "bytes": 5914,
+      "sha256": "f8e8f84a6a8242b85e79dd71eac59bd58098fc20c5c2a130f58e3c12c4c96cea"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed2/r1.json": {
+      "bytes": 5916,
+      "sha256": "f58cf808618a97382ea3aff3d1055cd55f85adf3f3cc7e5c72d265dddce92d7b"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed3/harp.json": {
+      "bytes": 5916,
+      "sha256": "d0b28373d9237ca758e5a00d5476b1b1bf99df6846f6297f6f6180c508d9cbdd"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed3/last4_d16.json": {
+      "bytes": 5916,
+      "sha256": "717613a526cd3a704494064c86541b48f4432052b2025e3654d07111d61a660a"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed3/last4_d64.json": {
+      "bytes": 5916,
+      "sha256": "5c3efad7fd1f418964dd084f49302cb5f83809c8c6cd41d9f90c98642058cefc"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed3/mid4_d32.json": {
+      "bytes": 5914,
+      "sha256": "cd46baca9f02477a0d330cf5aab4a2e7b7945b7b0d3d85587d413404419a18f5"
+    },
+    "routes/harp/configs/portable/oxford_pets/seed3/r1.json": {
+      "bytes": 5916,
+      "sha256": "9ae6cef0a8382432979399c548a2f22885a90a5507df73c5a62d25e51766607e"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed1/harp.json": {
+      "bytes": 5918,
+      "sha256": "920bf95353502cede1b26599b089afe08cbac5d52bc19375755f97fcf519946f"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed1/last4_d16.json": {
+      "bytes": 5918,
+      "sha256": "6694397cb7b2b16c5412714473280e2080169ae311d90d5bbf13fad05b1f33c1"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed1/last4_d64.json": {
+      "bytes": 5918,
+      "sha256": "cac941ad8a4c9a3d99dcc75af1c49919efd4fedddc14d20ebcc1215874784036"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed1/mid4_d32.json": {
+      "bytes": 5916,
+      "sha256": "4b8db3e40e11dfea108ef8aa9adaa5412fef3334b7e58165a95221bf27c75e0f"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed1/r1.json": {
+      "bytes": 5918,
+      "sha256": "06ed40eb6449bd350c5b7aca69949415dfc715a562f2c41736622ddaa4581302"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed2/harp.json": {
+      "bytes": 5918,
+      "sha256": "22bd3d5daf07cd2c07ccf84ba645acb23c797a0e67e5e51e13c1b83160a1d40e"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed2/last4_d16.json": {
+      "bytes": 5918,
+      "sha256": "2e28538fd8bb9e7f2a1802ec2f62a99fc1e4e512d938a79e9c971c0e3a95ff2b"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed2/last4_d64.json": {
+      "bytes": 5918,
+      "sha256": "2a99b046c03b0a6e85da4930a7f49c7f791a0220fc450e6709957360948ca398"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed2/mid4_d32.json": {
+      "bytes": 5916,
+      "sha256": "b91c7f28f16425dfc2c57388b5c791a5e9b6b115178e9426f09dc7fd28e8cc97"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed2/r1.json": {
+      "bytes": 5918,
+      "sha256": "5915ede42eab42638e8afb3ad15c6e65ba5f409689ca180d4cb6df769c20e77b"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed3/harp.json": {
+      "bytes": 5918,
+      "sha256": "cfd619fffad9d408c5b53fc9eea2abe6f19c47afa8c1d740b4489c3d694a4dbe"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed3/last4_d16.json": {
+      "bytes": 5918,
+      "sha256": "664449a5258e085873cbb306422fd51e5354cf396c94033c224eca833346c768"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed3/last4_d64.json": {
+      "bytes": 5918,
+      "sha256": "45e035245af5d1f0943454a167ffa9fddc348edf6ff91007d028bbb9b220faaf"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed3/mid4_d32.json": {
+      "bytes": 5916,
+      "sha256": "cb38d22861aaef4d62594b0ba7c0f0f5d925124dfc721e2409f00d7174f7a017"
+    },
+    "routes/harp/configs/portable/stanford_cars/seed3/r1.json": {
+      "bytes": 5918,
+      "sha256": "467cca87e85dafe3ef95548400fd1b55936dfb36eea27e5a1fa24a35c543befe"
+    },
+    "routes/harp/configs/portable/sun397/seed1/harp.json": {
+      "bytes": 5912,
+      "sha256": "91e4ca5348bdbc872ccf77d991522a369ffac47f4a4efcc98340acfc09cce1b1"
+    },
+    "routes/harp/configs/portable/sun397/seed1/last4_d16.json": {
+      "bytes": 5912,
+      "sha256": "819bc6ba5ce3a6367e40e5f2ccaabee5726500f246f166fb2a06a7f9216b90e8"
+    },
+    "routes/harp/configs/portable/sun397/seed1/last4_d64.json": {
+      "bytes": 5912,
+      "sha256": "19721c91003ae592c3858052d7eb064845b693b7fe67517e18a32fb2637b5217"
+    },
+    "routes/harp/configs/portable/sun397/seed1/mid4_d32.json": {
+      "bytes": 5910,
+      "sha256": "75798a28978d82de129fbf87ae739ef68971958deec53b2c516c7d92b2601983"
+    },
+    "routes/harp/configs/portable/sun397/seed1/r1.json": {
+      "bytes": 5912,
+      "sha256": "9924b4319116324f7167398861c47047093f2724c24862161638dd8bcd606f9f"
+    },
+    "routes/harp/configs/portable/sun397/seed2/harp.json": {
+      "bytes": 5912,
+      "sha256": "0e085b43215a362bde5dce4005d98b909185ed05e7efd11a10aa33c743087e85"
+    },
+    "routes/harp/configs/portable/sun397/seed2/last4_d16.json": {
+      "bytes": 5912,
+      "sha256": "c0b778221cc8e9b02fa05426a6a416f8d8a5a9d034ee39e10f9eb07dd90c02c2"
+    },
+    "routes/harp/configs/portable/sun397/seed2/last4_d64.json": {
+      "bytes": 5912,
+      "sha256": "badb70a1771998e60c8d52fd0be4f0f2debc73e2733de95a3a382222a7cd82cb"
+    },
+    "routes/harp/configs/portable/sun397/seed2/mid4_d32.json": {
+      "bytes": 5910,
+      "sha256": "d081853e419c8ed5349f405c8db7af4d7db23ab99919bef80384350de3c042c5"
+    },
+    "routes/harp/configs/portable/sun397/seed2/r1.json": {
+      "bytes": 5912,
+      "sha256": "aa0e1f6db83acb6bd7d18992a73481d1a6d34cba81394e657da15396d2fdaf30"
+    },
+    "routes/harp/configs/portable/sun397/seed3/harp.json": {
+      "bytes": 5912,
+      "sha256": "6cd107322736d6af2f5a23d35ee7f9c192fcc09d909f85a39bfcd1adabd6d05e"
+    },
+    "routes/harp/configs/portable/sun397/seed3/last4_d16.json": {
+      "bytes": 5912,
+      "sha256": "82008c789f4a4dfe101609e37bf90171fbea450b0f28f6e5630307b58d3d8010"
+    },
+    "routes/harp/configs/portable/sun397/seed3/last4_d64.json": {
+      "bytes": 5912,
+      "sha256": "eec6797622a38770a97a92ba5a3a3ace2c2f64e72e35a9ac15e5f9b5b281adf8"
+    },
+    "routes/harp/configs/portable/sun397/seed3/mid4_d32.json": {
+      "bytes": 5910,
+      "sha256": "1182f7752b9ac54552838cf630f2f28d4a9f111f11d6f1f531ede101aedf23d7"
+    },
+    "routes/harp/configs/portable/sun397/seed3/r1.json": {
+      "bytes": 5912,
+      "sha256": "4e2610b8c41517e35b6d084a8da653db4db4e81d129044162255b98ca6ba9fb6"
+    },
+    "routes/harp/configs/portable/ucf101/seed1/harp.json": {
+      "bytes": 5912,
+      "sha256": "01062c7c23b5b4f03d9ba0acf08b24e96badc8c8fa63734fc36d2f71f09cf2a8"
+    },
+    "routes/harp/configs/portable/ucf101/seed1/last4_d16.json": {
+      "bytes": 5912,
+      "sha256": "4161ef2dd7031938ea07a05c8c312e855d974f1269cbef6026a058bf48d7c758"
+    },
+    "routes/harp/configs/portable/ucf101/seed1/last4_d64.json": {
+      "bytes": 5912,
+      "sha256": "e2aa098af93897e124cf8e64dd18f41c228ea51e55af4556ad6f9b1b106e3d59"
+    },
+    "routes/harp/configs/portable/ucf101/seed1/mid4_d32.json": {
+      "bytes": 5910,
+      "sha256": "48094547d02d547c8ab37011104cca2bbc9fa4c73cd2adb54f44c2f2667340f0"
+    },
+    "routes/harp/configs/portable/ucf101/seed1/r1.json": {
+      "bytes": 5912,
+      "sha256": "74b3e8923115f1a410ccd1b8a59c289085263cbb98505de8af1234586431c605"
+    },
+    "routes/harp/configs/portable/ucf101/seed2/harp.json": {
+      "bytes": 5912,
+      "sha256": "976f8711500e9fd01b435337dfed0812a09c30b19bb4946853233e8d9988f1fe"
+    },
+    "routes/harp/configs/portable/ucf101/seed2/last4_d16.json": {
+      "bytes": 5912,
+      "sha256": "0d80a7dbea3684d186a1f717da09b6f52f92d807eab60f16fb4de63a92b1d3f4"
+    },
+    "routes/harp/configs/portable/ucf101/seed2/last4_d64.json": {
+      "bytes": 5912,
+      "sha256": "058612a555cd1928c5fe8e1ecff74f359b0bab91583c43a70005260ea5b72414"
+    },
+    "routes/harp/configs/portable/ucf101/seed2/mid4_d32.json": {
+      "bytes": 5910,
+      "sha256": "500d1a198719a5d5802661a454674b62ec4dc22e728968dc99c096d991589f77"
+    },
+    "routes/harp/configs/portable/ucf101/seed2/r1.json": {
+      "bytes": 5912,
+      "sha256": "32f9175e596ae503d777e7c3b7e72dec1bc46977906ff99bb7a9e03074c504db"
+    },
+    "routes/harp/configs/portable/ucf101/seed3/harp.json": {
+      "bytes": 5912,
+      "sha256": "6f580b25629583c92d0a01ee6fa89d361ea52c9d47dd4ddb9ba601bf9fc04e29"
+    },
+    "routes/harp/configs/portable/ucf101/seed3/last4_d16.json": {
+      "bytes": 5912,
+      "sha256": "ae9aa0dcfd653cceb236953607ea8373045bb89edba85504ac591a4e8ffc913a"
+    },
+    "routes/harp/configs/portable/ucf101/seed3/last4_d64.json": {
+      "bytes": 5912,
+      "sha256": "0bf17a7364a5dfe2d0e828c8bfaa708312ff8d2488fa98a71aa46ceaac68c9c8"
+    },
+    "routes/harp/configs/portable/ucf101/seed3/mid4_d32.json": {
+      "bytes": 5910,
+      "sha256": "6527a9a1bf73fe046a2b8a856592c4fefc15fbd135ac0a66f3062eaf02a6679e"
+    },
+    "routes/harp/configs/portable/ucf101/seed3/r1.json": {
+      "bytes": 5912,
+      "sha256": "fe0bc90f43102b5b4e36cdb7e1c8e7a4b8d2faf96c3712391b35847af8e65048"
+    },
+    "routes/harp/dataset_reference.json": {
+      "bytes": 6204,
+      "sha256": "d8732e8e0e9f73ac5ca95e53cec2d597628486add85c6c5b5943ccc7a6855a07"
+    },
+    "routes/harp/environment/provenance.json": {
+      "bytes": 674,
+      "sha256": "3aacd73da6439a9c1dddaf9745a1b07db936721dacf2bbff5571e3d324cae98b"
+    },
+    "routes/harp/environment/requirements-linux-cu118.txt": {
+      "bytes": 1217,
+      "sha256": "2e610d26760e0905ceeb9068cc3e38cccff809d54d67f4c3ee1155fafc97d883"
+    },
+    "routes/harp/historical/ablation_controller.py": {
+      "bytes": 12363,
+      "sha256": "5cf3e4a1f54de50e823acb59c9ea0c15dd105b8cf15ae49f317296f7bf65d399"
+    },
+    "routes/harp/historical/original_environment.freeze.txt": {
+      "bytes": 1238,
+      "sha256": "435a5af4d3004b407d5b0c90d480742b9095dbb5bf299669979977479a7d20f4"
+    },
+    "routes/harp/historical/recovery_controller.py": {
+      "bytes": 7693,
+      "sha256": "5ff0d640569d1561d3612f698d790070d6e52a43c8288058790541cbbfd8ab9c"
+    },
+    "routes/harp/historical/research_queue.py": {
+      "bytes": 40536,
+      "sha256": "cb86e46777d538519b8068abc471b1f314bcc9c350ffcba9dbbc61568ec933df"
+    },
+    "routes/harp/portable.py": {
+      "bytes": 20924,
+      "sha256": "ec59d08acc8bf2ca70e4a666068733e30fbdbd6cd0c424f1e2da3b5efb01768f"
+    },
+    "routes/harp/provenance/external_assets.json": {
+      "bytes": 2624,
+      "sha256": "46c09cfb1e1976449d284e9ceeab1f9ecb17b18297e56458e0d155a79e37cf0b"
+    },
+    "routes/harp/provenance/generated_files.json": {
+      "bytes": 237318,
+      "sha256": "34d2c1a6f919ed8313d6977117cbddbe459c565990904b2593ab8fed22f4d726"
+    },
+    "routes/harp/provenance/scientific_functions.json": {
+      "bytes": 460,
+      "sha256": "4d6e9edcd63bba0c757a9ef47a4bfd79bbbdf69059bbe034700273d016125bd6"
+    },
+    "routes/harp/runtime/frozen_install.py": {
+      "bytes": 2072,
+      "sha256": "ff6d9e1de6dad7b44c8cc1c71404b281aacf4d794c779aeb3b218883b286f943"
+    },
+    "routes/harp/tests/test_offline.py": {
+      "bytes": 5431,
+      "sha256": "f57e17e1a764fb4407dcedb5b3b4f67bbfc95ad770173bc876e51037b3ef4416"
+    },
+    "routes/harp/tests/test_portable.py": {
+      "bytes": 7881,
+      "sha256": "7345b89fdbcad55a3459463af265d343fd3da509e9fba6feee17705f917a9ac7"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/LICENSE": {
+      "bytes": 1064,
+      "sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/README.md": {
+      "bytes": 19008,
+      "sha256": "bbbf3073463e20a23a9b4111530229a8c3099a52666fbe8ce42f88a89efd20a9"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/__init__.py": {
+      "bytes": 443,
+      "sha256": "971cf9ec3e61350687d6e570314d7fb3c0157e94fbdb99bb4cfb3238a4ab3a13"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/config/__init__.py": {
+      "bytes": 487,
+      "sha256": "ddbdb024c2567011b3c719374daacc8540f88cc897b2f26294e8cb0a2a687141"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/config/defaults.py": {
+      "bytes": 9718,
+      "sha256": "d1e846ca24c643d262277c3f9fa2a9e78cca40555f83a31dfdbd358b6e3bab70"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/__init__.py": {
+      "bytes": 54,
+      "sha256": "a9db83252d7644cfbf8274de1f59780e3baf1b04c8709e1ae0d96b8e0807f4b7"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/data_manager.py": {
+      "bytes": 8234,
+      "sha256": "975be8d8f677028e6fb50c40fa36e54158e7545b15283b6dbbfd3b41a7d2a22e"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/__init__.py": {
+      "bytes": 180,
+      "sha256": "f451f85d8162af5b0e94eef0108c39d2f6da24129070d88955fd15d6c72cc2bb"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/base_dataset.py": {
+      "bytes": 6669,
+      "sha256": "aeaf26e85720286a920a0a95c905db7e1ac8cb6c785cb4789c2f13ec47dace65"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/build.py": {
+      "bytes": 368,
+      "sha256": "ae96d1e216926ebdac6f8569e281972bf17bafdd311eb0791d1626a9b078a3b9"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/__init__.py": {
+      "bytes": 229,
+      "sha256": "36047cec8f245ddcb1646e9367b6fef221334d8afcb2cd6505c8190dc52322e5"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py": {
+      "bytes": 2309,
+      "sha256": "10a26727f2c8a801571abf14ba95d180409e0b5c17f4a954e68f4b7e5831a143"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/digit5.py": {
+      "bytes": 4109,
+      "sha256": "e885d5b624f3d396b95957d493ffe76f1fc33f08589ad41bf58b1ec602b1a62a"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/domainnet.py": {
+      "bytes": 2304,
+      "sha256": "011db8795b246f3c3db0e6b99afe546cf41ef4076c8556a6aea7f8c2ffc58219"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py": {
+      "bytes": 1978,
+      "sha256": "935c9a4ec893dde9198550cd9f5b38bdf6c8aa636838d24f67f5e35da24a0d67"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/office31.py": {
+      "bytes": 1952,
+      "sha256": "703c56009852384c0c061d2c9e68fa0fbf280563b23764842d394ebc7994880a"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/office_home.py": {
+      "bytes": 2013,
+      "sha256": "69a02a045b56209878754132e3ca310d3f8703d9ebbd31c10f93c304ce665965"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/da/visda17.py": {
+      "bytes": 1765,
+      "sha256": "5874affa39ef911073b9727817af75b37e3caab84d1a3f930e13c71e3b0d70ee"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/__init__.py": {
+      "bytes": 367,
+      "sha256": "6a07b0dd672f6d7d613534d15c8abcd5bbf0029abd85d4e39a6c851b5406668d"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py": {
+      "bytes": 3248,
+      "sha256": "58b23e1011fdcb8056e95b56a99e3edc151918abf508957f8470c23b3a1f6f37"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py": {
+      "bytes": 4315,
+      "sha256": "069cca5ebb9f12d607edef2f26bcacb1c613a2a50bdffffff26e4aac55c54d7a"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py": {
+      "bytes": 3220,
+      "sha256": "26f4fef79c4630f6441c4986bbd8084c34182bd6db5879f910c8fe050cdd1c5d"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py": {
+      "bytes": 1564,
+      "sha256": "5237d18f1b5121091352add3cad65c2fe044540b78586abafeea69d1703ab44d"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/pacs.py": {
+      "bytes": 3174,
+      "sha256": "a7cc0f10c720098f8a3b29379a6d38801fe294f4d06f43fb1b453fbcbdc94b1d"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py": {
+      "bytes": 1895,
+      "sha256": "fba407f76aa656741d041717508d06ec2e738eea3245f446be8641a71e173b6b"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py": {
+      "bytes": 89,
+      "sha256": "6b3d97244748ec9ef278f5d6f617b4fcc24d380feda828a080a9b9dd879b2af4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py": {
+      "bytes": 718,
+      "sha256": "1989d5879f64ac1be0110bc12acac7660648cd6fc9c4fd1f06555de97bd630c2"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py": {
+      "bytes": 2230,
+      "sha256": "3bf9e5e0c3a18b9b3179cb5f9e9d2013172894a66599457a3398f467274edddb"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py": {
+      "bytes": 854,
+      "sha256": "9e3a85ce859dc16bd2bda07e31d631f65ee241f9f674a3d5af15bb83fa84deb5"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py": {
+      "bytes": 3545,
+      "sha256": "0f1c3e7f6430107cee97f0a922fa220d533a6f5f3547d7232830035f8a00f3a7"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py": {
+      "bytes": 85,
+      "sha256": "ee91948848387da87970181695025a7d3a29d15caa7f3f1c58a83ef86e9a8c30"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py": {
+      "bytes": 3252,
+      "sha256": "191e2f957608182e065e884f28e801e32fa66c9e79aabe6ab9845427ee54e27f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py": {
+      "bytes": 2712,
+      "sha256": "b8f2f2bbf678f6b527bfc5018d91994409bf9b244f973a69c457fd3cced6b437"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py": {
+      "bytes": 361,
+      "sha256": "bd6ff6baad826e8fe43d14d77dc8180dd6fb5d7f254eba0d3aa44a4badbf3465"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/samplers.py": {
+      "bytes": 6660,
+      "sha256": "06bd592ca2e52b59d5f68bcbb5a987e81f7d3959ea638e5dae2211583326f269"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/transforms/__init__.py": {
+      "bytes": 61,
+      "sha256": "a0ffe5c9cedb2804e3fc3389a4e20b5b041b467ae0d3c28bd426aee48ecf0aa4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/transforms/autoaugment.py": {
+      "bytes": 11840,
+      "sha256": "0ecbff1244396c8a944139a98cdf677c6dea0fd254565c9a047c7a72707963b4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/transforms/randaugment.py": {
+      "bytes": 8715,
+      "sha256": "d98e106911803e39522f6efb35a8c1f83fa37c895328a1e094edbf39359dd1ce"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/data/transforms/transforms.py": {
+      "bytes": 10611,
+      "sha256": "8f1e30dad741aca3aeffab7155a59ea257757fb4625bf7e5e48537e293fa435e"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/__init__.py": {
+      "bytes": 215,
+      "sha256": "91eb87dab342bfdecae552699606c677f1c7f991f4dc473f688585ab1767b4e2"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/build.py": {
+      "bytes": 368,
+      "sha256": "c6e9aa7dc2b93d45d62c968119ce0cc166013fbc6d17f1f6f25f678a3ee1839b"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/__init__.py": {
+      "bytes": 239,
+      "sha256": "bb84267cd2281ae66abc34450648e5e7c49a8e2f3e4aac1809ddaa0a8bd9fa00"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/adabn.py": {
+      "bytes": 986,
+      "sha256": "b17318ee97a4ac378b9018d47fd5e54743bd9d435f859b75514c7c6f59c4e981"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/adda.py": {
+      "bytes": 2847,
+      "sha256": "5963ea37980c6b0902dbb24bae88f6575b0badc53db24dc86b0bf612e5fb2c63"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/cdac.py": {
+      "bytes": 9273,
+      "sha256": "3240a9c1403409ab6fe2586211192544c89a648dcc6e753bb8497185c21a11ef"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/dael.py": {
+      "bytes": 7522,
+      "sha256": "bcc653aaaf46176c118ae36a03e4b48979e4c649fecca9be22b52db0eb7de62c"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/dann.py": {
+      "bytes": 2661,
+      "sha256": "82086da7c577cc9455879c21a420a30f07bfd6dc312456d53614afbd5cc68c59"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/m3sda.py": {
+      "bytes": 6194,
+      "sha256": "6ac6e245501170d28917a7d856c084cc5f50a9900243770f5f7516681b0c6363"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/mcd.py": {
+      "bytes": 3593,
+      "sha256": "9e5e07b634c8ae8186b97f33b536b6386679b668a48ccba4dd947683f81194da"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/mme.py": {
+      "bytes": 2693,
+      "sha256": "cc0cd3e39d70e541eec4e32f87d58fe29e30cfa9ef2efc73028448f3b8d0a3c4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/se.py": {
+      "bytes": 2504,
+      "sha256": "d6fdda904c99ad2472844c0807d18b4936d68da94ce7a7767fc58388f810a4f4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/da/source_only.py": {
+      "bytes": 996,
+      "sha256": "2b79b8ca5e464a1532caa58c9640a1110a5e23dd4d79aca36848996376a88dfc"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/dg/__init__.py": {
+      "bytes": 148,
+      "sha256": "ed5355cae2794f7beb4fc26a274bc80e90b56557eae01d3cc399627479ca2ea1"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/dg/crossgrad.py": {
+      "bytes": 2924,
+      "sha256": "55771ce981fd8bb12629fe52a9a39e30d96d588552ce2558c90eec6f6e83f712"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/dg/daeldg.py": {
+      "bytes": 5555,
+      "sha256": "d5390bbdcd8d1a61223ec8cb20e146d189ab506f74b41bc4c0ff839764d76309"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/dg/ddaig.py": {
+      "bytes": 3709,
+      "sha256": "d6a1b07732b705db91fef2b578e24d7922c40d5a5dbd7df962ccb5d8a663560f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/dg/domain_mix.py": {
+      "bytes": 2735,
+      "sha256": "3b3956e6c91237040f3d8f4d4f17ce0ca590bb5a0f4ee7d78404b0856315e3cf"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/dg/vanilla.py": {
+      "bytes": 946,
+      "sha256": "f385c1282136c9779eda53a0a1c102449f81f0446218bd96c456a170a18e813f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/ssl/__init__.py": {
+      "bytes": 165,
+      "sha256": "015d3582a1b0cd68c17a73d1480865fe0248135454d5e21bcb0cd6d374a73fc1"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/ssl/entmin.py": {
+      "bytes": 1162,
+      "sha256": "3d142862eb432afe0653766d35e450c7825223fdc47b6619c647cd834c474691"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/ssl/fixmatch.py": {
+      "bytes": 4063,
+      "sha256": "4cf65f35847958bc465a2e365c0a81e9f59b685de6f025afcd762effab8a755b"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py": {
+      "bytes": 1769,
+      "sha256": "cd6885f3d05e80195af44feef29dd8cadb629285604fc8ba5e6eeaebd3666bdd"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/ssl/mixmatch.py": {
+      "bytes": 3119,
+      "sha256": "9a114aff2e5847ac6e68fcdb4cee7d9b956a481a8720dc495015d726a8ac2328"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py": {
+      "bytes": 930,
+      "sha256": "e05224c352f8eda45d6402c9e13fd056ce1f759493154b98376107b159221b8f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/engine/trainer.py": {
+      "bytes": 20993,
+      "sha256": "b058571d2c62423907f040c210206ba49532eabece64c865c35bb24ef23b5750"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/evaluation/__init__.py": {
+      "bytes": 123,
+      "sha256": "877d8f5762fa50d3c2394c5c0752e8e3fd78c65fa1f5b0acc9de36c0e7fa3642"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/evaluation/build.py": {
+      "bytes": 410,
+      "sha256": "b0030da809990b5a42b1b4c0fd6eda564ed17f856ac04d83d7dd93fb512e4aed"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/evaluation/evaluator.py": {
+      "bytes": 3773,
+      "sha256": "2777f11becfb23f97fd4b1b6552b5f8bf243e20fbd0463b5fd277dd4dd3a01eb"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/metrics/__init__.py": {
+      "bytes": 138,
+      "sha256": "aab20acedce5d9e1b370a28b3dc43c4a320685b996c3a79304900c0c80f27385"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/metrics/accuracy.py": {
+      "bytes": 972,
+      "sha256": "1826ef2dde1ed20c1674ef40d5d6f5a5475faae7eeea9da3aff8190bfb450441"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/metrics/distance.py": {
+      "bytes": 2247,
+      "sha256": "0b53c3e95ab9c02d7eaf6c780311c1cfd8a64e5017ab762c77e832b9cc2a3371"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/__init__.py": {
+      "bytes": 163,
+      "sha256": "9135c4492d32016444082a31714529ff392800ef4f2313042cf803b8b304ea0f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/__init__.py": {
+      "bytes": 1051,
+      "sha256": "a6fca6d2b4aa44c2c35ed47cba5f5f3c47314ea4c8f07288c05f95530ed98282"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/alexnet.py": {
+      "bytes": 1908,
+      "sha256": "54095dd19ac913092fb51b7171892ec1c99040a6631411eacc9ce196bfd176ab"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/backbone.py": {
+      "bytes": 336,
+      "sha256": "800fd64f3ebc3d37f3721b4f62dfdaf1e8472bdd036c0dff8255bfb2fe4611d9"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/build.py": {
+      "bytes": 358,
+      "sha256": "ecc84da802b2326dfabb27dbe8007635c24d63bedace334524ad821a576247d7"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py": {
+      "bytes": 1819,
+      "sha256": "ce7dd5fa49c90b6da47473ab2d0de47d96e51c1ab14ca8ab874bf6129ab67c2a"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py": {
+      "bytes": 1630,
+      "sha256": "b553ab390fc907f79616a1c88ff9c5bca08458a0c333fffa2a04ce07283e9fb7"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py": {
+      "bytes": 1265,
+      "sha256": "39d6ae34c7459115861bfd2672e0b957d332a414d4c4e1f9266e8674d62a8ca4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py": {
+      "bytes": 370,
+      "sha256": "98e9d7b401d60c93dc60d1f3df8f03eb73616e592b8e9e3404429f9ad6011d00"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py": {
+      "bytes": 13021,
+      "sha256": "fdb021b462b74b457d4d01dd74924ea61d8402a112c79544358278ca438f48cf"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py": {
+      "bytes": 15997,
+      "sha256": "6afe3dc185afaba007139533699b3f9e4f32413935d255ad169f2000c9c10664"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py": {
+      "bytes": 4014,
+      "sha256": "3a51de5794915f04dd737e26c61df3168477b6083141eeff574321408bc2e892"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/resnet.py": {
+      "bytes": 14661,
+      "sha256": "57007e21cd26e2961b1707942d4224f23aed34d5e67b0b89499bfeb08e0172af"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py": {
+      "bytes": 22591,
+      "sha256": "93713b225707365e90e9497096cee7ef095fcd86dac8b2b31f6c7081c082a06f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/vgg.py": {
+      "bytes": 3934,
+      "sha256": "c81278a47eaac1921589b9560893df8ad08df0989894a7d21814cc9ff4f2e0df"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py": {
+      "bytes": 4403,
+      "sha256": "cfa281849d9938a551e2032fadc02510ce7f64a929cc8b0e950bc1cc8d1587dd"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/head/__init__.py": {
+      "bytes": 81,
+      "sha256": "90db749ad572ffe67ab499f1cd05348ab51f8ba7080e1491dc6c91661095ad64"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/head/build.py": {
+      "bytes": 326,
+      "sha256": "d569803004150db4ae01aee23aa02a3f1d55aa3fc2fea2ea0ff6d86dd9fd6259"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/head/mlp.py": {
+      "bytes": 1202,
+      "sha256": "8914f18629ba2e51b0b5a6b701cedfb90a8285901cf534d81fe252c040c203e9"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/network/__init__.py": {
+      "bytes": 164,
+      "sha256": "8d0bfc958c4d5d2d3c737badd0e801b94173887b75b7f2a580cde0b8d0dffdd3"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/network/build.py": {
+      "bytes": 346,
+      "sha256": "7260aacd16bb4b9f04dd928c892783f6f24f1180b40cd177ca0ac8ea8b5a517c"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py": {
+      "bytes": 9613,
+      "sha256": "bb04c6719301cca7833b8096499a969d15d5c44740b1ddb8038deb9693a48b18"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/__init__.py": {
+      "bytes": 692,
+      "sha256": "15e84588c09fcd3e6d9decc2e0983644284e675216703ad3cfa55abecef8ea4e"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/attention.py": {
+      "bytes": 904,
+      "sha256": "fefd9eedcb4a65cfbfd3a3cc764ea67c9f4cf22818ff89f7c241e35e961833db"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/conv.py": {
+      "bytes": 3021,
+      "sha256": "753d90364239bbd557f4336932f34484e3e04bca45cb3a6f286b1a19808ff524"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py": {
+      "bytes": 1033,
+      "sha256": "dffbe6ecad5030450f000f123f7666f6a85eb28e020e68e19fb1c8f923005ee6"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/dsbn.py": {
+      "bytes": 1159,
+      "sha256": "b27d26c24610689fbf24e9ad9628b8d3485546922d1d6599f974d1ee39173bee"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/efdmix.py": {
+      "bytes": 3159,
+      "sha256": "fd686d6cd420abf230f665ef185c33c11a5ba544b01b837c6c8bb5cce8ebe2cb"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/mixstyle.py": {
+      "bytes": 3170,
+      "sha256": "56279a46bfa28bf490face795ee446d06348179b1790f2910e8682dbd9980e5c"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/mixup.py": {
+      "bytes": 774,
+      "sha256": "0910aa17958c481220ab759c5bb7594008da4f5f6fb870e16655154d4edcf2c7"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/mmd.py": {
+      "bytes": 3082,
+      "sha256": "8a1631f9f61966cdbdd6f76ebb6edde15e6ca19de660f7ac0c4e98b19f8045e8"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py": {
+      "bytes": 4663,
+      "sha256": "9a5e3fe1c45dce603319e8744b8b1a643b07691688e82d8ad937de40420f032c"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py": {
+      "bytes": 845,
+      "sha256": "91cc7a68fb7117a3d726708f685861cd7997a41bb018a0a6d98c6cecaf060d87"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/sequential2.py": {
+      "bytes": 427,
+      "sha256": "7446ad88522611a0fb097eeda352fb54035e17c72b98b44e4697785c94fe767a"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/transnorm.py": {
+      "bytes": 4669,
+      "sha256": "a1ae7f72e3bdfa956c57c79c4ba3d229940d1cd825819f9481033200712f7d2c"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/modeling/ops/utils.py": {
+      "bytes": 2034,
+      "sha256": "1d12c731451d762ff1cdb47084d6b29f802facd81166b5a74a49112047667766"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/optim/__init__.py": {
+      "bytes": 84,
+      "sha256": "3f83afa74e14d5eec9ad10b510ffc955d8ce54f2fcd8a45f479eb0cd5372c474"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/optim/lr_scheduler.py": {
+      "bytes": 4304,
+      "sha256": "0c5174c59fe7afd08ce7b9ff031fc794fe83ce9ec13f6a83caa5912b58ffb870"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/optim/optimizer.py": {
+      "bytes": 4130,
+      "sha256": "c5c411a0e1a001afa9646587811ecea36772e86e8162e97826285ee60b5dd8a4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/optim/radam.py": {
+      "bytes": 11648,
+      "sha256": "b7197851cabe700ce024453a9602dcb498538a4c13d6e55b03cbdf6bbd9af0d4"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/utils/__init__.py": {
+      "bytes": 115,
+      "sha256": "011968995da796bf0e1aae8c4f36c4e4f1c1762fe22a5b22f82c6a1fcb5e4f4a"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/utils/logger.py": {
+      "bytes": 1703,
+      "sha256": "982b4acdbcd25e3bf5d8454f7dafb75b329140b92f81bac9f9c2fb94357f37c7"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/utils/meters.py": {
+      "bytes": 2162,
+      "sha256": "d41b318ed0a109d59be3f344533e6121059dbb87143782b32e2ef20dec2aa5a9"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/utils/registry.py": {
+      "bytes": 1709,
+      "sha256": "531c83ee95fd3b80f0f375291e9423262f8f7b2d055567a70e2b25d1d632bb2f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/utils/tools.py": {
+      "bytes": 4365,
+      "sha256": "684431d32016e998ad3d628e561cf2500c8d69572278d04efd81844683fe644f"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/dassl/utils/torchtools.py": {
+      "bytes": 10227,
+      "sha256": "8e65ddd145950121ff3e9427d414d801c0c15aaf50b2612cd41069c53b2cd8c9"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/requirements.txt": {
+      "bytes": 127,
+      "sha256": "ac382438ac8c0051d57fc9f0462785fc1dc63f0edae356745cb530110be0132d"
+    },
+    "routes/harp/vendor/project/Dassl.pytorch/setup.py": {
+      "bytes": 1237,
+      "sha256": "77b327e2d5d4ab77798f2bc6588162c5621c51690e5dab20768a69788f6a8dc2"
+    },
+    "routes/harp/vendor/project/LICENSE": {
+      "bytes": 11342,
+      "sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8"
+    },
+    "routes/harp/vendor/project/clip/__init__.py": {
+      "bytes": 20,
+      "sha256": "d7930eb290ebed432116795c91473200d098451a94c0aedd4ae0f934f97955e8"
+    },
+    "routes/harp/vendor/project/clip/bpe_simple_vocab_16e6.txt.gz": {
+      "bytes": 1356917,
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "routes/harp/vendor/project/clip/clip.py": {
+      "bytes": 8553,
+      "sha256": "855ab36f3c1039d9b9fac1a47c217114d3269c65ddf9c7d304112a01a4210f60"
+    },
+    "routes/harp/vendor/project/clip/model.py": {
+      "bytes": 32251,
+      "sha256": "0a9861a774622f71f960af6b74cff547c852ffc24e29927add8317f88cd51754"
+    },
+    "routes/harp/vendor/project/clip/simple_tokenizer.py": {
+      "bytes": 4632,
+      "sha256": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad"
+    },
+    "routes/harp/vendor/project/configs/datasets/caltech101.yaml": {
+      "bytes": 30,
+      "sha256": "1b788ea9a7752c610858ab8dc9f5458447c556038f55d3f19c82d7d651190f23"
+    },
+    "routes/harp/vendor/project/configs/datasets/dtd.yaml": {
+      "bytes": 39,
+      "sha256": "5c68a9cfd2a18ebf780136a2f4a3bda0c86c17b69782acd84c98e9d53de54074"
+    },
+    "routes/harp/vendor/project/configs/datasets/eurosat.yaml": {
+      "bytes": 27,
+      "sha256": "0eccbd77c6932575cc3e112d062cdc46eb4f8f01733ee959b64bcc4198d1a65a"
+    },
+    "routes/harp/vendor/project/configs/datasets/fgvc_aircraft.yaml": {
+      "bytes": 32,
+      "sha256": "e8de7dee200453254296083419ffd8e71ec389465d698ba333389404bb02323a"
+    },
+    "routes/harp/vendor/project/configs/datasets/food101.yaml": {
+      "bytes": 27,
+      "sha256": "7b892667618fcffb23af75fe67167e763600d28cf47f444a55c20e02af9cd7de"
+    },
+    "routes/harp/vendor/project/configs/datasets/imagenet.yaml": {
+      "bytes": 28,
+      "sha256": "5d3eba6165e791c5855649a328cd1c3c318fcda7d69c8d61384d5ee781d09bf2"
+    },
+    "routes/harp/vendor/project/configs/datasets/imagenet_a.yaml": {
+      "bytes": 29,
+      "sha256": "4b6f11ad8de9e2754db37d0abd8b5c8c502acf1a0879b0bac2062012b56d352b"
+    },
+    "routes/harp/vendor/project/configs/datasets/imagenet_r.yaml": {
+      "bytes": 29,
+      "sha256": "6e2d272e3eb45477ccc6869a3dcb2da6d75dc979d148c4f4a762c318310e181d"
+    },
+    "routes/harp/vendor/project/configs/datasets/imagenet_sketch.yaml": {
+      "bytes": 34,
+      "sha256": "89c2d82f54c264b54c5603c18c7ba71d07772de81911f5771fe642a1f192d40e"
+    },
+    "routes/harp/vendor/project/configs/datasets/imagenetv2.yaml": {
+      "bytes": 30,
+      "sha256": "2eac7c97b73e902cce131d2624fc2d33181b6539766066f21417f7e3f5af8433"
+    },
+    "routes/harp/vendor/project/configs/datasets/oxford_flowers.yaml": {
+      "bytes": 32,
+      "sha256": "90c8f4798551181bb98456223da2a15392d78c29216f1ad43b67cd48665292b7"
+    },
+    "routes/harp/vendor/project/configs/datasets/oxford_pets.yaml": {
+      "bytes": 29,
+      "sha256": "e6d57b9ee4b1041d6c4424e6384154ffd82e9898412d3b3ca16450de11612b4c"
+    },
+    "routes/harp/vendor/project/configs/datasets/stanford_cars.yaml": {
+      "bytes": 32,
+      "sha256": "379ff3ba677c059f8effa1d5bd96de3afe26cfe5287362a62b632dfdbd827722"
+    },
+    "routes/harp/vendor/project/configs/datasets/sun397.yaml": {
+      "bytes": 26,
+      "sha256": "0e337d4f6748c1f5a9b907f7175f74710232dc33cb4d6ae33396d973f44e0908"
+    },
+    "routes/harp/vendor/project/configs/datasets/ucf101.yaml": {
+      "bytes": 26,
+      "sha256": "bd4d1e5e443808b9b5f6b21997a0f1db3d358adf07aa357da4366d260b2dd085"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoCoOp/vit_b16_c16_ep10_batch1.yaml": {
+      "bytes": 581,
+      "sha256": "fc587f8a30683be3d1fde7ad0e1e94de8d99203496baed091422b13d4b617a16"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoCoOp/vit_b16_c4_ep10_batch1.yaml": {
+      "bytes": 580,
+      "sha256": "f20b54f98693eb5d0b067a35eb4a895646a62a91649f8ecf4573b6673db0687e"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoCoOp/vit_b16_c4_ep10_batch1_ctxv1.yaml": {
+      "bytes": 592,
+      "sha256": "8a7835cb648925f1124b82137703bd0cceeb5534b950fc8ae27a8184a9f390ca"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoCoOp/vit_b16_c8_ep10_batch1.yaml": {
+      "bytes": 580,
+      "sha256": "8dc15bfaf1c438f68584be0c44b8c0ed4606e645ee9ab67fa57ca6893979e917"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn101.yaml": {
+      "bytes": 511,
+      "sha256": "7f9581c225c9a729e51faeca2a4e6ff92a10bc44369a582131e5f1aee1294fc6"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn101_ep50.yaml": {
+      "bytes": 510,
+      "sha256": "3e5681171ae9b40517706a6cd2a2f5c4350dd6cad06e7407fa7e383af6efcc74"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn50.yaml": {
+      "bytes": 510,
+      "sha256": "412da17b951863bda7984881e8752fe0ba4d1c3a44a213a1e29f10cbeef7a227"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn50_ctxv1.yaml": {
+      "bytes": 558,
+      "sha256": "b2467698dc449ceb51d658150bb68ff97f35ca912e14bc48d2adfecda9c279db"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn50_ep100.yaml": {
+      "bytes": 511,
+      "sha256": "d3b5ee7bca607240ce2a794ba30d3171d6fadfed2f43e4d9852585f882ebfd9b"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn50_ep50.yaml": {
+      "bytes": 509,
+      "sha256": "e30d4e2624b58cbcb0d4affd56f97065662edd9e21cc2616a424a8c16b2af026"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn50_ep50_ctxv1.yaml": {
+      "bytes": 556,
+      "sha256": "3f1f0955f1f6e18f3fa861d1988d09ef436a30238750e82590af773f816afd85"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/rn50_val.yaml": {
+      "bytes": 344,
+      "sha256": "a5244fb29f7ab4d002aff5b11daa3b86f999d8140a419af4f0b26b060115d3d5"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/vit_b16.yaml": {
+      "bytes": 515,
+      "sha256": "814cd38180fb73b509a3dd56d40e53c91d05de7b5cf087e836ba22d580cb51a4"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/vit_b16_ep100.yaml": {
+      "bytes": 514,
+      "sha256": "f67910fdcca7f8fb7366bf29e5017e26bb6be67d98303a4c9f33bff9b14e760c"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/vit_b16_ep50.yaml": {
+      "bytes": 513,
+      "sha256": "7092bc03dea03f08fb31ceaf798a28bab143ee18c464558d7e03dd112f0cd56f"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/vit_b32.yaml": {
+      "bytes": 514,
+      "sha256": "e600d2c983c945864bbf2eb374ce3d898588092206a791079d3916b16e40cbb1"
+    },
+    "routes/harp/vendor/project/configs/trainers/CoOp/vit_b32_ep50.yaml": {
+      "bytes": 513,
+      "sha256": "8948f3c8810a758d6858147b652773c035c019ad71d421a8a8fd984e517a3bfd"
+    },
+    "routes/harp/vendor/project/configs/trainers/IVLP/vit_b16_c2_ep20_batch8_4+4ctx.yaml": {
+      "bytes": 707,
+      "sha256": "5caebe78f260baddf1d4f0f5891f0e2d6dd936fccb95dcc57b04209560c2060a"
+    },
+    "routes/harp/vendor/project/configs/trainers/MaPLe/vit_b16_c2_ep20_batch8_2ctx.yaml": {
+      "bytes": 613,
+      "sha256": "a7bfa5f156c2f6072e1361b0f3018b5fed8939eeae773df52175d36b1ac7d383"
+    },
+    "routes/harp/vendor/project/configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml": {
+      "bytes": 663,
+      "sha256": "b4ce2043a0980f6f64a880639cc88b16aefb1419b446ea48c29bfbae0fadc3c8"
+    },
+    "routes/harp/vendor/project/configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx_cross_datasets.yaml": {
+      "bytes": 611,
+      "sha256": "08ff7346edd15a23443850090534c5f3185c69d669d69788db3d53f6d284d8a2"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptKD/vit_b16_c2_ep20_batch8_4+4ctx.yaml": {
+      "bytes": 903,
+      "sha256": "be2f31803ed8b14380790cfd0fe2616503b4633d3a911ff6fc649f6e183c16a2"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptKD/vit_b16_c2_ep20_batch8_4+4ctx_cross_datasets.yaml": {
+      "bytes": 871,
+      "sha256": "de4cfb1cf688d80691f95c60317cff6908656c48a0a0946a6535a85357fb8d46"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptKD/vit_b16_c2_ep20_batch8_4+4ctx_harp.yaml": {
+      "bytes": 1036,
+      "sha256": "cf5d77661f94da4c50a5ccfc29bb96f238980986cdcf6cac833bfa0e648c547a"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptKD/vit_b16_c2_ep20_batch8_4+4ctx_larp.yaml": {
+      "bytes": 1074,
+      "sha256": "ed4eec10ac2f8fe9ff8cb170d4442e9b7eb7328708687255b3913ba5159a3d9e"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptSRC/vit_b16_c2_ep20_batch4_4+4ctx.yaml": {
+      "bytes": 815,
+      "sha256": "074a9a704978ef2194a74f06a01cc5508df991a450abd55def74040d88e55163"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptSRC/vit_b16_c2_ep20_batch4_4+4ctx_cross_datasets.yaml": {
+      "bytes": 814,
+      "sha256": "674fb6939cdc2e6884c358ec8ca8afc69382b915a96b9af8ada751dc6c14a6e6"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptSRC/vit_b16_c2_ep50_batch4_4+4ctx_few_shot.yaml": {
+      "bytes": 1086,
+      "sha256": "ff780d5767930f51ee132e570a38318890da094aecc9a6babe5e830f62dcb879"
+    },
+    "routes/harp/vendor/project/configs/trainers/PromptSRC/vit_l14_c2_ep20_batch8_4+4ctx.yaml": {
+      "bytes": 814,
+      "sha256": "a5f29d7b8666214ab8f5080744e3402da0c60bf2bcae3933c918ed2a8efbf835"
+    },
+    "routes/harp/vendor/project/datasets/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "routes/harp/vendor/project/datasets/caltech101.py": {
+      "bytes": 3153,
+      "sha256": "b2a2779aa9755a330b7de66a5044f8204dc43f13d4fc9d75ae2e0a3ab12c8d7a"
+    },
+    "routes/harp/vendor/project/datasets/dtd.py": {
+      "bytes": 4654,
+      "sha256": "6e1431e25c7cc0c93627a233f3e02674c074792bf8f159c687fdd1e0fb794b59"
+    },
+    "routes/harp/vendor/project/datasets/eurosat.py": {
+      "bytes": 3696,
+      "sha256": "4da51af2767737aaa48c367e29d7abf8c1572ea14c13d774b20c6f19097cf48e"
+    },
+    "routes/harp/vendor/project/datasets/fgvc_aircraft.py": {
+      "bytes": 3601,
+      "sha256": "12347fd7594cd3604c4f8fa50e3b2f6a00ff318925efe2e8b272f0063daf97bb"
+    },
+    "routes/harp/vendor/project/datasets/food101.py": {
+      "bytes": 2917,
+      "sha256": "fe6720893a971e0223d3a6d600fe6148070cc7f9db6ab5e747b78095deb1df6c"
+    },
+    "routes/harp/vendor/project/datasets/imagenet.py": {
+      "bytes": 4692,
+      "sha256": "0e7525afe511ba3edeb17a05e2cea8e6d5dbe45963fb9619c3a458053f331eaf"
+    },
+    "routes/harp/vendor/project/datasets/imagenet_a.py": {
+      "bytes": 1439,
+      "sha256": "7bbf7bbb73a8984a5f4092ed197d56bc82f711b59cc26171ef467f3405c506ad"
+    },
+    "routes/harp/vendor/project/datasets/imagenet_r.py": {
+      "bytes": 1435,
+      "sha256": "4d5832a539744cf617e828f6d2ccadb6d99a646df3ac169ce5462d5e4a3ec326"
+    },
+    "routes/harp/vendor/project/datasets/imagenet_sketch.py": {
+      "bytes": 1331,
+      "sha256": "b4046da735585a0cbf80e7bff96fcaf4cfcef8c0cbd7bca38781ddf87c5b6095"
+    },
+    "routes/harp/vendor/project/datasets/imagenetv2.py": {
+      "bytes": 1416,
+      "sha256": "e93f655f21edc0b106261d10cbcac10957c49095edf55625acd12eae5a5dd6df"
+    },
+    "routes/harp/vendor/project/datasets/oxford_flowers.py": {
+      "bytes": 4486,
+      "sha256": "963f68ea6c370dfaa9d4b64e33102589e0021fab5251cec376d4ec96a55012ba"
+    },
+    "routes/harp/vendor/project/datasets/oxford_pets.py": {
+      "bytes": 7430,
+      "sha256": "03bf300d6b111f5f57ebfdbdfacb56ea458917feccbe9d938862352592f8258a"
+    },
+    "routes/harp/vendor/project/datasets/stanford_cars.py": {
+      "bytes": 4045,
+      "sha256": "35b39bd70a480483a6c3c277054016e6dc3430852817966fa3a034a7a3574665"
+    },
+    "routes/harp/vendor/project/datasets/sun397.py": {
+      "bytes": 4124,
+      "sha256": "36665e53068df9cde1e68f6ca7ff13393c833db749611fe01ddb7c2104b6dcbf"
+    },
+    "routes/harp/vendor/project/datasets/ucf101.py": {
+      "bytes": 4264,
+      "sha256": "cc6bae8518f40e32380359eeedc67de76e9cca8f2780531bccf0308fdd22303c"
+    },
+    "routes/harp/vendor/project/evaluation_evidence.py": {
+      "bytes": 3660,
+      "sha256": "a6b182fb3e19418dd8cf7d557e7766f9b58d5c93120028afd4dc84fd5418562e"
+    },
+    "routes/harp/vendor/project/policy.py": {
+      "bytes": 878,
+      "sha256": "03faf968c37ea75e18db4941bee6084ca7e53d467392d16c59d0676a49b8bfd5"
+    },
+    "routes/harp/vendor/project/projector_schedule.py": {
+      "bytes": 3180,
+      "sha256": "47b526943ab6c01773676d5102f6fb2c54a043f15db2b6355bff1edd8609d1d6"
+    },
+    "routes/harp/vendor/project/requirements.txt": {
+      "bytes": 22,
+      "sha256": "3d368206a406c8e6e9d745b91f613ff6bfa3c6e24cd23709963a7ccaa466feac"
+    },
+    "routes/harp/vendor/project/requirements_4090.txt": {
+      "bytes": 212,
+      "sha256": "78313c1023f9831dc94b1f951db4892466b260c56d6da7562c3b126f5218c924"
+    },
+    "routes/harp/vendor/project/run.py": {
+      "bytes": 23630,
+      "sha256": "99611057eea6c629b8282a69149246044ef037766b57d4baebf8082ab98274ca"
+    },
+    "routes/harp/vendor/project/tools/compare_methods.py": {
+      "bytes": 3742,
+      "sha256": "c72b14f38a07fcf08f7abf8f31cd2b11063bdb8b45e162a5438ebb37c002d321"
+    },
+    "routes/harp/vendor/project/tools/parameter_report.py": {
+      "bytes": 1612,
+      "sha256": "3bfdaa8cc79c751d38fe135164494fa4bd1ba1b99239a80280fcb429773dfcea"
+    },
+    "routes/harp/vendor/project/tools/preflight.py": {
+      "bytes": 4548,
+      "sha256": "c2e9e5f7e2e5778295cd9a1066a68c54154080fc7fa560d269ef4be7768e0ea2"
+    },
+    "routes/harp/vendor/project/tools/provenance.py": {
+      "bytes": 3755,
+      "sha256": "73609d73b01cd01803e24bfdba5b5dd45698326d0c1c3bafecda90ff93dc0f40"
+    },
+    "routes/harp/vendor/project/tools/report_development.py": {
+      "bytes": 4179,
+      "sha256": "78e56bb53b99be81aa4f3678cf8ebace690d1402a8bfc3088ac3ce26582f5104"
+    },
+    "routes/harp/vendor/project/tools/report_diagnostics.py": {
+      "bytes": 1506,
+      "sha256": "298084aea5813d7c4ebe37c046d5383323f816e1aed497a68b34acb0ead3b7f6"
+    },
+    "routes/harp/vendor/project/tools/report_results.py": {
+      "bytes": 7223,
+      "sha256": "73f3da0b0a33507081b18fd376de74e7b6c37e17f5b7a1647839d60893f3137d"
+    },
+    "routes/harp/vendor/project/tools/run_experiment.py": {
+      "bytes": 8433,
+      "sha256": "be19929e3e8a81d6fa2a6cad29d25cd3c5a5dcf014b4418b42022bbfad476960"
+    },
+    "routes/harp/vendor/project/tools/summarize_results.py": {
+      "bytes": 3615,
+      "sha256": "3ab190fde3be5c2888964d4552a99288b8e2c8253f9b61715f1b63029ad94777"
+    },
+    "routes/harp/vendor/project/train.py": {
+      "bytes": 11052,
+      "sha256": "5923fa573d9ebc0083e8859ca31502f1b782afd76b4794049571581fa0460947"
+    },
+    "routes/harp/vendor/project/trainers/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "routes/harp/vendor/project/trainers/adaptation_diagnostics.py": {
+      "bytes": 8384,
+      "sha256": "b910b42526cd54ec05b2ecff6bdafc1152f5cb1fc3c01395331db8a909fc77bb"
+    },
+    "routes/harp/vendor/project/trainers/adaptation_optim.py": {
+      "bytes": 1108,
+      "sha256": "0e2bbf78207a26654923bc0ede860990aa625a07ced4755548a580fc9d86abd1"
+    },
+    "routes/harp/vendor/project/trainers/cocoop.py": {
+      "bytes": 11614,
+      "sha256": "67d5401bb955959b57a51ff0dae4ce5d6cd035d0a65ec62a03e9fa637bb76688"
+    },
+    "routes/harp/vendor/project/trainers/coop.py": {
+      "bytes": 12127,
+      "sha256": "2d9fac3c277d7240850179a2060b7da59602a046161e92660edc2db4822cd084"
+    },
+    "routes/harp/vendor/project/trainers/development.py": {
+      "bytes": 2603,
+      "sha256": "d5c2187c31c58a8ec2952ff86cff9fe4f235771a8a18015dff00e6f8bebe780c"
+    },
+    "routes/harp/vendor/project/trainers/efficient_adaptation.py": {
+      "bytes": 14138,
+      "sha256": "75e19e65ee7fa20e79ad82be78c373797f47a1da10abd6f6f86b9fc3309008d2"
+    },
+    "routes/harp/vendor/project/trainers/imagenet_templates.py": {
+      "bytes": 2098,
+      "sha256": "05cfa0144ddb98e924085e6c2d565c68e625ad2ff3d78f347fcd61d2cd146fe1"
+    },
+    "routes/harp/vendor/project/trainers/independentVL.py": {
+      "bytes": 11386,
+      "sha256": "74642ea02ff90a1f6b24f39e43d5c65a28f0d25973e9c511c3655c58eb931e57"
+    },
+    "routes/harp/vendor/project/trainers/maple.py": {
+      "bytes": 13230,
+      "sha256": "bb1c463fe5a94f3470357580846b73dacb52af1edd73a1cc6f639c542a931dbf"
+    },
+    "routes/harp/vendor/project/trainers/promptkd.py": {
+      "bytes": 31229,
+      "sha256": "5b1c2b3733dfb5905637ed50a115ac2f54f18ded897c7a0128c12ab0c781efab"
+    },
+    "routes/harp/vendor/project/trainers/promptsrc.py": {
+      "bytes": 17156,
+      "sha256": "e2f532d2d2d63ef46fe45dc7b1612fbe95124f2cc820b38cd6423a4d91f43265"
+    },
+    "routes/harp/vendor/project/trainers/zsclip.py": {
+      "bytes": 3620,
+      "sha256": "39534496e3300c600c0f2c6795fbfbe3a8678c198b866bfbd4ee76dc2db62e6e"
+    },
+    "routes/larp/README.md": {
+      "bytes": 2760,
+      "sha256": "afc6b28499a2cb11d7356419e5b8e362809bfd90c3b7b29b1c300208adf9a2fc"
+    },
+    "routes/larp/archive/README.md": {
+      "bytes": 1096,
+      "sha256": "b93a0df7a56bf628089e2841c834c3ea3d891bfc27500fca2dd2df5df5e560e3"
+    },
+    "routes/larp/archive/final_worker/legacy_evaluation.py.txt": {
+      "bytes": 20636,
+      "sha256": "1a8d9d4270c92c72c0720512076a929e497be4f8ed2b32a66b644df8a8fe3fa1"
+    },
+    "routes/larp/archive/final_worker/retained_worker.py.txt": {
+      "bytes": 24293,
+      "sha256": "6b308ebcb56d2c12fa3963902a5928aac5e0f30c151a774129ff04c95048a00f"
+    },
+    "routes/larp/archive/final_worker/run.py.txt": {
+      "bytes": 18074,
+      "sha256": "da8290396cb7fcfac61370b3fd4c335534f9516590df4135c23636ba68542acc"
+    },
+    "routes/larp/archive/helpers/larp_all_o_ten_20261001_setup2/run.py.txt": {
+      "bytes": 15230,
+      "sha256": "790c4e07c7abb2ad0b9a1cb7635dd8e0306ddb0d2c57bffc4a44a56864acdf36"
+    },
+    "routes/larp/archive/helpers/larp_last3_o_four_20261001_setup2/run.py.txt": {
+      "bytes": 12976,
+      "sha256": "0bf3fc5110fac44bffe8f2c4f5825f5eb06e28972e8519596583709f8f81d73b"
+    },
+    "routes/larp/archive/helpers/larp_o_only_20260930_setup3/test_o.py.txt": {
+      "bytes": 3104,
+      "sha256": "f6e668c0bc1b4d5d693783ce4c07b0265e41bce589ce55c70a252792d40eb994"
+    },
+    "routes/larp/archive/helpers/larp_pets_projector_ramp_20260929_setup2/projector_schedule.py.txt": {
+      "bytes": 3180,
+      "sha256": "47b526943ab6c01773676d5102f6fb2c54a043f15db2b6355bff1edd8609d1d6"
+    },
+    "routes/larp/archive/helpers/larp_research_20260928_fix1/research_queue.py.txt": {
+      "bytes": 36299,
+      "sha256": "5962ffb4973453bc7b4a52e456391e02601b323b1b0658a79dbf2da39486ac69"
+    },
+    "routes/larp/archive/helpers/larp_ten_oldlr_20260929/run.py.txt": {
+      "bytes": 14115,
+      "sha256": "d3a1457c0cf2ec36ae01429f9be8a43196448075c8f1a9a1c8ef7049219c50f3"
+    },
+    "routes/larp/archive/helpers/larp_two_dataset_ramp_20260929/evaluation_evidence.py.txt": {
+      "bytes": 3660,
+      "sha256": "a6b182fb3e19418dd8cf7d557e7766f9b58d5c93120028afd4dc84fd5418562e"
+    },
+    "routes/larp/archive/main_workers/larp_node_37667_20261001/research_node.py.txt": {
+      "bytes": 9772,
+      "sha256": "2bb9f2e081bef585f572ada57104a335714040cc689bb6bfc40f30455afacdd7"
+    },
+    "routes/larp/archive/main_workers/larp_o4_seed23_37667_20261001/frozen_files.json.txt": {
+      "bytes": 2166,
+      "sha256": "700da38d05edf4f2229a2dae6f6fdbf68ae5babde7c593f94c50700f6ffad28c"
+    },
+    "routes/larp/archive/main_workers/larp_o4_seed23_37667_20261001/legacy_evaluation.py.txt": {
+      "bytes": 20634,
+      "sha256": "c33fe157ede523240de4dff43440f59c74669a14981e60a5fc86a2ef265a9eb9"
+    },
+    "routes/larp/archive/main_workers/larp_o4_seed23_37667_20261001/run.py.txt": {
+      "bytes": 20322,
+      "sha256": "bc246b5767ebbacef027efd9b57d17861afd1817182fdc39ff489bbda13d43e3"
+    },
+    "routes/larp/archive/main_workers/larp_o4_seed23_37667_20261001_resume/frozen_files.json.txt": {
+      "bytes": 3633,
+      "sha256": "67ac1e3cbed26740f7dcda2f884f8ef5c1e67d96c25856761e53b21f3ee6dd96"
+    },
+    "routes/larp/archive/main_workers/larp_o4_seed23_37667_20261001_resume/legacy_evaluation.py.txt": {
+      "bytes": 20635,
+      "sha256": "16b3faeddc6a52862592c2c849e1c02af01f7e97d02188ba598c630649231a77"
+    },
+    "routes/larp/archive/main_workers/larp_o4_seed23_37667_20261001_resume/run.py.txt": {
+      "bytes": 25133,
+      "sha256": "733abf6f65cf9acd7b08db0c3a5eae6eb5d45d9eba0487989c666985e770db08"
+    },
+    "routes/larp/archive/main_workers/larp_o_only_20260930_setup3/run.py.txt": {
+      "bytes": 9077,
+      "sha256": "bd56b5605b2f8b172705385737e6aad24ee61b4b8090c4cd541be1fe78503417"
+    },
+    "routes/larp/archive/main_workers/larp_o_only_remaining5_20260930/run.py.txt": {
+      "bytes": 10918,
+      "sha256": "96a72c39e319aac67ea65ba070aa3a5db85b38760db5a19926c0e9c44bb82771"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/LICENSE": {
+      "bytes": 1064,
+      "sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/__init__.py": {
+      "bytes": 443,
+      "sha256": "971cf9ec3e61350687d6e570314d7fb3c0157e94fbdb99bb4cfb3238a4ab3a13"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/config/__init__.py": {
+      "bytes": 487,
+      "sha256": "ddbdb024c2567011b3c719374daacc8540f88cc897b2f26294e8cb0a2a687141"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/config/defaults.py": {
+      "bytes": 9718,
+      "sha256": "d1e846ca24c643d262277c3f9fa2a9e78cca40555f83a31dfdbd358b6e3bab70"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/__init__.py": {
+      "bytes": 54,
+      "sha256": "a9db83252d7644cfbf8274de1f59780e3baf1b04c8709e1ae0d96b8e0807f4b7"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/data_manager.py": {
+      "bytes": 8111,
+      "sha256": "a58ca28d8a5c20ee30753aa893fd9eceabbcf275a9894a09297f0ad871356ff7"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/__init__.py": {
+      "bytes": 180,
+      "sha256": "f451f85d8162af5b0e94eef0108c39d2f6da24129070d88955fd15d6c72cc2bb"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/base_dataset.py": {
+      "bytes": 6669,
+      "sha256": "aeaf26e85720286a920a0a95c905db7e1ac8cb6c785cb4789c2f13ec47dace65"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/build.py": {
+      "bytes": 368,
+      "sha256": "ae96d1e216926ebdac6f8569e281972bf17bafdd311eb0791d1626a9b078a3b9"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/__init__.py": {
+      "bytes": 229,
+      "sha256": "36047cec8f245ddcb1646e9367b6fef221334d8afcb2cd6505c8190dc52322e5"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py": {
+      "bytes": 2309,
+      "sha256": "10a26727f2c8a801571abf14ba95d180409e0b5c17f4a954e68f4b7e5831a143"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/digit5.py": {
+      "bytes": 4109,
+      "sha256": "e885d5b624f3d396b95957d493ffe76f1fc33f08589ad41bf58b1ec602b1a62a"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/domainnet.py": {
+      "bytes": 2304,
+      "sha256": "011db8795b246f3c3db0e6b99afe546cf41ef4076c8556a6aea7f8c2ffc58219"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py": {
+      "bytes": 1978,
+      "sha256": "935c9a4ec893dde9198550cd9f5b38bdf6c8aa636838d24f67f5e35da24a0d67"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/office31.py": {
+      "bytes": 1952,
+      "sha256": "703c56009852384c0c061d2c9e68fa0fbf280563b23764842d394ebc7994880a"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/office_home.py": {
+      "bytes": 2013,
+      "sha256": "69a02a045b56209878754132e3ca310d3f8703d9ebbd31c10f93c304ce665965"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/da/visda17.py": {
+      "bytes": 1765,
+      "sha256": "5874affa39ef911073b9727817af75b37e3caab84d1a3f930e13c71e3b0d70ee"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/__init__.py": {
+      "bytes": 219,
+      "sha256": "1f78e98ce94af2c8e8b768cad51232a701b2983026744e91af54051e4296d93b"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py": {
+      "bytes": 3248,
+      "sha256": "58b23e1011fdcb8056e95b56a99e3edc151918abf508957f8470c23b3a1f6f37"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py": {
+      "bytes": 4315,
+      "sha256": "069cca5ebb9f12d607edef2f26bcacb1c613a2a50bdffffff26e4aac55c54d7a"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py": {
+      "bytes": 3220,
+      "sha256": "26f4fef79c4630f6441c4986bbd8084c34182bd6db5879f910c8fe050cdd1c5d"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py": {
+      "bytes": 1564,
+      "sha256": "5237d18f1b5121091352add3cad65c2fe044540b78586abafeea69d1703ab44d"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/pacs.py": {
+      "bytes": 3174,
+      "sha256": "a7cc0f10c720098f8a3b29379a6d38801fe294f4d06f43fb1b453fbcbdc94b1d"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py": {
+      "bytes": 1895,
+      "sha256": "fba407f76aa656741d041717508d06ec2e738eea3245f446be8641a71e173b6b"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py": {
+      "bytes": 89,
+      "sha256": "6b3d97244748ec9ef278f5d6f617b4fcc24d380feda828a080a9b9dd879b2af4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py": {
+      "bytes": 718,
+      "sha256": "1989d5879f64ac1be0110bc12acac7660648cd6fc9c4fd1f06555de97bd630c2"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py": {
+      "bytes": 2230,
+      "sha256": "3bf9e5e0c3a18b9b3179cb5f9e9d2013172894a66599457a3398f467274edddb"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py": {
+      "bytes": 854,
+      "sha256": "9e3a85ce859dc16bd2bda07e31d631f65ee241f9f674a3d5af15bb83fa84deb5"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py": {
+      "bytes": 3545,
+      "sha256": "0f1c3e7f6430107cee97f0a922fa220d533a6f5f3547d7232830035f8a00f3a7"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py": {
+      "bytes": 85,
+      "sha256": "ee91948848387da87970181695025a7d3a29d15caa7f3f1c58a83ef86e9a8c30"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py": {
+      "bytes": 3252,
+      "sha256": "191e2f957608182e065e884f28e801e32fa66c9e79aabe6ab9845427ee54e27f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py": {
+      "bytes": 2712,
+      "sha256": "b8f2f2bbf678f6b527bfc5018d91994409bf9b244f973a69c457fd3cced6b437"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py": {
+      "bytes": 361,
+      "sha256": "bd6ff6baad826e8fe43d14d77dc8180dd6fb5d7f254eba0d3aa44a4badbf3465"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/samplers.py": {
+      "bytes": 6660,
+      "sha256": "06bd592ca2e52b59d5f68bcbb5a987e81f7d3959ea638e5dae2211583326f269"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/transforms/__init__.py": {
+      "bytes": 61,
+      "sha256": "a0ffe5c9cedb2804e3fc3389a4e20b5b041b467ae0d3c28bd426aee48ecf0aa4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/transforms/autoaugment.py": {
+      "bytes": 11840,
+      "sha256": "0ecbff1244396c8a944139a98cdf677c6dea0fd254565c9a047c7a72707963b4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/transforms/randaugment.py": {
+      "bytes": 8715,
+      "sha256": "d98e106911803e39522f6efb35a8c1f83fa37c895328a1e094edbf39359dd1ce"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/data/transforms/transforms.py": {
+      "bytes": 10611,
+      "sha256": "8f1e30dad741aca3aeffab7155a59ea257757fb4625bf7e5e48537e293fa435e"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/__init__.py": {
+      "bytes": 215,
+      "sha256": "91eb87dab342bfdecae552699606c677f1c7f991f4dc473f688585ab1767b4e2"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/build.py": {
+      "bytes": 368,
+      "sha256": "c6e9aa7dc2b93d45d62c968119ce0cc166013fbc6d17f1f6f25f678a3ee1839b"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/__init__.py": {
+      "bytes": 239,
+      "sha256": "bb84267cd2281ae66abc34450648e5e7c49a8e2f3e4aac1809ddaa0a8bd9fa00"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/adabn.py": {
+      "bytes": 986,
+      "sha256": "b17318ee97a4ac378b9018d47fd5e54743bd9d435f859b75514c7c6f59c4e981"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/adda.py": {
+      "bytes": 2847,
+      "sha256": "5963ea37980c6b0902dbb24bae88f6575b0badc53db24dc86b0bf612e5fb2c63"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/cdac.py": {
+      "bytes": 9273,
+      "sha256": "3240a9c1403409ab6fe2586211192544c89a648dcc6e753bb8497185c21a11ef"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/dael.py": {
+      "bytes": 7522,
+      "sha256": "bcc653aaaf46176c118ae36a03e4b48979e4c649fecca9be22b52db0eb7de62c"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/dann.py": {
+      "bytes": 2661,
+      "sha256": "82086da7c577cc9455879c21a420a30f07bfd6dc312456d53614afbd5cc68c59"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/m3sda.py": {
+      "bytes": 6194,
+      "sha256": "6ac6e245501170d28917a7d856c084cc5f50a9900243770f5f7516681b0c6363"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/mcd.py": {
+      "bytes": 3593,
+      "sha256": "9e5e07b634c8ae8186b97f33b536b6386679b668a48ccba4dd947683f81194da"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/mme.py": {
+      "bytes": 2693,
+      "sha256": "cc0cd3e39d70e541eec4e32f87d58fe29e30cfa9ef2efc73028448f3b8d0a3c4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/se.py": {
+      "bytes": 2504,
+      "sha256": "d6fdda904c99ad2472844c0807d18b4936d68da94ce7a7767fc58388f810a4f4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/da/source_only.py": {
+      "bytes": 996,
+      "sha256": "2b79b8ca5e464a1532caa58c9640a1110a5e23dd4d79aca36848996376a88dfc"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/dg/__init__.py": {
+      "bytes": 148,
+      "sha256": "ed5355cae2794f7beb4fc26a274bc80e90b56557eae01d3cc399627479ca2ea1"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/dg/crossgrad.py": {
+      "bytes": 2924,
+      "sha256": "55771ce981fd8bb12629fe52a9a39e30d96d588552ce2558c90eec6f6e83f712"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/dg/daeldg.py": {
+      "bytes": 5555,
+      "sha256": "d5390bbdcd8d1a61223ec8cb20e146d189ab506f74b41bc4c0ff839764d76309"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/dg/ddaig.py": {
+      "bytes": 3709,
+      "sha256": "d6a1b07732b705db91fef2b578e24d7922c40d5a5dbd7df962ccb5d8a663560f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/dg/domain_mix.py": {
+      "bytes": 2735,
+      "sha256": "3b3956e6c91237040f3d8f4d4f17ce0ca590bb5a0f4ee7d78404b0856315e3cf"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/dg/vanilla.py": {
+      "bytes": 946,
+      "sha256": "f385c1282136c9779eda53a0a1c102449f81f0446218bd96c456a170a18e813f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/ssl/__init__.py": {
+      "bytes": 165,
+      "sha256": "015d3582a1b0cd68c17a73d1480865fe0248135454d5e21bcb0cd6d374a73fc1"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/ssl/entmin.py": {
+      "bytes": 1162,
+      "sha256": "3d142862eb432afe0653766d35e450c7825223fdc47b6619c647cd834c474691"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/ssl/fixmatch.py": {
+      "bytes": 4063,
+      "sha256": "4cf65f35847958bc465a2e365c0a81e9f59b685de6f025afcd762effab8a755b"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py": {
+      "bytes": 1769,
+      "sha256": "cd6885f3d05e80195af44feef29dd8cadb629285604fc8ba5e6eeaebd3666bdd"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/ssl/mixmatch.py": {
+      "bytes": 3119,
+      "sha256": "9a114aff2e5847ac6e68fcdb4cee7d9b956a481a8720dc495015d726a8ac2328"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py": {
+      "bytes": 930,
+      "sha256": "e05224c352f8eda45d6402c9e13fd056ce1f759493154b98376107b159221b8f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/engine/trainer.py": {
+      "bytes": 20993,
+      "sha256": "b058571d2c62423907f040c210206ba49532eabece64c865c35bb24ef23b5750"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/evaluation/__init__.py": {
+      "bytes": 123,
+      "sha256": "877d8f5762fa50d3c2394c5c0752e8e3fd78c65fa1f5b0acc9de36c0e7fa3642"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/evaluation/build.py": {
+      "bytes": 410,
+      "sha256": "b0030da809990b5a42b1b4c0fd6eda564ed17f856ac04d83d7dd93fb512e4aed"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/evaluation/evaluator.py": {
+      "bytes": 3773,
+      "sha256": "2777f11becfb23f97fd4b1b6552b5f8bf243e20fbd0463b5fd277dd4dd3a01eb"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/metrics/__init__.py": {
+      "bytes": 138,
+      "sha256": "aab20acedce5d9e1b370a28b3dc43c4a320685b996c3a79304900c0c80f27385"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/metrics/accuracy.py": {
+      "bytes": 972,
+      "sha256": "1826ef2dde1ed20c1674ef40d5d6f5a5475faae7eeea9da3aff8190bfb450441"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/metrics/distance.py": {
+      "bytes": 2247,
+      "sha256": "0b53c3e95ab9c02d7eaf6c780311c1cfd8a64e5017ab762c77e832b9cc2a3371"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/__init__.py": {
+      "bytes": 163,
+      "sha256": "9135c4492d32016444082a31714529ff392800ef4f2313042cf803b8b304ea0f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/__init__.py": {
+      "bytes": 1051,
+      "sha256": "a6fca6d2b4aa44c2c35ed47cba5f5f3c47314ea4c8f07288c05f95530ed98282"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/alexnet.py": {
+      "bytes": 1908,
+      "sha256": "54095dd19ac913092fb51b7171892ec1c99040a6631411eacc9ce196bfd176ab"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/backbone.py": {
+      "bytes": 336,
+      "sha256": "800fd64f3ebc3d37f3721b4f62dfdaf1e8472bdd036c0dff8255bfb2fe4611d9"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/build.py": {
+      "bytes": 358,
+      "sha256": "ecc84da802b2326dfabb27dbe8007635c24d63bedace334524ad821a576247d7"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py": {
+      "bytes": 1819,
+      "sha256": "ce7dd5fa49c90b6da47473ab2d0de47d96e51c1ab14ca8ab874bf6129ab67c2a"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py": {
+      "bytes": 1630,
+      "sha256": "b553ab390fc907f79616a1c88ff9c5bca08458a0c333fffa2a04ce07283e9fb7"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py": {
+      "bytes": 1265,
+      "sha256": "39d6ae34c7459115861bfd2672e0b957d332a414d4c4e1f9266e8674d62a8ca4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py": {
+      "bytes": 370,
+      "sha256": "98e9d7b401d60c93dc60d1f3df8f03eb73616e592b8e9e3404429f9ad6011d00"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py": {
+      "bytes": 13021,
+      "sha256": "fdb021b462b74b457d4d01dd74924ea61d8402a112c79544358278ca438f48cf"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py": {
+      "bytes": 15997,
+      "sha256": "6afe3dc185afaba007139533699b3f9e4f32413935d255ad169f2000c9c10664"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py": {
+      "bytes": 4014,
+      "sha256": "3a51de5794915f04dd737e26c61df3168477b6083141eeff574321408bc2e892"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/resnet.py": {
+      "bytes": 14661,
+      "sha256": "57007e21cd26e2961b1707942d4224f23aed34d5e67b0b89499bfeb08e0172af"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py": {
+      "bytes": 22591,
+      "sha256": "93713b225707365e90e9497096cee7ef095fcd86dac8b2b31f6c7081c082a06f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/vgg.py": {
+      "bytes": 3934,
+      "sha256": "c81278a47eaac1921589b9560893df8ad08df0989894a7d21814cc9ff4f2e0df"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py": {
+      "bytes": 4403,
+      "sha256": "cfa281849d9938a551e2032fadc02510ce7f64a929cc8b0e950bc1cc8d1587dd"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/head/__init__.py": {
+      "bytes": 81,
+      "sha256": "90db749ad572ffe67ab499f1cd05348ab51f8ba7080e1491dc6c91661095ad64"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/head/build.py": {
+      "bytes": 326,
+      "sha256": "d569803004150db4ae01aee23aa02a3f1d55aa3fc2fea2ea0ff6d86dd9fd6259"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/head/mlp.py": {
+      "bytes": 1202,
+      "sha256": "8914f18629ba2e51b0b5a6b701cedfb90a8285901cf534d81fe252c040c203e9"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/network/__init__.py": {
+      "bytes": 164,
+      "sha256": "8d0bfc958c4d5d2d3c737badd0e801b94173887b75b7f2a580cde0b8d0dffdd3"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/network/build.py": {
+      "bytes": 346,
+      "sha256": "7260aacd16bb4b9f04dd928c892783f6f24f1180b40cd177ca0ac8ea8b5a517c"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py": {
+      "bytes": 9613,
+      "sha256": "bb04c6719301cca7833b8096499a969d15d5c44740b1ddb8038deb9693a48b18"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/__init__.py": {
+      "bytes": 692,
+      "sha256": "15e84588c09fcd3e6d9decc2e0983644284e675216703ad3cfa55abecef8ea4e"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/attention.py": {
+      "bytes": 904,
+      "sha256": "fefd9eedcb4a65cfbfd3a3cc764ea67c9f4cf22818ff89f7c241e35e961833db"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/conv.py": {
+      "bytes": 3021,
+      "sha256": "753d90364239bbd557f4336932f34484e3e04bca45cb3a6f286b1a19808ff524"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py": {
+      "bytes": 1033,
+      "sha256": "dffbe6ecad5030450f000f123f7666f6a85eb28e020e68e19fb1c8f923005ee6"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/dsbn.py": {
+      "bytes": 1159,
+      "sha256": "b27d26c24610689fbf24e9ad9628b8d3485546922d1d6599f974d1ee39173bee"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/efdmix.py": {
+      "bytes": 3159,
+      "sha256": "fd686d6cd420abf230f665ef185c33c11a5ba544b01b837c6c8bb5cce8ebe2cb"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/mixstyle.py": {
+      "bytes": 3170,
+      "sha256": "56279a46bfa28bf490face795ee446d06348179b1790f2910e8682dbd9980e5c"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/mixup.py": {
+      "bytes": 774,
+      "sha256": "0910aa17958c481220ab759c5bb7594008da4f5f6fb870e16655154d4edcf2c7"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/mmd.py": {
+      "bytes": 3082,
+      "sha256": "8a1631f9f61966cdbdd6f76ebb6edde15e6ca19de660f7ac0c4e98b19f8045e8"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py": {
+      "bytes": 4663,
+      "sha256": "9a5e3fe1c45dce603319e8744b8b1a643b07691688e82d8ad937de40420f032c"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py": {
+      "bytes": 845,
+      "sha256": "91cc7a68fb7117a3d726708f685861cd7997a41bb018a0a6d98c6cecaf060d87"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/sequential2.py": {
+      "bytes": 427,
+      "sha256": "7446ad88522611a0fb097eeda352fb54035e17c72b98b44e4697785c94fe767a"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/transnorm.py": {
+      "bytes": 4669,
+      "sha256": "a1ae7f72e3bdfa956c57c79c4ba3d229940d1cd825819f9481033200712f7d2c"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/modeling/ops/utils.py": {
+      "bytes": 2034,
+      "sha256": "1d12c731451d762ff1cdb47084d6b29f802facd81166b5a74a49112047667766"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/optim/__init__.py": {
+      "bytes": 84,
+      "sha256": "3f83afa74e14d5eec9ad10b510ffc955d8ce54f2fcd8a45f479eb0cd5372c474"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/optim/lr_scheduler.py": {
+      "bytes": 4164,
+      "sha256": "2e55a69398a73e29fba413076b7c486cb261d8bc495f0f03cc538c23dd8f9bf0"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/optim/optimizer.py": {
+      "bytes": 4130,
+      "sha256": "c5c411a0e1a001afa9646587811ecea36772e86e8162e97826285ee60b5dd8a4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/optim/radam.py": {
+      "bytes": 11648,
+      "sha256": "b7197851cabe700ce024453a9602dcb498538a4c13d6e55b03cbdf6bbd9af0d4"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/utils/__init__.py": {
+      "bytes": 115,
+      "sha256": "011968995da796bf0e1aae8c4f36c4e4f1c1762fe22a5b22f82c6a1fcb5e4f4a"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/utils/logger.py": {
+      "bytes": 1703,
+      "sha256": "982b4acdbcd25e3bf5d8454f7dafb75b329140b92f81bac9f9c2fb94357f37c7"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/utils/meters.py": {
+      "bytes": 2162,
+      "sha256": "d41b318ed0a109d59be3f344533e6121059dbb87143782b32e2ef20dec2aa5a9"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/utils/registry.py": {
+      "bytes": 1709,
+      "sha256": "531c83ee95fd3b80f0f375291e9423262f8f7b2d055567a70e2b25d1d632bb2f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/utils/tools.py": {
+      "bytes": 4365,
+      "sha256": "684431d32016e998ad3d628e561cf2500c8d69572278d04efd81844683fe644f"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/dassl/utils/torchtools.py": {
+      "bytes": 10227,
+      "sha256": "8e65ddd145950121ff3e9427d414d801c0c15aaf50b2612cd41069c53b2cd8c9"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/datasets/da/cifar_stl.py": {
+      "bytes": 2383,
+      "sha256": "37396215117830bd926167424cb4b65c9bc8aee611e25d5a27397b75a311fb09"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/datasets/da/digit5.py": {
+      "bytes": 3771,
+      "sha256": "d436de678095c5bbe6e6689db8669bd526a0a5bdc989894fbc603f283fc5e807"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/datasets/dg/cifar_c.py": {
+      "bytes": 2165,
+      "sha256": "6a3399afc470606e11f1d152febe5002051ae4748bd0522427153c24bd2e7439"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py": {
+      "bytes": 1528,
+      "sha256": "eccc2022fc0b5715a6a05b5c02433c9a46ea1039b11e265239ea2285755310cd"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/datasets/ssl/stl10.py": {
+      "bytes": 1171,
+      "sha256": "b7d4dc96cf527eebf90ef3171c49227dc96d08cd057b77f66a3bf7496609424a"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/setup.py": {
+      "bytes": 1237,
+      "sha256": "77b327e2d5d4ab77798f2bc6588162c5621c51690e5dab20768a69788f6a8dc2"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/tools/parse_test_res.py": {
+      "bytes": 4655,
+      "sha256": "c94a1c8b9ed7908ca44ea9f4ad9e909bccba52943c58bb5faebf2dc1f51a620e"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/tools/replace_text.py": {
+      "bytes": 1957,
+      "sha256": "ded96adcdaa59d30b161903fbdffefc062b10b25c6ea56badd409ab5c3784546"
+    },
+    "routes/larp/archive/official_reference/Dassl.pytorch/tools/train.py": {
+      "bytes": 4844,
+      "sha256": "112d936e057118ec82aba852e3968096560afd8f63aa390249e48e6fb600876e"
+    },
+    "routes/larp/archive/official_reference/LICENSE": {
+      "bytes": 11342,
+      "sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8"
+    },
+    "routes/larp/archive/official_reference/clip/__init__.py": {
+      "bytes": 20,
+      "sha256": "d7930eb290ebed432116795c91473200d098451a94c0aedd4ae0f934f97955e8"
+    },
+    "routes/larp/archive/official_reference/clip/bpe_simple_vocab_16e6.txt.gz": {
+      "bytes": 1356917,
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "routes/larp/archive/official_reference/clip/clip.py": {
+      "bytes": 8553,
+      "sha256": "855ab36f3c1039d9b9fac1a47c217114d3269c65ddf9c7d304112a01a4210f60"
+    },
+    "routes/larp/archive/official_reference/clip/model.py": {
+      "bytes": 30792,
+      "sha256": "5faf6ace43e65dbc1e46991474be4cbdd8d0b700c4d87fe61c57a5d512e12bdd"
+    },
+    "routes/larp/archive/official_reference/clip/simple_tokenizer.py": {
+      "bytes": 4632,
+      "sha256": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad"
+    },
+    "routes/larp/archive/official_reference/datasets/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "routes/larp/archive/official_reference/datasets/caltech101.py": {
+      "bytes": 3153,
+      "sha256": "b2a2779aa9755a330b7de66a5044f8204dc43f13d4fc9d75ae2e0a3ab12c8d7a"
+    },
+    "routes/larp/archive/official_reference/datasets/dtd.py": {
+      "bytes": 4654,
+      "sha256": "6e1431e25c7cc0c93627a233f3e02674c074792bf8f159c687fdd1e0fb794b59"
+    },
+    "routes/larp/archive/official_reference/datasets/eurosat.py": {
+      "bytes": 3696,
+      "sha256": "4da51af2767737aaa48c367e29d7abf8c1572ea14c13d774b20c6f19097cf48e"
+    },
+    "routes/larp/archive/official_reference/datasets/fgvc_aircraft.py": {
+      "bytes": 3601,
+      "sha256": "12347fd7594cd3604c4f8fa50e3b2f6a00ff318925efe2e8b272f0063daf97bb"
+    },
+    "routes/larp/archive/official_reference/datasets/food101.py": {
+      "bytes": 2917,
+      "sha256": "fe6720893a971e0223d3a6d600fe6148070cc7f9db6ab5e747b78095deb1df6c"
+    },
+    "routes/larp/archive/official_reference/datasets/imagenet.py": {
+      "bytes": 4692,
+      "sha256": "0e7525afe511ba3edeb17a05e2cea8e6d5dbe45963fb9619c3a458053f331eaf"
+    },
+    "routes/larp/archive/official_reference/datasets/imagenet_a.py": {
+      "bytes": 1439,
+      "sha256": "7bbf7bbb73a8984a5f4092ed197d56bc82f711b59cc26171ef467f3405c506ad"
+    },
+    "routes/larp/archive/official_reference/datasets/imagenet_r.py": {
+      "bytes": 1435,
+      "sha256": "4d5832a539744cf617e828f6d2ccadb6d99a646df3ac169ce5462d5e4a3ec326"
+    },
+    "routes/larp/archive/official_reference/datasets/imagenet_sketch.py": {
+      "bytes": 1331,
+      "sha256": "b4046da735585a0cbf80e7bff96fcaf4cfcef8c0cbd7bca38781ddf87c5b6095"
+    },
+    "routes/larp/archive/official_reference/datasets/imagenetv2.py": {
+      "bytes": 1416,
+      "sha256": "e93f655f21edc0b106261d10cbcac10957c49095edf55625acd12eae5a5dd6df"
+    },
+    "routes/larp/archive/official_reference/datasets/oxford_flowers.py": {
+      "bytes": 4486,
+      "sha256": "963f68ea6c370dfaa9d4b64e33102589e0021fab5251cec376d4ec96a55012ba"
+    },
+    "routes/larp/archive/official_reference/datasets/oxford_pets.py": {
+      "bytes": 7430,
+      "sha256": "03bf300d6b111f5f57ebfdbdfacb56ea458917feccbe9d938862352592f8258a"
+    },
+    "routes/larp/archive/official_reference/datasets/stanford_cars.py": {
+      "bytes": 4045,
+      "sha256": "35b39bd70a480483a6c3c277054016e6dc3430852817966fa3a034a7a3574665"
+    },
+    "routes/larp/archive/official_reference/datasets/sun397.py": {
+      "bytes": 4124,
+      "sha256": "36665e53068df9cde1e68f6ca7ff13393c833db749611fe01ddb7c2104b6dcbf"
+    },
+    "routes/larp/archive/official_reference/datasets/ucf101.py": {
+      "bytes": 4264,
+      "sha256": "cc6bae8518f40e32380359eeedc67de76e9cca8f2780531bccf0308fdd22303c"
+    },
+    "routes/larp/archive/official_reference/interpret_prompts/interpret_prompt.py": {
+      "bytes": 2600,
+      "sha256": "0c6951d9938db9f6442cd4b5003cd1f64ada2faccb6063c82c2d1ddca0fa5697"
+    },
+    "routes/larp/archive/official_reference/lpclip/feat_extractor.py": {
+      "bytes": 6080,
+      "sha256": "e2ea3cb4924eb53a90170d3ebd83a54b8b3f85c8f226dfb0fb5300f2e0e1bbf4"
+    },
+    "routes/larp/archive/official_reference/lpclip/linear_probe.py": {
+      "bytes": 5870,
+      "sha256": "0bbedba2adf7cce66626f3e9b4b4702e61b7af43632c49eecf965e4f2e6a2e82"
+    },
+    "routes/larp/archive/official_reference/train.py": {
+      "bytes": 8875,
+      "sha256": "a88612369933365c72f672f0100a6dcf1804f403490109a72d53a903f8f9b186"
+    },
+    "routes/larp/archive/official_reference/trainers/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "routes/larp/archive/official_reference/trainers/cocoop.py": {
+      "bytes": 11614,
+      "sha256": "67d5401bb955959b57a51ff0dae4ce5d6cd035d0a65ec62a03e9fa637bb76688"
+    },
+    "routes/larp/archive/official_reference/trainers/coop.py": {
+      "bytes": 12127,
+      "sha256": "2d9fac3c277d7240850179a2060b7da59602a046161e92660edc2db4822cd084"
+    },
+    "routes/larp/archive/official_reference/trainers/imagenet_templates.py": {
+      "bytes": 2098,
+      "sha256": "05cfa0144ddb98e924085e6c2d565c68e625ad2ff3d78f347fcd61d2cd146fe1"
+    },
+    "routes/larp/archive/official_reference/trainers/independentVL.py": {
+      "bytes": 11386,
+      "sha256": "74642ea02ff90a1f6b24f39e43d5c65a28f0d25973e9c511c3655c58eb931e57"
+    },
+    "routes/larp/archive/official_reference/trainers/maple.py": {
+      "bytes": 13230,
+      "sha256": "bb1c463fe5a94f3470357580846b73dacb52af1edd73a1cc6f639c542a931dbf"
+    },
+    "routes/larp/archive/official_reference/trainers/promptkd.py": {
+      "bytes": 19950,
+      "sha256": "0a6a783637c5c7d69d98d104d0361688934677ff9df4832675a382603b7e4eb1"
+    },
+    "routes/larp/archive/official_reference/trainers/promptsrc.py": {
+      "bytes": 17156,
+      "sha256": "e2f532d2d2d63ef46fe45dc7b1612fbe95124f2cc820b38cd6423a4d91f43265"
+    },
+    "routes/larp/archive/official_reference/trainers/zsclip.py": {
+      "bytes": 3620,
+      "sha256": "39534496e3300c600c0f2c6795fbfbe3a8678c198b866bfbd4ee76dc2db62e6e"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/LICENSE": {
+      "bytes": 1064,
+      "sha256": "92bcf1e961ce7ac07ef07243ff34bb8f228a8e180207b88f0455fd68c248e2e3"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/__init__.py": {
+      "bytes": 443,
+      "sha256": "971cf9ec3e61350687d6e570314d7fb3c0157e94fbdb99bb4cfb3238a4ab3a13"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/config/__init__.py": {
+      "bytes": 487,
+      "sha256": "ddbdb024c2567011b3c719374daacc8540f88cc897b2f26294e8cb0a2a687141"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/config/defaults.py": {
+      "bytes": 9718,
+      "sha256": "d1e846ca24c643d262277c3f9fa2a9e78cca40555f83a31dfdbd358b6e3bab70"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/__init__.py": {
+      "bytes": 54,
+      "sha256": "a9db83252d7644cfbf8274de1f59780e3baf1b04c8709e1ae0d96b8e0807f4b7"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/data_manager.py": {
+      "bytes": 8234,
+      "sha256": "975be8d8f677028e6fb50c40fa36e54158e7545b15283b6dbbfd3b41a7d2a22e"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/__init__.py": {
+      "bytes": 180,
+      "sha256": "f451f85d8162af5b0e94eef0108c39d2f6da24129070d88955fd15d6c72cc2bb"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/base_dataset.py": {
+      "bytes": 6669,
+      "sha256": "aeaf26e85720286a920a0a95c905db7e1ac8cb6c785cb4789c2f13ec47dace65"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/build.py": {
+      "bytes": 368,
+      "sha256": "ae96d1e216926ebdac6f8569e281972bf17bafdd311eb0791d1626a9b078a3b9"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/__init__.py": {
+      "bytes": 229,
+      "sha256": "36047cec8f245ddcb1646e9367b6fef221334d8afcb2cd6505c8190dc52322e5"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/cifarstl.py": {
+      "bytes": 2309,
+      "sha256": "10a26727f2c8a801571abf14ba95d180409e0b5c17f4a954e68f4b7e5831a143"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/digit5.py": {
+      "bytes": 4109,
+      "sha256": "e885d5b624f3d396b95957d493ffe76f1fc33f08589ad41bf58b1ec602b1a62a"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/domainnet.py": {
+      "bytes": 2304,
+      "sha256": "011db8795b246f3c3db0e6b99afe546cf41ef4076c8556a6aea7f8c2ffc58219"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/mini_domainnet.py": {
+      "bytes": 1978,
+      "sha256": "935c9a4ec893dde9198550cd9f5b38bdf6c8aa636838d24f67f5e35da24a0d67"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/office31.py": {
+      "bytes": 1952,
+      "sha256": "703c56009852384c0c061d2c9e68fa0fbf280563b23764842d394ebc7994880a"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/office_home.py": {
+      "bytes": 2013,
+      "sha256": "69a02a045b56209878754132e3ca310d3f8703d9ebbd31c10f93c304ce665965"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/da/visda17.py": {
+      "bytes": 1765,
+      "sha256": "5874affa39ef911073b9727817af75b37e3caab84d1a3f930e13c71e3b0d70ee"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/__init__.py": {
+      "bytes": 367,
+      "sha256": "6a07b0dd672f6d7d613534d15c8abcd5bbf0029abd85d4e39a6c851b5406668d"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/cifar_c.py": {
+      "bytes": 3248,
+      "sha256": "58b23e1011fdcb8056e95b56a99e3edc151918abf508957f8470c23b3a1f6f37"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/digit_single.py": {
+      "bytes": 4315,
+      "sha256": "069cca5ebb9f12d607edef2f26bcacb1c613a2a50bdffffff26e4aac55c54d7a"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/digits_dg.py": {
+      "bytes": 3220,
+      "sha256": "26f4fef79c4630f6441c4986bbd8084c34182bd6db5879f910c8fe050cdd1c5d"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/office_home_dg.py": {
+      "bytes": 1564,
+      "sha256": "5237d18f1b5121091352add3cad65c2fe044540b78586abafeea69d1703ab44d"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/pacs.py": {
+      "bytes": 3174,
+      "sha256": "a7cc0f10c720098f8a3b29379a6d38801fe294f4d06f43fb1b453fbcbdc94b1d"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/vlcs.py": {
+      "bytes": 1895,
+      "sha256": "fba407f76aa656741d041717508d06ec2e738eea3245f446be8641a71e173b6b"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/__init__.py": {
+      "bytes": 89,
+      "sha256": "6b3d97244748ec9ef278f5d6f617b4fcc24d380feda828a080a9b9dd879b2af4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/camelyon17.py": {
+      "bytes": 718,
+      "sha256": "1989d5879f64ac1be0110bc12acac7660648cd6fc9c4fd1f06555de97bd630c2"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/fmow.py": {
+      "bytes": 2230,
+      "sha256": "3bf9e5e0c3a18b9b3179cb5f9e9d2013172894a66599457a3398f467274edddb"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/iwildcam.py": {
+      "bytes": 854,
+      "sha256": "9e3a85ce859dc16bd2bda07e31d631f65ee241f9f674a3d5af15bb83fa84deb5"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/dg/wilds/wilds_base.py": {
+      "bytes": 3545,
+      "sha256": "0f1c3e7f6430107cee97f0a922fa220d533a6f5f3547d7232830035f8a00f3a7"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/ssl/__init__.py": {
+      "bytes": 85,
+      "sha256": "ee91948848387da87970181695025a7d3a29d15caa7f3f1c58a83ef86e9a8c30"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/ssl/cifar.py": {
+      "bytes": 3252,
+      "sha256": "191e2f957608182e065e884f28e801e32fa66c9e79aabe6ab9845427ee54e27f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/ssl/stl10.py": {
+      "bytes": 2712,
+      "sha256": "b8f2f2bbf678f6b527bfc5018d91994409bf9b244f973a69c457fd3cced6b437"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/datasets/ssl/svhn.py": {
+      "bytes": 361,
+      "sha256": "bd6ff6baad826e8fe43d14d77dc8180dd6fb5d7f254eba0d3aa44a4badbf3465"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/samplers.py": {
+      "bytes": 6660,
+      "sha256": "06bd592ca2e52b59d5f68bcbb5a987e81f7d3959ea638e5dae2211583326f269"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/transforms/__init__.py": {
+      "bytes": 61,
+      "sha256": "a0ffe5c9cedb2804e3fc3389a4e20b5b041b467ae0d3c28bd426aee48ecf0aa4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/transforms/autoaugment.py": {
+      "bytes": 11840,
+      "sha256": "0ecbff1244396c8a944139a98cdf677c6dea0fd254565c9a047c7a72707963b4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/transforms/randaugment.py": {
+      "bytes": 8715,
+      "sha256": "d98e106911803e39522f6efb35a8c1f83fa37c895328a1e094edbf39359dd1ce"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/data/transforms/transforms.py": {
+      "bytes": 10611,
+      "sha256": "8f1e30dad741aca3aeffab7155a59ea257757fb4625bf7e5e48537e293fa435e"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/__init__.py": {
+      "bytes": 215,
+      "sha256": "91eb87dab342bfdecae552699606c677f1c7f991f4dc473f688585ab1767b4e2"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/build.py": {
+      "bytes": 368,
+      "sha256": "c6e9aa7dc2b93d45d62c968119ce0cc166013fbc6d17f1f6f25f678a3ee1839b"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/__init__.py": {
+      "bytes": 239,
+      "sha256": "bb84267cd2281ae66abc34450648e5e7c49a8e2f3e4aac1809ddaa0a8bd9fa00"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/adabn.py": {
+      "bytes": 986,
+      "sha256": "b17318ee97a4ac378b9018d47fd5e54743bd9d435f859b75514c7c6f59c4e981"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/adda.py": {
+      "bytes": 2847,
+      "sha256": "5963ea37980c6b0902dbb24bae88f6575b0badc53db24dc86b0bf612e5fb2c63"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/cdac.py": {
+      "bytes": 9273,
+      "sha256": "3240a9c1403409ab6fe2586211192544c89a648dcc6e753bb8497185c21a11ef"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/dael.py": {
+      "bytes": 7522,
+      "sha256": "bcc653aaaf46176c118ae36a03e4b48979e4c649fecca9be22b52db0eb7de62c"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/dann.py": {
+      "bytes": 2661,
+      "sha256": "82086da7c577cc9455879c21a420a30f07bfd6dc312456d53614afbd5cc68c59"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/m3sda.py": {
+      "bytes": 6194,
+      "sha256": "6ac6e245501170d28917a7d856c084cc5f50a9900243770f5f7516681b0c6363"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/mcd.py": {
+      "bytes": 3593,
+      "sha256": "9e5e07b634c8ae8186b97f33b536b6386679b668a48ccba4dd947683f81194da"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/mme.py": {
+      "bytes": 2693,
+      "sha256": "cc0cd3e39d70e541eec4e32f87d58fe29e30cfa9ef2efc73028448f3b8d0a3c4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/se.py": {
+      "bytes": 2504,
+      "sha256": "d6fdda904c99ad2472844c0807d18b4936d68da94ce7a7767fc58388f810a4f4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/da/source_only.py": {
+      "bytes": 996,
+      "sha256": "2b79b8ca5e464a1532caa58c9640a1110a5e23dd4d79aca36848996376a88dfc"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/dg/__init__.py": {
+      "bytes": 148,
+      "sha256": "ed5355cae2794f7beb4fc26a274bc80e90b56557eae01d3cc399627479ca2ea1"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/dg/crossgrad.py": {
+      "bytes": 2924,
+      "sha256": "55771ce981fd8bb12629fe52a9a39e30d96d588552ce2558c90eec6f6e83f712"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/dg/daeldg.py": {
+      "bytes": 5555,
+      "sha256": "d5390bbdcd8d1a61223ec8cb20e146d189ab506f74b41bc4c0ff839764d76309"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/dg/ddaig.py": {
+      "bytes": 3709,
+      "sha256": "d6a1b07732b705db91fef2b578e24d7922c40d5a5dbd7df962ccb5d8a663560f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/dg/domain_mix.py": {
+      "bytes": 2735,
+      "sha256": "3b3956e6c91237040f3d8f4d4f17ce0ca590bb5a0f4ee7d78404b0856315e3cf"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/dg/vanilla.py": {
+      "bytes": 946,
+      "sha256": "f385c1282136c9779eda53a0a1c102449f81f0446218bd96c456a170a18e813f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/ssl/__init__.py": {
+      "bytes": 165,
+      "sha256": "015d3582a1b0cd68c17a73d1480865fe0248135454d5e21bcb0cd6d374a73fc1"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/ssl/entmin.py": {
+      "bytes": 1162,
+      "sha256": "3d142862eb432afe0653766d35e450c7825223fdc47b6619c647cd834c474691"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/ssl/fixmatch.py": {
+      "bytes": 4063,
+      "sha256": "4cf65f35847958bc465a2e365c0a81e9f59b685de6f025afcd762effab8a755b"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/ssl/mean_teacher.py": {
+      "bytes": 1769,
+      "sha256": "cd6885f3d05e80195af44feef29dd8cadb629285604fc8ba5e6eeaebd3666bdd"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/ssl/mixmatch.py": {
+      "bytes": 3119,
+      "sha256": "9a114aff2e5847ac6e68fcdb4cee7d9b956a481a8720dc495015d726a8ac2328"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/ssl/sup_baseline.py": {
+      "bytes": 930,
+      "sha256": "e05224c352f8eda45d6402c9e13fd056ce1f759493154b98376107b159221b8f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/engine/trainer.py": {
+      "bytes": 20993,
+      "sha256": "b058571d2c62423907f040c210206ba49532eabece64c865c35bb24ef23b5750"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/evaluation/__init__.py": {
+      "bytes": 123,
+      "sha256": "877d8f5762fa50d3c2394c5c0752e8e3fd78c65fa1f5b0acc9de36c0e7fa3642"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/evaluation/build.py": {
+      "bytes": 410,
+      "sha256": "b0030da809990b5a42b1b4c0fd6eda564ed17f856ac04d83d7dd93fb512e4aed"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/evaluation/evaluator.py": {
+      "bytes": 3773,
+      "sha256": "2777f11becfb23f97fd4b1b6552b5f8bf243e20fbd0463b5fd277dd4dd3a01eb"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/metrics/__init__.py": {
+      "bytes": 138,
+      "sha256": "aab20acedce5d9e1b370a28b3dc43c4a320685b996c3a79304900c0c80f27385"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/metrics/accuracy.py": {
+      "bytes": 972,
+      "sha256": "1826ef2dde1ed20c1674ef40d5d6f5a5475faae7eeea9da3aff8190bfb450441"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/metrics/distance.py": {
+      "bytes": 2247,
+      "sha256": "0b53c3e95ab9c02d7eaf6c780311c1cfd8a64e5017ab762c77e832b9cc2a3371"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/__init__.py": {
+      "bytes": 163,
+      "sha256": "9135c4492d32016444082a31714529ff392800ef4f2313042cf803b8b304ea0f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/__init__.py": {
+      "bytes": 1051,
+      "sha256": "a6fca6d2b4aa44c2c35ed47cba5f5f3c47314ea4c8f07288c05f95530ed98282"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/alexnet.py": {
+      "bytes": 1908,
+      "sha256": "54095dd19ac913092fb51b7171892ec1c99040a6631411eacc9ce196bfd176ab"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/backbone.py": {
+      "bytes": 336,
+      "sha256": "800fd64f3ebc3d37f3721b4f62dfdaf1e8472bdd036c0dff8255bfb2fe4611d9"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/build.py": {
+      "bytes": 358,
+      "sha256": "ecc84da802b2326dfabb27dbe8007635c24d63bedace334524ad821a576247d7"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digit5_m3sda.py": {
+      "bytes": 1819,
+      "sha256": "ce7dd5fa49c90b6da47473ab2d0de47d96e51c1ab14ca8ab874bf6129ab67c2a"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsdg.py": {
+      "bytes": 1630,
+      "sha256": "b553ab390fc907f79616a1c88ff9c5bca08458a0c333fffa2a04ce07283e9fb7"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/cnn_digitsingle.py": {
+      "bytes": 1265,
+      "sha256": "39d6ae34c7459115861bfd2672e0b957d332a414d4c4e1f9266e8674d62a8ca4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/__init__.py": {
+      "bytes": 370,
+      "sha256": "98e9d7b401d60c93dc60d1f3df8f03eb73616e592b8e9e3404429f9ad6011d00"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/model.py": {
+      "bytes": 13021,
+      "sha256": "fdb021b462b74b457d4d01dd74924ea61d8402a112c79544358278ca438f48cf"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/efficientnet/utils.py": {
+      "bytes": 15997,
+      "sha256": "6afe3dc185afaba007139533699b3f9e4f32413935d255ad169f2000c9c10664"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/preact_resnet18.py": {
+      "bytes": 4014,
+      "sha256": "3a51de5794915f04dd737e26c61df3168477b6083141eeff574321408bc2e892"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/resnet.py": {
+      "bytes": 14661,
+      "sha256": "57007e21cd26e2961b1707942d4224f23aed34d5e67b0b89499bfeb08e0172af"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/resnet_dynamic.py": {
+      "bytes": 22591,
+      "sha256": "93713b225707365e90e9497096cee7ef095fcd86dac8b2b31f6c7081c082a06f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/vgg.py": {
+      "bytes": 3934,
+      "sha256": "c81278a47eaac1921589b9560893df8ad08df0989894a7d21814cc9ff4f2e0df"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/backbone/wide_resnet.py": {
+      "bytes": 4403,
+      "sha256": "cfa281849d9938a551e2032fadc02510ce7f64a929cc8b0e950bc1cc8d1587dd"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/head/__init__.py": {
+      "bytes": 81,
+      "sha256": "90db749ad572ffe67ab499f1cd05348ab51f8ba7080e1491dc6c91661095ad64"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/head/build.py": {
+      "bytes": 326,
+      "sha256": "d569803004150db4ae01aee23aa02a3f1d55aa3fc2fea2ea0ff6d86dd9fd6259"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/head/mlp.py": {
+      "bytes": 1202,
+      "sha256": "8914f18629ba2e51b0b5a6b701cedfb90a8285901cf534d81fe252c040c203e9"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/network/__init__.py": {
+      "bytes": 164,
+      "sha256": "8d0bfc958c4d5d2d3c737badd0e801b94173887b75b7f2a580cde0b8d0dffdd3"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/network/build.py": {
+      "bytes": 346,
+      "sha256": "7260aacd16bb4b9f04dd928c892783f6f24f1180b40cd177ca0ac8ea8b5a517c"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/network/ddaig_fcn.py": {
+      "bytes": 9613,
+      "sha256": "bb04c6719301cca7833b8096499a969d15d5c44740b1ddb8038deb9693a48b18"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/__init__.py": {
+      "bytes": 692,
+      "sha256": "15e84588c09fcd3e6d9decc2e0983644284e675216703ad3cfa55abecef8ea4e"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/attention.py": {
+      "bytes": 904,
+      "sha256": "fefd9eedcb4a65cfbfd3a3cc764ea67c9f4cf22818ff89f7c241e35e961833db"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/conv.py": {
+      "bytes": 3021,
+      "sha256": "753d90364239bbd557f4336932f34484e3e04bca45cb3a6f286b1a19808ff524"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/cross_entropy.py": {
+      "bytes": 1033,
+      "sha256": "dffbe6ecad5030450f000f123f7666f6a85eb28e020e68e19fb1c8f923005ee6"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/dsbn.py": {
+      "bytes": 1159,
+      "sha256": "b27d26c24610689fbf24e9ad9628b8d3485546922d1d6599f974d1ee39173bee"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/efdmix.py": {
+      "bytes": 3159,
+      "sha256": "fd686d6cd420abf230f665ef185c33c11a5ba544b01b837c6c8bb5cce8ebe2cb"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/mixstyle.py": {
+      "bytes": 3170,
+      "sha256": "56279a46bfa28bf490face795ee446d06348179b1790f2910e8682dbd9980e5c"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/mixup.py": {
+      "bytes": 774,
+      "sha256": "0910aa17958c481220ab759c5bb7594008da4f5f6fb870e16655154d4edcf2c7"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/mmd.py": {
+      "bytes": 3082,
+      "sha256": "8a1631f9f61966cdbdd6f76ebb6edde15e6ca19de660f7ac0c4e98b19f8045e8"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/optimal_transport.py": {
+      "bytes": 4663,
+      "sha256": "9a5e3fe1c45dce603319e8744b8b1a643b07691688e82d8ad937de40420f032c"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/reverse_grad.py": {
+      "bytes": 845,
+      "sha256": "91cc7a68fb7117a3d726708f685861cd7997a41bb018a0a6d98c6cecaf060d87"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/sequential2.py": {
+      "bytes": 427,
+      "sha256": "7446ad88522611a0fb097eeda352fb54035e17c72b98b44e4697785c94fe767a"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/transnorm.py": {
+      "bytes": 4669,
+      "sha256": "a1ae7f72e3bdfa956c57c79c4ba3d229940d1cd825819f9481033200712f7d2c"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/modeling/ops/utils.py": {
+      "bytes": 2034,
+      "sha256": "1d12c731451d762ff1cdb47084d6b29f802facd81166b5a74a49112047667766"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/optim/__init__.py": {
+      "bytes": 84,
+      "sha256": "3f83afa74e14d5eec9ad10b510ffc955d8ce54f2fcd8a45f479eb0cd5372c474"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/optim/lr_scheduler.py": {
+      "bytes": 4304,
+      "sha256": "0c5174c59fe7afd08ce7b9ff031fc794fe83ce9ec13f6a83caa5912b58ffb870"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/optim/optimizer.py": {
+      "bytes": 4130,
+      "sha256": "c5c411a0e1a001afa9646587811ecea36772e86e8162e97826285ee60b5dd8a4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/optim/radam.py": {
+      "bytes": 11648,
+      "sha256": "b7197851cabe700ce024453a9602dcb498538a4c13d6e55b03cbdf6bbd9af0d4"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/utils/__init__.py": {
+      "bytes": 115,
+      "sha256": "011968995da796bf0e1aae8c4f36c4e4f1c1762fe22a5b22f82c6a1fcb5e4f4a"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/utils/logger.py": {
+      "bytes": 1703,
+      "sha256": "982b4acdbcd25e3bf5d8454f7dafb75b329140b92f81bac9f9c2fb94357f37c7"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/utils/meters.py": {
+      "bytes": 2162,
+      "sha256": "d41b318ed0a109d59be3f344533e6121059dbb87143782b32e2ef20dec2aa5a9"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/utils/registry.py": {
+      "bytes": 1709,
+      "sha256": "531c83ee95fd3b80f0f375291e9423262f8f7b2d055567a70e2b25d1d632bb2f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/utils/tools.py": {
+      "bytes": 4365,
+      "sha256": "684431d32016e998ad3d628e561cf2500c8d69572278d04efd81844683fe644f"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/dassl/utils/torchtools.py": {
+      "bytes": 10227,
+      "sha256": "8e65ddd145950121ff3e9427d414d801c0c15aaf50b2612cd41069c53b2cd8c9"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/datasets/da/cifar_stl.py": {
+      "bytes": 2383,
+      "sha256": "37396215117830bd926167424cb4b65c9bc8aee611e25d5a27397b75a311fb09"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/datasets/da/digit5.py": {
+      "bytes": 3771,
+      "sha256": "d436de678095c5bbe6e6689db8669bd526a0a5bdc989894fbc603f283fc5e807"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/datasets/dg/cifar_c.py": {
+      "bytes": 2165,
+      "sha256": "6a3399afc470606e11f1d152febe5002051ae4748bd0522427153c24bd2e7439"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/datasets/ssl/cifar10_cifar100_svhn.py": {
+      "bytes": 1528,
+      "sha256": "eccc2022fc0b5715a6a05b5c02433c9a46ea1039b11e265239ea2285755310cd"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/datasets/ssl/stl10.py": {
+      "bytes": 1171,
+      "sha256": "b7d4dc96cf527eebf90ef3171c49227dc96d08cd057b77f66a3bf7496609424a"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/setup.py": {
+      "bytes": 1237,
+      "sha256": "77b327e2d5d4ab77798f2bc6588162c5621c51690e5dab20768a69788f6a8dc2"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/tools/parse_test_res.py": {
+      "bytes": 4655,
+      "sha256": "c94a1c8b9ed7908ca44ea9f4ad9e909bccba52943c58bb5faebf2dc1f51a620e"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/tools/replace_text.py": {
+      "bytes": 1957,
+      "sha256": "ded96adcdaa59d30b161903fbdffefc062b10b25c6ea56badd409ab5c3784546"
+    },
+    "routes/larp/archive/project/Dassl.pytorch/tools/train.py": {
+      "bytes": 4844,
+      "sha256": "112d936e057118ec82aba852e3968096560afd8f63aa390249e48e6fb600876e"
+    },
+    "routes/larp/archive/project/LICENSE": {
+      "bytes": 11342,
+      "sha256": "d42fdfb0d673e56fa3adff1c11101c8928ec6bcf02fd794aeae411e74cc733c8"
+    },
+    "routes/larp/archive/project/clip/__init__.py": {
+      "bytes": 20,
+      "sha256": "d7930eb290ebed432116795c91473200d098451a94c0aedd4ae0f934f97955e8"
+    },
+    "routes/larp/archive/project/clip/bpe_simple_vocab_16e6.txt.gz": {
+      "bytes": 1356917,
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "routes/larp/archive/project/clip/clip.py": {
+      "bytes": 8553,
+      "sha256": "855ab36f3c1039d9b9fac1a47c217114d3269c65ddf9c7d304112a01a4210f60"
+    },
+    "routes/larp/archive/project/clip/model.py": {
+      "bytes": 32251,
+      "sha256": "0a9861a774622f71f960af6b74cff547c852ffc24e29927add8317f88cd51754"
+    },
+    "routes/larp/archive/project/clip/simple_tokenizer.py": {
+      "bytes": 4632,
+      "sha256": "d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad"
+    },
+    "routes/larp/archive/project/datasets/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "routes/larp/archive/project/datasets/caltech101.py": {
+      "bytes": 3153,
+      "sha256": "b2a2779aa9755a330b7de66a5044f8204dc43f13d4fc9d75ae2e0a3ab12c8d7a"
+    },
+    "routes/larp/archive/project/datasets/dtd.py": {
+      "bytes": 4654,
+      "sha256": "6e1431e25c7cc0c93627a233f3e02674c074792bf8f159c687fdd1e0fb794b59"
+    },
+    "routes/larp/archive/project/datasets/eurosat.py": {
+      "bytes": 3696,
+      "sha256": "4da51af2767737aaa48c367e29d7abf8c1572ea14c13d774b20c6f19097cf48e"
+    },
+    "routes/larp/archive/project/datasets/fgvc_aircraft.py": {
+      "bytes": 3601,
+      "sha256": "12347fd7594cd3604c4f8fa50e3b2f6a00ff318925efe2e8b272f0063daf97bb"
+    },
+    "routes/larp/archive/project/datasets/food101.py": {
+      "bytes": 2917,
+      "sha256": "fe6720893a971e0223d3a6d600fe6148070cc7f9db6ab5e747b78095deb1df6c"
+    },
+    "routes/larp/archive/project/datasets/imagenet.py": {
+      "bytes": 4692,
+      "sha256": "0e7525afe511ba3edeb17a05e2cea8e6d5dbe45963fb9619c3a458053f331eaf"
+    },
+    "routes/larp/archive/project/datasets/imagenet_a.py": {
+      "bytes": 1439,
+      "sha256": "7bbf7bbb73a8984a5f4092ed197d56bc82f711b59cc26171ef467f3405c506ad"
+    },
+    "routes/larp/archive/project/datasets/imagenet_r.py": {
+      "bytes": 1435,
+      "sha256": "4d5832a539744cf617e828f6d2ccadb6d99a646df3ac169ce5462d5e4a3ec326"
+    },
+    "routes/larp/archive/project/datasets/imagenet_sketch.py": {
+      "bytes": 1331,
+      "sha256": "b4046da735585a0cbf80e7bff96fcaf4cfcef8c0cbd7bca38781ddf87c5b6095"
+    },
+    "routes/larp/archive/project/datasets/imagenetv2.py": {
+      "bytes": 1416,
+      "sha256": "e93f655f21edc0b106261d10cbcac10957c49095edf55625acd12eae5a5dd6df"
+    },
+    "routes/larp/archive/project/datasets/oxford_flowers.py": {
+      "bytes": 4486,
+      "sha256": "963f68ea6c370dfaa9d4b64e33102589e0021fab5251cec376d4ec96a55012ba"
+    },
+    "routes/larp/archive/project/datasets/oxford_pets.py": {
+      "bytes": 7430,
+      "sha256": "03bf300d6b111f5f57ebfdbdfacb56ea458917feccbe9d938862352592f8258a"
+    },
+    "routes/larp/archive/project/datasets/stanford_cars.py": {
+      "bytes": 4045,
+      "sha256": "35b39bd70a480483a6c3c277054016e6dc3430852817966fa3a034a7a3574665"
+    },
+    "routes/larp/archive/project/datasets/sun397.py": {
+      "bytes": 4124,
+      "sha256": "36665e53068df9cde1e68f6ca7ff13393c833db749611fe01ddb7c2104b6dcbf"
+    },
+    "routes/larp/archive/project/datasets/ucf101.py": {
+      "bytes": 4264,
+      "sha256": "cc6bae8518f40e32380359eeedc67de76e9cca8f2780531bccf0308fdd22303c"
+    },
+    "routes/larp/archive/project/interpret_prompts/interpret_prompt.py": {
+      "bytes": 2600,
+      "sha256": "0c6951d9938db9f6442cd4b5003cd1f64ada2faccb6063c82c2d1ddca0fa5697"
+    },
+    "routes/larp/archive/project/lpclip/feat_extractor.py": {
+      "bytes": 6080,
+      "sha256": "e2ea3cb4924eb53a90170d3ebd83a54b8b3f85c8f226dfb0fb5300f2e0e1bbf4"
+    },
+    "routes/larp/archive/project/lpclip/linear_probe.py": {
+      "bytes": 5870,
+      "sha256": "0bbedba2adf7cce66626f3e9b4b4702e61b7af43632c49eecf965e4f2e6a2e82"
+    },
+    "routes/larp/archive/project/tests/test_efficient_adaptation.py": {
+      "bytes": 2677,
+      "sha256": "3664c16f5c24b7a450e12d437afa537939b0fa9ba317f68a7d6b4d17d92e3206"
+    },
+    "routes/larp/archive/project/tests/test_pipeline.py": {
+      "bytes": 10116,
+      "sha256": "cc9a40446bf784a4430222f27aa7ae6b2b32b064eef3069b687852c858ddbf8a"
+    },
+    "routes/larp/archive/project/tests/test_report_results.py": {
+      "bytes": 1933,
+      "sha256": "13ac59da07e475b2e2e1877852f59040ad2d6a830d119410ad2cc9acb1aae527"
+    },
+    "routes/larp/archive/project/tests/test_runtime_reproducibility.py": {
+      "bytes": 1942,
+      "sha256": "c0e01e8ab6982085248a1801aed737baca102fa5c23646945042fa4fb275924e"
+    },
+    "routes/larp/archive/project/tests/test_summarize_results.py": {
+      "bytes": 1258,
+      "sha256": "9201329125f91e0e400b6d1a384f1e365ed89a801a0c3a1f61f3b9eca7938d4f"
+    },
+    "routes/larp/archive/project/tests/test_trainer_end_to_end.py": {
+      "bytes": 5850,
+      "sha256": "90b0fdcff64ae8ebf4b5dbba23398cf60443c589466c440afb23f2dff9af5189"
+    },
+    "routes/larp/archive/project/tests/test_v3_controls.py": {
+      "bytes": 13021,
+      "sha256": "613c720fef8950d4432e6b94041b6b6ad6ffb10b69061bdba1d69e7cf095b9cb"
+    },
+    "routes/larp/archive/project/tools/compare_methods.py": {
+      "bytes": 3742,
+      "sha256": "c72b14f38a07fcf08f7abf8f31cd2b11063bdb8b45e162a5438ebb37c002d321"
+    },
+    "routes/larp/archive/project/tools/parameter_report.py": {
+      "bytes": 1612,
+      "sha256": "3bfdaa8cc79c751d38fe135164494fa4bd1ba1b99239a80280fcb429773dfcea"
+    },
+    "routes/larp/archive/project/tools/preflight.py": {
+      "bytes": 4548,
+      "sha256": "c2e9e5f7e2e5778295cd9a1066a68c54154080fc7fa560d269ef4be7768e0ea2"
+    },
+    "routes/larp/archive/project/tools/provenance.py": {
+      "bytes": 3755,
+      "sha256": "73609d73b01cd01803e24bfdba5b5dd45698326d0c1c3bafecda90ff93dc0f40"
+    },
+    "routes/larp/archive/project/tools/report_development.py": {
+      "bytes": 4179,
+      "sha256": "78e56bb53b99be81aa4f3678cf8ebace690d1402a8bfc3088ac3ce26582f5104"
+    },
+    "routes/larp/archive/project/tools/report_diagnostics.py": {
+      "bytes": 1506,
+      "sha256": "298084aea5813d7c4ebe37c046d5383323f816e1aed497a68b34acb0ead3b7f6"
+    },
+    "routes/larp/archive/project/tools/report_results.py": {
+      "bytes": 7223,
+      "sha256": "73f3da0b0a33507081b18fd376de74e7b6c37e17f5b7a1647839d60893f3137d"
+    },
+    "routes/larp/archive/project/tools/run_experiment.py": {
+      "bytes": 8433,
+      "sha256": "be19929e3e8a81d6fa2a6cad29d25cd3c5a5dcf014b4418b42022bbfad476960"
+    },
+    "routes/larp/archive/project/tools/summarize_results.py": {
+      "bytes": 3615,
+      "sha256": "3ab190fde3be5c2888964d4552a99288b8e2c8253f9b61715f1b63029ad94777"
+    },
+    "routes/larp/archive/project/train.py": {
+      "bytes": 11052,
+      "sha256": "5923fa573d9ebc0083e8859ca31502f1b782afd76b4794049571581fa0460947"
+    },
+    "routes/larp/archive/project/trainers/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "routes/larp/archive/project/trainers/adaptation_diagnostics.py": {
+      "bytes": 8384,
+      "sha256": "b910b42526cd54ec05b2ecff6bdafc1152f5cb1fc3c01395331db8a909fc77bb"
+    },
+    "routes/larp/archive/project/trainers/adaptation_optim.py": {
+      "bytes": 1108,
+      "sha256": "0e2bbf78207a26654923bc0ede860990aa625a07ced4755548a580fc9d86abd1"
+    },
+    "routes/larp/archive/project/trainers/cocoop.py": {
+      "bytes": 11614,
+      "sha256": "67d5401bb955959b57a51ff0dae4ce5d6cd035d0a65ec62a03e9fa637bb76688"
+    },
+    "routes/larp/archive/project/trainers/coop.py": {
+      "bytes": 12127,
+      "sha256": "2d9fac3c277d7240850179a2060b7da59602a046161e92660edc2db4822cd084"
+    },
+    "routes/larp/archive/project/trainers/development.py": {
+      "bytes": 2603,
+      "sha256": "d5c2187c31c58a8ec2952ff86cff9fe4f235771a8a18015dff00e6f8bebe780c"
+    },
+    "routes/larp/archive/project/trainers/efficient_adaptation.py": {
+      "bytes": 10717,
+      "sha256": "614161dfc7647fefb7765bed61bc1e5df40595155a397bbe3c4adf84392743a4"
+    },
+    "routes/larp/archive/project/trainers/imagenet_templates.py": {
+      "bytes": 2098,
+      "sha256": "05cfa0144ddb98e924085e6c2d565c68e625ad2ff3d78f347fcd61d2cd146fe1"
+    },
+    "routes/larp/archive/project/trainers/independentVL.py": {
+      "bytes": 11386,
+      "sha256": "74642ea02ff90a1f6b24f39e43d5c65a28f0d25973e9c511c3655c58eb931e57"
+    },
+    "routes/larp/archive/project/trainers/maple.py": {
+      "bytes": 13230,
+      "sha256": "bb1c463fe5a94f3470357580846b73dacb52af1edd73a1cc6f639c542a931dbf"
+    },
+    "routes/larp/archive/project/trainers/promptkd.py": {
+      "bytes": 31229,
+      "sha256": "5b1c2b3733dfb5905637ed50a115ac2f54f18ded897c7a0128c12ab0c781efab"
+    },
+    "routes/larp/archive/project/trainers/promptsrc.py": {
+      "bytes": 17156,
+      "sha256": "e2f532d2d2d63ef46fe45dc7b1612fbe95124f2cc820b38cd6423a4d91f43265"
+    },
+    "routes/larp/archive/project/trainers/zsclip.py": {
+      "bytes": 3620,
+      "sha256": "39534496e3300c600c0f2c6795fbfbe3a8678c198b866bfbd4ee76dc2db62e6e"
+    },
+    "routes/larp/archive/source_contract.json.txt": {
+      "bytes": 356542,
+      "sha256": "b7c6ca2ab97830453661e41f8e2ee36b2ec3dccf32d7033a2d5f05d74ac917df"
+    },
+    "routes/larp/cli.py": {
+      "bytes": 9596,
+      "sha256": "67d9814707e6ddb3a17b98da2c977f1d258cb7880dd96b366b83c9c013cfb0b2"
+    },
+    "routes/larp/dataset_reference.json": {
+      "bytes": 9405,
+      "sha256": "c42e575b59cd1a14eaa1c7d0df498890b752a7c566f3a6418cb80f1ab5c29482"
+    },
+    "routes/larp/environment/requirements.lock.txt": {
+      "bytes": 1232,
+      "sha256": "525b089b6645a7921e1ae05f657e5c29f7dd4e34257e98cf5d9dd799632f46ec"
+    },
+    "routes/larp/environment/runtime.json": {
+      "bytes": 589,
+      "sha256": "c9dafcff774fab086805715dec08801664cc5278ca8e605521d3fcd8570d33c0"
+    },
+    "routes/larp/portable.py": {
+      "bytes": 22452,
+      "sha256": "982ca489c5d269afa35d34a89a137b4b5cb560c403780faba396c708f31241f6"
+    },
+    "routes/larp/protocol/datasets.json": {
+      "bytes": 32845,
+      "sha256": "13ff3b498929e0eb6ea5f32444a509006042534f445a480a209b55b3ba46f727"
+    },
+    "routes/larp/protocol/original_sgd.py": {
+      "bytes": 1718,
+      "sha256": "2388f1b516e551b999fc3f811ec16f6489b2d62f7a52f6065483f07e81b03246"
+    },
+    "routes/larp/protocol/projector_schedule.py": {
+      "bytes": 3180,
+      "sha256": "47b526943ab6c01773676d5102f6fb2c54a043f15db2b6355bff1edd8609d1d6"
+    },
+    "routes/larp/protocol/protocol.json": {
+      "bytes": 1489,
+      "sha256": "e40f3e2971caf12794cd011dc5770c600b49f7cd3f378fdceb6df63dd3699a0e"
+    },
+    "routes/larp/protocol/resolved_templates.json": {
+      "bytes": 142431,
+      "sha256": "b0c377157e9dc86d412fc608f39bd1c999c644538ceca80d0cf3584fed167e62"
+    },
+    "routes/larp/protocol/variants.json": {
+      "bytes": 658,
+      "sha256": "58827c8ce52968ac765c66df42df9f60be5c25b71001368727d18bba5d5b1e1b"
+    },
+    "routes/larp/provenance/final_scientific_manifest.json": {
+      "bytes": 51898,
+      "sha256": "0c01dfc7170c81ccf82eac8831ad56d7f19195718c7d6fc9a4be5c495276ed0f"
+    },
+    "routes/larp/provenance/offline_validation.json": {
+      "bytes": 1999,
+      "sha256": "ebe7d90d1555a414097592cdd40e796c0a9f1e4e80e39c8bd4cd463fb8514c75"
+    },
+    "routes/larp/provenance/source_inventory.json": {
+      "bytes": 157558,
+      "sha256": "18bc7351f5693e62893db8b60e1c0dce5790d8b8f9a49d44660f30bf5eba434e"
+    },
+    "routes/larp/tests/test_archive.py": {
+      "bytes": 5835,
+      "sha256": "bdf768984de5f95b08e44710f25e8ae5ad1ede5e8084f6a147ab97140908f86f"
+    },
+    "routes/larp/tests/test_cpu_science.py": {
+      "bytes": 6620,
+      "sha256": "dc78cc37890aeabdbbb2f17eee073f0c1f6c12039850dfe7d32663287750a66e"
+    },
+    "routes/larp/tests/test_portable.py": {
+      "bytes": 7461,
+      "sha256": "0935f67f6d1c93836df8876fa269c4ec6b5f7ec70a50e5e4b05f8a06476ac2a1"
+    },
+    "routes/r0/README.md": {
+      "bytes": 1527,
+      "sha256": "fb74b9a57d2f815cb98e6bb41307a3976a7985cf90b76d27ff4ea13743a7be37"
+    },
+    "routes/r0/portable.py": {
+      "bytes": 9605,
+      "sha256": "8afdcd496d3b2fad8b2224caef2989f75a41b0b2643563fcad47cebce096ad97"
+    },
+    "routes/r0/provenance.json": {
+      "bytes": 4014,
+      "sha256": "d1bae453ded78f1c76560c726b24dc80907a8b7c2733f8836f9c0d044e3d4269"
+    },
+    "routes/r0/templates.json": {
+      "bytes": 57852,
+      "sha256": "32141bec895993898ebe07d0e27a90c97cdafa1a7fc59df00b3df28b230aca87"
+    },
+    "routes/r0/tests/test_portable.py": {
+      "bytes": 10161,
+      "sha256": "0e8b3d4b6333691102a4627c91c4665b22efe455aa4bcdd12a2846c5200ce73d"
+    },
+    "runtime/__init__.py": {
+      "bytes": 83,
+      "sha256": "cdfb5c11f188f4fb693c4e1605c5c79dfa1fa8898c7d0b3ccd9035d0b5be85da"
+    },
+    "runtime/execution.py": {
+      "bytes": 32727,
+      "sha256": "54fabbb53d044ef6961633cf177bea817abca272edb66f1ea6fdb07acba1d58b"
+    },
+    "tests/test_documentation.py": {
+      "bytes": 3413,
+      "sha256": "91502301e7ab7468a8a5310c51ca845cca6ede70bb5b2ebbb897c6ddc171d920"
+    },
+    "tests/test_publication.py": {
+      "bytes": 3729,
+      "sha256": "1ff80b5aac899fc7f61f1935133015bc6a93920f84731c5cfb786115409febfc"
+    },
+    "tests/test_runtime.py": {
+      "bytes": 19457,
+      "sha256": "152358578fc917057360c3200e9032808d671ce9e70db610dfb32a194425d4e3"
+    },
+    "tests/test_summary.py": {
+      "bytes": 8815,
+      "sha256": "5687a17b9713348ced0b3f39df54d1290734f476a5d8f99a686e4ddd3e32efa5"
+    },
+    "tools/check_assets.py": {
+      "bytes": 2163,
+      "sha256": "a4a70d4f1669532eb34fd6f822f1c86d611e185bc5cc5b61ed716865888e0e76"
+    },
+    "tools/prepare_assets.py": {
+      "bytes": 9126,
+      "sha256": "f0e423adc2512f1f45c46353e3fa35be2ac3eb8ca661bd40f1e6a7eddf498289"
+    },
+    "tools/summarize_run.py": {
+      "bytes": 18409,
+      "sha256": "d258a4c1736a20f416d3abaaed0df887f75193e4be7bb19e4ae816b8d41934a8"
+    },
+    "tools/verify_release.py": {
+      "bytes": 3841,
+      "sha256": "302a34ef72ae2ddd086e2e30f81c776a3c6b1147d988f0d36ef10bee188bf9c0"
+    }
+  }
+}

@@ -1,0 +1,1352 @@
+[
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed1/r1.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed1/r1.json",
+    "recorded_sha256": "ab28f14b898a6dc45c9ee51bf844e2f6dd815b62cdb8d4750b49be03c4933a83",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed1/harp.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed1/harp.json",
+    "recorded_sha256": "0bda600f6cd18d90fdb256663d86de189d7834f2320d614cece5062969d0701a",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/dtd/seed1/r1.yaml",
+    "portable": "configs/portable/dtd/seed1/r1.json",
+    "recorded_sha256": "40834fedf89fcebf9ea5516feb003d16fd871b579294040c387277800d0ba533",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/dtd/seed1/harp.yaml",
+    "portable": "configs/portable/dtd/seed1/harp.json",
+    "recorded_sha256": "925f76b355fc76c52ece5a05923ffb45a83f726020b7641191f25e55c8186f78",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/oxford_pets/seed1/r1.yaml",
+    "portable": "configs/portable/oxford_pets/seed1/r1.json",
+    "recorded_sha256": "e40680ae12156494f587f176380ac9d7b9ce5c4b7bf2e34743cab0ed136de165",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/oxford_pets/seed1/harp.yaml",
+    "portable": "configs/portable/oxford_pets/seed1/harp.json",
+    "recorded_sha256": "59fb95d5a6e3efac91ee3111538102d2419f0ac92619e1ba2e7ca54b14a91a84",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed1/r1.yaml",
+    "portable": "configs/portable/oxford_flowers/seed1/r1.json",
+    "recorded_sha256": "2b20a28c83bf852a02f23c81e3d7cc47e4c1c38de9b89779a7a9bd83d96e6f7e",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed1/harp.yaml",
+    "portable": "configs/portable/oxford_flowers/seed1/harp.json",
+    "recorded_sha256": "c4da66b5f0f3420352568358a77b98f306e75efd491f51d622e9bb9f8732fd02",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/caltech101/seed1/r1.yaml",
+    "portable": "configs/portable/caltech101/seed1/r1.json",
+    "recorded_sha256": "244ae66cab293215faf0da91209582b9bbd431e5336ae42c3a84496d4c994149",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/caltech101/seed1/harp.yaml",
+    "portable": "configs/portable/caltech101/seed1/harp.json",
+    "recorded_sha256": "b48700a259f59a1867c4d2aad6bbc9c675bd568da2f24d7f703130fd83296976",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/stanford_cars/seed1/r1.yaml",
+    "portable": "configs/portable/stanford_cars/seed1/r1.json",
+    "recorded_sha256": "ae4d684909450c1c8e7c94b41fe72fffe9ebc3d77666d0848fe32e7dbf97f70e",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/stanford_cars/seed1/harp.yaml",
+    "portable": "configs/portable/stanford_cars/seed1/harp.json",
+    "recorded_sha256": "293a1b09e84e8a970202ecd439e7bda24d4f5ac7096742389f9982de1f04a0b7",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/eurosat/seed1/r1.yaml",
+    "portable": "configs/portable/eurosat/seed1/r1.json",
+    "recorded_sha256": "3b9943d089d93801c019a81ebb5cf3e8d217b0325aeb8f74dc5352823b0af9b1",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/eurosat/seed1/harp.yaml",
+    "portable": "configs/portable/eurosat/seed1/harp.json",
+    "recorded_sha256": "e5516d99b3eff690aa1c14c80342d183c0275400ee624c8c49d45ac2a339d9a9",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/ucf101/seed1/r1.yaml",
+    "portable": "configs/portable/ucf101/seed1/r1.json",
+    "recorded_sha256": "4fef5806ce65e434d6a77cf52032078d45a4abd26fc551d9eba7e16a33e80da7",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/ucf101/seed1/harp.yaml",
+    "portable": "configs/portable/ucf101/seed1/harp.json",
+    "recorded_sha256": "3263003a78669ad3dc6aa691560c65df73a2f3199c779d8b18af2f927faefc1d",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/sun397/seed1/r1.yaml",
+    "portable": "configs/portable/sun397/seed1/r1.json",
+    "recorded_sha256": "915ab8b4c306afe203e58daaf9868853f6324624f8f17efba76e09871190c416",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/sun397/seed1/harp.yaml",
+    "portable": "configs/portable/sun397/seed1/harp.json",
+    "recorded_sha256": "d684167fba7286b74d6c9f9d3c68e3de24f75d2150f0e0c9a69d1127bd58be84",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 1,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/food101/seed1/r1.yaml",
+    "portable": "configs/portable/food101/seed1/r1.json",
+    "recorded_sha256": "84206b29a6c9fa64cb4b83d90561bd446adc1b6b51bddd2ca92897efe17f90e9",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 1,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/food101/seed1/harp.yaml",
+    "portable": "configs/portable/food101/seed1/harp.json",
+    "recorded_sha256": "8c25572fcb90b5e9fa46a5cccdb8570b5aec4bd27d9d9f2025e0267953790457",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed2/r1.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed2/r1.json",
+    "recorded_sha256": "12030ef3bec439a675b5df265e64196b08280e56c3221f2a51333ad250a419d7",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed2/harp.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed2/harp.json",
+    "recorded_sha256": "eff835acee97d8ace652f4409ad3f92766fdbc6fa16d7738dde7c2a9852fa9d7",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/dtd/seed2/r1.yaml",
+    "portable": "configs/portable/dtd/seed2/r1.json",
+    "recorded_sha256": "aa0e1c11cd022f12b73da0bed7ab194dc9cdb724f40617c86fa6906a9abb0ca4",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/dtd/seed2/harp.yaml",
+    "portable": "configs/portable/dtd/seed2/harp.json",
+    "recorded_sha256": "81f72d47d251c172308e56c2f0c39cb58991ca376f5a57393f050b18cbaf4c2e",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/oxford_pets/seed2/r1.yaml",
+    "portable": "configs/portable/oxford_pets/seed2/r1.json",
+    "recorded_sha256": "b438f928b48013cfbc280932dda9bfb4772da5ca26d6928ad2180140d0242bd8",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/oxford_pets/seed2/harp.yaml",
+    "portable": "configs/portable/oxford_pets/seed2/harp.json",
+    "recorded_sha256": "c480f57117be36f21f2b78047e510bac8295e10bb5f14f687b75f338f13dba21",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed2/r1.yaml",
+    "portable": "configs/portable/oxford_flowers/seed2/r1.json",
+    "recorded_sha256": "e23d900a8809c6d073a834d2f37c6c73d081748f84136170ea08daafb67d8b0b",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed2/harp.yaml",
+    "portable": "configs/portable/oxford_flowers/seed2/harp.json",
+    "recorded_sha256": "dba6a01b5545ed8fd3a6e733180276c50696a9467bd2377c43394e9888dd938d",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/caltech101/seed2/r1.yaml",
+    "portable": "configs/portable/caltech101/seed2/r1.json",
+    "recorded_sha256": "4f8fb391d24a13e5404777ea489f2199ded58e4fef95ea44df14eb646f2972d8",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/caltech101/seed2/harp.yaml",
+    "portable": "configs/portable/caltech101/seed2/harp.json",
+    "recorded_sha256": "033186c4069af88d9dc3d293e2f6adab8c0a1c51e51d0305b8723cdd8ae062ad",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/stanford_cars/seed2/r1.yaml",
+    "portable": "configs/portable/stanford_cars/seed2/r1.json",
+    "recorded_sha256": "d8cb8454785933c94109255af989b499e94be279394a3475197553a49b040b8d",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/stanford_cars/seed2/harp.yaml",
+    "portable": "configs/portable/stanford_cars/seed2/harp.json",
+    "recorded_sha256": "0e94bfc547144ec2fb2f1eb6f4990b23b232886f41e18fb1455fb50a5219409f",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/eurosat/seed2/r1.yaml",
+    "portable": "configs/portable/eurosat/seed2/r1.json",
+    "recorded_sha256": "9d933d3ddcab4339935b370b847250fc03c78898e6264082a0d65dacdea5655d",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/eurosat/seed2/harp.yaml",
+    "portable": "configs/portable/eurosat/seed2/harp.json",
+    "recorded_sha256": "1cefd4b6f290bd569603a897715683f946cc05ba95e8b97393836b66443831c9",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/ucf101/seed2/r1.yaml",
+    "portable": "configs/portable/ucf101/seed2/r1.json",
+    "recorded_sha256": "e0e6538f41344d5421ed787faee29be9a6e5910bf28ffcb8dcf4d81b92adf44c",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/ucf101/seed2/harp.yaml",
+    "portable": "configs/portable/ucf101/seed2/harp.json",
+    "recorded_sha256": "a47a6430a93e5eeb87b64c490da84bc6498546d9fac5709b6df4fa079f9f31c4",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/sun397/seed2/r1.yaml",
+    "portable": "configs/portable/sun397/seed2/r1.json",
+    "recorded_sha256": "587aea5c38a0fbe3489c17fc29641f0cddee0a47b5437f78c92346442bd487fd",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/sun397/seed2/harp.yaml",
+    "portable": "configs/portable/sun397/seed2/harp.json",
+    "recorded_sha256": "e605a3a1364c3f6048ce5a84f1fac426856151df12e4c112f785a39f12b727c2",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 2,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/food101/seed2/r1.yaml",
+    "portable": "configs/portable/food101/seed2/r1.json",
+    "recorded_sha256": "489f655b7524ace2ebdfa02a157fbf320d1070f0c4a22ae6aac22c30e627980d",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 2,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/food101/seed2/harp.yaml",
+    "portable": "configs/portable/food101/seed2/harp.json",
+    "recorded_sha256": "8718dc434c2cdc1a8c15540e19b83492d34b2742ae714d65877ff390d70b03b1",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed1/mid4_d32.json",
+    "recorded_sha256": "845ac05cc8fcec8b1d07345df5e41d40643256e3895554f57f06dca36ae4aa7d",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed1/last4_d16.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed1/last4_d16.json",
+    "recorded_sha256": "d0549d7dc276f8d332cfffb20e355c385301eefa33cfdb25d38f14c706af7dcd",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed1/last4_d64.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed1/last4_d64.json",
+    "recorded_sha256": "f5ba991b7bdf79885ddf9f60772952b7cd60fc175a7f2dac45daefd25db25525",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/dtd/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/dtd/seed1/mid4_d32.json",
+    "recorded_sha256": "3366d1a618c38389094ad3b5a13a7e6072198062c52153cc6c631f3ef913875f",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/dtd/seed1/last4_d16.yaml",
+    "portable": "configs/portable/dtd/seed1/last4_d16.json",
+    "recorded_sha256": "51c93a1a6d397f7d733b948844a00157594eea03a14deb546d79c3ba0377d1b8",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/dtd/seed1/last4_d64.yaml",
+    "portable": "configs/portable/dtd/seed1/last4_d64.json",
+    "recorded_sha256": "520c4ce9c98f32bfe7b63faceb7dd3f37c8fad74ecabc658de01d1923c774074",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/oxford_pets/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/oxford_pets/seed1/mid4_d32.json",
+    "recorded_sha256": "bcaec8d0c69109a4ea256250b001be7f9a20318ee87f8dd53ef7283d7ec1db8e",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/oxford_pets/seed1/last4_d16.yaml",
+    "portable": "configs/portable/oxford_pets/seed1/last4_d16.json",
+    "recorded_sha256": "184a9bdb719e8d9e31a7ec155bf047cdadfda72fc6880b05d54fe3f3ee51ad37",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/oxford_pets/seed1/last4_d64.yaml",
+    "portable": "configs/portable/oxford_pets/seed1/last4_d64.json",
+    "recorded_sha256": "72c2d5288d6c2d6f6ffea6074a291a215cdd7ccdcd01b8e38765f4550bcc85a5",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/oxford_flowers/seed1/mid4_d32.json",
+    "recorded_sha256": "f46be68d47d428ef0d94d2ff9fac822354d2d1bab6825451027f33fe6969c294",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed1/last4_d16.yaml",
+    "portable": "configs/portable/oxford_flowers/seed1/last4_d16.json",
+    "recorded_sha256": "89fad4893bb29269af4e8e4b2fcf8710103832a3936fcbdb742dffe229c01e71",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed1/last4_d64.yaml",
+    "portable": "configs/portable/oxford_flowers/seed1/last4_d64.json",
+    "recorded_sha256": "7b4bda6dd89036b4543282f986c236cc2c9f847b069af88242a4b034f6309945",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/caltech101/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/caltech101/seed1/mid4_d32.json",
+    "recorded_sha256": "85f624e0cbe7abc7b3a54384732540e70d07b37bacea6cb8dd560adbba72b040",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/caltech101/seed1/last4_d16.yaml",
+    "portable": "configs/portable/caltech101/seed1/last4_d16.json",
+    "recorded_sha256": "d55feab53e996e87ff18d0443e9b220296b63c2bde1bbccca66d8d44c92a21d3",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/caltech101/seed1/last4_d64.yaml",
+    "portable": "configs/portable/caltech101/seed1/last4_d64.json",
+    "recorded_sha256": "5c9e2f35d7a832f8aeca09fae670fd0810c4a9c272e14ee2d888e210a9de4a88",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/stanford_cars/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/stanford_cars/seed1/mid4_d32.json",
+    "recorded_sha256": "9e83b25cdf77ac81543413bffa54d48700cd3eab1346d9bbeeb9753a71f40165",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/stanford_cars/seed1/last4_d16.yaml",
+    "portable": "configs/portable/stanford_cars/seed1/last4_d16.json",
+    "recorded_sha256": "195126484b69657fedfb5f3d2f60844186a7225111bd9702e6f6703372127602",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/stanford_cars/seed1/last4_d64.yaml",
+    "portable": "configs/portable/stanford_cars/seed1/last4_d64.json",
+    "recorded_sha256": "d0d647c18f431c3db8aa0a19d30b07212b8426715e7f6c69d6dfea35efa3f44c",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/eurosat/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/eurosat/seed1/mid4_d32.json",
+    "recorded_sha256": "de90150f6b01914d475b94d8df94e5db3ae98fe0b2dad49faa6877c784dcd36e",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/eurosat/seed1/last4_d16.yaml",
+    "portable": "configs/portable/eurosat/seed1/last4_d16.json",
+    "recorded_sha256": "233a1352877864e5a9149496dc1021831d7951b8e844e3c84e06b1c40b144681",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/eurosat/seed1/last4_d64.yaml",
+    "portable": "configs/portable/eurosat/seed1/last4_d64.json",
+    "recorded_sha256": "c318d2f247213360b90b8710e5187be9ddb0af6b7dbc8c949c224f713a6776f2",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/ucf101/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/ucf101/seed1/mid4_d32.json",
+    "recorded_sha256": "dd1600d95b5fccffefa2f9c0962ff41a13a759110c2bd130aa88b8b80a193d78",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/ucf101/seed1/last4_d16.yaml",
+    "portable": "configs/portable/ucf101/seed1/last4_d16.json",
+    "recorded_sha256": "ea78f5d89b4b864ac24ae1f23154b1fd163d4a6e561c647d48b02ad16b40dfee",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/ucf101/seed1/last4_d64.yaml",
+    "portable": "configs/portable/ucf101/seed1/last4_d64.json",
+    "recorded_sha256": "18d08e0f43b6fc25101f3026ae6548ca34ac9c9e1667f9790b8e4323a592f658",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/sun397/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/sun397/seed1/mid4_d32.json",
+    "recorded_sha256": "bf412dbb0a5b81f878ee1eb090794de193e8eafe4236393bc7fd15692813eb6d",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/sun397/seed1/last4_d16.yaml",
+    "portable": "configs/portable/sun397/seed1/last4_d16.json",
+    "recorded_sha256": "de423a0e76729a242c183134c5fcc406b767ba3aeb800330c7e2d3a5b3444876",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/sun397/seed1/last4_d64.yaml",
+    "portable": "configs/portable/sun397/seed1/last4_d64.json",
+    "recorded_sha256": "c0b0e9a188b7dc957559422253ba3082e7ce4ab4358d0d5b051d5236f18dd5ac",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 1,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/food101/seed1/mid4_d32.yaml",
+    "portable": "configs/portable/food101/seed1/mid4_d32.json",
+    "recorded_sha256": "fdb9b0b6a4bb8e5235711d25f057aab3bff3148266fc7f580871eda15a4492b6",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 1,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/food101/seed1/last4_d16.yaml",
+    "portable": "configs/portable/food101/seed1/last4_d16.json",
+    "recorded_sha256": "354f58b500b0886ba95b4a6dec2648a4bb026f0202efe0b6330c9c46266f2dc8",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 1,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/food101/seed1/last4_d64.yaml",
+    "portable": "configs/portable/food101/seed1/last4_d64.json",
+    "recorded_sha256": "ca0c77dd129961d175e1cc627dd8d4f0cd6a1c6c0a066f7ce5087db461323b20",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed2/mid4_d32.json",
+    "recorded_sha256": "60b9f814bd284b48ae789720a481f993a47175a327c9be3ab9dc5ee9fc6cac7b",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed2/last4_d16.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed2/last4_d16.json",
+    "recorded_sha256": "1b2296e6d88dc63dcae67f9fa5b1ad1b7041e7973c4f2535ba4f0ee5d3bbce89",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed2/last4_d64.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed2/last4_d64.json",
+    "recorded_sha256": "f10bb3a498769592d21d1567bb16e272a513b5ee39147f0a2af1b7ffc7793e30",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/dtd/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/dtd/seed2/mid4_d32.json",
+    "recorded_sha256": "1358ea590cc94a7a456d0973430b5ac703b4c78e68c78cf93f8ed28c9d6cc193",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/dtd/seed2/last4_d16.yaml",
+    "portable": "configs/portable/dtd/seed2/last4_d16.json",
+    "recorded_sha256": "1899f59e4ce402b83e6e2f7c5e36e3d4c40ed58c582550929be24d514504b2d3",
+    "node": 18645
+  },
+  {
+    "dataset": "dtd",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/dtd/seed2/last4_d64.yaml",
+    "portable": "configs/portable/dtd/seed2/last4_d64.json",
+    "recorded_sha256": "b6daf98a7839d48cc2d0fc69747223e8f852e309ce8d6d61f79068c2f69cdf77",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/oxford_pets/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/oxford_pets/seed2/mid4_d32.json",
+    "recorded_sha256": "067ff9cb9fd60a12151607a5da3afa6458e3325a6cc775b03dfd92c3eeb7a1f7",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/oxford_pets/seed2/last4_d16.yaml",
+    "portable": "configs/portable/oxford_pets/seed2/last4_d16.json",
+    "recorded_sha256": "63c5ff0f19d28adbf7cb50d22e6986a48949767a58a91747b65cddc3641e33ed",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/oxford_pets/seed2/last4_d64.yaml",
+    "portable": "configs/portable/oxford_pets/seed2/last4_d64.json",
+    "recorded_sha256": "89aa7a5e9330f37f4b930b70199be135f5a31a3cc91fd4f94cffb10a32b5418b",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/oxford_flowers/seed2/mid4_d32.json",
+    "recorded_sha256": "0b58540018395adf0de0c701dcad817480d61b704d367506293692e814775d2f",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed2/last4_d16.yaml",
+    "portable": "configs/portable/oxford_flowers/seed2/last4_d16.json",
+    "recorded_sha256": "ce513e96edca8c38a7a9143813b8bf7f8a314bdab9ca1bd42ff34d2f95475029",
+    "node": 18645
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed2/last4_d64.yaml",
+    "portable": "configs/portable/oxford_flowers/seed2/last4_d64.json",
+    "recorded_sha256": "a3e29f379299c833b708d606290773365f54b994b216ed82f043b13d959096a1",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/caltech101/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/caltech101/seed2/mid4_d32.json",
+    "recorded_sha256": "4d1c98b776b9120780898bb132ef69e78f8f0de788f96dcd2a257ba674f5b1f3",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/caltech101/seed2/last4_d16.yaml",
+    "portable": "configs/portable/caltech101/seed2/last4_d16.json",
+    "recorded_sha256": "e1c61edfe45e0e4ea4560e4a95b8a2db8c68b04b72655c31c1a9db3a29fb4e6d",
+    "node": 18645
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/caltech101/seed2/last4_d64.yaml",
+    "portable": "configs/portable/caltech101/seed2/last4_d64.json",
+    "recorded_sha256": "8615d09ae4326ba246f90f9519ebdc78fc261e2d9aca64c3b30527405ef90980",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/stanford_cars/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/stanford_cars/seed2/mid4_d32.json",
+    "recorded_sha256": "0d9d9b6805d918f23214149931ed1930753692094e1a6d115d877bed81394c57",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/stanford_cars/seed2/last4_d16.yaml",
+    "portable": "configs/portable/stanford_cars/seed2/last4_d16.json",
+    "recorded_sha256": "b0c0f65339ab22e4441d5062b49f4aa879168d9714cf29a1c0264590c1470603",
+    "node": 18645
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/stanford_cars/seed2/last4_d64.yaml",
+    "portable": "configs/portable/stanford_cars/seed2/last4_d64.json",
+    "recorded_sha256": "026f344229cc470030aa6e0ec3d16924dfab4c4525ab3c87bace662c8c3320fb",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/eurosat/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/eurosat/seed2/mid4_d32.json",
+    "recorded_sha256": "006ade431bc531318cc23fce0fa480f6b7b73e4c1399d13084174bf7b60e6aba",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/eurosat/seed2/last4_d16.yaml",
+    "portable": "configs/portable/eurosat/seed2/last4_d16.json",
+    "recorded_sha256": "08b5fcf31ee0e629fd635d2ee71d095313bc82885a1c3354261c7561929c0855",
+    "node": 18645
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/eurosat/seed2/last4_d64.yaml",
+    "portable": "configs/portable/eurosat/seed2/last4_d64.json",
+    "recorded_sha256": "43a35c687a28a8c5110bf42f67fc4df31ee0a96a471706b0a88140958eb0047d",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/ucf101/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/ucf101/seed2/mid4_d32.json",
+    "recorded_sha256": "ce325ca5b2c60073402c0fb2fae880093885b371fcd5114dcb54811277abee9c",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/ucf101/seed2/last4_d16.yaml",
+    "portable": "configs/portable/ucf101/seed2/last4_d16.json",
+    "recorded_sha256": "9afa33940432d16413aa4a0ba66d662a499c17bc639f7d00850049f1cade92b7",
+    "node": 18645
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/ucf101/seed2/last4_d64.yaml",
+    "portable": "configs/portable/ucf101/seed2/last4_d64.json",
+    "recorded_sha256": "fde4bf4d90f87c82e7f26419cb4fc132a8b1094a30b6c128361e0fbd120be754",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/sun397/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/sun397/seed2/mid4_d32.json",
+    "recorded_sha256": "aabcd1ee0d4c410eb580321ea6ba82922aa36aea83abf67c56e1ceae6a29a4fe",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/sun397/seed2/last4_d16.yaml",
+    "portable": "configs/portable/sun397/seed2/last4_d16.json",
+    "recorded_sha256": "bc9779dcf397c2211b62f34a3d62127fe3d00e110b519715a9a111a8b1bbae54",
+    "node": 18645
+  },
+  {
+    "dataset": "sun397",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/sun397/seed2/last4_d64.yaml",
+    "portable": "configs/portable/sun397/seed2/last4_d64.json",
+    "recorded_sha256": "679e28002ea148702dd4512194bbfac931c5f188765c2cdde795ecfcb6680fe7",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 2,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/food101/seed2/mid4_d32.yaml",
+    "portable": "configs/portable/food101/seed2/mid4_d32.json",
+    "recorded_sha256": "37d90f2113e273aa40ae7c31153023b959a496b1be1c4483cfc1024cfa0b1579",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 2,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/food101/seed2/last4_d16.yaml",
+    "portable": "configs/portable/food101/seed2/last4_d16.json",
+    "recorded_sha256": "6c56ee342fc499d91fc5b80b0189f27a7643bfcba7a07b9d0e0e00b5a34d77c5",
+    "node": 18645
+  },
+  {
+    "dataset": "food101",
+    "seed": 2,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/food101/seed2/last4_d64.yaml",
+    "portable": "configs/portable/food101/seed2/last4_d64.json",
+    "recorded_sha256": "684de7562145cc9208afb6673f5e085d23233d8da9cba072cb4e303c91e304db",
+    "node": 18645
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed3/r1.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed3/r1.json",
+    "recorded_sha256": "2c4e2df76667c9600c467d762be1b2b289d17ba90891e84ad20784cff1d0d28a",
+    "node": 26006
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed3/harp.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed3/harp.json",
+    "recorded_sha256": "bea1686464cb46555bf45203c5dc01ec66d0ffc145b4fcc95099add4b37b217b",
+    "node": 26006
+  },
+  {
+    "dataset": "dtd",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/dtd/seed3/r1.yaml",
+    "portable": "configs/portable/dtd/seed3/r1.json",
+    "recorded_sha256": "55f50d9a16eb0a29ef69c5f8daf9ff447e91287d3718a56d9a9badd7263940df",
+    "node": 26006
+  },
+  {
+    "dataset": "dtd",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/dtd/seed3/harp.yaml",
+    "portable": "configs/portable/dtd/seed3/harp.json",
+    "recorded_sha256": "d867b3c6dc415dbbb72c2420c8ead2e90d98ab2547f49c932d1991a3454bc959",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/oxford_pets/seed3/r1.yaml",
+    "portable": "configs/portable/oxford_pets/seed3/r1.json",
+    "recorded_sha256": "9f476abdc49bb8017c5886daa4a87bdecee4053fbd10e330be9a70e441f255e4",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/oxford_pets/seed3/harp.yaml",
+    "portable": "configs/portable/oxford_pets/seed3/harp.json",
+    "recorded_sha256": "1a255d7b753bb0358e24b3dee466933a5e3e60e0b10acb5e7ab45a1fcb0052e0",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed3/r1.yaml",
+    "portable": "configs/portable/oxford_flowers/seed3/r1.json",
+    "recorded_sha256": "60aa72ca83b3b75f0fe50072a31ff069e330e1af23cabb4decc6178f19943456",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed3/harp.yaml",
+    "portable": "configs/portable/oxford_flowers/seed3/harp.json",
+    "recorded_sha256": "cfa027e1df7a9dc6abb9bb9a26f1666ce4812c58284fcb8bbe728ab7b471df3e",
+    "node": 26006
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/caltech101/seed3/r1.yaml",
+    "portable": "configs/portable/caltech101/seed3/r1.json",
+    "recorded_sha256": "0e97495c27d3b0acf321bf0c9498f24e9aa79f981a9d2f0f3eea7f5abea4f94a",
+    "node": 26006
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/caltech101/seed3/harp.yaml",
+    "portable": "configs/portable/caltech101/seed3/harp.json",
+    "recorded_sha256": "27515bdc2c706e564323e166f7f5a0bdbf04f7ddd74b93dfcc02fa931bb3aba3",
+    "node": 26006
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/stanford_cars/seed3/r1.yaml",
+    "portable": "configs/portable/stanford_cars/seed3/r1.json",
+    "recorded_sha256": "712b726016b5ee3abb7e3be037b223fea713585d8dbf6b99bc6c6851260bd320",
+    "node": 26006
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/stanford_cars/seed3/harp.yaml",
+    "portable": "configs/portable/stanford_cars/seed3/harp.json",
+    "recorded_sha256": "e9d5b77b5ad3f74b4243cca8ebb2dc1831a80f9b8553378436d730f7c6ca7163",
+    "node": 26006
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/eurosat/seed3/r1.yaml",
+    "portable": "configs/portable/eurosat/seed3/r1.json",
+    "recorded_sha256": "147bb49c1ca32e2ef38b69938973dece1ac4199af335a84c33defa53f3111a1d",
+    "node": 26006
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/eurosat/seed3/harp.yaml",
+    "portable": "configs/portable/eurosat/seed3/harp.json",
+    "recorded_sha256": "7274ae0510809c1793a4a978fd430becb92816411ef6135b4996a7038e78698a",
+    "node": 26006
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/ucf101/seed3/r1.yaml",
+    "portable": "configs/portable/ucf101/seed3/r1.json",
+    "recorded_sha256": "8483d6047a42d3836e21d01dd72dbb079e6e7b14c50b6bef6d77809bdeed491f",
+    "node": 26006
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/ucf101/seed3/harp.yaml",
+    "portable": "configs/portable/ucf101/seed3/harp.json",
+    "recorded_sha256": "645dacd7fa623a5dd1f2224e4fc5661508ca92b337873c18eda1ef20021c3ab5",
+    "node": 26006
+  },
+  {
+    "dataset": "sun397",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/sun397/seed3/r1.yaml",
+    "portable": "configs/portable/sun397/seed3/r1.json",
+    "recorded_sha256": "bd356e14b64190c1a93e04396bea92f7196df2157b2fb61c90ab28ab854b50b1",
+    "node": 26006
+  },
+  {
+    "dataset": "sun397",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/sun397/seed3/harp.yaml",
+    "portable": "configs/portable/sun397/seed3/harp.json",
+    "recorded_sha256": "1e0c7ebd4ce2f0335d4d5c2cb0fbb94a4fa74a238b5575ffe7d0df3836cb707c",
+    "node": 26006
+  },
+  {
+    "dataset": "food101",
+    "seed": 3,
+    "variant": "r1",
+    "recorded": "archive/recorded_configs/food101/seed3/r1.yaml",
+    "portable": "configs/portable/food101/seed3/r1.json",
+    "recorded_sha256": "1ea3f1f6f5602e0bcdbd438b8d48fd0b291c01be90b79e123dd957753b8e9741",
+    "node": 26006
+  },
+  {
+    "dataset": "food101",
+    "seed": 3,
+    "variant": "harp",
+    "recorded": "archive/recorded_configs/food101/seed3/harp.yaml",
+    "portable": "configs/portable/food101/seed3/harp.json",
+    "recorded_sha256": "5d18860ac31b28c1d829a68a3ade063bcb82889820d55ae5359980e64ebf0d0f",
+    "node": 26006
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed3/mid4_d32.json",
+    "recorded_sha256": "10958a5e993e5a5c353bd61cb305b34b5b7cbe49d86c08b1e6c5f99cf5583dac",
+    "node": 26006
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed3/last4_d16.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed3/last4_d16.json",
+    "recorded_sha256": "a00bef80d22d1fd2d54ad6c2218f2decf14c7535fbe9e9e55cb61ca4c18c1735",
+    "node": 26006
+  },
+  {
+    "dataset": "fgvc_aircraft",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/fgvc_aircraft/seed3/last4_d64.yaml",
+    "portable": "configs/portable/fgvc_aircraft/seed3/last4_d64.json",
+    "recorded_sha256": "4291faeb670fff2d00dc04e652b9c195bc1760f7eed74006438828d085873faf",
+    "node": 26006
+  },
+  {
+    "dataset": "dtd",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/dtd/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/dtd/seed3/mid4_d32.json",
+    "recorded_sha256": "e5fd78a5ba962540b22eb09b88671e437dfec05ffb375492fb249460809f9e82",
+    "node": 26006
+  },
+  {
+    "dataset": "dtd",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/dtd/seed3/last4_d16.yaml",
+    "portable": "configs/portable/dtd/seed3/last4_d16.json",
+    "recorded_sha256": "d2016c08ddeaf84c50b82360253c031b7111a09533043b0f2eed61307d09d4c4",
+    "node": 26006
+  },
+  {
+    "dataset": "dtd",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/dtd/seed3/last4_d64.yaml",
+    "portable": "configs/portable/dtd/seed3/last4_d64.json",
+    "recorded_sha256": "30a3ffb4df3f07498c71e653530c8dd6b9ce24a776ce5842c35e58057b2a7403",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/oxford_pets/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/oxford_pets/seed3/mid4_d32.json",
+    "recorded_sha256": "d4419f25b0af49c36a76b4f1c0b72b089b2e58f24b8a4e8284382b112c2cd768",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/oxford_pets/seed3/last4_d16.yaml",
+    "portable": "configs/portable/oxford_pets/seed3/last4_d16.json",
+    "recorded_sha256": "548f36824f5fcd0d06c38aa10c8d8f611454bca8b3f943afdac7e5f25b402445",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_pets",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/oxford_pets/seed3/last4_d64.yaml",
+    "portable": "configs/portable/oxford_pets/seed3/last4_d64.json",
+    "recorded_sha256": "1194532e900750c043d54e25f8014a8d18d44fd2968bbfb2c2c82d9802f15bc4",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/oxford_flowers/seed3/mid4_d32.json",
+    "recorded_sha256": "79ddf6be14ea8bcaa288ca24603cbac531df25e047fef7e261f9554e61523cbd",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed3/last4_d16.yaml",
+    "portable": "configs/portable/oxford_flowers/seed3/last4_d16.json",
+    "recorded_sha256": "67ab7bbc4c9fd219b7ad901b2bbcad74f16f349ba843f993aa4165bd89389b88",
+    "node": 26006
+  },
+  {
+    "dataset": "oxford_flowers",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/oxford_flowers/seed3/last4_d64.yaml",
+    "portable": "configs/portable/oxford_flowers/seed3/last4_d64.json",
+    "recorded_sha256": "3f430037c65b4c2e4e670ae701ea4fca866c16bffad55ffe2b6462184615ace3",
+    "node": 26006
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/caltech101/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/caltech101/seed3/mid4_d32.json",
+    "recorded_sha256": "e2481fd44fe86e57ab6d3c7f46c7be0428623e00643b5b06b16598fc2377d1f6",
+    "node": 26006
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/caltech101/seed3/last4_d16.yaml",
+    "portable": "configs/portable/caltech101/seed3/last4_d16.json",
+    "recorded_sha256": "b5966ecba6f48b90370774fafafbb5d754fdfe17560f8db5dd975cff8b9ea747",
+    "node": 26006
+  },
+  {
+    "dataset": "caltech101",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/caltech101/seed3/last4_d64.yaml",
+    "portable": "configs/portable/caltech101/seed3/last4_d64.json",
+    "recorded_sha256": "043d6def0a4342a051d036ccd05edb60ec2ecb59f9135f17d669d75e6f0f42a1",
+    "node": 26006
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/stanford_cars/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/stanford_cars/seed3/mid4_d32.json",
+    "recorded_sha256": "fe93700b4425f4d23d37e3ab0464e7e7b0b6e411390c87500fe83f185510002e",
+    "node": 26006
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/stanford_cars/seed3/last4_d16.yaml",
+    "portable": "configs/portable/stanford_cars/seed3/last4_d16.json",
+    "recorded_sha256": "583b2d628bb26f095bfca5f1b3a958af9e80eb99c9170f67201830760c4765ff",
+    "node": 26006
+  },
+  {
+    "dataset": "stanford_cars",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/stanford_cars/seed3/last4_d64.yaml",
+    "portable": "configs/portable/stanford_cars/seed3/last4_d64.json",
+    "recorded_sha256": "1e8674adfac8939cdbb11a8315b6c2cbd1a02705cfb9d1fa1f25110adaa7c0e7",
+    "node": 26006
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/eurosat/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/eurosat/seed3/mid4_d32.json",
+    "recorded_sha256": "8a4e34dd1ad2b3985cb07c24279c6167bfcd6d4916c2f01a1c777b4141c4c09c",
+    "node": 26006
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/eurosat/seed3/last4_d16.yaml",
+    "portable": "configs/portable/eurosat/seed3/last4_d16.json",
+    "recorded_sha256": "d032ae6d0499430671615befb329b0c5d5589a9ae8a1bcaad92956469f7c7150",
+    "node": 26006
+  },
+  {
+    "dataset": "eurosat",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/eurosat/seed3/last4_d64.yaml",
+    "portable": "configs/portable/eurosat/seed3/last4_d64.json",
+    "recorded_sha256": "eb6047a1bbe4e71bf608829b41063b0d9d763a08cf6355d7a75e8d4a5fcf5da4",
+    "node": 26006
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/ucf101/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/ucf101/seed3/mid4_d32.json",
+    "recorded_sha256": "1fac7c01d6f9037d0844fb6c212512f1f782664baefe21b56e5ba274e66069a8",
+    "node": 26006
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/ucf101/seed3/last4_d16.yaml",
+    "portable": "configs/portable/ucf101/seed3/last4_d16.json",
+    "recorded_sha256": "1a7b48c58a284e56e8c968e00bcfd465cc9b9a52ec0e5cd7c19a6db66c6e4d2a",
+    "node": 26006
+  },
+  {
+    "dataset": "ucf101",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/ucf101/seed3/last4_d64.yaml",
+    "portable": "configs/portable/ucf101/seed3/last4_d64.json",
+    "recorded_sha256": "bb563ca04a44a5fc51787289e2aafe954a24e0725220aaccb5096cfab56ecde3",
+    "node": 26006
+  },
+  {
+    "dataset": "sun397",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/sun397/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/sun397/seed3/mid4_d32.json",
+    "recorded_sha256": "149bdd01d0c3c28d13ffb34d000c95decb654f6e4d7a6ee34b202c482b28fd64",
+    "node": 26006
+  },
+  {
+    "dataset": "sun397",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/sun397/seed3/last4_d16.yaml",
+    "portable": "configs/portable/sun397/seed3/last4_d16.json",
+    "recorded_sha256": "27e9391836acca42dc3eff9b997e3b35ba96f0165a66d87492bc850fa39e4fbb",
+    "node": 26006
+  },
+  {
+    "dataset": "sun397",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/sun397/seed3/last4_d64.yaml",
+    "portable": "configs/portable/sun397/seed3/last4_d64.json",
+    "recorded_sha256": "17a70dac1796876748fd8fcc4becfc0e059d5be52416aed65f370394b0ffffb6",
+    "node": 26006
+  },
+  {
+    "dataset": "food101",
+    "seed": 3,
+    "variant": "mid4_d32",
+    "recorded": "archive/recorded_configs/food101/seed3/mid4_d32.yaml",
+    "portable": "configs/portable/food101/seed3/mid4_d32.json",
+    "recorded_sha256": "b8032e7955639e36bffbcd01cb8488873b490f0d47e82317c69d6acf0afaa447",
+    "node": 26006
+  },
+  {
+    "dataset": "food101",
+    "seed": 3,
+    "variant": "last4_d16",
+    "recorded": "archive/recorded_configs/food101/seed3/last4_d16.yaml",
+    "portable": "configs/portable/food101/seed3/last4_d16.json",
+    "recorded_sha256": "858937f0bf2d2932950b2c7feee93efa6f59458e3202d536e576eb8937e0c115",
+    "node": 26006
+  },
+  {
+    "dataset": "food101",
+    "seed": 3,
+    "variant": "last4_d64",
+    "recorded": "archive/recorded_configs/food101/seed3/last4_d64.yaml",
+    "portable": "configs/portable/food101/seed3/last4_d64.json",
+    "recorded_sha256": "383586ce701229b14b838bebede23f58f3a48d4f568486b10973046853239e95",
+    "node": 26006
+  }
+]

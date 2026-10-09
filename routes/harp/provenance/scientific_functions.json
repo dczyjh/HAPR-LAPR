@@ -1,0 +1,12 @@
+{
+  "install": {
+    "source": "vendor/project/run.py",
+    "sha256": "b128da26057ae91fa6a44fc5e3f7a0d8eabf6ad9fcc4180da10f7db1e8112cfa",
+    "ast_sha256": "442014d885cc6995752c197821f20a383db97dc9c26e6bb0540b97f8a9b58c1e"
+  },
+  "added": {
+    "source": "historical/research_queue.py",
+    "sha256": "446e9436c205cc0d95a07186afa0bc4c1a6c41bc9db587a2481f9aacfa2ef07e",
+    "ast_sha256": "5163b3ded4f63202e9ca4ced6ec560643362da2cf0e9f127fedbe88590f64824"
+  }
+}

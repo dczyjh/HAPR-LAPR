@@ -1,0 +1,18 @@
+{
+  "/root/autodl-tmp/larp_o4_seed23_37667_20261001/run.py": "bc246b5767ebbacef027efd9b57d17861afd1817182fdc39ff489bbda13d43e3",
+  "/root/autodl-tmp/larp_o4_seed23_37667_20261001/legacy_evaluation.py": "c33fe157ede523240de4dff43440f59c74669a14981e60a5fc86a2ef265a9eb9",
+  "/root/autodl-tmp/larp_o4_seed23_37667_20261001/研究登记.md": "52d833d7bb19505b15b5ddd4ac0385cf33d02818e92e1286c4ea87cfd9dfe206",
+  "/root/autodl-tmp/larp_node_37667_20261001/research_node.py": "2bb9f2e081bef585f572ada57104a335714040cc689bb6bfc40f30455afacdd7",
+  "/root/autodl-tmp/larp_node_37667_20261001/source_contract.json": "b7c6ca2ab97830453661e41f8e2ee36b2ec3dccf32d7033a2d5f05d74ac917df",
+  "/root/autodl-tmp/larp_node_37667_20261001/deployment_receipt.json": "89fb4ffba9f9749a21af3751e9b154cbd81ce9e5a03299eb20913c01cc4904d8",
+  "/root/autodl-tmp/larp_node_37667_20261001/materials_verified.json": "ad4e53c48228973180e7903306124d62787c46b62d5ad34004f72f505caa2586",
+  "/root/autodl-tmp/larp_node_37667_20261001/materials_manifest.json": "d823a5b27b04dbdab241c50bfcd9ee11d176627a331660dbcd2fc123a97e1021",
+  "/root/autodl-tmp/larp_node_37667_20261001/cpu_verified.json": "101b50f8d7d341e39a266f2dfa696f2160036197c97c509f99945f0cf24e8559",
+  "/root/autodl-tmp/larp_research_20260928_fix1/research_queue.py": "5962ffb4973453bc7b4a52e456391e02601b323b1b0658a79dbf2da39486ac69",
+  "/root/autodl-tmp/larp_two_dataset_ramp_20260929/evaluation_evidence.py": "a6b182fb3e19418dd8cf7d557e7766f9b58d5c93120028afd4dc84fd5418562e",
+  "/root/autodl-tmp/larp_pets_projector_ramp_20260929_setup2/projector_schedule.py": "47b526943ab6c01773676d5102f6fb2c54a043f15db2b6355bff1edd8609d1d6",
+  "/root/autodl-tmp/larp_ten_oldlr_20260929/run.py": "d3a1457c0cf2ec36ae01429f9be8a43196448075c8f1a9a1c8ef7049219c50f3",
+  "/root/autodl-tmp/larp_o_only_20260930_setup3/test_o.py": "f6e668c0bc1b4d5d693783ce4c07b0265e41bce589ce55c70a252792d40eb994",
+  "/root/autodl-tmp/larp_all_o_ten_20261001_setup2/run.py": "790c4e07c7abb2ad0b9a1cb7635dd8e0306ddb0d2c57bffc4a44a56864acdf36",
+  "/root/autodl-tmp/larp_last3_o_four_20261001_setup2/run.py": "0bf3fc5110fac44bffe8f2c4f5825f5eb06e28972e8519596583709f8f81d73b"
+}

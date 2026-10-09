@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-08",
+  "scope": "local archive and small CPU arithmetic checks only",
+  "scientific_source_entries": 341,
+  "scientific_source_hash_matches": 341,
+  "all_archived_hash_checks_including_supplements": 360,
+  "offline_tests": {
+    "command_from_repository_root": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s routes/larp/tests -p 'test_*.py' -v",
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "checks": [
+      "all scientific and supplementary file hashes",
+      "full 150-role protocol matrix",
+      "full resolved templates equal the original contract after only four path substitutions",
+      "space and special-character path handling without shell evaluation",
+      "no execution or filesystem outputs during planning",
+      "train command refuses execution",
+      "retained SGD install function AST identical to frozen source",
+      "no local editable or wheel URI in environment lock",
+      "unknown protocol members rejected",
+      "original projector ramp and momentum preservation on CPU",
+      "20-epoch scheduler boundaries and retained SGD versus independent per-parameter SGD on CPU",
+      "rank 1/2/4 O parameterization zero initialization, update, and state round-trip on CPU"
+    ]
+  },
+  "portable_source_check_from_unrelated_working_directory": "passed",
+  "local_runtime": {
+    "platform": "Darwin",
+    "python": "3.10.6",
+    "torch": "2.0.1",
+    "torchvision": "0.15.2",
+    "matches_historical_linux_cuda_environment": false,
+    "check_runtime_result": "correctly_failed_on_platform_and_frozen_version_differences"
+  },
+  "retained_optimizer_wrapper_warning": "PyTorch warns that optimizer.step was overridden after scheduler initialization; the retained wrapper is unchanged and independent parameter/momentum comparisons passed.",
+  "server_access": false,
+  "dependency_installation": false,
+  "model_training": false,
+  "model_evaluation": false,
+  "cuda_validation": false,
+  "portable_training_enabled": false
+}

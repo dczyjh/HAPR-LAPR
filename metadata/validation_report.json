@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-09",
+  "status": "passed_offline_only",
+  "manifest_sha256": "1dcaceac47544a1d56ce169bef5300ffa18bbe2d7a649c348bf361c0a33303d7",
+  "file_count_excluding_manifest_and_report": 955,
+  "content_bytes_excluding_manifest_and_report": 15001029,
+  "test_environment": {
+    "python": "3.10.6",
+    "platform": "Darwin",
+    "note": "existing local CPU audit environment, not historical Linux CUDA environment"
+  },
+  "checks": [
+    {
+      "name": "publication_tests",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "unit_tests": 23
+    },
+    {
+      "name": "harp_archive_and_cpu_tests",
+      "command": [
+        "python",
+        "-B",
+        "routes/harp/cli.py",
+        "check",
+        "--cpu-tests"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "unit_tests": 13,
+      "details": {
+        "status": "passed_static_offline",
+        "source_files": 524,
+        "python_files": 171,
+        "recorded_configs": 150,
+        "portable_training_enabled": true,
+        "cuda_run_validated": false,
+        "note": "No dataset reads, model evaluation, GPU gates, training or score reproduction.",
+        "cpu_unit_tests": "passed; not FP16 CUDA or end-to-end validation"
+      }
+    },
+    {
+      "name": "larp_archive",
+      "command": [
+        "python",
+        "-B",
+        "routes/larp/cli.py",
+        "check"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "details": {
+        "route": "larp",
+        "sources": {
+          "status": "passed",
+          "checked_files": 360,
+          "frozen_scientific_sources": 341,
+          "errors": []
+        },
+        "portable_training_enabled": true,
+        "cuda_run_validated": false,
+        "status": "archive_checks_passed"
+      }
+    },
+    {
+      "name": "larp_unit_tests",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "routes/larp/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "unit_tests": 21
+    },
+    {
+      "name": "r0_unit_tests",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "routes/r0/tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "unit_tests": 8,
+      "skipped_tests": 1,
+      "skip_reason": "Local CPU environment lacks wilds; full official R0 import not verified; pinned production dependency exists"
+    },
+    {
+      "name": "release_integrity",
+      "command": [
+        "python",
+        "-B",
+        "tools/verify_release.py"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "checks": {
+          "files": 957,
+          "python_ast": 526,
+          "json": 177
+        },
+        "errors": [],
+        "scope": "offline files only; no GPU or accuracy validation"
+      }
+    }
+  ],
+  "gpu_training_performed": false,
+  "gpu_evaluation_performed": false,
+  "fresh_linux_install_validated": false,
+  "full_images_verified": false,
+  "portable_training_enabled": true,
+  "original_results_changed": false,
+  "cpu_integration_is_synthetic_not_research_results": true,
+  "full_cuda_reproduction_validated": false,
+  "verification_commands_connect_remote": false,
+  "verification_commands_push": false,
+  "verification_scope": "local validation only; later Git hosting status is recorded separately",
+  "nonfatal_test_warnings": [
+    "upstream tensorboard distutils deprecation",
+    "original SGD step wrapper scheduler warning"
+  ],
+  "independent_review": "source/protocol, route checks, plans, external assets, licensing attribution and sensitive-pattern review passed; not a legal or CUDA reproduction certification"
+}

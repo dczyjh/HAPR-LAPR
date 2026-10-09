@@ -1,0 +1,123 @@
+"""Configuration and bounded engineering validation; no formal training entry point."""
+import ast,copy,hashlib,importlib.util,json,math,os,subprocess,sys,datetime
+from pathlib import Path
+from types import SimpleNamespace
+B=Path('/root/autodl-tmp');ROOT=B/'larp_node_37667_20261001';PROJECT=B/'projects/PromptKD-HARP-LARP-research-20260928'
+def load(name,path):
+    s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);sys.modules[name]=m;s.loader.exec_module(m);return m
+def save(path,value):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    with path.open('x') as f:json.dump(value,f,indent=2,ensure_ascii=False)
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+contract=json.loads((ROOT/'source_contract.json').read_text())
+sys.path[:0]=[str(PROJECT/'Dassl.pytorch'),str(PROJECT)];os.chdir(PROJECT)
+import torch,torchvision,yaml
+import train
+from dassl.config import get_cfg_default
+from yacs.config import CfgNode as CN
+from dassl.data.datasets import build_dataset
+from dassl.utils import set_random_seed,setup_logger
+from dassl.engine import build_trainer
+q=load('retained_base_helpers',B/'larp_research_20260928_fix1/research_queue.py')
+old_canonical=q.canonical
+def canonical(n):return old_canonical(n).replace('.out_proj.parametrizations.weight.original','.out_proj.weight')
+q.canonical=canonical
+ps=load('retained_projector_schedule',B/'larp_pets_projector_ramp_20260929_setup2/projector_schedule.py')
+# Execute the retained, unchanged SGD wrapper without importing historical queues.
+source=B/'larp_ten_oldlr_20260929/run.py';tree=ast.parse(source.read_text());node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='install')
+f=SimpleNamespace(ps=ps,COUNT=352)
+ns={'math':math,'f':f,'q':q};exec(compile(ast.Module(body=[node],type_ignores=[]),str(source),'exec'),ns);install=ns['install']
+def config(ds,method,out):
+    d=copy.deepcopy(contract['configs'][ds][method]);d['OUTPUT_DIR']=str(out)
+    cfg=get_cfg_default();train.extend_cfg(cfg);cfg.merge_from_other_cfg(CN(d));cfg.freeze()
+    assert yaml.safe_load(cfg.dump())==d
+    return cfg
+def integrity():
+    assert json.loads((ROOT/'materials_verified.json').read_text())['status']=='passed'
+    manifest=json.loads((ROOT/'materials_manifest.json').read_text())
+    for x in manifest:
+        if x['path'].startswith('projects/') or x['path'] in contract['helper_files']:
+            assert sha(B/x['path'])==x['sha256'],x['path']
+def cpu():
+    assert not torch.cuda.is_available();integrity();torch.set_num_threads(2)
+    assert sys.version==contract['python'];assert torch.__version__==contract['torch']
+    assert torchvision.__version__=='0.15.2+cu118' and torch.version.cuda==contract['cuda']
+    assert torch.backends.cudnn.version()==contract['cudnn']
+    freeze=subprocess.check_output([sys.executable,'-m','pip','freeze','--all'],text=True)
+    assert freeze==contract['environment'],'Package environment mismatch'
+    driver=subprocess.check_output(['nvidia-smi','--query-gpu=driver_version,name','--format=csv,noheader'],text=True).strip()
+    assert driver==contract['driver']
+    from dassl.optim import build_optimizer,build_lr_scheduler
+    from trainers.adaptation_optim import adaptation_param_groups
+    class Tiny(torch.nn.Module):
+        def __init__(self,added):
+            super().__init__();self.VPT=torch.nn.Parameter(torch.ones(1));self.VPT_image_trans=torch.nn.ParameterList([torch.nn.Parameter(torch.ones(1)) for _ in range(6)])
+            if added:self.lora_A_o=torch.nn.Parameter(torch.ones(1));self.lora_B_o=torch.nn.Parameter(torch.zeros(1))
+    result={};rates={}
+    for ds,ref in contract['datasets'].items():
+        cfg=config(ds,'r1',ROOT/'configuration_only'/ds/'r1');data=build_dataset(cfg)
+        records=[[(str(Path(x.impath).resolve()),int(x.label),x.classname) for x in group] for group in (data.train_x,data.val,data.test)]
+        assert [len(g) for g in records]==ref['counts'];assert hashlib.sha256(json.dumps(records).encode()).hexdigest()==ref['reader_records_sha256']
+        assert data.classnames==ref['classnames'] and all(Path(p).is_file() for group in records for p,_,_ in group)
+        f.COUNT=len(data.train_x)//8
+        for method in ('r1','o4','o3','o12'):
+            cfg=config(ds,method,ROOT/'configuration_only'/ds/method)
+            dest=ROOT/'configs'/f'{ds}_{method}.yaml';dest.parent.mkdir(exist_ok=True)
+            with dest.open('x') as stream:stream.write(cfg.dump())
+            model=Tiny(method!='r1');opt=build_optimizer(model,cfg.OPTIM,param_groups=adaptation_param_groups(model,cfg));sched=build_lr_scheduler(opt,cfg.OPTIM)
+            tr=SimpleNamespace(model=model,optim=opt,epoch=0,batch_idx=0);install(torch,tr,'r1' if method=='r1' else 'larp');trajectory=[]
+            for ep in range(20):
+                tr.epoch=ep;trajectory.append([g['lr'] for g in opt.param_groups])
+                for bi in (0,f.COUNT-1):
+                    tr.batch_idx=bi
+                    for z in model.parameters():z.grad=torch.ones_like(z)*.1
+                    opt.step();assert math.isclose(tr.actual_step['projector_lr'],ps.effective_lr(ep,bi,f.COUNT,trajectory[-1][0]),rel_tol=1e-12)
+                    if method!='r1':assert math.isclose(tr.actual_step['added_lr'],.1*trajectory[-1][0],rel_tol=1e-12)
+                sched.step()
+            rates[ds+'_'+method]=trajectory
+        assert all([x[0] for x in rates[ds+'_r1']]==[x[0] for x in rates[ds+'_'+m]] for m in ('o4','o3','o12'))
+        result[ds]={'status':'passed','counts':list(map(len,records)),'reader_records_sha256':ref['reader_records_sha256']}
+        print('CPU_PASSED',ds,flush=True)
+    save(ROOT/'cpu_verified.json',{'status':'passed','time':datetime.datetime.now(datetime.timezone.utc).isoformat(),'datasets':result,
+      'lr_trajectories':rates,'schedule_test':ps.cpu_test(torch),'python':sys.version,'torch':torch.__version__,'torchvision':torchvision.__version__,
+      'cuda':torch.version.cuda,'cudnn':torch.backends.cudnn.version(),'driver':driver,'pip_freeze_exact':True,'history_outputs_copied':False})
+def gate(method):
+    assert method in ('r1','o4');integrity();pre=json.loads((ROOT/'cpu_verified.json').read_text());assert pre['status']=='passed'
+    assert torch.cuda.is_available() and torch.cuda.device_count()==1
+    ds='dtd';out=ROOT/'engineering'/ds/method;out.mkdir(parents=True,exist_ok=False)
+    setup_logger(str(out));set_random_seed(1);train.configure_cuda_reproducibility(False);torch.set_num_threads(4)
+    cfg=config(ds,method,out);tr=build_trainer(cfg);q.check_backend(q.backend(torch));assert len(tr.train_loader_x)==352
+    assert sum(p.numel() for p in tr.model.parameters() if p.requires_grad)==(1013760 if method=='r1' else 1026048)
+    initial={n:p.detach().cpu().clone() for n,p in tr.model.named_parameters() if p.requires_grad};frozen=q.common_hashes(tr.model,True)
+    teacher={n:q.tensor_hash(v) for n,v in tr.model_teacher.state_dict().items()}
+    common={canonical(n):q.tensor_hash(v) for n,v in initial.items() if not q.added(n)}
+    batch=next(iter(tr.train_loader_x));identity={k:q.tensor_hash(batch[k]) for k in ('img','label')};identity['impath']=batch['impath']
+    if method=='o4':
+        ref=json.loads((ROOT/'engineering/dtd/r1/audit.json').read_text());assert ref['status']=='passed';assert ref['initial_common']==common and ref['input']==identity
+    f.COUNT=352;install(torch,tr,'r1' if method=='r1' else 'larp');tr.num_batches=352;tr.set_model_mode('train');rows=[]
+    for e,b in ((0,0),(1,0),(1,351),(2,0)):
+        tr.epoch=e;tr.batch_idx=b
+        for group,lr in zip(tr.optim.param_groups,pre['lr_trajectories']['dtd_'+method][e]):group['lr']=lr
+        loss=tr.forward_backward(batch);assert all(math.isfinite(float(v)) for v in loss.values());rows.append(dict(tr.actual_step,loss=loss))
+    assert frozen==q.common_hashes(tr.model,True) and teacher=={n:q.tensor_hash(v) for n,v in tr.model_teacher.state_dict().items()}
+    changed={n:int(torch.count_nonzero(p.detach().cpu()-initial[n])) for n,p in tr.model.named_parameters() if p.requires_grad}
+    layer_rows=[]
+    for n,p in tr.model.named_parameters():
+        if q.added(n):
+            mom=tr.optim.state[p]['momentum_buffer'];assert p.grad is not None and torch.isfinite(p.grad).all() and torch.count_nonzero(p.grad)>0
+            assert torch.isfinite(mom).all() and torch.count_nonzero(mom)>0
+            if 'lora_B_o' in n:assert changed[n]>0
+    if method=='o4':
+        for layer in (8,9,10,11):
+            mod=tr.model.image_encoder.transformer.resblocks[layer].attn.out_proj.parametrizations.weight[0]
+            norm=float(torch.linalg.vector_norm(mod.lora_B_o.float()@mod.lora_A_o.float()));assert norm>0 and math.isfinite(norm);layer_rows.append({'layer':layer,'ba_norm':norm})
+    for added in (False,True) if method=='o4' else (False,):assert any(v>0 for n,v in changed.items() if q.added(n)==added)
+    before={n:q.tensor_hash(v) for n,v in tr.model.state_dict().items()};tr.save_model(2,str(out),val_result=0.,model_name='model-best.pth.tar');tr.load_model(str(out))
+    assert before=={n:q.tensor_hash(v) for n,v in tr.model.state_dict().items()};tr.close_writer()
+    save(out/'audit.json',{'status':'passed','time':datetime.datetime.now(datetime.timezone.utc).isoformat(),'steps':rows,'initial_common':common,'input':identity,
+       'changed':changed,'layers':layer_rows,'backend':q.backend(torch),'checkpoint_roundtrip_exact':True,'formal_training':False,'evaluation':False})
+    print('GPU_GATE_PASSED',method,flush=True)
+if __name__=='__main__':
+    if sys.argv[1]=='cpu':cpu()
+    elif sys.argv[1]=='gate':gate(sys.argv[2])
+    else:raise ValueError('Only cpu/gate; formal experiment requires its own frozen run record')

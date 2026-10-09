@@ -1,0 +1,203 @@
+"""Fixed last-three O panel, serialized after the full-O and four-O completion queue."""
+import copy,fcntl,importlib.util,json,math,os,shutil,subprocess,sys,traceback
+from pathlib import Path
+ROOT=Path(__file__).resolve().parent
+BASE=Path('/root/autodl-tmp')
+PREDECESSOR=BASE/'larp_all_o_ten_20261001_setup2'
+OLD_O=BASE/'larp_o_only_20260930_setup3'
+PRIOR=BASE/'larp_ten_oldlr_20260929'
+DATASETS=('dtd','fgvc_aircraft','ucf101','eurosat')
+LAYERS=[9,10,11]
+PROTOCOL='1.75'
+def load(name,path):
+    s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s)
+    sys.modules[name]=m;s.loader.exec_module(m);return m
+h=load('retained_twelve_o',PREDECESSOR/'run.py');r,c,p,f,q=h.r,h.c,h.p,h.f,h.q
+canonical=h.canonical
+predecessor_guard=h.guard
+COUNTS={d:c.COUNTS[d] for d in DATASETS}
+def old_o(ds):return OLD_O/'runs'/ds/'larp'
+def r1_path(ds):return c.REUSE.get(ds,PRIOR/'runs'/ds/'r1')
+def layers(ds):assert ds in DATASETS;return list(LAYERS)
+def output(ds,m,gate=False):
+    assert ds in DATASETS and m in ('r1','larp')
+    if m=='r1' and not gate:return r1_path(ds)
+    return ROOT/('gates' if gate else 'runs')/ds/m
+def guard():
+    predecessor_guard();z=q.read(ROOT/'frozen.json')
+    assert z['datasets']==list(DATASETS) and z['layers']==LAYERS and z['target']==['o']
+    for path,v in z['files'].items():assert q.sha(Path(path))==v,path
+    return q.sha(ROOT/'frozen.json')
+r.ROOT=p.ROOT=f.ROOT=ROOT
+r.FULL=r.DATASETS=DATASETS;r.COUNTS=COUNTS;r.JOBS=[(d,'larp') for d in DATASETS]
+r.layers=layers;r.r1_path=r1_path;r.output=p.output=output
+r.guard=p.guard=f.guard=guard
+def initial_build(m,ds,seed,epochs,out):
+    assert m=='larp' and ds in DATASETS and seed==1 and epochs==20
+    torch,tr=r.raw_build(m,ds,seed,epochs,out)
+    params={n:z for n,z in tr.model.named_parameters() if z.requires_grad}
+    ref=torch.load(old_o(ds)/'initial_trainable.pt',map_location='cpu')
+    expected={n:z for n,z in ref.items() if not q.added(n) or any(f'resblocks.{i}.' in n for i in LAYERS)}
+    assert params.keys()==expected.keys()
+    assert all(torch.equal(z.detach().cpu(),expected[n]) for n,z in params.items() if not q.added(n))
+    rng=torch.get_rng_state().clone()
+    with torch.no_grad():
+        for n,z in params.items():
+            if q.added(n):z.copy_(expected[n].to(device=z.device,dtype=z.dtype))
+    assert torch.equal(rng,torch.get_rng_state())
+    assert all(torch.equal(z.detach().cpu(),expected[n]) for n,z in params.items())
+    added={n:z for n,z in params.items() if q.added(n)}
+    assert len(added)==6 and sum(z.numel() for z in added.values())==9216
+    assert all('.out_proj.parametrizations.weight.0.lora_' in n for n in added)
+    assert all(torch.count_nonzero(z)==0 for n,z in added.items() if 'lora_B_o' in n)
+    assert sum(z.numel() for z in params.values())==1022976
+    return torch,tr
+f.base_build=initial_build
+def build(m,ds,seed,epochs,out):
+    torch,tr=r.build(m,ds,seed,epochs,out)
+    overlay=q.read(out/'overlay.json')
+    overlay.update(protocol=PROTOCOL,stage='last_three',layers=LAYERS,
+        initialization='exact_restriction_of_old_four_O_initial_state',reference_o=str(old_o(ds)),
+        reference_r1=str(r1_path(ds)),added_parameters=9216,added='original_lr_mult_0.1')
+    q.dump(out/'overlay.json',overlay)
+    return torch,tr
+p.build=q.build=f.build=build
+
+def validate_predecessor(state,reader,hasher,expected_jobs):
+    assert state['status']=='completed_awaiting_analysis',state['status']
+    assert state['jobs']==expected_jobs
+    expected=[dict(stage=stage,dataset=ds,method=m,action=a) for stage,ds,m in expected_jobs for a in ('gate','train','evaluate')]
+    assert state['completed']==expected,'Predecessor has missing or reordered actions'
+    for stage,ds,m in expected_jobs:
+        out=PREDECESSOR/'runs'/stage/ds/m;z=reader(out/'audited_metrics.json')
+        assert (z['status'],z['dataset'],z['method'],z['seed'],z['epochs'])==('passed',ds,m,1,20)
+        assert z['experiment_id']==PREDECESSOR.name and z['stage']==stage and z['protocol_version']=='1.74'
+        assert z['layers']==([] if m=='r1' else list(range(12)) if stage=='full' else [8,9,10,11])
+        assert z['targets']==([] if m=='r1' else ['o'])
+        assert z['checkpoint_sha256']==hasher(out/'VLPromptLearner/model-best.pth.tar')
+    return True
+
+def prepare():
+    assert not (ROOT/'frozen.json').exists();predecessor_guard()
+    files={str(x):q.sha(x) for x in ROOT.iterdir() if x.suffix in ('.py','.md')}
+    for name in ('run.py','frozen.json','preflight.json'):files[str(PREDECESSOR/name)]=q.sha(PREDECESSOR/name)
+    for ds in DATASETS:
+        for src in (r1_path(ds),old_o(ds)):
+            z=q.read(src/'audited_metrics.json');assert (z['status'],z['dataset'],z['seed'],z['epochs'])==('passed',ds,1,20)
+            for name in ('resolved.yaml','initial_trainable.pt','initial_shared.json','batches.jsonl','epochs.jsonl','audited_metrics.json','VLPromptLearner/model-best.pth.tar','VLPromptLearner/model.pth.tar-20'):
+                files[str(src/name)]=q.sha(src/name)
+            assert files[str(src/'VLPromptLearner/model-best.pth.tar')]==z['checkpoint_sha256']
+    q.dump(ROOT/'frozen.json',dict(protocol=PROTOCOL,files=files,datasets=list(DATASETS),layers=LAYERS,target=['o'],
+        seed=1,epochs=20,formal_epochs=80,gpu_gate_steps=16,predecessor=str(PREDECESSOR),
+        predecessor_jobs=q.read(PREDECESSOR/'frozen.json')['jobs'],automatic_retry=False))
+    print('FROZEN',guard(),flush=True)
+
+def preflight():
+    frozen=guard();torch,train,project=q.framework('r1');assert not torch.cuda.is_available()
+    assert shutil.disk_usage(ROOT).free>=24*1024**3
+    checks=load('last_three_tests',ROOT/'test_plan.py').tests(torch,q,validate_predecessor,
+        q.read(ROOT/'frozen.json')['predecessor_jobs'],PREDECESSOR)
+    checks['retained_operator']=load('retained_o_operator',OLD_O/'test_o.py').run_tests(torch)
+    import yaml
+    prior=q.read(PRIOR/'preflight.json');configs={};rates={};assets={};data={};refs={}
+    for ds in DATASETS:
+        cfg,_=r.config(train,project,'larp',ds,1,20,output(ds,'larp'))
+        assets[ds]=q.asset_check(cfg,project);data[ds]=q.data_check(cfg,ds)
+        here=yaml.safe_load(cfg.dump());old=yaml.safe_load((old_o(ds)/'resolved.yaml').read_text())
+        normal=copy.deepcopy(here);normal['OUTPUT_DIR']=old['OUTPUT_DIR']
+        assert normal['TRAINER']['PROMPTKD']['ADAPTATION']['LAYERS']==LAYERS
+        normal['TRAINER']['PROMPTKD']['ADAPTATION']['LAYERS']=[8,9,10,11]
+        assert normal==old,(ds,'Unexpected difference beyond the selected layer set')
+        assert cfg.TRAINER.PROMPTKD.KD_WEIGHT==(200 if ds in ('dtd','fgvc_aircraft') else 1000)
+        configs[ds+'_larp']=here;rates[ds+'_larp']=prior['lr_trajectories'][ds+'_larp']
+        probe=q.probe_path(ds,1,'larp');meta=q.read(probe/'probe.json')
+        assert meta['status']=='passed' and q.sha(probe/'probe.pt')==meta['evidence_sha256']
+        ev=torch.load(probe/'probe.pt',map_location='cpu');q.check_backend(ev['backend'])
+        assert ev['initial_shared']==q.read(r1_path(ds)/'initial_shared.json')
+        a=[json.loads(x) for x in (r1_path(ds)/'batches.jsonl').open()]
+        b=[json.loads(x) for x in (old_o(ds)/'batches.jsonl').open()]
+        assert len(a)==len(b)==20*COUNTS[ds]
+        for i,(x,y) in enumerate(zip(a,b)):
+            e,bi=divmod(i,COUNTS[ds]);lr=rates[ds+'_larp'][e]
+            assert x['identity']==y['identity'] and x['scheduled_lr']==[lr[0]] and y['scheduled_lr']==lr
+            assert x['projector_lr']==y['projector_lr']==f.ps.effective_lr(e,bi,COUNTS[ds],lr[0])
+            assert y['added_lr']==lr[1] and not y['added_held']
+        old_init=torch.load(old_o(ds)/'initial_trainable.pt',map_location='cpu')
+        ri=torch.load(r1_path(ds)/'initial_trainable.pt',map_location='cpu')
+        assert all(torch.equal(v,old_init[n]) for n,v in ri.items())
+        reduced={n:v for n,v in old_init.items() if not q.added(n) or any(f'resblocks.{i}.' in n for i in LAYERS)}
+        assert sum(v.numel() for n,v in reduced.items() if q.added(n))==9216
+        refs[ds]=dict(status='passed',paired_batches=len(a),r1=str(r1_path(ds)),four_o=str(old_o(ds)),
+            exact_initial_restriction_expected=True)
+        print('CPU_PASSED',ds,flush=True)
+    f.ps.cpu_test(torch)
+    q.dump(ROOT/'preflight.json',dict(status='passed',time=q.now(),frozen=frozen,configs=configs,
+        lr_trajectories=rates,assets=assets,data=data,references=refs,tests=checks,
+        environment=q.old_queue().environment_guard(),decode=q.old_queue().decode_guard(),
+        gpu_gate_status='not_started_waiting_for_predecessor'))
+    print('PREFLIGHT_PASSED',flush=True)
+
+def gate(ds):
+    p.gate(ds,'larp');out=output(ds,'larp',True);torch,tr=p.holder['torch'],p.holder['tr']
+    audit=q.read(out/'audit.json');audit.update(status='pending_layer_audit',base_gate_passed=True)
+    q.dump(out/'audit.json',audit)
+    try:
+        initial=torch.load(out/'initial_trainable.pt',map_location='cpu')
+        diags=[json.loads(x) for x in (out/'lowrank_diagnostics.jsonl').open()]
+        rows=h.layer_rows(torch,initial,tr.model.state_dict(),tr.optim.state_dict(),diags,audit['changed'])
+        assert [x['layer'] for x in rows]==LAYERS;h.validate_layers(rows)
+        audit.update(status='passed',protocol=PROTOCOL,layers=LAYERS,layer_audit=rows)
+    except BaseException:audit.update(status='failed',error=traceback.format_exc());raise
+    finally:q.dump(out/'audit.json',audit)
+
+def queue():
+    with (ROOT/'queue.lock').open('a') as lock,(BASE/'official_training_gpu0.lock').open('a') as gpu:
+        fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        assert not (ROOT/'status.json').exists()
+        assert q.read(ROOT/'preflight.json')['status']=='passed' and q.read(ROOT/'preflight.json')['frozen']==guard()
+        state=dict(status='waiting_for_predecessor',started=q.now(),pid=os.getpid(),completed=[],
+            datasets=list(DATASETS),layers=LAYERS,predecessor=str(PREDECESSOR),successor=None)
+        q.dump(ROOT/'status.json',state)
+        try:
+            # Existing queue keeps its entire lease; no original worker or status is modified.
+            fcntl.flock(gpu,fcntl.LOCK_EX)
+            guard();validate_predecessor(q.read(PREDECESSOR/'status.json'),q.read,q.sha,q.read(ROOT/'frozen.json')['predecessor_jobs'])
+            assert shutil.disk_usage(ROOT).free>=24*1024**3
+            state.update(status='running',predecessor_status_sha256=q.sha(PREDECESSOR/'status.json'),updated=q.now())
+            q.dump(ROOT/'status.json',state)
+            for ds in DATASETS:
+                for action in ('gate','train','evaluate'):
+                    guard();q.old_queue().ensure_gpu_idle();assert shutil.disk_usage(ROOT).free>=20*1024**3
+                    mem=dict((k,int(v)) for k,v in (x.split() for x in Path('/sys/fs/cgroup/memory.stat').read_text().splitlines()))
+                    assert mem['anon']<16*1024**3
+                    state.update(action=action,dataset=ds,updated=q.now());q.dump(ROOT/'status.json',state)
+                    env=dict(os.environ,CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1')
+                    env.pop('PYTHONPATH',None);env.pop('CUBLAS_WORKSPACE_CONFIG',None)
+                    with (ROOT/f'{ds}_{action}.console.log').open('x') as stream:
+                        subprocess.run([q.PYTHON,str(ROOT/'run.py'),action,ds],env=env,stdout=stream,stderr=subprocess.STDOUT,check=True)
+                    state['completed'].append(dict(action=action,dataset=ds));q.dump(ROOT/'status.json',state)
+            state.update(status='completed_awaiting_analysis',finished=q.now(),action=None)
+        except BaseException:state.update(status='failed',error=traceback.format_exc(),finished=q.now());raise
+        finally:q.dump(ROOT/'status.json',state)
+
+if __name__=='__main__':
+    action=sys.argv[1]
+    if action=='prepare':prepare()
+    elif action=='preflight':preflight()
+    elif action=='queue':queue()
+    else:
+        ds=sys.argv[2];assert ds in DATASETS;out=output(ds,'larp',action=='gate')
+        try:
+            if action=='gate':gate(ds)
+            elif action=='train':
+                assert q.read(output(ds,'larp',True)/'audit.json')['status']=='passed'
+                out.mkdir(parents=True,exist_ok=False);q.train_run('larp',ds,1,20,out)
+            elif action=='evaluate':
+                assert not (out/'canonical_val_evidence.pt').exists();f.evaluate('larp',ds,1,20,out)
+                z=q.read(out/'audited_metrics.json');z.update(protocol_version=PROTOCOL,experiment_id=ROOT.name,
+                    layers=LAYERS,targets=['o'],stage='last_three',added_schedule='original_lr_mult_0.1')
+                q.dump(out/'audited_metrics.json',z)
+            else:raise ValueError(action)
+        except BaseException:
+            if action in ('gate','train'):c.failure(out)
+            raise

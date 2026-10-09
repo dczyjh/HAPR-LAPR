@@ -1,0 +1,51 @@
+{
+  "r1": {
+    "type": "none",
+    "rank": 2,
+    "layers": [],
+    "added_parameters": 0
+  },
+  "o4-r2": {
+    "type": "larp",
+    "rank": 2,
+    "layers": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "added_parameters": 12288
+  },
+  "o4-r1": {
+    "type": "larp",
+    "rank": 1,
+    "layers": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "added_parameters": 6144
+  },
+  "o4-r4": {
+    "type": "larp",
+    "rank": 4,
+    "layers": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "added_parameters": 24576
+  },
+  "o3-r2": {
+    "type": "larp",
+    "rank": 2,
+    "layers": [
+      9,
+      10,
+      11
+    ],
+    "added_parameters": 9216
+  }
+}

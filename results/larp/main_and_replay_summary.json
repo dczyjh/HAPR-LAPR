@@ -1,0 +1,1991 @@
+{
+  "datasets": {
+    "dtd": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 86.57407407407408,
+            "novel": 71.61835748792271,
+            "hm": 78.38924940973548
+          },
+          "o4": {
+            "base": 85.87962962962963,
+            "novel": 70.65217391304348,
+            "hm": 77.52523628881889
+          },
+          "r0": {
+            "base": 85.87962962962963,
+            "novel": 71.61835748792271,
+            "hm": 78.10332218601118
+          },
+          "delta": {
+            "base": -0.6944444444444429,
+            "novel": -0.9661835748792242,
+            "hm": -0.8640131209165958
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 86.11111111111111,
+            "novel": 71.85990338164251,
+            "hm": 78.34267753992525
+          },
+          "o4": {
+            "base": 85.99537037037037,
+            "novel": 70.65217391304348,
+            "hm": 77.57236017861158
+          },
+          "r0": {
+            "base": 85.5324074074074,
+            "novel": 70.16908212560386,
+            "hm": 77.09278232047372
+          },
+          "delta": {
+            "base": -0.11574074074074758,
+            "novel": -1.2077294685990267,
+            "hm": -0.7703173613136727
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 85.64814814814815,
+            "novel": 71.61835748792271,
+            "hm": 78.00745196751852
+          },
+          "o4": {
+            "base": 85.41666666666667,
+            "novel": 70.41062801932367,
+            "hm": 77.19111283343021
+          },
+          "r0": {
+            "base": 85.06944444444444,
+            "novel": 70.41062801932367,
+            "hm": 77.04901230971723
+          },
+          "delta": {
+            "base": -0.23148148148148096,
+            "novel": -1.207729468599041,
+            "hm": -0.8163391340883095
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 85.49382716049382,
+          "novel": 70.73268921095008,
+          "hm": 77.41503893873404
+        },
+        "r1": {
+          "base": 86.11111111111111,
+          "novel": 71.69887278582931,
+          "hm": 78.24645963905975
+        },
+        "o4": {
+          "base": 85.76388888888889,
+          "novel": 70.57165861513688,
+          "hm": 77.42956976695356
+        },
+        "delta": {
+          "base": -0.3472222222222238,
+          "novel": -1.1272141706924306,
+          "hm": -0.8168898721061927
+        }
+      },
+      "sd_delta": {
+        "base": 0.3062212165583983,
+        "novel": 0.13945658676078082,
+        "hm": 0.04685030764216437
+      },
+      "delta_r0": {
+        "base": 0.2700617283950635,
+        "novel": -0.16103059581320167,
+        "hm": 0.014530828219520231
+      },
+      "dual_positive": false,
+      "positive_seeds": 0
+    },
+    "oxford_pets": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 96.27857522594364,
+            "novel": 98.32214765100672,
+            "hm": 97.28963129268041
+          },
+          "o4": {
+            "base": 96.2254120148857,
+            "novel": 98.43400447427292,
+            "hm": 97.31717897489476
+          },
+          "r0": {
+            "base": 96.27857522594364,
+            "novel": 98.04250559284117,
+            "hm": 97.15253445778346
+          },
+          "delta": {
+            "base": -0.0531632110579352,
+            "novel": 0.1118568232662085,
+            "hm": 0.027547682214347446
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 96.54439128123339,
+            "novel": 98.2102908277405,
+            "hm": 97.37021613900609
+          },
+          "o4": {
+            "base": 91.1217437533227,
+            "novel": 92.22595078299776,
+            "hm": 91.67052223817426
+          },
+          "r0": {
+            "base": 96.43806485911749,
+            "novel": 98.04250559284117,
+            "hm": 97.23366700683782
+          },
+          "delta": {
+            "base": -5.422647527910684,
+            "novel": -5.984340044742737,
+            "hm": -5.699693900831832
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 96.43806485911749,
+            "novel": 98.48993288590604,
+            "hm": 97.45319959675851
+          },
+          "o4": {
+            "base": 96.33173843700159,
+            "novel": 98.54586129753915,
+            "hm": 97.42622186947013
+          },
+          "r0": {
+            "base": 96.17224880382776,
+            "novel": 98.43400447427292,
+            "hm": 97.28998333397506
+          },
+          "delta": {
+            "base": -0.10632642211589882,
+            "novel": 0.05592841163310425,
+            "hm": -0.02697772728838288
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 96.29629629629629,
+          "novel": 98.17300521998509,
+          "hm": 97.22539493286544
+        },
+        "r1": {
+          "base": 96.42034378876484,
+          "novel": 98.34079045488441,
+          "hm": 97.37101567614833
+        },
+        "o4": {
+          "base": 94.55963140173667,
+          "novel": 96.40193885160328,
+          "hm": 95.47130769417971
+        },
+        "delta": {
+          "base": -1.8607123870281725,
+          "novel": -1.9388516032811414,
+          "hm": -1.8997079819686224
+        }
+      },
+      "sd_delta": {
+        "base": 3.084840845593624,
+        "novel": 3.503607361606959,
+        "hm": 3.290997264164673
+      },
+      "delta_r0": {
+        "base": -1.736664894559624,
+        "novel": -1.7710663683818098,
+        "hm": -1.7540872386857274
+      },
+      "dual_positive": false,
+      "positive_seeds": 1
+    },
+    "fgvc_aircraft": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 49.2797118847539,
+            "novel": 41.51169766046791,
+            "hm": 45.063393349696746
+          },
+          "o4": {
+            "base": 48.85954381752701,
+            "novel": 42.771445710857826,
+            "hm": 45.613243654894134
+          },
+          "r0": {
+            "base": 49.09963985594238,
+            "novel": 40.79184163167366,
+            "hm": 44.56183611684584
+          },
+          "delta": {
+            "base": -0.42016806722688926,
+            "novel": 1.2597480503899163,
+            "hm": 0.5498503051973884
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 48.199279711884756,
+            "novel": 42.89142171565687,
+            "hm": 45.39070618877211
+          },
+          "o4": {
+            "base": 49.93997599039616,
+            "novel": 41.87162567486503,
+            "hm": 45.551279859064124
+          },
+          "r0": {
+            "base": 48.25930372148859,
+            "novel": 41.271745650869825,
+            "hm": 44.49284851331765
+          },
+          "delta": {
+            "base": 1.7406962785114004,
+            "novel": -1.0197960407918387,
+            "hm": 0.16057367029201686
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 48.25930372148859,
+            "novel": 41.51169766046791,
+            "hm": 44.6319099609328
+          },
+          "o4": {
+            "base": 49.09963985594238,
+            "novel": 41.211757648470304,
+            "hm": 44.811231235158374
+          },
+          "r0": {
+            "base": 48.739495798319325,
+            "novel": 40.971805638872226,
+            "hm": 44.51936638514747
+          },
+          "delta": {
+            "base": 0.8403361344537856,
+            "novel": -0.2999400119976059,
+            "hm": 0.17932127422557187
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 48.699479791916765,
+          "novel": 41.011797640471904,
+          "hm": 44.52468367177032
+        },
+        "r1": {
+          "base": 48.579431772709086,
+          "novel": 41.97160567886423,
+          "hm": 45.02866983313388
+        },
+        "o4": {
+          "base": 49.299719887955185,
+          "novel": 41.951609678064386,
+          "hm": 45.32525158303888
+        },
+        "delta": {
+          "base": 0.7202881152460989,
+          "novel": -0.01999600079984276,
+          "hm": 0.29658174990499236
+        }
+      },
+      "sd_delta": {
+        "base": 1.0854226482608094,
+        "novel": 1.1652711285209694,
+        "hm": 0.21953721549713492
+      },
+      "delta_r0": {
+        "base": 0.6002400960384193,
+        "novel": 0.9398120375924819,
+        "hm": 0.8005679112685584
+      },
+      "dual_positive": true,
+      "positive_seeds": 3
+    },
+    "oxford_flowers": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 99.14529914529915,
+            "novel": 82.12765957446808,
+            "hm": 89.837683834594
+          },
+          "o4": {
+            "base": 99.14529914529915,
+            "novel": 82.55319148936171,
+            "hm": 90.0916770086873
+          },
+          "r0": {
+            "base": 99.05033238366572,
+            "novel": 83.04964539007092,
+            "hm": 90.34701794915324
+          },
+          "delta": {
+            "base": 0.0,
+            "novel": 0.4255319148936252,
+            "hm": 0.2539931740932957
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 99.14529914529915,
+            "novel": 82.69503546099291,
+            "hm": 90.17607723130055
+          },
+          "o4": {
+            "base": 99.24026590693258,
+            "novel": 82.76595744680851,
+            "hm": 90.25752497593717
+          },
+          "r0": {
+            "base": 99.05033238366572,
+            "novel": 81.41843971631205,
+            "hm": 89.37306351918325
+          },
+          "delta": {
+            "base": 0.09496676163342954,
+            "novel": 0.07092198581560183,
+            "hm": 0.08144774463661975
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 99.43019943019944,
+            "novel": 82.41134751773049,
+            "hm": 90.12436218820558
+          },
+          "o4": {
+            "base": 99.33523266856601,
+            "novel": 82.83687943262412,
+            "hm": 90.33897227262712
+          },
+          "r0": {
+            "base": 99.24026590693258,
+            "novel": 82.48226950354609,
+            "hm": 90.0885775080066
+          },
+          "delta": {
+            "base": -0.09496676163342954,
+            "novel": 0.4255319148936252,
+            "hm": 0.21461008442153684
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 99.113643558088,
+          "novel": 82.31678486997636,
+          "hm": 89.93621965878103
+        },
+        "r1": {
+          "base": 99.24026590693258,
+          "novel": 82.41134751773049,
+          "hm": 90.04604108470005
+        },
+        "o4": {
+          "base": 99.24026590693258,
+          "novel": 82.71867612293144,
+          "hm": 90.22939141908387
+        },
+        "delta": {
+          "base": 0.0,
+          "novel": 0.30732860520095073,
+          "hm": 0.18335033438381743
+        }
+      },
+      "sd_delta": {
+        "base": 0.09496676163342954,
+        "novel": 0.20473413801051088,
+        "hm": 0.09042046386694058
+      },
+      "delta_r0": {
+        "base": 0.12662234884457746,
+        "novel": 0.40189125295508177,
+        "hm": 0.2931717603028403
+      },
+      "dual_positive": true,
+      "positive_seeds": 3
+    },
+    "caltech101": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 99.16074887023886,
+            "novel": 96.5065502183406,
+            "hm": 97.81564763360626
+          },
+          "o4": {
+            "base": 99.22530664945126,
+            "novel": 97.16157205240175,
+            "hm": 98.18259595722523
+          },
+          "r0": {
+            "base": 99.03163331181408,
+            "novel": 96.39737991266375,
+            "hm": 97.69675261845764
+          },
+          "delta": {
+            "base": 0.06455777921239303,
+            "novel": 0.6550218340611451,
+            "hm": 0.36694832361897056
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 99.03163331181408,
+            "novel": 96.61572052401746,
+            "hm": 97.80876070646744
+          },
+          "o4": {
+            "base": 99.03163331181408,
+            "novel": 96.72489082969432,
+            "hm": 97.86467105277369
+          },
+          "r0": {
+            "base": 96.44932214331827,
+            "novel": 92.13973799126637,
+            "hm": 94.24528936491446
+          },
+          "delta": {
+            "base": 0.0,
+            "novel": 0.10917030567685515,
+            "hm": 0.05591034630624847
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 99.16074887023886,
+            "novel": 97.37991266375546,
+            "hm": 98.26226277340854
+          },
+          "o4": {
+            "base": 99.22530664945126,
+            "novel": 96.83406113537117,
+            "hm": 98.015101434115
+          },
+          "r0": {
+            "base": 99.09619109102647,
+            "novel": 96.5065502183406,
+            "hm": 97.78422815503195
+          },
+          "delta": {
+            "base": 0.06455777921239303,
+            "novel": -0.54585152838429,
+            "hm": -0.247161339293541
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 98.19238218205294,
+          "novel": 95.01455604075691,
+          "hm": 96.57542337946802
+        },
+        "r1": {
+          "base": 99.11771035076393,
+          "novel": 96.83406113537117,
+          "hm": 97.96222370449408
+        },
+        "o4": {
+          "base": 99.16074887023886,
+          "novel": 96.90684133915575,
+          "hm": 98.02078948137131
+        },
+        "delta": {
+          "base": 0.043038519474928684,
+          "novel": 0.0727802037845701,
+          "hm": 0.05856577687722601
+        }
+      },
+      "sd_delta": {
+        "base": 0.037272451206559545,
+        "novel": 0.6012631601840823,
+        "hm": 0.307063442962961
+      },
+      "delta_r0": {
+        "base": 0.9683666881859239,
+        "novel": 1.892285298398832,
+        "hm": 1.4453661019032893
+      },
+      "dual_positive": true,
+      "positive_seeds": 2
+    },
+    "stanford_cars": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 83.1584207896052,
+            "novel": 83.80787323594949,
+            "hm": 83.48188391808351
+          },
+          "o4": {
+            "base": 83.25837081459271,
+            "novel": 84.52587274077742,
+            "hm": 83.88733419722209
+          },
+          "r0": {
+            "base": 83.10844577711144,
+            "novel": 83.857390443179,
+            "hm": 83.48123837096766
+          },
+          "delta": {
+            "base": 0.09995002498750694,
+            "novel": 0.7179995048279295,
+            "hm": 0.40545027913857723
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 82.5087456271864,
+            "novel": 82.86704629858876,
+            "hm": 82.68750781849947
+          },
+          "o4": {
+            "base": 83.25837081459271,
+            "novel": 83.53552859618718,
+            "hm": 83.39671943187224
+          },
+          "r0": {
+            "base": 82.00899550224888,
+            "novel": 83.95642485763803,
+            "hm": 82.97128466405584
+          },
+          "delta": {
+            "base": 0.7496251874063091,
+            "novel": 0.6684822975984162,
+            "hm": 0.7092116133727728
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 82.83358320839581,
+            "novel": 83.13939093835107,
+            "hm": 82.98620534567596
+          },
+          "o4": {
+            "base": 83.08345827086457,
+            "novel": 83.58504580341669,
+            "hm": 83.33349727530302
+          },
+          "r0": {
+            "base": 82.83358320839581,
+            "novel": 82.86704629858876,
+            "hm": 82.85031137457209
+          },
+          "delta": {
+            "base": 0.24987506246876023,
+            "novel": 0.44565486506562024,
+            "hm": 0.3472919296270618
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 82.65034149591871,
+          "novel": 83.56028719980193,
+          "hm": 83.10094480319853
+        },
+        "r1": {
+          "base": 82.83358320839581,
+          "novel": 83.27143682429644,
+          "hm": 83.05186569408632
+        },
+        "o4": {
+          "base": 83.20006663334999,
+          "novel": 83.88214904679376,
+          "hm": 83.53918363479912
+        },
+        "delta": {
+          "base": 0.3664834249541921,
+          "novel": 0.6107122224973219,
+          "hm": 0.48731794071280393
+        }
+      },
+      "sd_delta": {
+        "base": 0.34017287783879047,
+        "novel": 0.1450721781897034,
+        "hm": 0.19435328625822865
+      },
+      "delta_r0": {
+        "base": 0.549725137431281,
+        "novel": 0.32186184699182263,
+        "hm": 0.43823883160058585
+      },
+      "dual_positive": true,
+      "positive_seeds": 3
+    },
+    "ucf101": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 89.55532574974147,
+            "novel": 81.50351541373716,
+            "hm": 85.33991956195564
+          },
+          "o4": {
+            "base": 90.22750775594622,
+            "novel": 81.88209843158464,
+            "hm": 85.85247314155099
+          },
+          "r0": {
+            "base": 89.81385729058945,
+            "novel": 81.93618171984856,
+            "hm": 85.69435645339264
+          },
+          "delta": {
+            "base": 0.6721820062047499,
+            "novel": 0.3785830178474754,
+            "hm": 0.5125535795953482
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 90.33092037228542,
+            "novel": 81.93618171984856,
+            "hm": 85.92900927289364
+          },
+          "o4": {
+            "base": 90.5894519131334,
+            "novel": 81.71984856679286,
+            "hm": 85.92636928443055
+          },
+          "r0": {
+            "base": 88.46949327817994,
+            "novel": 80.85451595457003,
+            "hm": 84.49077113359292
+          },
+          "delta": {
+            "base": 0.2585315408479829,
+            "novel": -0.21633315305570022,
+            "hm": -0.0026399884630876613
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 89.0382626680455,
+            "novel": 81.93618171984856,
+            "hm": 85.33971607402566
+          },
+          "o4": {
+            "base": 89.55532574974147,
+            "novel": 81.3953488372093,
+            "hm": 85.28058748223908
+          },
+          "r0": {
+            "base": 89.34850051706309,
+            "novel": 82.2065981611682,
+            "hm": 85.6288893177752
+          },
+          "delta": {
+            "base": 0.5170630816959658,
+            "novel": -0.5408328826392648,
+            "hm": -0.0591285917865747
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 89.21061702861083,
+          "novel": 81.66576527852894,
+          "hm": 85.27133896825359
+        },
+        "r1": {
+          "base": 89.64150293002413,
+          "novel": 81.79195961781143,
+          "hm": 85.53621496962498
+        },
+        "o4": {
+          "base": 90.12409513960704,
+          "novel": 81.66576527852894,
+          "hm": 85.68647663607354
+        },
+        "delta": {
+          "base": 0.48259220958289956,
+          "novel": -0.12619433928249654,
+          "hm": 0.15026166644856195
+        }
+      },
+      "sd_delta": {
+        "base": 0.20896855658362576,
+        "novel": 0.46628870223102237,
+        "hm": 0.31502271874426524
+      },
+      "delta_r0": {
+        "base": 0.9134781109962091,
+        "novel": 0.0,
+        "hm": 0.4151376678199483
+      },
+      "dual_positive": true,
+      "positive_seeds": 1
+    },
+    "eurosat": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 97.71428571428571,
+            "novel": 81.56410256410257,
+            "hm": 88.91175448991686
+          },
+          "o4": {
+            "base": 96.5,
+            "novel": 79.23076923076923,
+            "hm": 87.01685270299846
+          },
+          "r0": {
+            "base": 97.47619047619048,
+            "novel": 82.02564102564102,
+            "hm": 89.08596577150165
+          },
+          "delta": {
+            "base": -1.2142857142857082,
+            "novel": -2.333333333333343,
+            "hm": -1.8949017869183962
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 97.54761904761905,
+            "novel": 86.33333333333333,
+            "hm": 91.59851525745609
+          },
+          "o4": {
+            "base": 97.45238095238095,
+            "novel": 81.56410256410257,
+            "hm": 88.80317431086284
+          },
+          "r0": {
+            "base": 97.45238095238095,
+            "novel": 81,
+            "hm": 88.46777851901267
+          },
+          "delta": {
+            "base": -0.095238095238102,
+            "novel": -4.769230769230759,
+            "hm": -2.7953409465932424
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 97.73809523809524,
+            "novel": 80.25641025641026,
+            "hm": 88.13877313028416
+          },
+          "o4": {
+            "base": 97.76190476190476,
+            "novel": 79.8974358974359,
+            "hm": 87.93149282145384
+          },
+          "r0": {
+            "base": 97.61904761904762,
+            "novel": 82.43589743589743,
+            "hm": 89.38731224358322
+          },
+          "delta": {
+            "base": 0.023809523809518396,
+            "novel": -0.3589743589743648,
+            "hm": -0.20728030883032034
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 97.51587301587301,
+          "novel": 81.82051282051282,
+          "hm": 88.98035217803252
+        },
+        "r1": {
+          "base": 97.66666666666667,
+          "novel": 82.71794871794872,
+          "hm": 89.54968095921903
+        },
+        "o4": {
+          "base": 97.23809523809524,
+          "novel": 80.23076923076923,
+          "hm": 87.91717327843838
+        },
+        "delta": {
+          "base": -0.4285714285714306,
+          "novel": -2.487179487179489,
+          "hm": -1.632507680780653
+        }
+      },
+      "sd_delta": {
+        "base": 0.6830470613229003,
+        "novel": 2.2091495830617363,
+        "hm": 1.3138312168563833
+      },
+      "delta_r0": {
+        "base": -0.27777777777777146,
+        "novel": -1.5897435897435912,
+        "hm": -1.063178899594135
+      },
+      "dual_positive": false,
+      "positive_seeds": 0
+    },
+    "sun397": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 83.76884422110552,
+            "novel": 81.46464646464646,
+            "hm": 82.60067920737636
+          },
+          "o4": {
+            "base": 83.92964824120602,
+            "novel": 81.6969696969697,
+            "hm": 82.79826050180661
+          },
+          "r0": {
+            "base": 83.79899497487438,
+            "novel": 81.63636363636364,
+            "hm": 82.70354395285774
+          },
+          "delta": {
+            "base": 0.16080402010049966,
+            "novel": 0.23232323232323893,
+            "hm": 0.1975812944302504
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 83.61809045226131,
+            "novel": 81.4949494949495,
+            "hm": 82.54286954500795
+          },
+          "o4": {
+            "base": 83.75879396984925,
+            "novel": 81.51515151515152,
+            "hm": 82.6217436891558
+          },
+          "r0": {
+            "base": 83.54773869346734,
+            "novel": 81.66666666666667,
+            "hm": 82.59649407399147
+          },
+          "delta": {
+            "base": 0.1407035175879372,
+            "novel": 0.020202020202020776,
+            "hm": 0.07887414414786065
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 83.97989949748744,
+            "novel": 81.58585858585859,
+            "hm": 82.76557041471746
+          },
+          "o4": {
+            "base": 84.21105527638191,
+            "novel": 81.55555555555556,
+            "hm": 82.86203551507639
+          },
+          "r0": {
+            "base": 83.92964824120602,
+            "novel": 81.23232323232324,
+            "hm": 82.55896019983675
+          },
+          "delta": {
+            "base": 0.23115577889447536,
+            "novel": -0.030303030303031164,
+            "hm": 0.09646510035892675
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 83.75879396984925,
+          "novel": 81.51178451178451,
+          "hm": 82.61966607556198
+        },
+        "r1": {
+          "base": 83.78894472361809,
+          "novel": 81.51515151515152,
+          "hm": 82.63637305570059
+        },
+        "o4": {
+          "base": 83.96649916247907,
+          "novel": 81.58922558922559,
+          "hm": 82.76067990201294
+        },
+        "delta": {
+          "base": 0.17755443886097075,
+          "novel": 0.07407407407407618,
+          "hm": 0.12430684631234594
+        }
+      },
+      "sd_delta": {
+        "base": 0.04749563443470275,
+        "novel": 0.1393548962058954,
+        "hm": 0.06406417872214173
+      },
+      "delta_r0": {
+        "base": 0.2077051926298168,
+        "novel": 0.07744107744107964,
+        "hm": 0.1410138264509584
+      },
+      "dual_positive": true,
+      "positive_seeds": 3
+    },
+    "food101": {
+      "seeds": {
+        "1": {
+          "r1": {
+            "base": 92.54901960784314,
+            "novel": 93.88,
+            "hm": 93.2097586423051
+          },
+          "o4": {
+            "base": 92.38562091503267,
+            "novel": 93.86,
+            "hm": 93.11697463255705
+          },
+          "r0": {
+            "base": 92.26143790849673,
+            "novel": 93.74,
+            "hm": 92.99484226350067
+          },
+          "delta": {
+            "base": -0.1633986928104605,
+            "novel": -0.01999999999999602,
+            "hm": -0.09278400974805834
+          }
+        },
+        "2": {
+          "r1": {
+            "base": 92.42483660130719,
+            "novel": 93.71333333333334,
+            "hm": 93.06462531288983
+          },
+          "o4": {
+            "base": 92.50326797385621,
+            "novel": 93.74,
+            "hm": 93.11752778185253
+          },
+          "r0": {
+            "base": 92.47058823529412,
+            "novel": 93.71333333333334,
+            "hm": 93.08781323127668
+          },
+          "delta": {
+            "base": 0.07843137254901933,
+            "novel": 0.026666666666656624,
+            "hm": 0.052902468962699345
+          }
+        },
+        "3": {
+          "r1": {
+            "base": 92.359477124183,
+            "novel": 93.96666666666667,
+            "hm": 93.15614034472316
+          },
+          "o4": {
+            "base": 92.56209150326798,
+            "novel": 93.85333333333334,
+            "hm": 93.20324040246514
+          },
+          "r0": {
+            "base": 92.38562091503267,
+            "novel": 93.88,
+            "hm": 93.126815876126
+          },
+          "delta": {
+            "base": 0.20261437908497726,
+            "novel": -0.11333333333332973,
+            "hm": 0.04710005774198578
+          }
+        }
+      },
+      "means": {
+        "r0": {
+          "base": 92.37254901960785,
+          "novel": 93.77777777777777,
+          "hm": 93.06982379030111
+        },
+        "r1": {
+          "base": 92.44444444444444,
+          "novel": 93.85333333333334,
+          "hm": 93.14350809997269
+        },
+        "o4": {
+          "base": 92.48366013071896,
+          "novel": 93.81777777777778,
+          "hm": 93.14591427229158
+        },
+        "delta": {
+          "base": 0.03921568627451203,
+          "novel": -0.035555555555556374,
+          "hm": 0.0024061723188755955
+        }
+      },
+      "sd_delta": {
+        "base": 0.18613112243004704,
+        "novel": 0.07128451081041827,
+        "hm": 0.08248815106089837
+      },
+      "delta_r0": {
+        "base": 0.11111111111111427,
+        "novel": 0.04000000000000625,
+        "hm": 0.07609048199046242
+      },
+      "dual_positive": true,
+      "positive_seeds": 2
+    }
+  },
+  "means": {
+    "r0": {
+      "base": 87.33038035187074,
+      "novel": 80.95849605705463,
+      "hm": 83.87188863969666
+    },
+    "r1": {
+      "base": 87.58440049034307,
+      "novel": 81.4406507581221,
+      "hm": 84.25720527161397
+    },
+    "o4": {
+      "base": 87.50366712600025,
+      "novel": 80.97364115299871,
+      "hm": 83.95257376682429
+    },
+    "delta": {
+      "base": -0.0807333643428225,
+      "novel": -0.4670096051234038,
+      "hm": -0.3046315047896845
+    }
+  },
+  "dual_positive": 7,
+  "replay": {
+    "original": {
+      "status": "passed",
+      "time": "2026-10-01T03:28:09.278318+00:00",
+      "method": "larp",
+      "dataset": "oxford_pets",
+      "seed": 2,
+      "epochs": 20,
+      "is_formal": true,
+      "base": 91.1217437533227,
+      "novel": 92.22595078299776,
+      "hm": 91.67052223817426,
+      "selected_epoch": 16,
+      "kd": 1000.0,
+      "base_reload_delta": 0.0,
+      "counts_base_novel": [
+        [
+          1881,
+          1714
+        ],
+        [
+          1788,
+          1649
+        ]
+      ],
+      "checkpoint_sha256": "f071461b26cf3876e5d5d0d6faf377527dc66d5dfe6034949981bb9e53f933d5",
+      "audits": {
+        "best": [
+          {
+            "name": "image_encoder.VPT",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.1.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.2.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.3.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.4.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.5.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.6.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.7.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.weight",
+            "momentum_nonzero": 393208,
+            "changed_elements": 393183
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 764
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.weight",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.weight",
+            "momentum_nonzero": 589810,
+            "changed_elements": 589780
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          }
+        ],
+        "last": [
+          {
+            "name": "image_encoder.VPT",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.1.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.2.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.3.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.4.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.5.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.6.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.7.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.weight",
+            "momentum_nonzero": 393201,
+            "changed_elements": 393193
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 765
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.weight",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.weight",
+            "momentum_nonzero": 589792,
+            "changed_elements": 589770
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          }
+        ]
+      },
+      "frozen": "700da38d05edf4f2229a2dae6f6fdbf68ae5babde7c593f94c50700f6ffad28c",
+      "server_port": 37667,
+      "route": "larp",
+      "baseline_identity": "R1@37667",
+      "implementation": "research_true_scaledlinear_reload_evidence_20260928",
+      "backend": {
+        "benchmark": true,
+        "deterministic": false,
+        "deterministic_algorithms": false,
+        "flash": true,
+        "efficient": true,
+        "math": true
+      },
+      "protocol_version": "1.78",
+      "reload_audit": {
+        "native_val": {
+          "max_abs": 0.0,
+          "failed_elements": 0,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": true,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": true
+        },
+        "native_test": {
+          "max_abs": 0.0,
+          "failed_elements": 0,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": true,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": true
+        },
+        "selection_val": {
+          "max_abs": 0.0,
+          "failed_elements": 0,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": true,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": true
+        }
+      },
+      "canonical_evaluation": "first_independent_reload_no_selection",
+      "numerical_policy": "original_hard_reload_no_retry",
+      "experiment_id": "larp_o4_seed23_37667_20261001",
+      "result_role": "exploratory_paired_full20",
+      "common_schedule": "projector_epoch2_ramp",
+      "added_schedule": "0.1_original_all_epochs",
+      "variant": "o4"
+    },
+    "replay": {
+      "status": "passed",
+      "time": "2026-10-01T23:28:40.413540+00:00",
+      "method": "larp",
+      "dataset": "oxford_pets",
+      "seed": 2,
+      "epochs": 20,
+      "is_formal": true,
+      "base": 91.1217437533227,
+      "novel": 92.22595078299776,
+      "hm": 91.67052223817426,
+      "selected_epoch": 16,
+      "kd": 1000.0,
+      "base_reload_delta": 0.0,
+      "counts_base_novel": [
+        [
+          1881,
+          1714
+        ],
+        [
+          1788,
+          1649
+        ]
+      ],
+      "checkpoint_sha256": "f071461b26cf3876e5d5d0d6faf377527dc66d5dfe6034949981bb9e53f933d5",
+      "audits": {
+        "best": [
+          {
+            "name": "image_encoder.VPT",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.1.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.2.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.3.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.4.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.5.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.6.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.7.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.weight",
+            "momentum_nonzero": 393208,
+            "changed_elements": 393183
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 764
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.weight",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.weight",
+            "momentum_nonzero": 589810,
+            "changed_elements": 589780
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          }
+        ],
+        "last": [
+          {
+            "name": "image_encoder.VPT",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.1.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.2.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.3.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.4.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.5.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.6.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.7.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.weight",
+            "momentum_nonzero": 393201,
+            "changed_elements": 393193
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 765
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.weight",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.weight",
+            "momentum_nonzero": 589792,
+            "changed_elements": 589770
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.9.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.10.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_A_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1535
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.11.attn.out_proj.parametrizations.weight.0.lora_B_o",
+            "momentum_nonzero": 1536,
+            "changed_elements": 1536
+          }
+        ]
+      },
+      "frozen": "a790490d9c100f36e4ae424683d3eef1aa40947a8fcdd271733ed0c1d0a65d48",
+      "server_port": 37667,
+      "route": "larp",
+      "baseline_identity": "R1@37667",
+      "implementation": "research_true_scaledlinear_reload_evidence_20260928",
+      "backend": {
+        "benchmark": true,
+        "deterministic": false,
+        "deterministic_algorithms": false,
+        "flash": true,
+        "efficient": true,
+        "math": true
+      },
+      "protocol_version": "1.79",
+      "reload_audit": {
+        "native_val": {
+          "max_abs": 0.015625,
+          "failed_elements": 7,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": false,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": false
+        },
+        "native_test": {
+          "max_abs": 0.0,
+          "failed_elements": 0,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": true,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": true
+        },
+        "selection_val": {
+          "max_abs": 0.015625,
+          "failed_elements": 7,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": false,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": false
+        }
+      },
+      "canonical_evaluation": "first_independent_reload_no_selection",
+      "numerical_policy": "original_hard_reload_no_retry",
+      "experiment_id": "larp_pets_o_seed2_replay_37667_20261002",
+      "result_role": "diagnostic_original_o4_replay_not_replacement",
+      "common_schedule": "projector_epoch2_ramp",
+      "added_schedule": "0.1_original_all_epochs",
+      "variant": "o4",
+      "original_source": "server-workspace://larp_o4_seed23_37667_20261001/formal/seed_2/oxford_pets/o4",
+      "fixed_r1_source": "server-workspace://larp_o4_seed23_37667_20261001/formal/seed_2/oxford_pets/r1"
+    },
+    "r1": {
+      "status": "passed",
+      "time": "2026-10-01T03:19:16.675358+00:00",
+      "method": "r1",
+      "dataset": "oxford_pets",
+      "seed": 2,
+      "epochs": 20,
+      "is_formal": true,
+      "base": 96.54439128123339,
+      "novel": 98.2102908277405,
+      "hm": 97.37021613900609,
+      "selected_epoch": 17,
+      "kd": 1000.0,
+      "base_reload_delta": 0.0,
+      "counts_base_novel": [
+        [
+          1881,
+          1816
+        ],
+        [
+          1788,
+          1756
+        ]
+      ],
+      "checkpoint_sha256": "7edc918bf0022a9d108ea57703648753cca3529df03a31500f239fff915dd14f",
+      "audits": {
+        "best": [
+          {
+            "name": "image_encoder.VPT",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.1.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.2.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.3.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.4.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.5.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.6.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.7.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.weight",
+            "momentum_nonzero": 393199,
+            "changed_elements": 393173
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 107
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.weight",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.weight",
+            "momentum_nonzero": 589795,
+            "changed_elements": 589756
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          }
+        ],
+        "last": [
+          {
+            "name": "image_encoder.VPT",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.1.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.2.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.3.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.4.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.5.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.6.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.7.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "image_encoder.transformer.resblocks.8.VPT_shallow",
+            "momentum_nonzero": 3072,
+            "changed_elements": 3072
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.weight",
+            "momentum_nonzero": 393183,
+            "changed_elements": 393176
+          },
+          {
+            "name": "VPT_image_trans.conv1.0.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 107
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.weight",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.1.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.weight",
+            "momentum_nonzero": 589758,
+            "changed_elements": 589761
+          },
+          {
+            "name": "VPT_image_trans.conv1.3.bias",
+            "momentum_nonzero": 768,
+            "changed_elements": 768
+          }
+        ]
+      },
+      "frozen": "700da38d05edf4f2229a2dae6f6fdbf68ae5babde7c593f94c50700f6ffad28c",
+      "server_port": 37667,
+      "route": "larp",
+      "baseline_identity": "R1@37667",
+      "implementation": "research_true_scaledlinear_reload_evidence_20260928",
+      "backend": {
+        "benchmark": true,
+        "deterministic": false,
+        "deterministic_algorithms": false,
+        "flash": true,
+        "efficient": true,
+        "math": true
+      },
+      "protocol_version": "1.78",
+      "reload_audit": {
+        "native_val": {
+          "max_abs": 0.0,
+          "failed_elements": 0,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": true,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": true
+        },
+        "native_test": {
+          "max_abs": 0.0,
+          "failed_elements": 0,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": true,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": true
+        },
+        "selection_val": {
+          "max_abs": 0.0,
+          "failed_elements": 0,
+          "prediction_changes": [],
+          "accuracy_delta_pp": 0.0,
+          "tensor_tolerance": {
+            "atol": 0.002,
+            "rtol": 0.002
+          },
+          "exact_logits": true,
+          "row_scaled_failed_elements": 0,
+          "hard_metric": "symmetric_per_example_infinity_norm",
+          "original_elementwise_passed": true
+        }
+      },
+      "canonical_evaluation": "first_independent_reload_no_selection",
+      "numerical_policy": "original_hard_reload_no_retry",
+      "experiment_id": "larp_o4_seed23_37667_20261001",
+      "result_role": "exploratory_paired_full20",
+      "common_schedule": "projector_epoch2_ramp",
+      "added_schedule": null,
+      "variant": "r1"
+    },
+    "hash_equal": {
+      "audited_metrics.json": false,
+      "epochs.jsonl": true,
+      "batches.jsonl": true,
+      "resolved.yaml": false,
+      "initial_trainable.pt": true,
+      "initial_shared.json": true,
+      "VLPromptLearner/model-best.pth.tar": true,
+      "VLPromptLearner/model.pth.tar-20": true
+    },
+    "epochs_exact": true,
+    "included_in_main": false
+  },
+  "rows": 61,
+  "audited_batches": 1677040,
+  "source_sha256": {
+    "workspace://outputs/larp_o4_complete_three_seed_20261002/node_22969.json": "b6335c1b53398e3227618946b3337782262cb61ccfb214286ca4559e1bc2f3a5",
+    "workspace://outputs/larp_o4_complete_three_seed_20261002/node_37667.json": "957c389f3f81a3369e6341701ac122c2e1b43e9f49c141db7c68bfdbf5bc8869",
+    "workspace://outputs/harp_all_seed_snapshot_20260930_1419/complete_v3/data.json": "4888f391f770ae9cfd12e76ae132cbf3c352cf46c32e9e6204908b505eb17cbd"
+  }
+}

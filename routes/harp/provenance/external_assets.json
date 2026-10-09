@@ -1,0 +1,68 @@
+{
+  "clip": [
+    {
+      "relative_path": "ViT-B-16.pt",
+      "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+    },
+    {
+      "relative_path": "ViT-L-14.pt",
+      "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836"
+    }
+  ],
+  "teachers": [
+    {
+      "dataset_name": "Caltech101",
+      "relative_path": "Caltech101/VLPromptLearner/model-best.pth.tar",
+      "sha256": "abbad1368d33792e4b13b936974585d664151f0ee44fa5e65df979ada9f95d0b"
+    },
+    {
+      "dataset_name": "OxfordPets",
+      "relative_path": "OxfordPets/VLPromptLearner/model-best.pth.tar",
+      "sha256": "da87788e0dcbd76897e83ce395f69d7cfb264cabc26f0dd1c2b423aae9a27e53"
+    },
+    {
+      "dataset_name": "StanfordCars",
+      "relative_path": "StanfordCars/VLPromptLearner/model-best.pth.tar",
+      "sha256": "41d0695c4a1e0fc019dde7eff2d533dda93707a778c3219345acb21155d498c2"
+    },
+    {
+      "dataset_name": "OxfordFlowers",
+      "relative_path": "OxfordFlowers/VLPromptLearner/model-best.pth.tar",
+      "sha256": "a506ce42b7245b6a69e61015c0990951e2964a4e27026fabe552f301650b5db3"
+    },
+    {
+      "dataset_name": "Food101",
+      "relative_path": "Food101/VLPromptLearner/model-best.pth.tar",
+      "sha256": "d606678055a5c5158aba82e2c6af7d9617c9a36f9bd33eb632e8f7638a329eb9"
+    },
+    {
+      "dataset_name": "FGVCAircraft",
+      "relative_path": "FGVCAircraft/VLPromptLearner/model-best.pth.tar",
+      "sha256": "f0c1a3d8c57c73958f4453fbbd306f1bac2c03c726cfec7f3323c87539a8f0a3"
+    },
+    {
+      "dataset_name": "SUN397",
+      "relative_path": "SUN397/VLPromptLearner/model-best.pth.tar",
+      "sha256": "2d24a104a7a1ae4824b7ebaf252f5dec08c4a867be57a06520e1a88b267ebdaf"
+    },
+    {
+      "dataset_name": "DescribableTextures",
+      "relative_path": "DescribableTextures/VLPromptLearner/model-best.pth.tar",
+      "sha256": "30697bd9957bbab3a627badb57f080d5d0967d1386d298e7591346ed6556d9ef"
+    },
+    {
+      "dataset_name": "EuroSAT",
+      "relative_path": "EuroSAT/VLPromptLearner/model-best.pth.tar",
+      "sha256": "96db431955a197032e1043b8a65b996dc2763f5a186de926a5bb52c4e9a698b5"
+    },
+    {
+      "dataset_name": "UCF101",
+      "relative_path": "UCF101/VLPromptLearner/model-best.pth.tar",
+      "sha256": "b9abd9969f6a5ea65817dd8a78d96d56469e36919c06b50a61cd1e7f25135877"
+    }
+  ],
+  "weights_included": false,
+  "source": "outputs/server_dataset_setup/evidence_20260927/v3_logs/asset_manifest.json",
+  "source_sha256": "1d20fb204e75f2e2d1a09f116e96ec67b07506022da695768e7c984de478a770",
+  "status": "historical_hash_references_not_new_asset_validation"
+}
