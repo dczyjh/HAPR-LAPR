@@ -12,6 +12,12 @@
 
 具体改进与参考工作的区别、实验证据和贡献边界见[本项目的研究贡献](docs/OUR_CONTRIBUTIONS.md)。两条路线分别有任务收益，不意味着所有任务或整体平均都提高。
 
+## 实际工程意义
+
+在已有固定教师、目标域图片较多而标注或参数更新预算有限的条件下，两条路线提供少量参数的学生视觉适配选择。分类测试复用教师类别文本缓存，每张图片由学生视觉路径处理；物料、配置、配对和重载检查让实验结果可核查、失败可定位，便于后续复现与团队交接。
+
+车辆/花卉等细粒度分类、纹理/场景分类和视觉目录管理可作为后续迁移方向，但当前证据仍是分类基准，不是已上线的业务系统。尚未验证独立学生导出、端侧实时性或训练/推理加速，不能把参数少直接解释为部署成本下降。完整依据与条件见[工程意义与应用条件](docs/OUR_CONTRIBUTIONS.md#4-实际工程意义与应用条件)。
+
 ## 从哪里开始
 
 获取源码（数据与权重仍按下文单独准备）：
@@ -56,7 +62,9 @@ python reproduce.py plan --route harp --dataset dtd --seed 1 \
 | 新运行的三 seed 均值、标准差和增幅 | [summarize_run.py](tools/summarize_run.py) |
 | 已完成实验的轻量结果 | [results](results/README.md) |
 | 实际提升、负结果、消融及发现的问题 | [实验结论](docs/RESULTS_AND_LIMITATIONS.md) / [主实验汇总表](results/findings/main_comparison.md) |
+| 哪些数据集提升、收益来自哪里、原因能解释到哪一步 | [HARP逐集分析](docs/HARP_FINDINGS.md) / [LARP逐集分析](docs/LARP_FINDINGS.md) |
 | 我们提出什么、与参考工作有什么区别 | [研究贡献](docs/OUR_CONTRIBUTIONS.md) |
+| 能解决什么工程问题、哪些应用仍需验证 | [工程意义与应用条件](docs/OUR_CONTRIBUTIONS.md#4-实际工程意义与应用条件) |
 | 主要参考论文、采用范围和致谢 | [引用与致谢](docs/REFERENCES_AND_ACKNOWLEDGEMENTS.md) / [references.bib](references.bib) |
 | 实际测试范围与验证报告 | [验证说明](docs/VALIDATION.md) / [报告](metadata/validation_report.json) |
 

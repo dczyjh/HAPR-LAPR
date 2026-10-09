@@ -20,8 +20,8 @@
       "sha256": "e43990b0fb44bde40d137941b7750facccec5221562fc8e3249a65134adc4be4"
     },
     "README.md": {
-      "bytes": 6444,
-      "sha256": "573ef2a52496544c6d03f8c6b04e7f1b9167c6d5350388fc066425b7cbf77d3a"
+      "bytes": 7572,
+      "sha256": "bc6e79a01191d35bb95da9a32b792f9905492a49a9cdc818b16e413d68da5cad"
     },
     "THIRD_PARTY_NOTICES.md": {
       "bytes": 2655,
@@ -44,16 +44,16 @@
       "sha256": "b48ee3d01fc1f8304c8d7ddcc0c3a759ae58f168300c28f7529ecdc9a2ac244d"
     },
     "docs/HARP_FINDINGS.md": {
-      "bytes": 20949,
-      "sha256": "660394a4b73c5d38f66332e0e960d8185a365c78bfe64c0ba150fe77798dc2cd"
+      "bytes": 29729,
+      "sha256": "a6b4b870cc7e3d7536c801618b093a46f1e62d2524f134b36279bf172ec002c8"
     },
     "docs/HARP_IMPLEMENTATION.md": {
       "bytes": 21278,
       "sha256": "6d2bed5e930f27feefa76a850172ee85b44d7adf8c8dc51d740c2e61b4dfcd1e"
     },
     "docs/LARP_FINDINGS.md": {
-      "bytes": 13662,
-      "sha256": "b5e5d038d8b4e474d0e01ae5bc805612bea7192641d7b539dd7bfa97370e437e"
+      "bytes": 22790,
+      "sha256": "0f0d5b4adaf5f6e49c90643e97056bdaed13921fe946875c99c7b88b0b29e1f5"
     },
     "docs/LARP_IMPLEMENTATION.md": {
       "bytes": 15849,
@@ -64,12 +64,12 @@
       "sha256": "f008460d4d71eddce72d0ed2d44e26a413dab475bf626b8426c117ba3380b690"
     },
     "docs/OUR_CONTRIBUTIONS.md": {
-      "bytes": 5591,
-      "sha256": "332b083c425591333759d56d7f216076270aa17f0dc76523582c8b2ddea8fe30"
+      "bytes": 10768,
+      "sha256": "bcb6810fa54497d6c0fdc8ad5c2b9f796bd187fbcf605dfb800fc6f29ed6c116"
     },
     "docs/PROJECT_MAP.md": {
-      "bytes": 10962,
-      "sha256": "64304185c73cb6a214a7fc29fa6052b041ba65eb1e9324bfb12b36aafb56ca02"
+      "bytes": 11294,
+      "sha256": "281431d80e810231a473c9528e9a6873a6baba5b25996456ac338aab6e737e47"
     },
     "docs/REFERENCES_AND_ACKNOWLEDGEMENTS.md": {
       "bytes": 5284,

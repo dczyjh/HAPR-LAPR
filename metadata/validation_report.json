@@ -1,9 +1,9 @@
 {
   "date": "2026-10-10",
   "status": "passed_offline_only",
-  "manifest_sha256": "e794f6fed606ffcc40186186183dcdde4588cfa8ce083166944bfa9ce48df72d",
+  "manifest_sha256": "a4c3f02a5df572da27865ac2f6cff38cadc2f0f9bf37926b3338bb695b708997",
   "file_count_excluding_manifest_and_report": 967,
-  "content_bytes_excluding_manifest_and_report": 16311409,
+  "content_bytes_excluding_manifest_and_report": 16335954,
   "test_environment": {
     "python": "3.10.6",
     "platform": "Darwin",
