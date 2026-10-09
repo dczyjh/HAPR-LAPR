@@ -45,7 +45,7 @@ R1是**角色**，并没有第三个独立`routes/r1`工程；它分别存在于
 | `routes/harp/historical/` | 旧控制/恢复运行器及环境记录 | 只追溯，不启动；新运行不要求旧日志存在 |
 | `routes/larp/archive/project/` | 最终LARP研究实现，含O参数化、原模型、读取器/优化器与Dassl | 正式LARP adapter加载这里；文件中未启用的通用分支不属于本轮方法 |
 | `routes/larp/archive/official_reference/` | 隔离的官方参考实现，也是新R0训练的实际源码来源 | 仅通过R0 adapter与R0实际配置使用；上游默认值不能替代研究协议 |
-| `routes/larp/archive/helpers/`、`final_worker/`、`main_workers/` | 最终辅助源及旧队列文本证据 | 只追溯，不直接执行历史worker |
+| `routes/larp/archive/helpers/`、`final_worker/`、`main_workers/` | 保留的辅助/比较科学函数及旧队列文本证据 | 适配器受控提取原辅助/比较函数；不得直接启动历史worker或服务器队列 |
 | `routes/larp/protocol/` | 完整模板、数据集身份、五角色声明、原SGD及共同投影器调度 | LARP正式配置/函数来源 |
 | `routes/r0/templates.json`、`provenance.json` | 实际R0完整配置模板及原快照来源 | R0使用，不替代两条R1 |
 | 各route的`environment/` | 对应真实环境版本与可迁移依赖说明 | 不是已经安装好的环境或容器；下载可用性/新Linux安装未完整验证 |

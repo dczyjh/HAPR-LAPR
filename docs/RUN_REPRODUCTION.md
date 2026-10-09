@@ -24,7 +24,7 @@ python -m pip install torch==2.0.1 torchvision==0.15.2 --index-url https://downl
 python -m pip install -r routes/harp/environment/requirements-linux-cu118.txt
 ```
 
-两路线分别从自己冻结的Dassl目录导入，不需要全局editable安装两份同名包，也不用远端最新版。R0官方实现还需要lock中的`wilds==1.2.2`。本轮尚未在空白Linux重新安装，历史版本下载可用性未逐项验证；若软件源缺版本，取得匹配wheel/环境，不偷偷改锁。
+两路线分别从自己冻结的Dassl目录导入，不需要全局editable安装两份同名包，也不用远端最新版。依赖文件首部的单独安装Dassl注释来自历史部署；本便携入口不需要该步骤，冻结文件保留原字节。R0官方实现还需要lock中的`wilds==1.2.2`。本轮尚未在空白Linux重新安装，历史版本下载可用性未逐项验证；若软件源缺版本，取得匹配wheel/环境，不偷偷改锁。
 
 按[物料说明](ASSET_PREPARATION.md)取得图像、九个固定JSON、Aircraft四个TXT、两个CLIP与十个教师。每个数据集目录先建立**空的**`split_fewshot/`，NUM_SHOTS=0不读取缓存，不能复制来源不明的pickle。保持原字节及布局。权重、图片和输出都放在仓库外；每次输出根必须全新。开始至少留40GiB，运行保留20GiB，完整矩阵实际需要更多空间。
 
